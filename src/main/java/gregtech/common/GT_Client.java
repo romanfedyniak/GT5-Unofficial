@@ -6,7 +6,13 @@
 package gregtech.common;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -42,7 +48,12 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.entities.GT_Entity_Arrow;
 import gregtech.common.entities.GT_Entity_Arrow_Potion;
-import gregtech.common.render.*;
+import gregtech.common.render.GT_CapeRenderer;
+import gregtech.common.render.GT_FlaskRenderer;
+import gregtech.common.render.GT_MetaGenerated_Item_Renderer;
+import gregtech.common.render.GT_MetaGenerated_Tool_Renderer;
+import gregtech.common.render.GT_Renderer_Block;
+import gregtech.common.render.GT_Renderer_Entity_Arrow;
 import ic2.api.tile.IWrenchable;
 
 // Referenced classes of package gregtech.common:
@@ -50,7 +61,7 @@ import ic2.api.tile.IWrenchable;
 
 public class GT_Client extends GT_Proxy implements Runnable {
 
-    private static List ROTATABLE_VANILLA_BLOCKS;
+    private static List<Block> ROTATABLE_VANILLA_BLOCKS;
 
     static {
         ROTATABLE_VANILLA_BLOCKS = Arrays.asList(
@@ -59,24 +70,24 @@ public class GT_Client extends GT_Proxy implements Runnable {
                 Blocks.lit_pumpkin });
     }
 
-    private final HashSet mCapeList = new HashSet();
+    private final HashSet<String> mCapeList = new HashSet<String>();
     private final GT_CapeRenderer mCapeRenderer;
-    private final List mPosR;
-    private final List mPosG;
-    private final List mPosB;
-    private final List mPosA = Arrays.asList(new Object[0]);
-    private final List mNegR;
-    private final List mNegG;
-    private final List mNegB;
-    private final List mNegA = Arrays.asList(new Object[0]);
-    private final List mMoltenPosR;
-    private final List mMoltenPosG;
-    private final List mMoltenPosB;
-    private final List mMoltenPosA = Arrays.asList(new Object[0]);
-    private final List mMoltenNegR;
-    private final List mMoltenNegG;
-    private final List mMoltenNegB;
-    private final List mMoltenNegA = Arrays.asList(new Object[0]);
+    private final List<Materials> mPosR;
+    private final List<Materials> mPosG;
+    private final List<Materials> mPosB;
+    private final List<Object> mPosA = Arrays.asList(new Object[0]);
+    private final List<Materials> mNegR;
+    private final List<Materials> mNegG;
+    private final List<Materials> mNegB;
+    private final List<Object> mNegA = Arrays.asList(new Object[0]);
+    private final List<Materials> mMoltenPosR;
+    private final List<Materials> mMoltenPosG;
+    private final List<Materials> mMoltenPosB;
+    private final List<Object> mMoltenPosA = Arrays.asList(new Object[0]);
+    private final List<Materials> mMoltenNegR;
+    private final List<Materials> mMoltenNegG;
+    private final List<Materials> mMoltenNegB;
+    private final List<Object> mMoltenNegA = Arrays.asList(new Object[0]);
     /** This is the place to def the value used below **/
     private long afterSomeTime;
     private long mAnimationTick;
@@ -346,7 +357,6 @@ public class GT_Client extends GT_Proxy implements Runnable {
     public void run() {
         try {
             GT_Log.out.println("Skip: GT_Mod: Downloading Cape List.");
-            @SuppressWarnings("resource")
             Scanner tScanner = new Scanner(
                 new URL("http://gregtech.overminddl1.com/com/gregoriust/gregtech/supporterlist.txt").openStream());
             while (tScanner.hasNextLine()) {
@@ -391,7 +401,7 @@ public class GT_Client extends GT_Proxy implements Runnable {
                     }
                 } catch (Exception e) {}
             }
-            ArrayList<GT_PlayedSound> tList = new ArrayList();
+            ArrayList<GT_PlayedSound> tList = new ArrayList<GT_PlayedSound>();
             for (Map.Entry<GT_PlayedSound, Integer> tEntry : GT_Utility.sPlayedSoundMap.entrySet()) {
                 if (tEntry.getValue()
                     .intValue() < 0) {// Integer -> Integer -> int? >_<, fix
@@ -404,7 +414,7 @@ public class GT_Client extends GT_Proxy implements Runnable {
                 }
             }
             GT_PlayedSound tKey;
-            for (Iterator i$ = tList.iterator(); i$.hasNext(); GT_Utility.sPlayedSoundMap.remove(tKey)) {
+            for (Iterator<GT_PlayedSound> i$ = tList.iterator(); i$.hasNext(); GT_Utility.sPlayedSoundMap.remove(tKey)) {
                 tKey = (GT_PlayedSound) i$.next();
             }
             if (GregTech_API.mServerStarted == false) GregTech_API.mServerStarted = true;
@@ -507,82 +517,82 @@ public class GT_Client extends GT_Proxy implements Runnable {
                 mAnimationDirection = !mAnimationDirection;
             }
             int tDirection = mAnimationDirection ? 1 : -1;
-            for (Iterator i$ = mPosR.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mPosR.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[0] += tDirection;
             }
 
-            for (Iterator i$ = mPosG.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mPosG.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[1] += tDirection;
             }
 
-            for (Iterator i$ = mPosB.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mPosB.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[2] += tDirection;
             }
 
-            for (Iterator i$ = mPosA.iterator(); i$.hasNext();) {
+            for (Iterator<Object> i$ = mPosA.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[3] += tDirection;
             }
 
-            for (Iterator i$ = mNegR.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mNegR.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[0] -= tDirection;
             }
 
-            for (Iterator i$ = mNegG.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mNegG.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[1] -= tDirection;
             }
 
-            for (Iterator i$ = mNegB.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mNegB.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[2] -= tDirection;
             }
 
-            for (Iterator i$ = mNegA.iterator(); i$.hasNext();) {
+            for (Iterator<Object> i$ = mNegA.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mRGBa[3] -= tDirection;
             }
 
-            for (Iterator i$ = mMoltenPosR.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenPosR.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[0] += tDirection;
             }
 
-            for (Iterator i$ = mMoltenPosG.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenPosG.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[1] += tDirection;
             }
 
-            for (Iterator i$ = mMoltenPosB.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenPosB.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[2] += tDirection;
             }
 
-            for (Iterator i$ = mMoltenPosA.iterator(); i$.hasNext();) {
+            for (Iterator<Object> i$ = mMoltenPosA.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[3] += tDirection;
             }
 
-            for (Iterator i$ = mMoltenNegR.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenNegR.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[0] -= tDirection;
             }
 
-            for (Iterator i$ = mMoltenNegG.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenNegG.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[1] -= tDirection;
             }
 
-            for (Iterator i$ = mMoltenNegB.iterator(); i$.hasNext();) {
+            for (Iterator<Materials> i$ = mMoltenNegB.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[2] -= tDirection;
             }
 
-            for (Iterator i$ = mMoltenNegA.iterator(); i$.hasNext();) {
+            for (Iterator<Object> i$ = mMoltenNegA.iterator(); i$.hasNext();) {
                 Materials tMaterial = (Materials) i$.next();
                 tMaterial.mMoltenRGBa[3] -= tDirection;
             }

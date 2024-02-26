@@ -40,7 +40,11 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
 import gregtech.api.net.GT_Packet_TileEntity;
 import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.util.*;
+import gregtech.api.util.GT_CoverBehavior;
+import gregtech.api.util.GT_Log;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
 import gregtech.common.GT_Pollution;
 import ic2.api.Direction;
 
@@ -298,7 +302,8 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
             true);
     }
 
-    @Override
+    @SuppressWarnings("static-access")
+	@Override
     public void updateEntity() {
         super.updateEntity();
 
@@ -1319,7 +1324,8 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
         return mLockUpgrade || mMetaTileEntity.ownerControl();
     }
 
-    public void doEnergyExplosion() {
+    @SuppressWarnings("static-access")
+	public void doEnergyExplosion() {
         if (getUniversalEnergyCapacity() > 0 && getUniversalEnergyStored() >= getUniversalEnergyCapacity() / 5) {
             doExplosion(
                 oOutput * (getUniversalEnergyStored() >= getUniversalEnergyCapacity() ? 4

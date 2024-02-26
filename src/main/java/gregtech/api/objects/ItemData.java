@@ -1,8 +1,12 @@
 package gregtech.api.objects;
 
-import java.util.*;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -108,7 +112,7 @@ public class ItemData {
     }
 
     public final ArrayList<MaterialStack> getAllMaterialStacks() {
-        ArrayList<MaterialStack> rList = new ArrayList();
+        ArrayList<MaterialStack> rList = new ArrayList<MaterialStack>();
         if (hasValidMaterialData()) rList.add(mMaterial);
         rList.addAll(Arrays.asList(mByProducts));
         return rList;

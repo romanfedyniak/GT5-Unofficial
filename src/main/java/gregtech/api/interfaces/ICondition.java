@@ -24,6 +24,7 @@ public interface ICondition<O> {
 
         private final ICondition<O>[] mConditions;
 
+        @SafeVarargs
         public Or(ICondition<O>... aConditions) {
             mConditions = aConditions;
         }
@@ -39,6 +40,7 @@ public interface ICondition<O> {
 
         private final ICondition<O>[] mConditions;
 
+        @SafeVarargs
         public Nor(ICondition<O>... aConditions) {
             mConditions = aConditions;
         }
@@ -54,7 +56,8 @@ public interface ICondition<O> {
 
         private final ICondition<O>[] mConditions;
 
-        public And(ICondition<O>... aConditions) {
+        @SafeVarargs
+		public And(ICondition<O>... aConditions) {
             mConditions = aConditions;
         }
 
@@ -69,6 +72,7 @@ public interface ICondition<O> {
 
         private final ICondition<O>[] mConditions;
 
+        @SafeVarargs
         public Nand(ICondition<O>... aConditions) {
             mConditions = aConditions;
         }

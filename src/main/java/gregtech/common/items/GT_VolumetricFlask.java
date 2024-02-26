@@ -2,7 +2,9 @@
 package gregtech.common.items;
 
 import static gregtech.api.enums.GT_Values.RES_PATH_ITEM;
-import static ic2.core.util.LiquidUtil.*;
+import static ic2.core.util.LiquidUtil.drainContainerStack;
+import static ic2.core.util.LiquidUtil.placeFluid;
+import static ic2.core.util.LiquidUtil.fillContainerStack;
 
 import java.util.List;
 
@@ -21,8 +23,12 @@ import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.*;
-
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fluids.IFluidContainerItem;
+import net.minecraftforge.fluids.IFluidHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -196,7 +202,7 @@ public class GT_VolumetricFlask extends GT_Generic_Item implements IFluidContain
     }
 
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean b) {
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> info, boolean b) {
         super.addInformation(stack, player, info, b);
         FluidStack fs = getFluid(stack);
         if (fs != null) {
@@ -208,7 +214,7 @@ public class GT_VolumetricFlask extends GT_Generic_Item implements IFluidContain
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item item, CreativeTabs creativeTabs, List itemList) {
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List<ItemStack> itemList) {
         itemList.add(new ItemStack(this));
         for (Fluid fluid : FluidRegistry.getRegisteredFluids()
             .values()) {

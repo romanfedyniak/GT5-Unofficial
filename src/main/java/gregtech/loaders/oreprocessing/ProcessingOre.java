@@ -5,14 +5,18 @@ import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 
 import gregtech.GT_Mod;
-import gregtech.api.enums.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.SubTag;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 
 public class ProcessingOre implements gregtech.api.interfaces.IOreRecipeRegistrator {
 
-    private ArrayList<Materials> mAlreadyListedOres = new ArrayList(1000);
+    private ArrayList<Materials> mAlreadyListedOres = new ArrayList<Materials>(1000);
 
     public ProcessingOre() {
         for (OrePrefixes tPrefix : OrePrefixes.values()) if ((tPrefix.name()
@@ -106,7 +110,7 @@ public class ProcessingOre implements gregtech.api.interfaces.IOreRecipeRegistra
                 aMaterial.mOreMultiplier * aMultiplier);
         }
 
-        ArrayList<ItemStack> tByProductStacks = new ArrayList();
+        ArrayList<ItemStack> tByProductStacks = new ArrayList<ItemStack>();
 
         for (Materials tMat : aMaterial.mOreByProducts) {
             ItemStack tByProduct = GT_OreDictUnificator.get(OrePrefixes.dust, tMat, 1L);

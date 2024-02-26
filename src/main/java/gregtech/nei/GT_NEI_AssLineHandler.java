@@ -2,7 +2,8 @@ package gregtech.nei;
 
 import static gregtech.api.util.GT_Utility.trans;
 
-import java.awt.*;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -90,7 +91,7 @@ public class GT_NEI_AssLineHandler extends TemplateRecipeHandler {
     public void loadCraftingRecipes(ItemStack aResult) {
         ItemData tPrefixMaterial = GT_OreDictUnificator.getAssociation(aResult);
 
-        ArrayList<ItemStack> tResults = new ArrayList();
+        ArrayList<ItemStack> tResults = new ArrayList<ItemStack>();
         tResults.add(aResult);
         tResults.add(GT_OreDictUnificator.get(true, aResult));
         if ((tPrefixMaterial != null) && (!tPrefixMaterial.mBlackListed)
@@ -128,13 +129,12 @@ public class GT_NEI_AssLineHandler extends TemplateRecipeHandler {
                 }
             }
         }
-        CachedDefaultRecipe tNEIRecipe;
     }
 
     public void loadUsageRecipes(ItemStack aInput) {
         ItemData tPrefixMaterial = GT_OreDictUnificator.getAssociation(aInput);
 
-        ArrayList<ItemStack> tInputs = new ArrayList();
+        ArrayList<ItemStack> tInputs = new ArrayList<ItemStack>();
         tInputs.add(aInput);
         tInputs.add(GT_OreDictUnificator.get(false, aInput));
         if ((tPrefixMaterial != null) && (!tPrefixMaterial.mPrefix.mFamiliarPrefixes.isEmpty())) {
@@ -372,14 +372,14 @@ public class GT_NEI_AssLineHandler extends TemplateRecipeHandler {
             if (this.permutated) {
                 return;
             }
-            ArrayList<ItemStack> tDisplayStacks = new ArrayList();
+            ArrayList<ItemStack> tDisplayStacks = new ArrayList<ItemStack>();
             for (ItemStack tStack : this.items) {
                 if (GT_Utility.isStackValid(tStack)) {
                     if (tStack.getItemDamage() == 32767) {
                         List<ItemStack> permutations = codechicken.nei.ItemList.itemMap.get(tStack.getItem());
                         if (!permutations.isEmpty()) {
                             ItemStack stack;
-                            for (Iterator i$ = permutations.iterator(); i$.hasNext(); tDisplayStacks
+                            for (Iterator<ItemStack> i$ = permutations.iterator(); i$.hasNext(); tDisplayStacks
                                 .add(GT_Utility.copyAmount(tStack.stackSize, new Object[] { stack }))) {
                                 stack = (ItemStack) i$.next();
                             }
@@ -405,8 +405,8 @@ public class GT_NEI_AssLineHandler extends TemplateRecipeHandler {
     public class CachedDefaultRecipe extends CachedRecipe {
 
         public final GT_Recipe mRecipe;
-        public final List<PositionedStack> mOutputs = new ArrayList();
-        public final List<PositionedStack> mInputs = new ArrayList();
+        public final List<PositionedStack> mOutputs = new ArrayList<PositionedStack>();
+        public final List<PositionedStack> mInputs = new ArrayList<PositionedStack>();
 
         public CachedDefaultRecipe(GT_Recipe aRecipe) {
             super();

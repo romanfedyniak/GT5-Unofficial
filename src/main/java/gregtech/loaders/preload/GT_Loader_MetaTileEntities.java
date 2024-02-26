@@ -9,27 +9,126 @@ import codechicken.nei.api.API;
 import cpw.mods.fml.common.Loader;
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
+import gregtech.api.enums.ConfigCategories;
+import gregtech.api.enums.Dyes;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OreDictNames;
+import gregtech.api.enums.OrePrefixes;
 import gregtech.api.interfaces.ITexture;
-import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Cable;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Fluid;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Frame;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Item;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicBatteryBuffer;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicHull;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine_GT_Recipe;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_DataAccess;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Dynamo;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Energy;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Input;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_InputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Maintenance;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Muffler;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Output;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_OutputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Transformer;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
-import gregtech.common.tileentities.automation.*;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_ChestBuffer;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_Filter;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_ItemDistributor;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_Regulator;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_SuperBuffer;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_TypeFilter;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Bronze;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Lava;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Solar;
 import gregtech.common.tileentities.boilers.GT_MetaTileEntity_Boiler_Steel;
-import gregtech.common.tileentities.generators.*;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_DieselGenerator;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_FluidNaquadahReactor;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_GasTurbine;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_LightningRod;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_MagicEnergyConverter;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_MagicalEnergyAbsorber;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_PlasmaGenerator;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_SolidNaquadahReactor;
+import gregtech.common.tileentities.generators.GT_MetaTileEntity_SteamTurbine;
 import gregtech.common.tileentities.machines.GT_MetaTileEntity_BasicHull_Bronze;
 import gregtech.common.tileentities.machines.GT_MetaTileEntity_BasicHull_BronzeBricks;
 import gregtech.common.tileentities.machines.GT_MetaTileEntity_BasicHull_Steel;
 import gregtech.common.tileentities.machines.GT_MetaTileEntity_BasicHull_SteelBricks;
-import gregtech.common.tileentities.machines.basic.*;
-import gregtech.common.tileentities.machines.multi.*;
-import gregtech.common.tileentities.machines.steam.*;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_AdvSeismicProspector;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Boxinator;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Charger;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_CuringOven;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Digital_Transformer;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Disassembler;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Massfabricator;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_MicrowaveEnergyTransmitter;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Miner;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_MonsterRepellent;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_OrganicReplicator;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_PotionBrewer;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Pump;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Replicator;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_RockBreaker;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Scanner;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_SeismicProspector;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Teleporter;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_AdvancedProcessingArray;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_AssemblyLine;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_BrickedBlastFurnace;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_BronzeBlastFurnace;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_Charcoal_Pit;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_Cleanroom;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_ConcreteBackfiller1;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_ConcreteBackfiller2;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_DieselEngine;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_DistillationTower;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_ElectricBlastFurnace;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_FusionComputer1;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_FusionComputer2;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_FusionComputer3;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_HeatExchanger;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_ImplosionCompressor;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeBoiler_Bronze;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeBoiler_Steel;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeBoiler_Titanium;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeBoiler_TungstenSteel;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeChemicalReactor;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeTurbine_Gas;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeTurbine_HPSteam;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeTurbine_Plasma;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_LargeTurbine_Steam;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_MultiFurnace;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OilCracker;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OilDrill1;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OilDrill2;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OilDrill3;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OreDrillingPlant1;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OreDrillingPlant2;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OreDrillingPlant3;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_OreDrillingPlant4;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_ProcessingArray;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_PyrolyseOven;
+import gregtech.common.tileentities.machines.multi.GT_MetaTileEntity_VacuumFreezer;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_AlloySmelter_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_AlloySmelter_Steel;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Compressor_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Compressor_Steel;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Extractor_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Extractor_Steel;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_ForgeHammer_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_ForgeHammer_Steel;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Furnace_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Furnace_Steel;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Macerator_Bronze;
+import gregtech.common.tileentities.machines.steam.GT_MetaTileEntity_Macerator_Steel;
 import gregtech.common.tileentities.storage.GT_MetaTileEntity_Locker;
 import gregtech.common.tileentities.storage.GT_MetaTileEntity_QuantumChest;
 import gregtech.common.tileentities.storage.GT_MetaTileEntity_QuantumTank;
@@ -2463,8 +2562,6 @@ public class GT_Loader_MetaTileEntities implements Runnable {
     }
 
     private static void run2() {
-        long bits = GT_ModHandler.RecipeBits.NOT_REMOVABLE | GT_ModHandler.RecipeBits.REVERSIBLE
-            | GT_ModHandler.RecipeBits.BUFFERED;
         long bitsd = GT_ModHandler.RecipeBits.DISMANTLEABLE | GT_ModHandler.RecipeBits.NOT_REMOVABLE
             | GT_ModHandler.RecipeBits.REVERSIBLE
             | GT_ModHandler.RecipeBits.BUFFERED;
@@ -11205,8 +11302,6 @@ public class GT_Loader_MetaTileEntities implements Runnable {
     }
 
     private static void run3() {
-        long bits = GT_ModHandler.RecipeBits.NOT_REMOVABLE | GT_ModHandler.RecipeBits.REVERSIBLE
-            | GT_ModHandler.RecipeBits.BUFFERED;
         long bitsd = GT_ModHandler.RecipeBits.DISMANTLEABLE | GT_ModHandler.RecipeBits.NOT_REMOVABLE
             | GT_ModHandler.RecipeBits.REVERSIBLE
             | GT_ModHandler.RecipeBits.BUFFERED;
@@ -12347,8 +12442,6 @@ public class GT_Loader_MetaTileEntities implements Runnable {
     }
 
     private static void run4() {
-        long bits = GT_ModHandler.RecipeBits.NOT_REMOVABLE | GT_ModHandler.RecipeBits.REVERSIBLE
-            | GT_ModHandler.RecipeBits.BUFFERED;
         long bitsd = GT_ModHandler.RecipeBits.DISMANTLEABLE | GT_ModHandler.RecipeBits.NOT_REMOVABLE
             | GT_ModHandler.RecipeBits.REVERSIBLE
             | GT_ModHandler.RecipeBits.BUFFERED;

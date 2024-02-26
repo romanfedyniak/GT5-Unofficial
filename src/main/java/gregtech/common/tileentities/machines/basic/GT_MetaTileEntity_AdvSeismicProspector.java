@@ -2,7 +2,11 @@ package gregtech.common.tileentities.machines.basic;
 
 import static gregtech.common.GT_UndergroundOil.undergroundOilReadInformation;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

@@ -6,7 +6,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.GT_Mod;
-import gregtech.api.enums.*;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.SubTag;
 import gregtech.api.objects.MaterialStack;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -107,7 +111,7 @@ public class ProcessingDust implements gregtech.api.interfaces.IOreRecipeRegistr
                     long tCapsuleCount = 0L;
                     long tDensityMultiplier = aMaterial.getDensity() > 3628800L ? aMaterial.getDensity() / 3628800L
                         : 1L;
-                    ArrayList<ItemStack> tList = new ArrayList();
+                    ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
                     for (MaterialStack tMat : aMaterial.mMaterialList) if (tMat.mAmount > 0L) {
                         if (tMat.mMaterial == Materials.Air) {
                             tDustStack = ItemList.Cell_Air.get(tMat.mAmount / 2L, new Object[0]);
@@ -553,6 +557,8 @@ public class ProcessingDust implements gregtech.api.interfaces.IOreRecipeRegistr
                     }
                 }
                 break;
+		default:
+			break;
         }
     }
 }

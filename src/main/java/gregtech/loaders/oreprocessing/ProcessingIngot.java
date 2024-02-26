@@ -3,7 +3,12 @@ package gregtech.loaders.oreprocessing;
 import net.minecraft.item.ItemStack;
 
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
+import gregtech.api.enums.ConfigCategories;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.SubTag;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_RecipeRegistrator;
@@ -214,6 +219,8 @@ public class ProcessingIngot implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_OreDictUnificator.get(OrePrefixes.ingot, aMaterial, 1L),
                     (int) Math.max(aMaterialMass * 3L, 1L));
                 break;
+		default:
+			break;
         }
     }
 }

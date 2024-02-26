@@ -2,7 +2,16 @@ package gregtech.common;
 
 import java.io.File;
 import java.text.DateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -50,8 +59,11 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.IFuelHandler;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.ProgressManager;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -60,8 +72,16 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.*;
+import gregtech.api.enums.ConfigCategories;
+import gregtech.api.enums.Dyes;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OreDictNames;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.enums.SubTag;
 import gregtech.api.enums.TC_Aspects.TC_AspectStack;
+import gregtech.api.enums.ToolDictNames;
 import gregtech.api.interfaces.IBlockOnWalkOver;
 import gregtech.api.interfaces.IProjectileItem;
 import gregtech.api.interfaces.internal.IGT_Mod;
@@ -71,15 +91,32 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.items.GT_MetaGenerated_Item;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.net.GT_Packet_Pollution;
-import gregtech.api.objects.*;
-import gregtech.api.util.*;
+import gregtech.api.objects.GT_Fluid;
+import gregtech.api.objects.GT_FluidStack;
+import gregtech.api.objects.GT_UO_DimensionList;
+import gregtech.api.objects.ItemData;
+import gregtech.api.objects.MaterialStack;
+import gregtech.api.util.GT_LanguageManager;
+import gregtech.api.util.GT_Log;
+import gregtech.api.util.GT_ModHandler;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GT_RecipeRegistrator;
+import gregtech.api.util.GT_Shaped_Recipe;
+import gregtech.api.util.GT_Shapeless_Recipe;
+import gregtech.api.util.GT_Utility;
 import gregtech.common.entities.GT_Entity_Arrow;
 import gregtech.common.gui.GT_ContainerVolumetricFlask;
 import gregtech.common.gui.GT_GUIContainerVolumetricFlask;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import gregtech.common.items.armor.ModularArmor_Item;
-import gregtech.common.items.armor.gui.*;
+import gregtech.common.items.armor.gui.ContainerBasicArmor;
+import gregtech.common.items.armor.gui.ContainerElectricArmor1;
+import gregtech.common.items.armor.gui.GuiElectricArmor1;
+import gregtech.common.items.armor.gui.GuiModularArmor;
+import gregtech.common.items.armor.gui.InventoryArmor;
 
+@SuppressWarnings("deprecation")
 public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
 
     private static final EnumSet<OreGenEvent.GenerateMinable.EventType> PREVENTED_ORES = EnumSet.of(
@@ -159,7 +196,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                 "slimeRod", "redalloyBundled", "bluestoneBundled", "infusedteslatiteInsulated", "redalloyInsulated",
                 "infusedteslatiteBundled" }));
     private final DateFormat mDateFormat = DateFormat.getInstance();
-    public ArrayList<String> mBufferedPlayerActivity = new ArrayList();
+    public ArrayList<String> mBufferedPlayerActivity = new ArrayList<String>();
     public boolean mHardcoreCables = false;
     public boolean mSmallLavaBoilerEfficiencyLoss = true;
     public boolean mDisableVanillaOres = true;
@@ -261,7 +298,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         try {
             for (String tOreName : OreDictionary.getOreNames()) {
                 ItemStack tOreStack;
-                for (Iterator i$ = OreDictionary.getOres(tOreName)
+                for (Iterator<?> i$ = OreDictionary.getOres(tOreName)
                     .iterator(); i$.hasNext(); registerOre(new OreDictionary.OreRegisterEvent(tOreName, tOreStack))) {
                     tOreStack = (ItemStack) i$.next();
                 }
@@ -740,19 +777,19 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
 
         GT_Log.out.println(
             "GT_Mod: Cleaning up all OreDict Crafting Recipes, which have an empty List in them, since they are never meeting any Condition.");
-        List tList = CraftingManager.getInstance()
+        List<?> tList = CraftingManager.getInstance()
             .getRecipeList();
         for (int i = 0; i < tList.size(); i++) {
             if ((tList.get(i) instanceof ShapedOreRecipe)) {
                 for (Object tObject : ((ShapedOreRecipe) tList.get(i)).getInput()) {
-                    if (((tObject instanceof List)) && (((List) tObject).isEmpty())) {
+                    if (((tObject instanceof List)) && (((List<?>) tObject).isEmpty())) {
                         tList.remove(i--);
                         break;
                     }
                 }
             } else if ((tList.get(i) instanceof ShapelessOreRecipe)) {
                 for (Object tObject : ((ShapelessOreRecipe) tList.get(i)).getInput()) {
-                    if (((tObject instanceof List)) && (((List) tObject).isEmpty())) {
+                    if (((tObject instanceof List)) && (((List<?>) tObject).isEmpty())) {
                         tList.remove(i--);
                         break;
                     }
@@ -1181,7 +1218,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                             }
                             if (aMaterial != Materials._NULL) {
                                 Materials tReRegisteredMaterial;
-                                for (Iterator i$ = aMaterial.mOreReRegistrations.iterator(); i$
+                                for (Iterator<?> i$ = aMaterial.mOreReRegistrations.iterator(); i$
                                     .hasNext(); GT_OreDictUnificator
                                         .registerOre(aPrefix, tReRegisteredMaterial, aEvent.Ore)) {
                                     tReRegisteredMaterial = (Materials) i$.next();
@@ -1533,10 +1570,10 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                             && (!(tEntity instanceof EntityPlayer))
                             && (((EntityLivingBase) tEntity).canBePushed())
                             && (((EntityLivingBase) tEntity).getHealth() > 0.0F)) {
-                                List tList = tEntity.worldObj.getEntitiesWithinAABBExcludingEntity(
+                                List<?> tList = tEntity.worldObj.getEntitiesWithinAABBExcludingEntity(
                                     tEntity,
                                     tEntity.boundingBox.expand(0.20000000298023224D, 0.0D, 0.20000000298023224D));
-                                Class tClass = tEntity.getClass();
+                                Class<? extends Entity> tClass = tEntity.getClass();
                                 int tEntityCount = 1;
                                 if (tList != null) {
                                     for (int j = 0; j < tList.size(); j++) {
@@ -2409,7 +2446,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         this.mOreDictActivated = true;
         ProgressManager.ProgressBar progressBar = ProgressManager.push("Register materials", mEvents.size());
         OreDictEventContainer tEvent;
-        for (Iterator i$ = this.mEvents.iterator(); i$.hasNext(); registerRecipes(tEvent)) {
+        for (Iterator<OreDictEventContainer> i$ = this.mEvents.iterator(); i$.hasNext(); registerRecipes(tEvent)) {
             tEvent = (OreDictEventContainer) i$.next();
 
             progressBar.step(tEvent.mMaterial == null ? "" : tEvent.mMaterial.toString());

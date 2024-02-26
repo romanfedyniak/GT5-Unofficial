@@ -13,13 +13,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
-
+import shedar.mods.ic2.nuclearcontrol.api.CardState;
+import shedar.mods.ic2.nuclearcontrol.api.ICardWrapper;
+import shedar.mods.ic2.nuclearcontrol.api.IPanelDataSource;
+import shedar.mods.ic2.nuclearcontrol.api.IRemoteSensor;
+import shedar.mods.ic2.nuclearcontrol.api.PanelSetting;
+import shedar.mods.ic2.nuclearcontrol.api.PanelString;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
 import gregtech.api.items.GT_Generic_Item;
 import gregtech.api.util.GT_LanguageManager;
-import shedar.mods.ic2.nuclearcontrol.api.*;
 
 public class GT_SensorCard_Item extends GT_Generic_Item implements IRemoteSensor, IPanelDataSource {
 
@@ -30,7 +34,7 @@ public class GT_SensorCard_Item extends GT_Generic_Item implements IRemoteSensor
         setMaxStackSize(1);
     }
 
-    public void addAdditionalToolTips(List aList, ItemStack aStack, EntityPlayer aPlayer) {
+    public void addAdditionalToolTips(List<String> aList, ItemStack aStack, EntityPlayer aPlayer) {
         super.addAdditionalToolTips(aList, aStack, aPlayer);
         if (aStack != null) {
             NBTTagCompound tNBT = aStack.getTagCompound();
@@ -67,7 +71,7 @@ public class GT_SensorCard_Item extends GT_Generic_Item implements IRemoteSensor
     }
 
     public List<PanelString> getStringData(int aSettings, ICardWrapper aCard, boolean aLabels) {
-        List<PanelString> rList = new LinkedList();
+        List<PanelString> rList = new LinkedList<PanelString>();
         for (int i = 0; i < 8; i++) {
             if ((aSettings & 1 << i) != 0) {
                 PanelString line = new PanelString();
@@ -79,7 +83,7 @@ public class GT_SensorCard_Item extends GT_Generic_Item implements IRemoteSensor
     }
 
     public List<PanelSetting> getSettingsList() {
-        List<PanelSetting> rList = new ArrayList(30);
+        List<PanelSetting> rList = new ArrayList<PanelSetting>(30);
         for (int i = 0; i < 8; i++) {
             rList.add(new PanelSetting(String.valueOf((i + 1)), 1 << i, getCardType()));
         }

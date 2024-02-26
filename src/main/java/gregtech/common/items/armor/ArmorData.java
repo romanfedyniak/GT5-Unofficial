@@ -3,7 +3,11 @@ package gregtech.common.items.armor;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -22,7 +26,7 @@ public class ArmorData {
     public int type; // 0 = helmet; 1 = chestplate; 2 = leggings; 3 = boots;
     public int armorTier; // 0 = Basic Modular Armor; 1 = Modular Exoskeleton; 2= Modular Nanosuit; 3 = Heavy Power
                           // Armor
-    public List info; // needs Localization
+    public List<String> info; // needs Localization
     public boolean isTopItem;
     public int tooltipUpdate;
     public boolean openGui;
@@ -360,10 +364,10 @@ public class ArmorData {
             set(mBStat, StatType.FULLELECTRICARMOR, false);
         }
 
-        set(mBStat, StatType.MAGNET, 0);
-        set(mBStat, StatType.THORNS, 0);
-        set(mBStat, StatType.PROCESSINGPOWER, 0);
-        set(mBStat, StatType.PROCESSINGPOWERUSED, 0);
+        set(mBStat, StatType.MAGNET, false);
+        set(mBStat, StatType.THORNS, false);
+        set(mBStat, StatType.PROCESSINGPOWER, false);
+        set(mBStat, StatType.PROCESSINGPOWERUSED, false);
 
         if (helmet != null) {
             updateArmorStats(helmet, updateArmorStatTypeList);
@@ -421,17 +425,17 @@ public class ArmorData {
 
     }
 
-    public void set(Map aMap, StatType aType, boolean aSet) {
+    public void set(Map<StatType, Boolean> aMap, StatType aType, boolean aSet) {
         if (aMap.containsKey(aType)) aMap.remove(aType);
         aMap.put(aType, aSet);
     }
 
-    public void set(Map aMap, StatType aType, float aSet) {
+    public void set(Map<StatType, Float> aMap, StatType aType, float aSet) {
         if (aMap.containsKey(aType)) aMap.remove(aType);
         aMap.put(aType, aSet);
     }
 
-    public void change(Map aMap, StatType aType, float aChange) {
+    public void change(Map<StatType, Float> aMap, StatType aType, float aChange) {
         float tChange = 0;
         if (aMap == null) System.out.println("changeMapnull");
         if (aMap.containsKey(aType)) {
