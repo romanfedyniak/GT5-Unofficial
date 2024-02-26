@@ -57,7 +57,7 @@ public interface ICondition<O> {
         private final ICondition<O>[] mConditions;
 
         @SafeVarargs
-		public And(ICondition<O>... aConditions) {
+        public And(ICondition<O>... aConditions) {
             mConditions = aConditions;
         }
 

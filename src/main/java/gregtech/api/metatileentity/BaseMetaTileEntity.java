@@ -303,7 +303,7 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
     }
 
     @SuppressWarnings("static-access")
-	@Override
+    @Override
     public void updateEntity() {
         super.updateEntity();
 
@@ -1325,7 +1325,7 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
     }
 
     @SuppressWarnings("static-access")
-	public void doEnergyExplosion() {
+    public void doEnergyExplosion() {
         if (getUniversalEnergyCapacity() > 0 && getUniversalEnergyStored() >= getUniversalEnergyCapacity() / 5) {
             doExplosion(
                 oOutput * (getUniversalEnergyStored() >= getUniversalEnergyCapacity() ? 4

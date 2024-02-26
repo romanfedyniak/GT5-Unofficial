@@ -354,7 +354,7 @@ public enum GT_BeeDefinition implements IBeeDefinition {
 
         @Override
         protected void registerMutations() {
-        	registerMutation(CLAY.species, getSpecies("Diligent"), 25);
+            registerMutation(CLAY.species, getSpecies("Diligent"), 25);
         }
     },
     LEAD(GT_BranchDefinition.METAL, "Lead", true, 0x666699, 0xA3A3CC) {

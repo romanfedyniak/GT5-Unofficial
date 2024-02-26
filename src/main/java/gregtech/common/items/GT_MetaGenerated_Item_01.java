@@ -62,15 +62,15 @@ import gregtech.common.covers.GT_Cover_Screen;
 import gregtech.common.covers.GT_Cover_Shutter;
 import gregtech.common.covers.GT_Cover_SolarPanel;
 import gregtech.common.items.behaviors.Behaviour_Arrow_Potion;
-import gregtech.common.items.behaviors.Behaviour_Lighter;
-import gregtech.common.items.behaviors.Behaviour_Spray_Color;
-import gregtech.common.items.behaviors.Behaviour_PrintedPages;
-import gregtech.common.items.behaviors.Behaviour_WrittenBook;
-import gregtech.common.items.behaviors.Behaviour_DataStick;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
-import gregtech.common.items.behaviors.Behaviour_Sonictron;
+import gregtech.common.items.behaviors.Behaviour_DataStick;
+import gregtech.common.items.behaviors.Behaviour_Lighter;
+import gregtech.common.items.behaviors.Behaviour_PrintedPages;
 import gregtech.common.items.behaviors.Behaviour_Scanner;
 import gregtech.common.items.behaviors.Behaviour_SensorKit;
+import gregtech.common.items.behaviors.Behaviour_Sonictron;
+import gregtech.common.items.behaviors.Behaviour_Spray_Color;
+import gregtech.common.items.behaviors.Behaviour_WrittenBook;
 
 public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
 

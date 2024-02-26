@@ -219,8 +219,8 @@ public class ProcessingIngot implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_OreDictUnificator.get(OrePrefixes.ingot, aMaterial, 1L),
                     (int) Math.max(aMaterialMass * 3L, 1L));
                 break;
-		default:
-			break;
+            default:
+                break;
         }
     }
 }

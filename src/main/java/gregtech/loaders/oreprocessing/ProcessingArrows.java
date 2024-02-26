@@ -122,8 +122,8 @@ public class ProcessingArrows implements gregtech.api.interfaces.IOreRecipeRegis
                             OrePrefixes.stick.get(Materials.Plastic), Character.valueOf('F'),
                             OreDictNames.craftingFeather, Character.valueOf('A'),
                             OrePrefixes.toolHeadArrow.get(aMaterial) });
-			default:
-				break;
+                default:
+                    break;
             }
         }
     }

@@ -7,7 +7,6 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
-
 public class GT_DamageSources {
 
     public static DamageSource getElectricDamage() {
