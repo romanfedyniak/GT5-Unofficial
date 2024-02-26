@@ -1,6 +1,7 @@
 package gregtech.loaders.oreprocessing;
 
 import net.minecraft.item.ItemStack;
+
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
@@ -98,8 +99,8 @@ public class ProcessingCrate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Proxy.tBits,
                     new Object[] { "Xc", Character.valueOf('X'), OrePrefixes.crateGtPlate.get(aMaterial) });
                 break;
-		default:
-			break;
+            default:
+                break;
         }
     }
 }

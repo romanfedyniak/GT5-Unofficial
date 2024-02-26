@@ -1,11 +1,11 @@
 package gregtech.api.util;
 
-import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
-import static gregtech.api.enums.GT_Values.E;
-import static gregtech.api.enums.GT_Values.W;
-import static gregtech.api.enums.GT_Values.L;
 import static gregtech.api.enums.GT_Values.D1;
 import static gregtech.api.enums.GT_Values.D2;
+import static gregtech.api.enums.GT_Values.E;
+import static gregtech.api.enums.GT_Values.L;
+import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
+import static gregtech.api.enums.GT_Values.W;
 
 import java.util.ArrayList;
 import java.util.Arrays;

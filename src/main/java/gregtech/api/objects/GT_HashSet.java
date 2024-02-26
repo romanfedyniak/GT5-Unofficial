@@ -1,12 +1,12 @@
 package gregtech.api.objects;
 
-import net.minecraft.item.ItemStack;
-
 import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+
+import net.minecraft.item.ItemStack;
 
 import gregtech.api.GregTech_API;
 import gregtech.api.util.GT_Utility;
@@ -47,9 +47,10 @@ public class GT_HashSet<E extends GT_ItemStack> extends AbstractSet<E> {
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+    @Override
     public Iterator<E> iterator() {
-        return (Iterator<E>) map.keySet().iterator();
+        return (Iterator<E>) map.keySet()
+            .iterator();
     }
 
     @Override

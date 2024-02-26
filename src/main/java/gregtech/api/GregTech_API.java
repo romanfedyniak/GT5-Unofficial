@@ -1,9 +1,9 @@
 package gregtech.api;
 
-import static gregtech.api.enums.GT_Values.M;
-import static gregtech.api.enums.GT_Values.L;
-import static gregtech.api.enums.GT_Values.MOD_ID_IC2;
 import static gregtech.api.enums.GT_Values.B;
+import static gregtech.api.enums.GT_Values.L;
+import static gregtech.api.enums.GT_Values.M;
+import static gregtech.api.enums.GT_Values.MOD_ID_IC2;
 
 import java.util.ArrayList;
 import java.util.Collection;

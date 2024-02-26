@@ -3,12 +3,12 @@ package gregtech.common.tileentities.generators;
 import static gregtech.api.enums.ConfigCategories.machineconfig;
 import static gregtech.api.enums.GT_Values.MOD_ID_TC;
 import static gregtech.api.enums.GT_Values.V;
-import static net.minecraft.util.EnumChatFormatting.UNDERLINE;
-import static net.minecraft.util.EnumChatFormatting.LIGHT_PURPLE;
 import static net.minecraft.util.EnumChatFormatting.GRAY;
-import static net.minecraft.util.EnumChatFormatting.YELLOW;
-import static net.minecraft.util.EnumChatFormatting.RESET;
 import static net.minecraft.util.EnumChatFormatting.GREEN;
+import static net.minecraft.util.EnumChatFormatting.LIGHT_PURPLE;
+import static net.minecraft.util.EnumChatFormatting.RESET;
+import static net.minecraft.util.EnumChatFormatting.UNDERLINE;
+import static net.minecraft.util.EnumChatFormatting.YELLOW;
 
 import java.util.ArrayList;
 import java.util.HashMap;

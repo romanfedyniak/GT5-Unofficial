@@ -869,8 +869,8 @@ public class ProcessingToolHead implements gregtech.api.interfaces.IOreRecipeReg
                             'R', OrePrefixes.ring.get(aMaterial), 'S', OrePrefixes.screw.get(aMaterial) });
                 }
                 break;
-		default:
-			break;
+            default:
+                break;
         }
     }
 }

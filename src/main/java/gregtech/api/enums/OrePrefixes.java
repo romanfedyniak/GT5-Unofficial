@@ -1,8 +1,8 @@
 package gregtech.api.enums;
 
 import static gregtech.api.enums.GT_Values.B;
-import static gregtech.api.enums.GT_Values.M;
 import static gregtech.api.enums.GT_Values.D2;
+import static gregtech.api.enums.GT_Values.M;
 
 import java.util.ArrayList;
 import java.util.Arrays;

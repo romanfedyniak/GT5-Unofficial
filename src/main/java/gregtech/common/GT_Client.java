@@ -414,7 +414,8 @@ public class GT_Client extends GT_Proxy implements Runnable {
                 }
             }
             GT_PlayedSound tKey;
-            for (Iterator<GT_PlayedSound> i$ = tList.iterator(); i$.hasNext(); GT_Utility.sPlayedSoundMap.remove(tKey)) {
+            for (Iterator<GT_PlayedSound> i$ = tList.iterator(); i$.hasNext(); GT_Utility.sPlayedSoundMap
+                .remove(tKey)) {
                 tKey = (GT_PlayedSound) i$.next();
             }
             if (GregTech_API.mServerStarted == false) GregTech_API.mServerStarted = true;

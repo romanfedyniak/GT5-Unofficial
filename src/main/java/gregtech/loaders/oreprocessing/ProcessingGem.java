@@ -281,8 +281,8 @@ public class ProcessingGem implements gregtech.api.interfaces.IOreRecipeRegistra
                 GT_Values.RA
                     .addForgeHammerRecipe(aStack, GT_OreDictUnificator.get(OrePrefixes.gem, aMaterial, 2L), 64, 16);
                 break;
-		default:
-			break;
+            default:
+                break;
         }
     }
 }
