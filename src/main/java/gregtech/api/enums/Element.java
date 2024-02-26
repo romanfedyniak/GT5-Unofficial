@@ -1,13 +1,14 @@
 package gregtech.api.enums;
 
-import gregtech.api.util.GT_Utility;
-
 import java.util.ArrayList;
+
+import gregtech.api.util.GT_Utility;
 
 /**
  * This is some kind of Periodic Table, which I use to determine Properties of the Materials.
  */
 public enum Element {
+
     _NULL(0, 0, 0, -1, null, "", false),
     H(1, 0, 0, -1, null, "Hydrogen", false),
     D(1, 1, 0, -1, "H", "Deuterium", true),
@@ -275,12 +276,14 @@ public enum Element {
 
     /**
      * @param aProtons         Amount of Protons. Antiprotons if negative.
-     * @param aNeutrons        Amount of Neutrons. Antineutrons if negative. (I could have made mistakes with the Neutron amount calculation, please tell me if I did something wrong)
+     * @param aNeutrons        Amount of Neutrons. Antineutrons if negative. (I could have made mistakes with the
+     *                         Neutron amount calculation, please tell me if I did something wrong)
      * @param aHalfLifeSeconds Amount of Half Life this Material has in Seconds. -1 for stable Materials.
      * @param aDecayTo         String representing the Elements it decays to. Separated by an '&' Character.
      * @param aName            Name of the Element
      */
-    private Element(long aProtons, long aNeutrons, long aAdditionalMass, long aHalfLifeSeconds, String aDecayTo, String aName, boolean aIsIsotope) {
+    private Element(long aProtons, long aNeutrons, long aAdditionalMass, long aHalfLifeSeconds, String aDecayTo,
+        String aName, boolean aIsIsotope) {
         mProtons = aProtons;
         mNeutrons = aNeutrons;
         mAdditionalMass = aAdditionalMass;

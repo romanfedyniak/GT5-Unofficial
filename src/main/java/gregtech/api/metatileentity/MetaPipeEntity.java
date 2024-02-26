@@ -1,19 +1,13 @@
 package gregtech.api.metatileentity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.GT_Mod;
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.metatileentity.IConnectable;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.IColoredTileEntity;
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.util.GT_Config;
-import gregtech.api.util.GT_CoverBehavior;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.api.util.GT_Utility;
+import static gregtech.api.enums.GT_Values.GT;
+import static gregtech.api.enums.GT_Values.V;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -33,13 +27,19 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import static gregtech.api.enums.GT_Values.GT;
-import static gregtech.api.enums.GT_Values.V;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.metatileentity.IConnectable;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.IColoredTileEntity;
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.objects.GT_ItemStack;
+import gregtech.api.util.GT_Config;
+import gregtech.api.util.GT_CoverBehavior;
+import gregtech.api.util.GT_LanguageManager;
+import gregtech.api.util.GT_Utility;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -52,6 +52,7 @@ import static gregtech.api.enums.GT_Values.V;
  * "new GT_MetaTileEntity_E_Furnace(54, "GT_E_Furnace", "Automatic E-Furnace");"
  */
 public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
+
     /**
      * The Inventory of the MetaTileEntity. Amount of Slots can be larger than 256. HAYO!
      */
@@ -62,7 +63,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     public byte mConnections = 0;
     protected boolean mCheckConnections = false;
     /**
-     * Only assigned for the MetaTileEntity in the List! Also only used to get the localized Name for the ItemStack and for getInvName.
+     * Only assigned for the MetaTileEntity in the List! Also only used to get the localized Name for the ItemStack and
+     * for getInvName.
      */
     public String mName;
     public boolean doTickProfilingInThisTick = true;
@@ -78,10 +80,10 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
      *
      * @param aID the ID
      * @example for Constructor overload.
-     * <p/>
-     * public GT_MetaTileEntity_EBench(int aID, String mName, String mNameRegional) {
-     * super(aID, mName, mNameRegional);
-     * }
+     *          <p/>
+     *          public GT_MetaTileEntity_EBench(int aID, String mName, String mNameRegional) {
+     *          super(aID, mName, mNameRegional);
+     *          }
      */
     public MetaPipeEntity(int aID, String aBasicName, String aRegionalName, int aInvSlotCount) {
         this(aID, aBasicName, aRegionalName, aInvSlotCount, true);
@@ -95,7 +97,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         } else {
             throw new IllegalArgumentException("MetaMachine-Slot Nr. " + aID + " is already occupied!");
         }
-        mName = aBasicName.replaceAll(" ", "_").toLowerCase(Locale.ENGLISH);
+        mName = aBasicName.replaceAll(" ", "_")
+            .toLowerCase(Locale.ENGLISH);
         setBaseMetaTileEntity(new BaseMetaPipeEntity());
         getBaseMetaTileEntity().setMetaTileID((short) aID);
         GT_LanguageManager.addStringLocalization("gt.blockmachines." + mName + ".name", aRegionalName);
@@ -107,9 +110,10 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     protected final void addInfo(int aID) {
-    	if (GT.isServerSide()) return;
-    	ItemStack tStack = new ItemStack(GregTech_API.sBlockMachines, 1, aID);
-        tStack.getItem().addInformation(tStack, null, new ArrayList<String>(), true);
+        if (GT.isServerSide()) return;
+        ItemStack tStack = new ItemStack(GregTech_API.sBlockMachines, 1, aID);
+        tStack.getItem()
+            .addInformation(tStack, null, new ArrayList<String>(), true);
     }
 
     /**
@@ -138,7 +142,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     @Override
     public void setBaseMetaTileEntity(IGregTechTileEntity aBaseMetaTileEntity) {
         if (mBaseMetaTileEntity != null && aBaseMetaTileEntity == null) {
-            mBaseMetaTileEntity.getMetaTileEntity().inValidate();
+            mBaseMetaTileEntity.getMetaTileEntity()
+                .inValidate();
             mBaseMetaTileEntity.setMetaTileEntity(null);
         }
         mBaseMetaTileEntity = aBaseMetaTileEntity;
@@ -179,32 +184,32 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         if (aSide < 6 && mBaseMetaTileEntity.getCoverIDAtSide(aSide) > 0) {
             tCovered = true;
         }
-        if(isConnectedAtSide(aSide)){
-        	tCovered = true;
+        if (isConnectedAtSide(aSide)) {
+            tCovered = true;
         }
-        //System.out.println("Cover: "+mBaseMetaTileEntity.getCoverIDAtSide(aSide));
-        //toDo: filter cover ids that actually protect against temperature (rubber/plastic maybe?)
+        // System.out.println("Cover: "+mBaseMetaTileEntity.getCoverIDAtSide(aSide));
+        // toDo: filter cover ids that actually protect against temperature (rubber/plastic maybe?)
         return tCovered;
     }
 
     @Override
-    public void onServerStart() {/*Do nothing*/}
+    public void onServerStart() {/* Do nothing */}
 
     @Override
-    public void onWorldSave(File aSaveDirectory) {/*Do nothing*/}
+    public void onWorldSave(File aSaveDirectory) {/* Do nothing */}
 
     @Override
-    public void onWorldLoad(File aSaveDirectory) {/*Do nothing*/}
+    public void onWorldLoad(File aSaveDirectory) {/* Do nothing */}
 
     @Override
-    public void onConfigLoad(GT_Config aConfig) {/*Do nothing*/}
+    public void onConfigLoad(GT_Config aConfig) {/* Do nothing */}
 
     @Override
-    public void setItemNBT(NBTTagCompound aNBT) {/*Do nothing*/}
+    public void setItemNBT(NBTTagCompound aNBT) {/* Do nothing */}
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister aBlockIconRegister) {/*Do nothing*/}
+    public void registerIcons(IIconRegister aBlockIconRegister) {/* Do nothing */}
 
     @Override
     public boolean allowCoverOnSide(byte aSide, GT_ItemStack aCoverID) {
@@ -212,68 +217,73 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     @Override
-    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {/*Do nothing*/}
+    public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY,
+        float aZ) {/* Do nothing */}
 
     @Override
-    public boolean onWrenchRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onWrenchRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
+        float aZ) {
         return false;
     }
 
     @Override
-    public boolean onWireCutterRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onWireCutterRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
+        float aZ) {
         return false;
     }
 
     @Override
-    public boolean onSolderingToolRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onSolderingToolRightClick(byte aSide, byte aWrenchingSide, EntityPlayer aPlayer, float aX, float aY,
+        float aZ) {
         return false;
     }
 
     @Override
-    public void onExplosion() {/*Do nothing*/}
+    public void onExplosion() {/* Do nothing */}
 
     @Override
-    public void onFirstTick(IGregTechTileEntity aBaseMetaTileEntity) {/*Do nothing*/}
+    public void onFirstTick(IGregTechTileEntity aBaseMetaTileEntity) {/* Do nothing */}
 
     @Override
-    public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {/*Do nothing*/}
+    public void onPreTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {/* Do nothing */}
 
     @Override
-    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {/*Do nothing*/}
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {/* Do nothing */}
 
     @Override
-    public void inValidate() {/*Do nothing*/}
+    public void inValidate() {/* Do nothing */}
 
     @Override
-    public void onRemoval() {/*Do nothing*/}
+    public void onRemoval() {/* Do nothing */}
 
     @Override
-    public void initDefaultModes(NBTTagCompound aNBT) {/*Do nothing*/}
+    public void initDefaultModes(NBTTagCompound aNBT) {/* Do nothing */}
 
     /**
      * When a GUI is opened
      */
-    public void onOpenGUI() {/*Do nothing*/}
+    public void onOpenGUI() {/* Do nothing */}
 
     /**
      * When a GUI is closed
      */
-    public void onCloseGUI() {/*Do nothing*/}
+    public void onCloseGUI() {/* Do nothing */}
 
     /**
      * a Player rightclicks the Machine
      * Sneaky rightclicks are not getting passed to this!
      */
     @Override
-    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {
+    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX,
+        float aY, float aZ) {
         return false;
     }
 
     @Override
-    public void onLeftclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {/*Do nothing*/}
+    public void onLeftclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer) {/* Do nothing */}
 
     @Override
-    public void onValueUpdate(byte aValue) {/*Do nothing*/}
+    public void onValueUpdate(byte aValue) {/* Do nothing */}
 
     @Override
     public byte getUpdateData() {
@@ -281,13 +291,13 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     @Override
-    public void doSound(byte aIndex, double aX, double aY, double aZ) {/*Do nothing*/}
+    public void doSound(byte aIndex, double aX, double aY, double aZ) {/* Do nothing */}
 
     @Override
-    public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {/*Do nothing*/}
+    public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {/* Do nothing */}
 
     @Override
-    public void stopSoundLoop(byte aValue, double aX, double aY, double aZ) {/*Do nothing*/}
+    public void stopSoundLoop(byte aValue, double aX, double aY, double aZ) {/* Do nothing */}
 
     @Override
     public final void sendSound(byte aIndex) {
@@ -325,7 +335,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     @Override
-    public ArrayList<String> getSpecialDebugInfo(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, int aLogLevel, ArrayList<String> aList) {
+    public ArrayList<String> getSpecialDebugInfo(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer,
+        int aLogLevel, ArrayList<String> aList) {
         return aList;
     }
 
@@ -400,10 +411,10 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     @Override
-    public void onMachineBlockUpdate() {/*Do nothing*/}
+    public void onMachineBlockUpdate() {/* Do nothing */}
 
     @Override
-    public void receiveClientEvent(byte aEventID, byte aValue) {/*Do nothing*/}
+    public void receiveClientEvent(byte aEventID, byte aValue) {/* Do nothing */}
 
     @Override
     public boolean isSimpleMachine() {
@@ -437,7 +448,7 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
 
     @Override
     public String[] getInfoData() {
-        return new String[]{};
+        return new String[] {};
     }
 
     public boolean isDigitalChest() {
@@ -448,7 +459,7 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         return null;
     }
 
-    public void setItemCount(int aCount) {/*Do nothing*/}
+    public void setItemCount(int aCount) {/* Do nothing */}
 
     public int getMaxItemCount() {
         return 0;
@@ -507,10 +518,36 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     public int[] getAccessibleSlotsFromSide(int aSide) {
         ArrayList<Integer> tList = new ArrayList<Integer>();
         IGregTechTileEntity tTileEntity = getBaseMetaTileEntity();
-        boolean tSkip = tTileEntity.getCoverBehaviorAtSide((byte) aSide).letsItemsIn((byte) aSide, tTileEntity.getCoverIDAtSide((byte) aSide), tTileEntity.getCoverDataAtSide((byte) aSide), -2, tTileEntity) || tTileEntity.getCoverBehaviorAtSide((byte) aSide).letsItemsOut((byte) aSide, tTileEntity.getCoverIDAtSide((byte) aSide), tTileEntity.getCoverDataAtSide((byte) aSide), -2, tTileEntity);
-        for (int i = 0; i < getSizeInventory(); i++)
-            if (isValidSlot(i) && (tSkip || tTileEntity.getCoverBehaviorAtSide((byte) aSide).letsItemsOut((byte) aSide, tTileEntity.getCoverIDAtSide((byte) aSide), tTileEntity.getCoverDataAtSide((byte) aSide), i, tTileEntity) || tTileEntity.getCoverBehaviorAtSide((byte) aSide).letsItemsIn((byte) aSide, tTileEntity.getCoverIDAtSide((byte) aSide), tTileEntity.getCoverDataAtSide((byte) aSide), i, tTileEntity)))
-                tList.add(i);
+        boolean tSkip = tTileEntity.getCoverBehaviorAtSide((byte) aSide)
+            .letsItemsIn(
+                (byte) aSide,
+                tTileEntity.getCoverIDAtSide((byte) aSide),
+                tTileEntity.getCoverDataAtSide((byte) aSide),
+                -2,
+                tTileEntity)
+            || tTileEntity.getCoverBehaviorAtSide((byte) aSide)
+                .letsItemsOut(
+                    (byte) aSide,
+                    tTileEntity.getCoverIDAtSide((byte) aSide),
+                    tTileEntity.getCoverDataAtSide((byte) aSide),
+                    -2,
+                    tTileEntity);
+        for (int i = 0; i < getSizeInventory(); i++) if (isValidSlot(i) && (tSkip
+            || tTileEntity.getCoverBehaviorAtSide((byte) aSide)
+                .letsItemsOut(
+                    (byte) aSide,
+                    tTileEntity.getCoverIDAtSide((byte) aSide),
+                    tTileEntity.getCoverDataAtSide((byte) aSide),
+                    i,
+                    tTileEntity)
+            || tTileEntity.getCoverBehaviorAtSide((byte) aSide)
+                .letsItemsIn(
+                    (byte) aSide,
+                    tTileEntity.getCoverIDAtSide((byte) aSide),
+                    tTileEntity.getCoverDataAtSide((byte) aSide),
+                    i,
+                    tTileEntity)))
+            tList.add(i);
         int[] rArray = new int[tList.size()];
         for (int i = 0; i < rArray.length; i++) rArray[i] = tList.get(i);
         return rArray;
@@ -518,12 +555,17 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
 
     @Override
     public boolean canInsertItem(int aIndex, ItemStack aStack, int aSide) {
-        return isValidSlot(aIndex) && aStack != null && aIndex < mInventory.length && (mInventory[aIndex] == null || GT_Utility.areStacksEqual(aStack, mInventory[aIndex])) && allowPutStack(getBaseMetaTileEntity(), aIndex, (byte) aSide, aStack);
+        return isValidSlot(aIndex) && aStack != null
+            && aIndex < mInventory.length
+            && (mInventory[aIndex] == null || GT_Utility.areStacksEqual(aStack, mInventory[aIndex]))
+            && allowPutStack(getBaseMetaTileEntity(), aIndex, (byte) aSide, aStack);
     }
 
     @Override
     public boolean canExtractItem(int aIndex, ItemStack aStack, int aSide) {
-        return isValidSlot(aIndex) && aStack != null && aIndex < mInventory.length && allowPullStack(getBaseMetaTileEntity(), aIndex, (byte) aSide, aStack);
+        return isValidSlot(aIndex) && aStack != null
+            && aIndex < mInventory.length
+            && allowPullStack(getBaseMetaTileEntity(), aIndex, (byte) aSide, aStack);
     }
 
     @Override
@@ -538,8 +580,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
 
     @Override
     public FluidTankInfo[] getTankInfo(ForgeDirection aSide) {
-        if (getCapacity() <= 0 && !getBaseMetaTileEntity().hasSteamEngineUpgrade()) return new FluidTankInfo[]{};
-        return new FluidTankInfo[]{getInfo()};
+        if (getCapacity() <= 0 && !getBaseMetaTileEntity().hasSteamEngineUpgrade()) return new FluidTankInfo[] {};
+        return new FluidTankInfo[] { getInfo() };
     }
 
     public int fill_default(ForgeDirection aSide, FluidStack aFluid, boolean doFill) {
@@ -670,8 +712,16 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
 
     @Override
     public void doExplosion(long aExplosionPower) {
-        float tStrength = aExplosionPower < V[0] ? 1.0F : aExplosionPower < V[1] ? 2.0F : aExplosionPower < V[2] ? 3.0F : aExplosionPower < V[3] ? 4.0F : aExplosionPower < V[4] ? 5.0F : aExplosionPower < V[4] * 2 ? 6.0F : aExplosionPower < V[5] ? 7.0F : aExplosionPower < V[6] ? 8.0F : aExplosionPower < V[7] ? 9.0F : 10.0F;
-        int tX = getBaseMetaTileEntity().getXCoord(), tY = getBaseMetaTileEntity().getYCoord(), tZ = getBaseMetaTileEntity().getZCoord();
+        float tStrength = aExplosionPower < V[0] ? 1.0F
+            : aExplosionPower < V[1] ? 2.0F
+                : aExplosionPower < V[2] ? 3.0F
+                    : aExplosionPower < V[3] ? 4.0F
+                        : aExplosionPower < V[4] ? 5.0F
+                            : aExplosionPower < V[4] * 2 ? 6.0F
+                                : aExplosionPower < V[5] ? 7.0F
+                                    : aExplosionPower < V[6] ? 8.0F : aExplosionPower < V[7] ? 9.0F : 10.0F;
+        int tX = getBaseMetaTileEntity().getXCoord(), tY = getBaseMetaTileEntity().getYCoord(),
+            tZ = getBaseMetaTileEntity().getZCoord();
         World tWorld = getBaseMetaTileEntity().getWorld();
         tWorld.setBlock(tX, tY, tZ, Blocks.air);
         if (GregTech_API.sMachineExplosions) {
@@ -685,7 +735,8 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     }
 
     @Override
-    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB, List<AxisAlignedBB> outputAABB, Entity collider) {
+    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB,
+        List<AxisAlignedBB> outputAABB, Entity collider) {
         AxisAlignedBB axisalignedbb1 = getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ);
         if (axisalignedbb1 != null && inputAABB.intersectsWith(axisalignedbb1)) outputAABB.add(axisalignedbb1);
     }
@@ -710,24 +761,24 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         return false;
     }
 
-	@Override
-	public boolean hasAlternativeModeText() {
-		return false;
-	}
+    @Override
+    public boolean hasAlternativeModeText() {
+        return false;
+    }
 
-	@Override
-	public String getAlternativeModeText() {
-		return "";
-	}
+    @Override
+    public String getAlternativeModeText() {
+        return "";
+    }
 
-	public String trans(String aKey, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aKey, aEnglish, false);
+    public String trans(String aKey, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 
     private boolean connectableColor(TileEntity tTileEntity) {
         // Determine if two entities are connectable based on their colorization:
-        //  Uncolored can connect to anything
-        //  If both are colored they must be the same color to connect.
+        // Uncolored can connect to anything
+        // If both are colored they must be the same color to connect.
         if (tTileEntity instanceof IColoredTileEntity) {
             if (getBaseMetaTileEntity().getColorization() >= 0) {
                 byte tColor = ((IColoredTileEntity) tTileEntity).getColorization();
@@ -738,17 +789,16 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         return true;
     }
 
-	@Override
-	public int connect(byte aSide) {
-		if (aSide >= 6) return 0;
+    @Override
+    public int connect(byte aSide) {
+        if (aSide >= 6) return 0;
 
-		final byte tSide = GT_Utility.getOppositeSide(aSide);
-		final IGregTechTileEntity baseMetaTile = getBaseMetaTileEntity();
-		if (baseMetaTile == null || !baseMetaTile.isServerSide()) return 0;
+        final byte tSide = GT_Utility.getOppositeSide(aSide);
+        final IGregTechTileEntity baseMetaTile = getBaseMetaTileEntity();
+        if (baseMetaTile == null || !baseMetaTile.isServerSide()) return 0;
 
         final GT_CoverBehavior coverBehavior = baseMetaTile.getCoverBehaviorAtSide(aSide);
-        final int coverId = baseMetaTile.getCoverIDAtSide(aSide),
-                  coverData = baseMetaTile.getCoverDataAtSide(aSide);
+        final int coverId = baseMetaTile.getCoverIDAtSide(aSide), coverData = baseMetaTile.getCoverDataAtSide(aSide);
 
         boolean alwaysLookConnected = coverBehavior.alwaysLookConnected(aSide, coverId, coverData, baseMetaTile);
         boolean letsIn = letsIn(coverBehavior, aSide, coverId, coverData, baseMetaTile);
@@ -758,33 +808,39 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         TileEntity tTileEntity = baseMetaTile.getTileEntityAtSide(aSide);
         if (!connectableColor(tTileEntity)) return 0;
 
-        if ((alwaysLookConnected || letsIn || letsOut))  {
+        if ((alwaysLookConnected || letsIn || letsOut)) {
             // Are we trying to connect to a pipe? let's do it!
-            IMetaTileEntity tPipe = tTileEntity instanceof IGregTechTileEntity ? ((IGregTechTileEntity) tTileEntity).getMetaTileEntity() : null;
-            if (getClass().isInstance(tPipe) || (tPipe != null && tPipe.getClass().isInstance(this))) {
+            IMetaTileEntity tPipe = tTileEntity instanceof IGregTechTileEntity
+                ? ((IGregTechTileEntity) tTileEntity).getMetaTileEntity()
+                : null;
+            if (getClass().isInstance(tPipe) || (tPipe != null && tPipe.getClass()
+                .isInstance(this))) {
                 connectAtSide(aSide);
                 if (!((MetaPipeEntity) tPipe).isConnectedAtSide(tSide)) {
                     // Make sure pipes all get together -- connect back to us if we're connecting to a pipe
                     ((MetaPipeEntity) tPipe).connect(tSide);
                 }
                 return 1;
-            }
-            else if((getGT6StyleConnection() && baseMetaTile.getAirAtSide(aSide)) || canConnect(aSide, tTileEntity)) {
-                // Allow open connections to Air, if the GT6 style pipe/cables are enabled, so that it'll connect to the next block placed down next to it
-                connectAtSide(aSide);
-                return 1;
-            }
-            if (!baseMetaTile.getWorld().getChunkProvider().chunkExists(baseMetaTile.getOffsetX(aSide, 1) >> 4, baseMetaTile.getOffsetZ(aSide, 1) >> 4)) {
+            } else
+                if ((getGT6StyleConnection() && baseMetaTile.getAirAtSide(aSide)) || canConnect(aSide, tTileEntity)) {
+                    // Allow open connections to Air, if the GT6 style pipe/cables are enabled, so that it'll connect to
+                    // the next block placed down next to it
+                    connectAtSide(aSide);
+                    return 1;
+                }
+            if (!baseMetaTile.getWorld()
+                .getChunkProvider()
+                .chunkExists(baseMetaTile.getOffsetX(aSide, 1) >> 4, baseMetaTile.getOffsetZ(aSide, 1) >> 4)) {
                 // Target chunk unloaded
                 return -1;
             }
 
         }
-    	return 0;
-	}
+        return 0;
+    }
 
     protected void checkConnections() {
-        // Verify connections around us.  If GT6 style cables are not enabled then revert to old behavior and try
+        // Verify connections around us. If GT6 style cables are not enabled then revert to old behavior and try
         // connecting to everything around us
         for (byte aSide = 0; aSide < 6; aSide++) {
             if ((!getGT6StyleConnection() || isConnectedAtSide(aSide)) && connect(aSide) == 0) {
@@ -794,29 +850,43 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
         mCheckConnections = false;
     }
 
-	private void connectAtSide(byte aSide) {
+    private void connectAtSide(byte aSide) {
         mConnections |= (1 << aSide);
     }
 
-	@Override
-	public void disconnect(byte aSide) {
-		if (aSide >= 6) return;
-		mConnections &= ~(1 << aSide);
-		byte tSide = GT_Utility.getOppositeSide(aSide);
-		IGregTechTileEntity tTileEntity = getBaseMetaTileEntity().getIGregTechTileEntityAtSide(aSide);
-		IMetaTileEntity tPipe = tTileEntity == null ? null : tTileEntity.getMetaTileEntity(); 
-		if ((this.getClass().isInstance(tPipe) || (tPipe != null && tPipe.getClass().isInstance(this))) && ((MetaPipeEntity) tPipe).isConnectedAtSide(tSide))
-			((MetaPipeEntity) tPipe).disconnect(tSide);
-	}
+    @Override
+    public void disconnect(byte aSide) {
+        if (aSide >= 6) return;
+        mConnections &= ~(1 << aSide);
+        byte tSide = GT_Utility.getOppositeSide(aSide);
+        IGregTechTileEntity tTileEntity = getBaseMetaTileEntity().getIGregTechTileEntityAtSide(aSide);
+        IMetaTileEntity tPipe = tTileEntity == null ? null : tTileEntity.getMetaTileEntity();
+        if ((this.getClass()
+            .isInstance(tPipe)
+            || (tPipe != null && tPipe.getClass()
+                .isInstance(this)))
+            && ((MetaPipeEntity) tPipe).isConnectedAtSide(tSide)) ((MetaPipeEntity) tPipe).disconnect(tSide);
+    }
 
-	public boolean isConnectedAtSide(int aSide) {
-		return (mConnections & (1 << aSide)) != 0;
-	}
+    public boolean isConnectedAtSide(int aSide) {
+        return (mConnections & (1 << aSide)) != 0;
+    }
 
+    public boolean letsIn(GT_CoverBehavior coverBehavior, byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
+        return false;
+    }
 
-	public boolean letsIn(GT_CoverBehavior coverBehavior, byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) { return false; }
-    public boolean letsOut(GT_CoverBehavior coverBehavior, byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) { return false; }
+    public boolean letsOut(GT_CoverBehavior coverBehavior, byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
+        return false;
+    }
 
-	public boolean canConnect(byte aSide, TileEntity tTileEntity) { return false; }
-	public boolean getGT6StyleConnection() { return false; }
+    public boolean canConnect(byte aSide, TileEntity tTileEntity) {
+        return false;
+    }
+
+    public boolean getGT6StyleConnection() {
+        return false;
+    }
 }

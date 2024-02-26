@@ -1,6 +1,7 @@
 package gregtech.api.interfaces.tileentity;
 
 public interface IColoredTileEntity {
+
     /**
      * @return 0 - 15 are Colors, while -1 means uncolored
      */

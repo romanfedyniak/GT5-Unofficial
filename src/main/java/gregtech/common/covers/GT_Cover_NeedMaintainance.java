@@ -1,5 +1,9 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -7,17 +11,17 @@ import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockBase;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
 
 public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
 
     private boolean isRotor(ItemStack aRotor) {
-        return !(aRotor == null || !(aRotor.getItem() instanceof GT_MetaGenerated_Tool) || aRotor.getItemDamage() < 170 || aRotor.getItemDamage() > 176);
+        return !(aRotor == null || !(aRotor.getItem() instanceof GT_MetaGenerated_Tool)
+            || aRotor.getItemDamage() < 170
+            || aRotor.getItemDamage() > 176);
     }
 
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         boolean needsRepair = false;
         if (aTileEntity instanceof IGregTechTileEntity) {
             IGregTechTileEntity tTileEntity = (IGregTechTileEntity) aTileEntity;
@@ -29,8 +33,7 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
                 ItemStack tRotor = multi.getRealInventory()[1];
                 int coverVar = aCoverVariable >>> 1;
                 if (coverVar < 5) {
-                    if (ideal - real > coverVar)
-                        needsRepair = true;
+                    if (ideal - real > coverVar) needsRepair = true;
                 } else if (coverVar == 5 || coverVar == 6) {
                     if (isRotor(tRotor)) {
                         long tMax = GT_MetaGenerated_Tool.getToolMaxDamage(tRotor);
@@ -38,7 +41,10 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
                         if (coverVar == 5) {
                             needsRepair = (tCur >= tMax * 8 / 10);
                         } else {
-                            long mExpectedDamage = Math.round(Math.min(multi.mEUt / multi.damageFactorLow, Math.pow(multi.mEUt, multi.damageFactorHigh)));
+                            long mExpectedDamage = Math.round(
+                                Math.min(
+                                    multi.mEUt / multi.damageFactorLow,
+                                    Math.pow(multi.mEUt, multi.damageFactorHigh)));
                             needsRepair = tCur + mExpectedDamage * 2 >= tMax;
                         }
                     } else {
@@ -56,7 +62,8 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
         return aCoverVariable;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = (aCoverVariable + (aPlayer.isSneaking() ? -1 : 1)) % 14;
         if (aCoverVariable < 0) {
             aCoverVariable = 13;
@@ -96,13 +103,17 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
                 GT_Utility.sendChatToPlayer(aPlayer, trans("066", "Emit if rotor needs maintenance low accuracy mod"));
                 break;
             case 11:
-                GT_Utility.sendChatToPlayer(aPlayer, trans("067", "Emit if rotor needs maintenance low accuracy mod(inverted)"));
+                GT_Utility.sendChatToPlayer(
+                    aPlayer,
+                    trans("067", "Emit if rotor needs maintenance low accuracy mod(inverted)"));
                 break;
             case 12:
                 GT_Utility.sendChatToPlayer(aPlayer, trans("068", "Emit if rotor needs maintenance high accuracy mod"));
                 break;
             case 13:
-                GT_Utility.sendChatToPlayer(aPlayer, trans("069", "Emit if rotor needs maintenance high accuracy mod(inverted)"));
+                GT_Utility.sendChatToPlayer(
+                    aPlayer,
+                    trans("069", "Emit if rotor needs maintenance high accuracy mod(inverted)"));
                 break;
         }
         return aCoverVariable;
@@ -132,7 +143,8 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
         return true;
     }
 
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return true;
     }
 

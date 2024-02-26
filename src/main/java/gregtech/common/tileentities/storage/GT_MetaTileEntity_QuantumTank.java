@@ -1,16 +1,17 @@
 package gregtech.common.tileentities.storage;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
 import gregtech.api.objects.GT_RenderedTexture;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class GT_MetaTileEntity_QuantumTank
-        extends GT_MetaTileEntity_BasicTank {
+public class GT_MetaTileEntity_QuantumTank extends GT_MetaTileEntity_BasicTank {
+
     public GT_MetaTileEntity_QuantumTank(int aID, String aName, String aNameRegional, int aTier) {
         super(aID, aName, aNameRegional, aTier, 3, "Stores " + ((int) (Math.pow(6, aTier) * 267000)) + "L of fluid");
     }
@@ -29,8 +30,12 @@ public class GT_MetaTileEntity_QuantumTank
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-        return aSide == 1 ? new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QTANK)} : new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1]};
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
+        return aSide == 1
+            ? new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1],
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QTANK) }
+            : new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1] };
     }
 
     @Override
@@ -104,19 +109,11 @@ public class GT_MetaTileEntity_QuantumTank
     public String[] getInfoData() {
 
         if (mFluid == null) {
-            return new String[]{
-                    "Quantum Tank",
-                    "Stored Fluid:",
-                    "No Fluid",
-                    Integer.toString(0) + "L",
-                    Integer.toString(getCapacity()) + "L"};
+            return new String[] { "Quantum Tank", "Stored Fluid:", "No Fluid", Integer.toString(0) + "L",
+                Integer.toString(getCapacity()) + "L" };
         }
-        return new String[]{
-                "Quantum Tank",
-                "Stored Fluid:",
-                mFluid.getLocalizedName(),
-                Integer.toString(mFluid.amount) + "L",
-                Integer.toString(getCapacity()) + "L"};
+        return new String[] { "Quantum Tank", "Stored Fluid:", mFluid.getLocalizedName(),
+            Integer.toString(mFluid.amount) + "L", Integer.toString(getCapacity()) + "L" };
     }
 
     @Override

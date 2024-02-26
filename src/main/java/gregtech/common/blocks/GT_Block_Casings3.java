@@ -1,14 +1,15 @@
 package gregtech.common.blocks;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Textures;
 import gregtech.api.objects.GT_CopiedBlockTexture;
 import gregtech.api.util.GT_LanguageManager;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
-public class GT_Block_Casings3
-        extends GT_Block_Casings_Abstract {
+public class GT_Block_Casings3 extends GT_Block_Casings_Abstract {
+
     public GT_Block_Casings3() {
         super(GT_Item_Casings3.class, "gt.blockcasings3", GT_Material_Casings.INSTANCE);
         for (byte i = 0; i < 16; i = (byte) (i + 1)) {
@@ -77,11 +78,14 @@ public class GT_Block_Casings3
             case 12:
                 return Textures.BlockIcons.MACHINE_CASING_RADIATIONPROOF.getIcon();
             case 13:
-                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_BRONZE.getIcon() : Textures.BlockIcons.MACHINE_BRONZEPLATEDBRICKS.getIcon();
+                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_BRONZE.getIcon()
+                    : Textures.BlockIcons.MACHINE_BRONZEPLATEDBRICKS.getIcon();
             case 14:
-                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_STEEL.getIcon() : Textures.BlockIcons.MACHINE_CASING_SOLID_STEEL.getIcon();
+                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_STEEL.getIcon()
+                    : Textures.BlockIcons.MACHINE_CASING_SOLID_STEEL.getIcon();
             case 15:
-                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_TUNGSTENSTEEL.getIcon() : Textures.BlockIcons.MACHINE_CASING_ROBUST_TUNGSTENSTEEL.getIcon();
+                return aSide > 1 ? Textures.BlockIcons.MACHINE_CASING_FIREBOX_TUNGSTENSTEEL.getIcon()
+                    : Textures.BlockIcons.MACHINE_CASING_ROBUST_TUNGSTENSTEEL.getIcon();
         }
         return Textures.BlockIcons.MACHINE_CASING_SOLID_STEEL.getIcon();
     }

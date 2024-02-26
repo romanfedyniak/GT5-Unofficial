@@ -1,14 +1,15 @@
 package gregtech.api.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.util.GT_LanguageManager;
+import java.util.Iterator;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 
-import java.util.Iterator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.util.GT_LanguageManager;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -17,9 +18,10 @@ import java.util.Iterator;
  */
 public class GT_ContainerMetaTile_Machine extends GT_Container {
 
-    public int mActive = 0, mMaxProgressTime = 0, mProgressTime = 0, mEnergy = 0, mSteam = 0, mSteamStorage = 0, mStorage = 0, mOutput = 0, mInput = 0, mID = 0, mDisplayErrorCode = 0;
-    private int oActive = 0, oMaxProgressTime = 0, oProgressTime = 0, oEnergy = 0, oSteam = 0, oSteamStorage = 0, oStorage = 0, oOutput = 0, oInput = 0, oID = 0, oDisplayErrorCode = 0, mTimer = 0;
-
+    public int mActive = 0, mMaxProgressTime = 0, mProgressTime = 0, mEnergy = 0, mSteam = 0, mSteamStorage = 0,
+        mStorage = 0, mOutput = 0, mInput = 0, mID = 0, mDisplayErrorCode = 0;
+    private int oActive = 0, oMaxProgressTime = 0, oProgressTime = 0, oEnergy = 0, oSteam = 0, oSteamStorage = 0,
+        oStorage = 0, oOutput = 0, oInput = 0, oID = 0, oDisplayErrorCode = 0, mTimer = 0;
 
     public GT_ContainerMetaTile_Machine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity) {
         super(aInventoryPlayer, aTileEntity);
@@ -34,7 +36,9 @@ public class GT_ContainerMetaTile_Machine extends GT_Container {
             aInventoryPlayer.player.openContainer = aInventoryPlayer.player.inventoryContainer;
         }
     }
-    public GT_ContainerMetaTile_Machine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, boolean doesBindInventory) {
+
+    public GT_ContainerMetaTile_Machine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity,
+        boolean doesBindInventory) {
         super(aInventoryPlayer, aTileEntity);
         mTileEntity = aTileEntity;
 
@@ -183,8 +187,8 @@ public class GT_ContainerMetaTile_Machine extends GT_Container {
     public boolean canInteractWith(EntityPlayer player) {
         return mTileEntity.isUseableByPlayer(player);
     }
-    
-    public String trans(String aKey, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aKey, aEnglish, false);
+
+    public String trans(String aKey, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 }

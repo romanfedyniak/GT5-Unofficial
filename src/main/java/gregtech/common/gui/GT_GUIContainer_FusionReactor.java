@@ -1,20 +1,24 @@
 package gregtech.common.gui;
 
+import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
+
+import net.minecraft.entity.player.InventoryPlayer;
+
 import gregtech.api.gui.GT_Container_MultiMachine;
 import gregtech.api.gui.GT_GUIContainerMetaTile_Machine;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.InventoryPlayer;
-
-import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
 
 public class GT_GUIContainer_FusionReactor extends GT_GUIContainerMetaTile_Machine {
 
     public String mNEI;
     String mName = "";
 
-    public GT_GUIContainer_FusionReactor(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName, String aTextureFile, String aNEI) {
-        super(new GT_Container_MultiMachine(aInventoryPlayer, aTileEntity, false), RES_PATH_GUI + "multimachines/" + (aTextureFile == null ? "MultiblockDisplay" : aTextureFile));
+    public GT_GUIContainer_FusionReactor(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity,
+        String aName, String aTextureFile, String aNEI) {
+        super(
+            new GT_Container_MultiMachine(aInventoryPlayer, aTileEntity, false),
+            RES_PATH_GUI + "multimachines/" + (aTextureFile == null ? "MultiblockDisplay" : aTextureFile));
         mName = aName;
         mNEI = aNEI;
     }
@@ -29,19 +33,23 @@ public class GT_GUIContainer_FusionReactor extends GT_GUIContainerMetaTile_Machi
 
             if (((GT_Container_MultiMachine) mContainer).mDisplayErrorCode == 0) {
                 if (((GT_Container_MultiMachine) mContainer).mActive == 0) {
-                    fontRendererObj.drawString("Hit with Soft Hammer to (re-)start the Machine if it doesn't start.", -70, 170, 16448255);
+                    fontRendererObj.drawString(
+                        "Hit with Soft Hammer to (re-)start the Machine if it doesn't start.",
+                        -70,
+                        170,
+                        16448255);
                 } else {
                     fontRendererObj.drawString("Running perfectly.", 10, 170, 16448255);
                 }
             }
-            if(this.mContainer.mEnergy > 160000000 && this.mContainer.mEnergy < 160010000)
+            if (this.mContainer.mEnergy > 160000000 && this.mContainer.mEnergy < 160010000)
                 fontRendererObj.drawString("160,000,000 EU", 50, 155, 0x00ff0000);
-            else if(this.mContainer.mEnergy > 320000000 && this.mContainer.mEnergy < 320010000)
+            else if (this.mContainer.mEnergy > 320000000 && this.mContainer.mEnergy < 320010000)
                 fontRendererObj.drawString("320,000,000 EU", 50, 155, 0x00ff0000);
-            else if(this.mContainer.mEnergy > 640000000 && this.mContainer.mEnergy < 640010000)
+            else if (this.mContainer.mEnergy > 640000000 && this.mContainer.mEnergy < 640010000)
                 fontRendererObj.drawString("640,000,000 EU", 50, 155, 0x00ff0000);
-            else
-            fontRendererObj.drawString(GT_Utility.formatNumbers(this.mContainer.mEnergy) + " EU", 50, 155, 0x00ff0000);
+            else fontRendererObj
+                .drawString(GT_Utility.formatNumbers(this.mContainer.mEnergy) + " EU", 50, 155, 0x00ff0000);
         }
     }
 

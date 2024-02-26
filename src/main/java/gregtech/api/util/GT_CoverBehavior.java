@@ -1,21 +1,24 @@
 package gregtech.api.util;
 
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.objects.GT_ItemStack;
+import static gregtech.api.enums.GT_Values.E;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 
-import static gregtech.api.enums.GT_Values.E;
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.objects.GT_ItemStack;
 
 /**
  * For Covers with a special behavior.
  */
 public abstract class GT_CoverBehavior {
+
     /**
      * Called by updateEntity inside the covered TileEntity. aCoverVariable is the Value you returned last time.
      */
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         return aCoverVariable;
     }
 
@@ -24,7 +27,8 @@ public abstract class GT_CoverBehavior {
      * <p/>
      * return true, if something actually happens.
      */
-    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         return false;
     }
 
@@ -33,7 +37,8 @@ public abstract class GT_CoverBehavior {
      * <p/>
      * return true, if something actually happens.
      */
-    public boolean onCoverRightclickClient(byte aSide, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onCoverRightclickClient(byte aSide, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY,
+        float aZ) {
         return false;
     }
 
@@ -42,7 +47,8 @@ public abstract class GT_CoverBehavior {
      * <p/>
      * return the new Value of the Cover Variable
      */
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         return aCoverVariable;
     }
 
@@ -57,7 +63,8 @@ public abstract class GT_CoverBehavior {
      * Removes the Cover if this returns true, or if aForced is true.
      * Doesn't get called when the Machine Block is getting broken, only if you break the Cover away from the Machine.
      */
-    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, boolean aForced) {
+    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        boolean aForced) {
         return true;
     }
 
@@ -136,14 +143,18 @@ public abstract class GT_CoverBehavior {
     }
 
     /**
-     * If it lets Items into the Block, aSlot = -1 means if it is generally accepting Items (return false for no Interaction at all), aSlot = -2 means if it would accept for all Slots (return true to skip the Checks for each Slot).
+     * If it lets Items into the Block, aSlot = -1 means if it is generally accepting Items (return false for no
+     * Interaction at all), aSlot = -2 means if it would accept for all Slots (return true to skip the Checks for each
+     * Slot).
      */
     public boolean letsItemsIn(byte aSide, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
         return false;
     }
 
     /**
-     * If it lets Items out of the Block, aSlot = -1 means if it is generally accepting Items (return false for no Interaction at all), aSlot = -2 means if it would accept for all Slots (return true to skip the Checks for each Slot).
+     * If it lets Items out of the Block, aSlot = -1 means if it is generally accepting Items (return false for no
+     * Interaction at all), aSlot = -2 means if it would accept for all Slots (return true to skip the Checks for each
+     * Slot).
      */
     public boolean letsItemsOut(byte aSide, int aCoverID, int aCoverVariable, int aSlot, ICoverable aTileEntity) {
         return false;
@@ -159,7 +170,8 @@ public abstract class GT_CoverBehavior {
     /**
      * Needs to return true for Covers, which have a Redstone Output on their Facing.
      */
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return false;
     }
 
@@ -175,7 +187,8 @@ public abstract class GT_CoverBehavior {
      * Returns the original Redstone per default.
      * The Cover should @letsRedstoneGoIn or the aInputRedstone Parameter is always 0.
      */
-    public byte getRedstoneInput(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public byte getRedstoneInput(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return letsRedstoneGoIn(aSide, aCoverID, aCoverVariable, aTileEntity) ? aInputRedstone : 0;
     }
 
@@ -215,8 +228,8 @@ public abstract class GT_CoverBehavior {
     public void placeCover(byte aSide, ItemStack aCover, ICoverable aTileEntity) {
         aTileEntity.setCoverIDAtSide(aSide, GT_Utility.stackToInt(aCover));
     }
-    
-    public String trans(String aNr, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aNr, aEnglish, false);
+
+    public String trans(String aNr, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aNr, aEnglish, false);
     }
 }

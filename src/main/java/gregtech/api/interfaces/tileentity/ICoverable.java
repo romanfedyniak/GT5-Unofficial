@@ -1,9 +1,11 @@
 package gregtech.api.interfaces.tileentity;
 
-import gregtech.api.util.GT_CoverBehavior;
 import net.minecraft.item.ItemStack;
 
+import gregtech.api.util.GT_CoverBehavior;
+
 public interface ICoverable extends IRedstoneTileEntity, IHasInventory, IBasicEnergyContainer {
+
     public boolean canPlaceCoverIDAtSide(byte aSide, int aID);
 
     public boolean canPlaceCoverItemAtSide(byte aSide, ItemStack aCover);

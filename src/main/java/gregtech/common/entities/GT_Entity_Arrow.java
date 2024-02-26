@@ -1,9 +1,8 @@
 package gregtech.common.entities;
 
-import com.mojang.authlib.GameProfile;
-import gregtech.api.objects.ItemData;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Utility;
+import java.util.List;
+import java.util.UUID;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
@@ -21,16 +20,23 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 
-import java.util.List;
-import java.util.UUID;
+import com.mojang.authlib.GameProfile;
 
-public class GT_Entity_Arrow
-        extends EntityArrow {
+import gregtech.api.objects.ItemData;
+import gregtech.api.util.GT_OreDictUnificator;
+import gregtech.api.util.GT_Utility;
+
+public class GT_Entity_Arrow extends EntityArrow {
+
     private int mHitBlockX = -1;
     private int mHitBlockY = -1;
     private int mHitBlockZ = -1;
@@ -71,8 +77,10 @@ public class GT_Entity_Arrow
         Entity tShootingEntity = this.shootingEntity;
         if ((this.prevRotationPitch == 0.0F) && (this.prevRotationYaw == 0.0F)) {
             float f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
-            this.prevRotationYaw = (this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
-            this.prevRotationPitch = (this.rotationPitch = (float) (Math.atan2(this.motionY, f) * 180.0D / 3.141592653589793D));
+            this.prevRotationYaw = (this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D
+                / 3.141592653589793D));
+            this.prevRotationPitch = (this.rotationPitch = (float) (Math.atan2(this.motionY, f) * 180.0D
+                / 3.141592653589793D));
         }
         if (this.mTicksAlive++ == 3000) {
             setDead();
@@ -80,8 +88,10 @@ public class GT_Entity_Arrow
         Block tBlock = this.worldObj.getBlock(this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
         if (tBlock.getMaterial() != Material.air) {
             tBlock.setBlockBoundsBasedOnState(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
-            AxisAlignedBB axisalignedbb = tBlock.getCollisionBoundingBoxFromPool(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
-            if ((axisalignedbb != null) && (axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ)))) {
+            AxisAlignedBB axisalignedbb = tBlock
+                .getCollisionBoundingBoxFromPool(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
+            if ((axisalignedbb != null)
+                && (axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ)))) {
                 this.inGround = true;
             }
         }
@@ -101,15 +111,20 @@ public class GT_Entity_Arrow
         } else {
             this.ticksInAir += 1;
             Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+            Vec3 vec3 = Vec3
+                .createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
             MovingObjectPosition tVector = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
             vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+            vec3 = Vec3
+                .createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
             if (tVector != null) {
                 vec3 = Vec3.createVectorHelper(tVector.hitVec.xCoord, tVector.hitVec.yCoord, tVector.hitVec.zCoord);
             }
             Entity tHitEntity = null;
-            List tAllPotentiallyHitEntities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<?> tAllPotentiallyHitEntities = this.worldObj.getEntitiesWithinAABBExcludingEntity(
+                this,
+                this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
+                    .expand(1.0D, 1.0D, 1.0D));
             double tLargestDistance = 1.7976931348623157E+308D;
             for (int i = 0; i < tAllPotentiallyHitEntities.size(); i++) {
                 Entity entity1 = (Entity) tAllPotentiallyHitEntities.get(i);
@@ -130,7 +145,8 @@ public class GT_Entity_Arrow
             }
             if ((tVector != null) && ((tVector.entityHit instanceof EntityPlayer))) {
                 EntityPlayer entityplayer = (EntityPlayer) tVector.entityHit;
-                if ((entityplayer.capabilities.disableDamage) || (((tShootingEntity instanceof EntityPlayer)) && (!((EntityPlayer) tShootingEntity).canAttackPlayer(entityplayer)))) {
+                if ((entityplayer.capabilities.disableDamage) || (((tShootingEntity instanceof EntityPlayer))
+                    && (!((EntityPlayer) tShootingEntity).canAttackPlayer(entityplayer)))) {
                     tVector = null;
                 }
             }
@@ -138,17 +154,35 @@ public class GT_Entity_Arrow
                 if (tVector.entityHit != null) {
                     ItemData tData = GT_OreDictUnificator.getItemData(this.mArrow);
 
-
-                    float tMagicDamage = (tVector.entityHit instanceof EntityLivingBase) ? EnchantmentHelper.func_152377_a(this.mArrow, ((EntityLivingBase) tVector.entityHit).getCreatureAttribute()) : 0.0F;
-                    float tDamage = MathHelper.ceiling_double_int(MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ) * (getDamage() + ((tData != null) && (tData.mMaterial != null) && (tData.mMaterial.mMaterial != null) ? tData.mMaterial.mMaterial.mToolQuality / 2.0F - 1.0F : 0.0F)));
+                    float tMagicDamage = (tVector.entityHit instanceof EntityLivingBase)
+                        ? EnchantmentHelper
+                            .func_152377_a(this.mArrow, ((EntityLivingBase) tVector.entityHit).getCreatureAttribute())
+                        : 0.0F;
+                    float tDamage = MathHelper.ceiling_double_int(
+                        MathHelper.sqrt_double(
+                            this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ)
+                            * (getDamage()
+                                + ((tData != null) && (tData.mMaterial != null) && (tData.mMaterial.mMaterial != null)
+                                    ? tData.mMaterial.mMaterial.mToolQuality / 2.0F - 1.0F
+                                    : 0.0F)));
                     if (getIsCritical()) {
                         tDamage += this.rand.nextInt((int) (tDamage / 2.0D + 2.0D));
                     }
-                    int tFireDamage = (isBurning() ? 5 : 0) + 4 * EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow);
-                    int tKnockback = this.mKnockback + EnchantmentHelper.getEnchantmentLevel(Enchantment.knockback.effectId, this.mArrow);
+                    int tFireDamage = (isBurning() ? 5 : 0)
+                        + 4 * EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow);
+                    int tKnockback = this.mKnockback
+                        + EnchantmentHelper.getEnchantmentLevel(Enchantment.knockback.effectId, this.mArrow);
                     int tHitTimer = -1;
 
-                    int[] tDamages = onHitEntity(tVector.entityHit, tShootingEntity == null ? this : tShootingEntity, this.mArrow == null ? new ItemStack(Items.arrow, 1) : this.mArrow, (int) (tDamage * 2.0F), (int) (tMagicDamage * 2.0F), tKnockback, tFireDamage, tHitTimer);
+                    int[] tDamages = onHitEntity(
+                        tVector.entityHit,
+                        tShootingEntity == null ? this : tShootingEntity,
+                        this.mArrow == null ? new ItemStack(Items.arrow, 1) : this.mArrow,
+                        (int) (tDamage * 2.0F),
+                        (int) (tMagicDamage * 2.0F),
+                        tKnockback,
+                        tFireDamage,
+                        tHitTimer);
                     if (tDamages != null) {
                         tDamage = tDamages[0] / 2.0F;
                         tMagicDamage = tDamages[1] / 2.0F;
@@ -158,10 +192,17 @@ public class GT_Entity_Arrow
                         if ((tFireDamage > 0) && (!(tVector.entityHit instanceof EntityEnderman))) {
                             tVector.entityHit.setFire(tFireDamage);
                         }
-                        if ((!(tHitEntity instanceof EntityPlayer)) && (EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, this.mArrow) > 0)) {
+                        if ((!(tHitEntity instanceof EntityPlayer))
+                            && (EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, this.mArrow) > 0)) {
                             EntityPlayer tPlayer = null;
                             if ((this.worldObj instanceof WorldServer)) {
-                                tPlayer = FakePlayerFactory.get((WorldServer) this.worldObj, new GameProfile(new UUID(0L, 0L), (tShootingEntity instanceof EntityLivingBase) ? ((EntityLivingBase) tShootingEntity).getCommandSenderName() : "Arrow"));
+                                tPlayer = FakePlayerFactory.get(
+                                    (WorldServer) this.worldObj,
+                                    new GameProfile(
+                                        new UUID(0L, 0L),
+                                        (tShootingEntity instanceof EntityLivingBase)
+                                            ? ((EntityLivingBase) tShootingEntity).getCommandSenderName()
+                                            : "Arrow"));
                             }
                             if (tPlayer != null) {
                                 tPlayer.inventory.currentItem = 0;
@@ -170,35 +211,55 @@ public class GT_Entity_Arrow
                                 tPlayer.setDead();
                             }
                         }
-                        DamageSource tDamageSource = DamageSource.causeArrowDamage(this, tShootingEntity == null ? this : tShootingEntity);
-                        if ((tDamage + tMagicDamage > 0.0F) && (tVector.entityHit.attackEntityFrom(tDamageSource, tDamage + tMagicDamage))) {
+                        DamageSource tDamageSource = DamageSource
+                            .causeArrowDamage(this, tShootingEntity == null ? this : tShootingEntity);
+                        if ((tDamage + tMagicDamage > 0.0F)
+                            && (tVector.entityHit.attackEntityFrom(tDamageSource, tDamage + tMagicDamage))) {
                             if ((tVector.entityHit instanceof EntityLivingBase)) {
                                 if (tHitTimer >= 0) {
                                     tVector.entityHit.hurtResistantTime = tHitTimer;
                                 }
-                                if (((tVector.entityHit instanceof EntityCreeper)) && (EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow) > 0)) {
+                                if (((tVector.entityHit instanceof EntityCreeper)) && (EnchantmentHelper
+                                    .getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow) > 0)) {
                                     ((EntityCreeper) tVector.entityHit).func_146079_cb();
                                 }
                                 EntityLivingBase tHitLivingEntity = (EntityLivingBase) tVector.entityHit;
                                 if (!this.worldObj.isRemote) {
-                                    tHitLivingEntity.setArrowCountInEntity(tHitLivingEntity.getArrowCountInEntity() + 1);
+                                    tHitLivingEntity
+                                        .setArrowCountInEntity(tHitLivingEntity.getArrowCountInEntity() + 1);
                                 }
                                 if (tKnockback > 0) {
-                                    float tKnockbackDivider = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
+                                    float tKnockbackDivider = MathHelper
+                                        .sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
                                     if (tKnockbackDivider > 0.0F) {
-                                        tHitLivingEntity.addVelocity(this.motionX * tKnockback * 0.6000000238418579D / tKnockbackDivider, 0.1D, this.motionZ * tKnockback * 0.6000000238418579D / tKnockbackDivider);
+                                        tHitLivingEntity.addVelocity(
+                                            this.motionX * tKnockback * 0.6000000238418579D / tKnockbackDivider,
+                                            0.1D,
+                                            this.motionZ * tKnockback * 0.6000000238418579D / tKnockbackDivider);
                                     }
                                 }
-                                GT_Utility.GT_EnchantmentHelper.applyBullshitA(tHitLivingEntity, tShootingEntity == null ? this : tShootingEntity, this.mArrow);
-                                GT_Utility.GT_EnchantmentHelper.applyBullshitB((tShootingEntity instanceof EntityLivingBase) ? (EntityLivingBase) tShootingEntity : null, tHitLivingEntity, this.mArrow);
-                                if ((tShootingEntity != null) && (tHitLivingEntity != tShootingEntity) && ((tHitLivingEntity instanceof EntityPlayer)) && ((tShootingEntity instanceof EntityPlayerMP))) {
-                                    ((EntityPlayerMP) tShootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+                                GT_Utility.GT_EnchantmentHelper.applyBullshitA(
+                                    tHitLivingEntity,
+                                    tShootingEntity == null ? this : tShootingEntity,
+                                    this.mArrow);
+                                GT_Utility.GT_EnchantmentHelper.applyBullshitB(
+                                    (tShootingEntity instanceof EntityLivingBase) ? (EntityLivingBase) tShootingEntity
+                                        : null,
+                                    tHitLivingEntity,
+                                    this.mArrow);
+                                if ((tShootingEntity != null) && (tHitLivingEntity != tShootingEntity)
+                                    && ((tHitLivingEntity instanceof EntityPlayer))
+                                    && ((tShootingEntity instanceof EntityPlayerMP))) {
+                                    ((EntityPlayerMP) tShootingEntity).playerNetServerHandler
+                                        .sendPacket(new S2BPacketChangeGameState(6, 0.0F));
                                 }
                             }
                             if (((tShootingEntity instanceof EntityPlayer)) && (tMagicDamage > 0.0F)) {
                                 ((EntityPlayer) tShootingEntity).onEnchantmentCritical(tVector.entityHit);
                             }
-                            if ((!(tVector.entityHit instanceof EntityEnderman)) || (((EntityEnderman) tVector.entityHit).getActivePotionEffect(Potion.weakness) != null)) {
+                            if ((!(tVector.entityHit instanceof EntityEnderman))
+                                || (((EntityEnderman) tVector.entityHit).getActivePotionEffect(Potion.weakness)
+                                    != null)) {
                                 if (tFireDamage > 0) {
                                     tVector.entityHit.setFire(tFireDamage);
                                 }
@@ -219,11 +280,13 @@ public class GT_Entity_Arrow
                     this.mHitBlockY = tVector.blockY;
                     this.mHitBlockZ = tVector.blockZ;
                     this.mHitBlock = this.worldObj.getBlock(this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
-                    this.mHitBlockMeta = this.worldObj.getBlockMetadata(this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
+                    this.mHitBlockMeta = this.worldObj
+                        .getBlockMetadata(this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ);
                     this.motionX = ((float) (tVector.hitVec.xCoord - this.posX));
                     this.motionY = ((float) (tVector.hitVec.yCoord - this.posY));
                     this.motionZ = ((float) (tVector.hitVec.zCoord - this.posZ));
-                    float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+                    float f2 = MathHelper.sqrt_double(
+                        this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
                     this.posX -= this.motionX / f2 * 0.0500000007450581D;
                     this.posY -= this.motionY / f2 * 0.0500000007450581D;
                     this.posZ -= this.motionZ / f2 * 0.0500000007450581D;
@@ -232,10 +295,17 @@ public class GT_Entity_Arrow
                     this.arrowShake = 7;
                     setIsCritical(false);
                     if (this.mHitBlock.getMaterial() != Material.air) {
-                        this.mHitBlock.onEntityCollidedWithBlock(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ, this);
+                        this.mHitBlock.onEntityCollidedWithBlock(
+                            this.worldObj,
+                            this.mHitBlockX,
+                            this.mHitBlockY,
+                            this.mHitBlockZ,
+                            this);
                     }
-                    if ((!this.worldObj.isRemote) && (EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow) > 2)) {
-                        GT_Utility.setCoordsOnFire(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ, true);
+                    if ((!this.worldObj.isRemote)
+                        && (EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, this.mArrow) > 2)) {
+                        GT_Utility
+                            .setCoordsOnFire(this.worldObj, this.mHitBlockX, this.mHitBlockY, this.mHitBlockZ, true);
                     }
                     if (breaksOnImpact()) {
                         setDead();
@@ -244,7 +314,14 @@ public class GT_Entity_Arrow
             }
             if (getIsCritical()) {
                 for (int i = 0; i < 4; i++) {
-                    this.worldObj.spawnParticle("crit", this.posX + this.motionX * i / 4.0D, this.posY + this.motionY * i / 4.0D, this.posZ + this.motionZ * i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+                    this.worldObj.spawnParticle(
+                        "crit",
+                        this.posX + this.motionX * i / 4.0D,
+                        this.posY + this.motionY * i / 4.0D,
+                        this.posZ + this.motionZ * i / 4.0D,
+                        -this.motionX,
+                        -this.motionY + 0.2D,
+                        -this.motionZ);
                 }
             }
             this.posX += this.motionX;
@@ -252,8 +329,11 @@ public class GT_Entity_Arrow
             this.posZ += this.motionZ;
 
             this.rotationYaw = ((float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
-            for (this.rotationPitch = ((float) (Math.atan2(this.motionY, MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ)) * 180.0D / 3.141592653589793D)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
-            }
+            for (this.rotationPitch = ((float) (Math
+                .atan2(this.motionY, MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ))
+                * 180.0D
+                / 3.141592653589793D)); this.rotationPitch - this.prevRotationPitch
+                    < -180.0F; this.prevRotationPitch -= 360.0F) {}
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
                 this.prevRotationPitch += 360.0F;
             }
@@ -268,7 +348,14 @@ public class GT_Entity_Arrow
             float tFrictionMultiplier = 0.99F;
             if (isInWater()) {
                 for (int l = 0; l < 4; l++) {
-                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * 0.25D, this.posY - this.motionY * 0.25D, this.posZ - this.motionZ * 0.25D, this.motionX, this.motionY, this.motionZ);
+                    this.worldObj.spawnParticle(
+                        "bubble",
+                        this.posX - this.motionX * 0.25D,
+                        this.posY - this.motionY * 0.25D,
+                        this.posZ - this.motionZ * 0.25D,
+                        this.motionX,
+                        this.motionY,
+                        this.motionZ);
                 }
                 tFrictionMultiplier = 0.8F;
             }
@@ -315,23 +402,27 @@ public class GT_Entity_Arrow
     }
 
     public void onCollideWithPlayer(EntityPlayer aPlayer) {
-        if ((!this.worldObj.isRemote) && (this.inGround) && (this.arrowShake <= 0) && (this.canBePickedUp == 1) && (aPlayer.inventory.addItemStackToInventory(getArrowItem()))) {
+        if ((!this.worldObj.isRemote) && (this.inGround)
+            && (this.arrowShake <= 0)
+            && (this.canBePickedUp == 1)
+            && (aPlayer.inventory.addItemStackToInventory(getArrowItem()))) {
             playSound("random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             aPlayer.onItemPickup(this, 1);
             setDead();
         }
     }
 
-    public int[] onHitEntity(Entity aHitEntity, Entity aShootingEntity, ItemStack aArrow, int aRegularDamage, int aMagicDamage, int aKnockback, int aFireDamage, int aHitTimer) {
-        return new int[]{aRegularDamage, aMagicDamage, aKnockback, aFireDamage, aHitTimer};
+    public int[] onHitEntity(Entity aHitEntity, Entity aShootingEntity, ItemStack aArrow, int aRegularDamage,
+        int aMagicDamage, int aKnockback, int aFireDamage, int aHitTimer) {
+        return new int[] { aRegularDamage, aMagicDamage, aKnockback, aFireDamage, aHitTimer };
     }
 
     public ItemStack getArrowItem() {
-        return GT_Utility.copy(new Object[]{this.mArrow});
+        return GT_Utility.copy(new Object[] { this.mArrow });
     }
 
     public void setArrowItem(ItemStack aStack) {
-        this.mArrow = GT_Utility.updateItemStack(GT_Utility.copyAmount(1L, new Object[]{aStack}));
+        this.mArrow = GT_Utility.updateItemStack(GT_Utility.copyAmount(1L, new Object[] { aStack }));
     }
 
     public boolean breaksOnImpact() {

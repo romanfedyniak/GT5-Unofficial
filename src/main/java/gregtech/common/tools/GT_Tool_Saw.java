@@ -1,9 +1,8 @@
 package gregtech.common.tools;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,11 +15,13 @@ import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.event.world.BlockEvent;
 
-import java.util.ArrayList;
-import java.util.List;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
 
-public class GT_Tool_Saw
-        extends GT_Tool {
+public class GT_Tool_Saw extends GT_Tool {
+
     public int getToolDamagePerBlockBreak() {
         return 50;
     }
@@ -69,28 +70,37 @@ public class GT_Tool_Saw
         return null;
     }
 
-    public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX, int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {
+    public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX,
+        int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {
         if ((aBlock.getMaterial() == Material.leaves) && ((aBlock instanceof IShearable))) {
             aPlayer.worldObj.setBlock(aX, aY, aZ, aBlock, aMetaData, 0);
             if (((IShearable) aBlock).isShearable(aStack, aPlayer.worldObj, aX, aY, aZ)) {
-                ArrayList<ItemStack> tDrops = ((IShearable) aBlock).onSheared(aStack, aPlayer.worldObj, aX, aY, aZ, aFortune);
+                ArrayList<ItemStack> tDrops = ((IShearable) aBlock)
+                    .onSheared(aStack, aPlayer.worldObj, aX, aY, aZ, aFortune);
                 aDrops.clear();
                 aDrops.addAll(tDrops);
                 aEvent.dropChance = 1.0F;
             }
             aPlayer.worldObj.setBlock(aX, aY, aZ, Blocks.air, 0, 0);
-        } else if (((aBlock.getMaterial() == Material.ice) || (aBlock.getMaterial() == Material.packedIce)) && (aDrops.isEmpty())) {
-            aDrops.add(new ItemStack(aBlock, 1, aMetaData));
-            aPlayer.worldObj.setBlockToAir(aX, aY, aZ);
-            aEvent.dropChance = 1.0F;
-            return 1;
-        }
+        } else if (((aBlock.getMaterial() == Material.ice) || (aBlock.getMaterial() == Material.packedIce))
+            && (aDrops.isEmpty())) {
+                aDrops.add(new ItemStack(aBlock, 1, aMetaData));
+                aPlayer.worldObj.setBlockToAir(aX, aY, aZ);
+                aEvent.dropChance = 1.0F;
+                return 1;
+            }
         return 0;
     }
 
     public boolean isMinableBlock(Block aBlock, byte aMetaData) {
         String tTool = aBlock.getHarvestTool(aMetaData);
-        return ((tTool != null) && ((tTool.equals("axe")) || (tTool.equals("saw")))) || (aBlock.getMaterial() == Material.leaves) || (aBlock.getMaterial() == Material.vine) || (aBlock.getMaterial() == Material.wood) || (aBlock.getMaterial() == Material.cactus) || (aBlock.getMaterial() == Material.ice) || (aBlock.getMaterial() == Material.packedIce);
+        return ((tTool != null) && ((tTool.equals("axe")) || (tTool.equals("saw"))))
+            || (aBlock.getMaterial() == Material.leaves)
+            || (aBlock.getMaterial() == Material.vine)
+            || (aBlock.getMaterial() == Material.wood)
+            || (aBlock.getMaterial() == Material.cactus)
+            || (aBlock.getMaterial() == Material.ice)
+            || (aBlock.getMaterial() == Material.packedIce);
     }
 
     public ItemStack getBrokenItem(ItemStack aStack) {
@@ -98,17 +108,26 @@ public class GT_Tool_Saw
     }
 
     public IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadSaw.mTextureIndex] : Textures.ItemIcons.HANDLE_SAW;
+        return aIsToolHead
+            ? GT_MetaGenerated_Tool
+                .getPrimaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadSaw.mTextureIndex]
+            : Textures.ItemIcons.HANDLE_SAW;
     }
 
     public short[] getRGBa(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
+        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa
+            : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
     }
 
-    public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {
-    }
+    public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {}
 
     public IChatComponent getDeathMessage(EntityLivingBase aPlayer, EntityLivingBase aEntity) {
-        return new ChatComponentText(EnumChatFormatting.RED + aEntity.getCommandSenderName() + EnumChatFormatting.WHITE + " was getting cut down by " + EnumChatFormatting.GREEN + aPlayer.getCommandSenderName() + EnumChatFormatting.WHITE);
+        return new ChatComponentText(
+            EnumChatFormatting.RED + aEntity.getCommandSenderName()
+                + EnumChatFormatting.WHITE
+                + " was getting cut down by "
+                + EnumChatFormatting.GREEN
+                + aPlayer.getCommandSenderName()
+                + EnumChatFormatting.WHITE);
     }
 }

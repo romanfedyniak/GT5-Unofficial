@@ -4,8 +4,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GT_Server
-        extends GT_Proxy {
+public class GT_Server extends GT_Proxy {
+
     public boolean isServerSide() {
         return true;
     }
@@ -18,8 +18,7 @@ public class GT_Server
         return false;
     }
 
-    public void doSonictronSound(ItemStack aStack, World aWorld, double aX, double aY, double aZ) {
-    }
+    public void doSonictronSound(ItemStack aStack, World aWorld, double aX, double aY, double aZ) {}
 
     public int addArmor(String aPrefix) {
         return 0;

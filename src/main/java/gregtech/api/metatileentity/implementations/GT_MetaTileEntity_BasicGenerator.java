@@ -1,5 +1,14 @@
 package gregtech.api.metatileentity.implementations;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import java.util.Collection;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -7,21 +16,16 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Recipe.GT_Recipe_Map;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.GT_Pollution;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
-
-import java.util.Collection;
-
-import static gregtech.api.enums.GT_Values.V;
 
 public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity_BasicTank {
-    public GT_MetaTileEntity_BasicGenerator(int aID, String aName, String aNameRegional, int aTier, String aDescription, ITexture... aTextures) {
+
+    public GT_MetaTileEntity_BasicGenerator(int aID, String aName, String aNameRegional, int aTier, String aDescription,
+        ITexture... aTextures) {
         super(aID, aName, aNameRegional, aTier, 3, aDescription, aTextures);
     }
 
-    public GT_MetaTileEntity_BasicGenerator(int aID, String aName, String aNameRegional, int aTier, String[] aDescription, ITexture... aTextures) {
+    public GT_MetaTileEntity_BasicGenerator(int aID, String aName, String aNameRegional, int aTier,
+        String[] aDescription, ITexture... aTextures) {
         super(aID, aName, aNameRegional, aTier, 3, aDescription, aTextures);
     }
 
@@ -52,8 +56,10 @@ public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-        return mTextures[(aActive ? 5 : 0) + (aSide == aFacing ? 0 : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex + 1];
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
+        return mTextures[(aActive ? 5 : 0) + (aSide == aFacing ? 0
+            : aSide == GT_Utility.getOppositeSide(aFacing) ? 1 : aSide == 0 ? 2 : aSide == 1 ? 3 : 4)][aColorIndex + 1];
     }
 
     @Override
@@ -72,23 +78,23 @@ public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity
     }
 
     public ITexture[] getFront(byte aColor) {
-        return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1]};
+        return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1] };
     }
 
     public ITexture[] getBack(byte aColor) {
-        return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1]};
+        return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1] };
     }
 
     public ITexture[] getBottom(byte aColor) {
-        return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1]};
+        return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1] };
     }
 
     public ITexture[] getTop(byte aColor) {
-        return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1]};
+        return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1] };
     }
 
     public ITexture[] getSides(byte aColor) {
-        return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1]};
+        return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColor + 1] };
     }
 
     public ITexture[] getFrontActive(byte aColor) {
@@ -195,33 +201,41 @@ public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity
                 } else {
                     if (mInventory[getStackDisplaySlot()] == null)
                         mInventory[getStackDisplaySlot()] = new ItemStack(Blocks.fire, 1);
-                    mInventory[getStackDisplaySlot()].setStackDisplayName("Generating: " + (aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU()) + " EU");
+                    mInventory[getStackDisplaySlot()].setStackDisplayName(
+                        "Generating: " + (aBaseMetaTileEntity.getUniversalEnergyStored() - getMinimumStoredEU())
+                            + " EU");
                 }
             } else {
                 int tFuelValue = getFuelValue(mFluid), tConsumed = consumedFluidPerOperation(mFluid);
                 if (tFuelValue > 0 && tConsumed > 0 && mFluid.amount > tConsumed) {
-                    long tFluidAmountToUse = Math.min(mFluid.amount / tConsumed, (maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / tFuelValue);
-                    if (tFluidAmountToUse > 0 && aBaseMetaTileEntity.increaseStoredEnergyUnits(tFluidAmountToUse * tFuelValue, true)) {
-                        GT_Pollution.addPollution(getBaseMetaTileEntity(),10 * getPollution());
+                    long tFluidAmountToUse = Math.min(
+                        mFluid.amount / tConsumed,
+                        (maxEUStore() - aBaseMetaTileEntity.getUniversalEnergyStored()) / tFuelValue);
+                    if (tFluidAmountToUse > 0
+                        && aBaseMetaTileEntity.increaseStoredEnergyUnits(tFluidAmountToUse * tFuelValue, true)) {
+                        GT_Pollution.addPollution(getBaseMetaTileEntity(), 10 * getPollution());
                         mFluid.amount -= tFluidAmountToUse * tConsumed;
                     }
                 }
             }
-            if (mInventory[getInputSlot()] != null && aBaseMetaTileEntity.getUniversalEnergyStored() < (maxEUOutput() * 20 + getMinimumStoredEU()) && GT_Utility.getFluidForFilledItem(mInventory[getInputSlot()], true) == null) {
+            if (mInventory[getInputSlot()] != null
+                && aBaseMetaTileEntity.getUniversalEnergyStored() < (maxEUOutput() * 20 + getMinimumStoredEU())
+                && GT_Utility.getFluidForFilledItem(mInventory[getInputSlot()], true) == null) {
                 int tFuelValue = getFuelValue(mInventory[getInputSlot()]);
                 if (tFuelValue > 0) {
                     ItemStack tEmptyContainer = getEmptyContainer(mInventory[getInputSlot()]);
                     if (aBaseMetaTileEntity.addStackToSlot(getOutputSlot(), tEmptyContainer)) {
                         aBaseMetaTileEntity.increaseStoredEnergyUnits(tFuelValue, true);
                         aBaseMetaTileEntity.decrStackSize(getInputSlot(), 1);
-                        GT_Pollution.addPollution(getBaseMetaTileEntity(),10 * getPollution());
+                        GT_Pollution.addPollution(getBaseMetaTileEntity(), 10 * getPollution());
                     }
                 }
             }
         }
 
-        if (aBaseMetaTileEntity.isServerSide())
-            aBaseMetaTileEntity.setActive(aBaseMetaTileEntity.isAllowedToWork() && aBaseMetaTileEntity.getUniversalEnergyStored() >= maxEUOutput() + getMinimumStoredEU());
+        if (aBaseMetaTileEntity.isServerSide()) aBaseMetaTileEntity.setActive(
+            aBaseMetaTileEntity.isAllowedToWork()
+                && aBaseMetaTileEntity.getUniversalEnergyStored() >= maxEUOutput() + getMinimumStoredEU());
     }
 
     public abstract int getPollution();
@@ -241,7 +255,8 @@ public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity
         if (tRecipeList != null) for (GT_Recipe tFuel : tRecipeList)
             if ((tLiquid = GT_Utility.getFluidForFilledItem(tFuel.getRepresentativeInput(0), true)) != null)
                 if (aLiquid.isFluidEqual(tLiquid))
-                    return (int) (((long) tFuel.mSpecialValue * getEfficiency() * consumedFluidPerOperation(tLiquid)) / 100);
+                    return (int) (((long) tFuel.mSpecialValue * getEfficiency() * consumedFluidPerOperation(tLiquid))
+                        / 100);
         return 0;
     }
 
@@ -261,7 +276,8 @@ public abstract class GT_MetaTileEntity_BasicGenerator extends GT_MetaTileEntity
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack) && (getFuelValue(aStack) > 0 || getFuelValue(GT_Utility.getFluidForFilledItem(aStack, true)) > 0);
+        return super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)
+            && (getFuelValue(aStack) > 0 || getFuelValue(GT_Utility.getFluidForFilledItem(aStack, true)) > 0);
     }
 
     @Override

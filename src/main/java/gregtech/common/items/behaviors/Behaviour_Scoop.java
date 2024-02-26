@@ -1,22 +1,24 @@
 package gregtech.common.items.behaviors;
 
+import java.util.List;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+
 import forestry.api.lepidopterology.EnumFlutterType;
 import forestry.api.lepidopterology.IButterfly;
 import forestry.api.lepidopterology.IEntityButterfly;
 import gregtech.api.items.GT_MetaBase_Item;
 import gregtech.api.items.GT_MetaGenerated_Tool;
 import gregtech.api.util.GT_LanguageManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
-import java.util.List;
+public class Behaviour_Scoop extends Behaviour_None {
 
-public class Behaviour_Scoop
-        extends Behaviour_None {
     private final int mCosts;
-    private final String mTooltip = GT_LanguageManager.addStringLocalization("gt.behaviour.scoop", "Catches Butterflies on Leftclick");
+    private final String mTooltip = GT_LanguageManager
+        .addStringLocalization("gt.behaviour.scoop", "Catches Butterflies on Leftclick");
 
     public Behaviour_Scoop(int aCosts) {
         this.mCosts = aCosts;
@@ -27,10 +29,24 @@ public class Behaviour_Scoop
             if (aPlayer.worldObj.isRemote) {
                 return true;
             }
-            if ((aPlayer.capabilities.isCreativeMode) || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
+            if ((aPlayer.capabilities.isCreativeMode)
+                || (((GT_MetaGenerated_Tool) aItem).doDamage(aStack, this.mCosts))) {
                 Object tButterfly = ((IEntityButterfly) aEntity).getButterfly();
-                ((IButterfly) tButterfly).getGenome().getPrimary().getRoot().getBreedingTracker(aEntity.worldObj, aPlayer.getGameProfile()).registerCatch((IButterfly) tButterfly);
-                aPlayer.worldObj.spawnEntityInWorld(new EntityItem(aPlayer.worldObj, aEntity.posX, aEntity.posY, aEntity.posZ, ((IButterfly) tButterfly).getGenome().getPrimary().getRoot().getMemberStack(((IButterfly) tButterfly).copy(), EnumFlutterType.BUTTERFLY.ordinal())));
+                ((IButterfly) tButterfly).getGenome()
+                    .getPrimary()
+                    .getRoot()
+                    .getBreedingTracker(aEntity.worldObj, aPlayer.getGameProfile())
+                    .registerCatch((IButterfly) tButterfly);
+                aPlayer.worldObj.spawnEntityInWorld(
+                    new EntityItem(
+                        aPlayer.worldObj,
+                        aEntity.posX,
+                        aEntity.posY,
+                        aEntity.posZ,
+                        ((IButterfly) tButterfly).getGenome()
+                            .getPrimary()
+                            .getRoot()
+                            .getMemberStack(((IButterfly) tButterfly).copy(), EnumFlutterType.BUTTERFLY.ordinal())));
                 aEntity.setDead();
             }
             return true;

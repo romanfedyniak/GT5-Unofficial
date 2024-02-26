@@ -1,5 +1,7 @@
 package gregtech.common.tileentities.machines.steam;
 
+import net.minecraft.entity.player.InventoryPlayer;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_BasicMachine;
@@ -10,10 +12,9 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.InventoryPlayer;
 
-public class GT_MetaTileEntity_Extractor_Bronze
-        extends GT_MetaTileEntity_BasicMachine_Bronze {
+public class GT_MetaTileEntity_Extractor_Bronze extends GT_MetaTileEntity_BasicMachine_Bronze {
+
     public GT_MetaTileEntity_Extractor_Bronze(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional, "Extracting your first Rubber", 1, 1, false);
     }
@@ -27,7 +28,12 @@ public class GT_MetaTileEntity_Extractor_Bronze
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_BasicMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "BronzeExtractor.png", GT_Recipe.GT_Recipe_Map.sExtractorRecipes.mUnlocalizedName);
+        return new GT_GUIContainer_BasicMachine(
+            aPlayerInventory,
+            aBaseMetaTileEntity,
+            getLocalName(),
+            "BronzeExtractor.png",
+            GT_Recipe.GT_Recipe_Map.sExtractorRecipes.mUnlocalizedName);
     }
 
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
@@ -35,8 +41,10 @@ public class GT_MetaTileEntity_Extractor_Bronze
     }
 
     public int checkRecipe() {
-        GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sExtractorRecipes.findRecipe(getBaseMetaTileEntity(), false, gregtech.api.enums.GT_Values.V[1], null, getAllInputs());
-        if ((tRecipe != null) && (canOutput(tRecipe.mOutputs)) && (tRecipe.isRecipeInputEqual(true, null, getAllInputs()))) {
+        GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sExtractorRecipes
+            .findRecipe(getBaseMetaTileEntity(), false, gregtech.api.enums.GT_Values.V[1], null, getAllInputs());
+        if ((tRecipe != null) && (canOutput(tRecipe.mOutputs))
+            && (tRecipe.isRecipeInputEqual(true, null, getAllInputs()))) {
             this.mOutputItems[0] = tRecipe.getOutput(0);
             this.mEUt = tRecipe.mEUt;
             this.mMaxProgresstime = (tRecipe.mDuration * 2);
@@ -48,7 +56,8 @@ public class GT_MetaTileEntity_Extractor_Bronze
     public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
         super.startSoundLoop(aIndex, aX, aY, aZ);
         if (aIndex == 1) {
-            GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(200)), 10, 1.0F, aX, aY, aZ);
+            GT_Utility
+                .doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(200)), 10, 1.0F, aX, aY, aZ);
         }
     }
 
@@ -57,34 +66,42 @@ public class GT_MetaTileEntity_Extractor_Bronze
     }
 
     public ITexture[] getSideFacingActive(byte aColor) {
-        return new ITexture[]{super.getSideFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_EXTRACTOR_ACTIVE)};
+        return new ITexture[] { super.getSideFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_EXTRACTOR_ACTIVE) };
     }
 
     public ITexture[] getSideFacingInactive(byte aColor) {
-        return new ITexture[]{super.getSideFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_EXTRACTOR)};
+        return new ITexture[] { super.getSideFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_EXTRACTOR) };
     }
 
     public ITexture[] getFrontFacingActive(byte aColor) {
-        return new ITexture[]{super.getFrontFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_EXTRACTOR_ACTIVE)};
+        return new ITexture[] { super.getFrontFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_EXTRACTOR_ACTIVE) };
     }
 
     public ITexture[] getFrontFacingInactive(byte aColor) {
-        return new ITexture[]{super.getFrontFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_EXTRACTOR)};
+        return new ITexture[] { super.getFrontFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_EXTRACTOR) };
     }
 
     public ITexture[] getTopFacingActive(byte aColor) {
-        return new ITexture[]{super.getTopFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_EXTRACTOR_ACTIVE)};
+        return new ITexture[] { super.getTopFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_EXTRACTOR_ACTIVE) };
     }
 
     public ITexture[] getTopFacingInactive(byte aColor) {
-        return new ITexture[]{super.getTopFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_EXTRACTOR)};
+        return new ITexture[] { super.getTopFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_EXTRACTOR) };
     }
 
     public ITexture[] getBottomFacingActive(byte aColor) {
-        return new ITexture[]{super.getBottomFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_EXTRACTOR_ACTIVE)};
+        return new ITexture[] { super.getBottomFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_EXTRACTOR_ACTIVE) };
     }
 
     public ITexture[] getBottomFacingInactive(byte aColor) {
-        return new ITexture[]{super.getBottomFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_EXTRACTOR)};
+        return new ITexture[] { super.getBottomFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_EXTRACTOR) };
     }
 }

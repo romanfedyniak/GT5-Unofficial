@@ -1,15 +1,17 @@
 package gregtech.common.tools;
 
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class GT_Tool_Wrench_LV
-        extends GT_Tool_Wrench {
-    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer) {
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+
+public class GT_Tool_Wrench_LV extends GT_Tool_Wrench {
+
+    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
+        EntityPlayer aPlayer) {
         return aOriginalDamage;
     }
 
@@ -50,10 +52,14 @@ public class GT_Tool_Wrench_LV
     }
 
     public IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadWrench.mTextureIndex] : Textures.ItemIcons.POWER_UNIT_LV;
+        return aIsToolHead
+            ? GT_MetaGenerated_Tool.getPrimaryMaterial(
+                aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadWrench.mTextureIndex]
+            : Textures.ItemIcons.POWER_UNIT_LV;
     }
 
     public short[] getRGBa(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
+        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa
+            : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
     }
 }

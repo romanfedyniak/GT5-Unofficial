@@ -1,13 +1,14 @@
 package gregtech.loaders.load;
 
-import gregtech.GT_Mod;
-import gregtech.api.util.GT_Log;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class GT_SonictronLoader
-        implements Runnable {
+import gregtech.GT_Mod;
+import gregtech.api.util.GT_Log;
+
+public class GT_SonictronLoader implements Runnable {
+
     public void run() {
         GT_Log.out.println("GT_Mod: Loading Sonictron Sounds");
         GT_Mod.gregtechproxy.mSoundItems.add(new ItemStack(Blocks.iron_block, 1));
@@ -109,7 +110,8 @@ public class GT_SonictronLoader
         GT_Mod.gregtechproxy.mSoundItems.add(new ItemStack(Items.glass_bottle, 1));
         GT_Mod.gregtechproxy.mSoundNames.add("random.burp");
         GT_Mod.gregtechproxy.mSoundCounts.add(Integer.valueOf(1));
-        GT_Mod.gregtechproxy.mSoundItems.add(new ItemStack(Blocks.ender_chest == null ? Blocks.obsidian : Blocks.ender_chest, 1));
+        GT_Mod.gregtechproxy.mSoundItems
+            .add(new ItemStack(Blocks.ender_chest == null ? Blocks.obsidian : Blocks.ender_chest, 1));
         GT_Mod.gregtechproxy.mSoundNames.add("random.chestopen");
         GT_Mod.gregtechproxy.mSoundCounts.add(Integer.valueOf(1));
         GT_Mod.gregtechproxy.mSoundItems.add(new ItemStack(Blocks.chest, 1));

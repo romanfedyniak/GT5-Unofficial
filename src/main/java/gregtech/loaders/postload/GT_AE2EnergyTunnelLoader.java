@@ -1,12 +1,13 @@
 package gregtech.loaders.postload;
 
+import java.lang.reflect.Field;
+
 import appeng.items.parts.PartType;
 import gregtech.GT_Mod;
 import gregtech.api.util.GT_Log;
 
-import java.lang.reflect.Field;
-
 public class GT_AE2EnergyTunnelLoader implements Runnable {
+
     @Override
     public void run() {
         if (GT_Mod.gregtechproxy.mAE2Integration && GT_Mod.gregtechproxy.mAE2Tunnel) {
@@ -25,4 +26,3 @@ public class GT_AE2EnergyTunnelLoader implements Runnable {
         f.set(PartType.P2PTunnelEU, PartP2PGTPower.class);
     }
 }
-

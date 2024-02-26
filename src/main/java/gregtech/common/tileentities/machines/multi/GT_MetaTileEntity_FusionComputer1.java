@@ -1,11 +1,12 @@
 package gregtech.common.tileentities.machines.multi;
 
+import net.minecraft.block.Block;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
-import net.minecraft.block.Block;
 
 public class GT_MetaTileEntity_FusionComputer1 extends GT_MetaTileEntity_FusionComputer {
 
@@ -48,13 +49,9 @@ public class GT_MetaTileEntity_FusionComputer1 extends GT_MetaTileEntity_FusionC
     }
 
     public String[] getDescription() {
-        return new String[]{
-        		"It's over 9000!!!", 
-        		"LuV Machine Casings around Superconducting Coil Blocks", 
-        		"2-16 Input Hatches", "1-16 Output Hatches", 
-        		"1-16 Energy Hatches", 
-        		"All Hatches must be LuV or better", 
-        		"2048EU/t and 10mio EU Cap per Energy Hatch"};
+        return new String[] { "It's over 9000!!!", "LuV Machine Casings around Superconducting Coil Blocks",
+            "2-16 Input Hatches", "1-16 Output Hatches", "1-16 Energy Hatches", "All Hatches must be LuV or better",
+            "2048EU/t and 10mio EU Cap per Energy Hatch" };
     }
 
     @Override

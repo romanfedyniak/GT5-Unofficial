@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 
 public interface ITexture {
+
     public void renderXPos(RenderBlocks aRenderer, Block aBlock, int aX, int aY, int aZ);
 
     public void renderXNeg(RenderBlocks aRenderer, Block aBlock, int aX, int aY, int aZ);

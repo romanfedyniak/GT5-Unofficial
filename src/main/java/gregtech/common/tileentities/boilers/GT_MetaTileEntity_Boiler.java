@@ -1,5 +1,13 @@
 package gregtech.common.tileentities.boilers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidHandler;
+
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
@@ -12,43 +20,40 @@ import gregtech.api.objects.XSTR;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidHandler;
 
-public abstract class GT_MetaTileEntity_Boiler
-        extends GT_MetaTileEntity_BasicTank {
+public abstract class GT_MetaTileEntity_Boiler extends GT_MetaTileEntity_BasicTank {
+
     public int mTemperature = 20;
     public int mProcessingEnergy = 0;
     public int mLossTimer = 0;
     public FluidStack mSteam = null;
     public boolean mHadNoWater = false;
 
-    public GT_MetaTileEntity_Boiler(int aID, String aName, String aNameRegional, String aDescription, ITexture... aTextures) {
+    public GT_MetaTileEntity_Boiler(int aID, String aName, String aNameRegional, String aDescription,
+        ITexture... aTextures) {
         super(aID, aName, aNameRegional, 0, 4, aDescription, aTextures);
     }
 
-    public GT_MetaTileEntity_Boiler(int aID, String aName, String aNameRegional, String[] aDescription, ITexture... aTextures) {
+    public GT_MetaTileEntity_Boiler(int aID, String aName, String aNameRegional, String[] aDescription,
+        ITexture... aTextures) {
         super(aID, aName, aNameRegional, 0, 4, aDescription, aTextures);
     }
 
     public GT_MetaTileEntity_Boiler(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
         super(aName, aTier, 4, aDescription, aTextures);
     }
-    
+
     public GT_MetaTileEntity_Boiler(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures) {
         super(aName, aTier, 4, aDescription, aTextures);
     }
 
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
-        ITexture[] tmp = mTextures[aSide >= 2 ? aSide != aFacing ? 2 : ((byte) (aActive ? 4 : 3)) : aSide][aColorIndex + 1];
-        //mTextures[(aSide==aFacing?(aActive?4:3):aSide==GT_Utility.getOppositeSide(aFacing)?2:aSide==0?0:aSide==1?1:2)][aColorIndex+1];
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
+        ITexture[] tmp = mTextures[aSide >= 2 ? aSide != aFacing ? 2 : ((byte) (aActive ? 4 : 3)) : aSide][aColorIndex
+            + 1];
+        // mTextures[(aSide==aFacing?(aActive?4:3):aSide==GT_Utility.getOppositeSide(aFacing)?2:aSide==0?0:aSide==1?1:2)][aColorIndex+1];
         if (aSide != aFacing && tmp.length == 2) {
-            tmp = new ITexture[]{tmp[0]};
+            tmp = new ITexture[] { tmp[0] };
         }
         return tmp;
     }
@@ -96,7 +101,8 @@ public abstract class GT_MetaTileEntity_Boiler
         if (aPlayer != null) {
             if (GT_Utility.areStacksEqual(aPlayer.getCurrentEquippedItem(), new ItemStack(Items.water_bucket, 1))) {
                 fill(Materials.Water.getFluid(1000 * aPlayer.getCurrentEquippedItem().stackSize), true);
-                aPlayer.getCurrentEquippedItem().func_150996_a(Items.bucket);
+                aPlayer.getCurrentEquippedItem()
+                    .func_150996_a(Items.bucket);
             } else {
                 aBaseMetaTileEntity.openGUI(aPlayer);
             }
@@ -142,7 +148,8 @@ public abstract class GT_MetaTileEntity_Boiler
     }
 
     public boolean allowCoverOnSide(byte aSide, GT_ItemStack aCover) {
-        return GregTech_API.getCoverBehavior(aCover.toStack()).isSimpleCover();
+        return GregTech_API.getCoverBehavior(aCover.toStack())
+            .isSimpleCover();
     }
 
     public void saveNBTData(NBTTagCompound aNBT) {
@@ -153,8 +160,7 @@ public abstract class GT_MetaTileEntity_Boiler
         if (this.mSteam != null) {
             try {
                 aNBT.setTag("mSteam", this.mSteam.writeToNBT(new NBTTagCompound()));
-            } catch (Throwable e) {
-            }
+            } catch (Throwable e) {}
         }
     }
 
@@ -180,11 +186,20 @@ public abstract class GT_MetaTileEntity_Boiler
                 if (i != aBaseMetaTileEntity.getFrontFacing()) {
                     IFluidHandler tTileEntity = aBaseMetaTileEntity.getITankContainerAtSide(i);
                     if (tTileEntity != null) {
-                        FluidStack tDrained = aBaseMetaTileEntity.drain(ForgeDirection.getOrientation(i), Math.max(1, this.mSteam.amount / 2), false);
+                        FluidStack tDrained = aBaseMetaTileEntity
+                            .drain(ForgeDirection.getOrientation(i), Math.max(1, this.mSteam.amount / 2), false);
                         if (tDrained != null) {
-                            int tFilledAmount = tTileEntity.fill(ForgeDirection.getOrientation(i).getOpposite(), tDrained, false);
+                            int tFilledAmount = tTileEntity.fill(
+                                ForgeDirection.getOrientation(i)
+                                    .getOpposite(),
+                                tDrained,
+                                false);
                             if (tFilledAmount > 0) {
-                                tTileEntity.fill(ForgeDirection.getOrientation(i).getOpposite(), aBaseMetaTileEntity.drain(ForgeDirection.getOrientation(i), tFilledAmount, true), true);
+                                tTileEntity.fill(
+                                    ForgeDirection.getOrientation(i)
+                                        .getOpposite(),
+                                    aBaseMetaTileEntity.drain(ForgeDirection.getOrientation(i), tFilledAmount, true),
+                                    true);
                             }
                         }
                     }
@@ -212,38 +227,57 @@ public abstract class GT_MetaTileEntity_Boiler
                     this.mHadNoWater = false;
                 }
             }
-            if ((this.mSteam != null) &&
-                    (this.mSteam.amount > 32000)) {
+            if ((this.mSteam != null) && (this.mSteam.amount > 32000)) {
                 sendSound((byte) 1);
                 this.mSteam.amount = 24000;
             }
-            if ((this.mProcessingEnergy <= 0) && (aBaseMetaTileEntity.isAllowedToWork()) &&
-                    (this.mInventory[2] != null)) {
-                if ((GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Coal))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dust.get(Materials.Coal))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dustImpure.get(Materials.Coal))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.crushed.get(Materials.Coal)))) {
+            if ((this.mProcessingEnergy <= 0) && (aBaseMetaTileEntity.isAllowedToWork())
+                && (this.mInventory[2] != null)) {
+                if ((GT_OreDictUnificator
+                    .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Coal)))
+                    || (GT_OreDictUnificator
+                        .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dust.get(Materials.Coal)))
+                    || (GT_OreDictUnificator
+                        .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dustImpure.get(Materials.Coal)))
+                    || (GT_OreDictUnificator
+                        .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.crushed.get(Materials.Coal)))) {
                     this.mProcessingEnergy += 160;
                     aBaseMetaTileEntity.decrStackSize(2, 1);
                     if (aBaseMetaTileEntity.getRandomNumber(3) == 0) {
-                        aBaseMetaTileEntity.addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.DarkAsh, 1L));
+                        aBaseMetaTileEntity
+                            .addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.DarkAsh, 1L));
                     }
-                } else if (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Charcoal))) {
-                    this.mProcessingEnergy += 160;
-                    aBaseMetaTileEntity.decrStackSize(2, 1);
-                    if (aBaseMetaTileEntity.getRandomNumber(3) == 0) {
-                        aBaseMetaTileEntity.addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Ash, 1L));
-                    }
-                } else if (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], "fuelCoke")) {
-                    this.mProcessingEnergy += 640;
-                    aBaseMetaTileEntity.decrStackSize(2, 1);
-                    if (aBaseMetaTileEntity.getRandomNumber(2) == 0) {
-                        aBaseMetaTileEntity.addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Ash, 1L));
-                    }
-                } else if ((GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Lignite))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dust.get(Materials.Lignite))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dustImpure.get(Materials.Lignite))) || (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], OrePrefixes.crushed.get(Materials.Lignite)))) {
-                    this.mProcessingEnergy += 120;
-                    aBaseMetaTileEntity.decrStackSize(2, 1);
-                    if (aBaseMetaTileEntity.getRandomNumber(8) == 0) {
-                        aBaseMetaTileEntity.addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.DarkAsh, 1L));
-                    }
-                }
+                } else if (GT_OreDictUnificator
+                    .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Charcoal))) {
+                        this.mProcessingEnergy += 160;
+                        aBaseMetaTileEntity.decrStackSize(2, 1);
+                        if (aBaseMetaTileEntity.getRandomNumber(3) == 0) {
+                            aBaseMetaTileEntity
+                                .addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Ash, 1L));
+                        }
+                    } else if (GT_OreDictUnificator.isItemStackInstanceOf(this.mInventory[2], "fuelCoke")) {
+                        this.mProcessingEnergy += 640;
+                        aBaseMetaTileEntity.decrStackSize(2, 1);
+                        if (aBaseMetaTileEntity.getRandomNumber(2) == 0) {
+                            aBaseMetaTileEntity
+                                .addStackToSlot(3, GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Ash, 1L));
+                        }
+                    } else if ((GT_OreDictUnificator
+                        .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.gem.get(Materials.Lignite)))
+                        || (GT_OreDictUnificator
+                            .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dust.get(Materials.Lignite)))
+                        || (GT_OreDictUnificator
+                            .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.dustImpure.get(Materials.Lignite)))
+                        || (GT_OreDictUnificator
+                            .isItemStackInstanceOf(this.mInventory[2], OrePrefixes.crushed.get(Materials.Lignite)))) {
+                                this.mProcessingEnergy += 120;
+                                aBaseMetaTileEntity.decrStackSize(2, 1);
+                                if (aBaseMetaTileEntity.getRandomNumber(8) == 0) {
+                                    aBaseMetaTileEntity.addStackToSlot(
+                                        3,
+                                        GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.DarkAsh, 1L));
+                                }
+                            }
             }
             if ((this.mTemperature < 1000) && (this.mProcessingEnergy > 0) && (aTick % 12L == 0L)) {
                 this.mProcessingEnergy -= 2;
@@ -254,24 +288,28 @@ public abstract class GT_MetaTileEntity_Boiler
     }
 
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        if (GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation)
-        return aIndex == 1 || aIndex == 3;
-        else
-            return false;
+        if (GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation) return aIndex == 1 || aIndex == 3;
+        else return false;
     }
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        if(GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation)
-        return aIndex == 2;
-        else
-            return false;
+        if (GT_Mod.gregtechproxy.mAllowSmallBoilerAutomation) return aIndex == 2;
+        else return false;
     }
 
     public void doSound(byte aIndex, double aX, double aY, double aZ) {
         if (aIndex == 1) {
             GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(4)), 2, 1.0F, aX, aY, aZ);
             for (int l = 0; l < 8; l++) {
-                getBaseMetaTileEntity().getWorld().spawnParticle("largesmoke", aX - 0.5D + (new XSTR()).nextFloat(), aY, aZ - 0.5D + (new XSTR()).nextFloat(), 0.0D, 0.0D, 0.0D);
+                getBaseMetaTileEntity().getWorld()
+                    .spawnParticle(
+                        "largesmoke",
+                        aX - 0.5D + (new XSTR()).nextFloat(),
+                        aY,
+                        aZ - 0.5D + (new XSTR()).nextFloat(),
+                        0.0D,
+                        0.0D,
+                        0.0D);
             }
         }
     }

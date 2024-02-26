@@ -1,5 +1,7 @@
 package gregtech.common;
 
+import java.io.File;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -16,68 +18,67 @@ import net.minecraft.world.storage.IPlayerFileData;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
 
-import java.io.File;
+public class GT_DummyWorld extends World {
 
-public class GT_DummyWorld
-        extends World {
     public GT_IteratorRandom mRandom = new GT_IteratorRandom();
     public ItemStack mLastSetBlock = null;
 
-    public GT_DummyWorld(ISaveHandler par1iSaveHandler, String par2Str, WorldProvider par3WorldProvider, WorldSettings par4WorldSettings, Profiler par5Profiler) {
+    public GT_DummyWorld(ISaveHandler par1iSaveHandler, String par2Str, WorldProvider par3WorldProvider,
+        WorldSettings par4WorldSettings, Profiler par5Profiler) {
         super(par1iSaveHandler, par2Str, par4WorldSettings, par3WorldProvider, par5Profiler);
         this.rand = this.mRandom;
     }
 
     public GT_DummyWorld() {
         this(new ISaveHandler() {
-                 public void saveWorldInfoWithPlayer(WorldInfo var1, NBTTagCompound var2) {
-                 }
 
-                 public void saveWorldInfo(WorldInfo var1) {
-                 }
+            public void saveWorldInfoWithPlayer(WorldInfo var1, NBTTagCompound var2) {}
 
-                 public WorldInfo loadWorldInfo() {
-                     return null;
-                 }
+            public void saveWorldInfo(WorldInfo var1) {}
 
-                 public IPlayerFileData getSaveHandler() {
-                     return null;
-                 }
+            public WorldInfo loadWorldInfo() {
+                return null;
+            }
 
-                 public File getMapFileFromName(String var1) {
-                     return null;
-                 }
+            public IPlayerFileData getSaveHandler() {
+                return null;
+            }
 
-                 public IChunkLoader getChunkLoader(WorldProvider var1) {
-                     return null;
-                 }
+            public File getMapFileFromName(String var1) {
+                return null;
+            }
 
-                 public void flush() {
-                 }
+            public IChunkLoader getChunkLoader(WorldProvider var1) {
+                return null;
+            }
 
-                 public void checkSessionLock() {
-                 }
+            public void flush() {}
 
-                 public String getWorldDirectoryName() {
-                     return null;
-                 }
+            public void checkSessionLock() {}
 
-                 public File getWorldDirectory() {
-                     return null;
-                 }
-             }, "DUMMY_DIMENSION", null,
-//				new WorldProvider(),
-//    
-//
-//
-//      new WorldSettings(new WorldInfo(new NBTTagCompound()))
-//      {
-//        public String getDimensionName()
-//        {
-//          return "DUMMY_DIMENSION";
-//        }
-//      }
-                new WorldSettings(new WorldInfo(new NBTTagCompound())), new Profiler());
+            public String getWorldDirectoryName() {
+                return null;
+            }
+
+            public File getWorldDirectory() {
+                return null;
+            }
+        },
+            "DUMMY_DIMENSION",
+            null,
+            // new WorldProvider(),
+            //
+            //
+            //
+            // new WorldSettings(new WorldInfo(new NBTTagCompound()))
+            // {
+            // public String getDimensionName()
+            // {
+            // return "DUMMY_DIMENSION";
+            // }
+            // }
+            new WorldSettings(new WorldInfo(new NBTTagCompound())),
+            new Profiler());
     }
 
     protected IChunkProvider createChunkProvider() {

@@ -1,15 +1,17 @@
 package gregtech.api.util;
 
-import gregtech.api.damagesources.GT_DamageSources;
-import gregtech.api.interfaces.IFoodStat;
-import gregtech.api.items.GT_MetaBase_Item;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
+import gregtech.api.damagesources.GT_DamageSources;
+import gregtech.api.interfaces.IFoodStat;
+import gregtech.api.items.GT_MetaBase_Item;
+
 public class GT_FoodStat implements IFoodStat {
+
     private final int mFoodLevel;
     private final int[] mPotionEffects;
     private final float mSaturation;
@@ -31,7 +33,8 @@ public class GT_FoodStat implements IFoodStat {
      *                            Level of the Effect. [0, 1, 2] are for [I, II, III]
      *                            The likelihood that this Potion Effect takes place upon being eaten [1 - 100]
      */
-    public GT_FoodStat(int aFoodLevel, float aSaturation, EnumAction aAction, ItemStack aEmptyContainer, boolean aAlwaysEdible, boolean aInvisibleParticles, boolean aIsRotten, int... aPotionEffects) {
+    public GT_FoodStat(int aFoodLevel, float aSaturation, EnumAction aAction, ItemStack aEmptyContainer,
+        boolean aAlwaysEdible, boolean aInvisibleParticles, boolean aIsRotten, int... aPotionEffects) {
         mFoodLevel = aFoodLevel;
         mSaturation = aSaturation;
         mAction = aAction == null ? EnumAction.eat : aAction;
@@ -68,14 +71,20 @@ public class GT_FoodStat implements IFoodStat {
         ItemStack tStack = GT_OreDictUnificator.get(GT_Utility.copy(mEmptyContainer));
         if (tStack != null && !aPlayer.inventory.addItemStackToInventory(tStack))
             aPlayer.dropPlayerItemWithRandomChoice(tStack, true);
-        aPlayer.worldObj.playSoundAtEntity(aPlayer, "random.burp", 0.5F, aPlayer.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+        aPlayer.worldObj
+            .playSoundAtEntity(aPlayer, "random.burp", 0.5F, aPlayer.worldObj.rand.nextFloat() * 0.1F + 0.9F);
         if (!aPlayer.worldObj.isRemote) {
             if (mMilk) {
                 aPlayer.curePotionEffects(new ItemStack(Items.milk_bucket, 1, 0));
             }
             for (int i = 3; i < mPotionEffects.length; i += 4) {
                 if (aPlayer.worldObj.rand.nextInt(100) < mPotionEffects[i]) {
-                    aPlayer.addPotionEffect(new PotionEffect(mPotionEffects[i - 3], mPotionEffects[i - 2], mPotionEffects[i - 1], mInvisibleParticles));
+                    aPlayer.addPotionEffect(
+                        new PotionEffect(
+                            mPotionEffects[i - 3],
+                            mPotionEffects[i - 2],
+                            mPotionEffects[i - 1],
+                            mInvisibleParticles));
                 }
             }
             if (mExplosive) {

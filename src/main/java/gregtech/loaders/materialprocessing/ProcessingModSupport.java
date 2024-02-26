@@ -6,6 +6,7 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 
 public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHandler {
+
     public static boolean aTGregSupport = Loader.isModLoaded("TGregworks");
     public static boolean aEnablePFAAMats = Loader.isModLoaded("PFAAGeologica") || aTGregSupport;
     public static boolean aEnableUBCMats = Loader.isModLoaded("UndergroundBiomes") || aTGregSupport;
@@ -25,7 +26,7 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
 
     @Override
     public void onMaterialsInit() {
-        //Disable Materials if Parent Mod is not loaded
+        // Disable Materials if Parent Mod is not loaded
         if (!aEnablePFAAMats) {
             Materials.Alunite.mHasParentMod = false;
             Materials.Asbestos.mHasParentMod = false;
@@ -56,7 +57,7 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
             Materials.Erbium.mHasParentMod = false;
             Materials.Gadolinium.mHasParentMod = false;
             Materials.Holmium.mHasParentMod = false;
-            //Materials.Indium.mHasParentMod = false;
+            // Materials.Indium.mHasParentMod = false;
             Materials.Lanthanum.mHasParentMod = false;
             Materials.Praseodymium.mHasParentMod = false;
             Materials.Promethium.mHasParentMod = false;
@@ -165,7 +166,7 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
             Materials.Firestone.mHasParentMod = false;
         }
 
-        //Enable Materials if correct mod is Loaded
+        // Enable Materials if correct mod is Loaded
         Materials.ChromiumDioxide.mHasParentMod = Loader.isModLoaded("computronics");
     }
 
@@ -184,6 +185,6 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
 
     @Override
     public void onComponentIteration(Materials aMaterial) {
-        //NOOP
+        // NOOP
     }
 }

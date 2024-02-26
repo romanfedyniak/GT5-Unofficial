@@ -1,5 +1,13 @@
 package gregtech.common.gui;
 
+import java.util.Iterator;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.gui.GT_ContainerMetaTile_Machine;
@@ -7,24 +15,17 @@ import gregtech.api.gui.GT_Slot_Holo;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.tileentities.automation.GT_MetaTileEntity_Regulator;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.ICrafting;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
 
-import java.util.Iterator;
+public class GT_Container_Regulator extends GT_ContainerMetaTile_Machine {
 
-public class GT_Container_Regulator
-        extends GT_ContainerMetaTile_Machine {
-    public int[] mTargetSlots = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public int[] mTargetSlots = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public GT_Container_Regulator(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity) {
         super(aInventoryPlayer, aTileEntity);
     }
 
     public void addSlots(InventoryPlayer aInventoryPlayer) {
-        this.mTargetSlots = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+        this.mTargetSlots = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
         addSlotToContainer(new Slot(this.mTileEntity, 0, 8, 6));
         addSlotToContainer(new Slot(this.mTileEntity, 1, 26, 6));
@@ -71,7 +72,9 @@ public class GT_Container_Regulator
                 return null;
             }
             if (aSlotIndex == 28) {
-                ((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).bOutput = (!((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).bOutput);
+                ((GT_MetaTileEntity_Regulator) this.mTileEntity
+                    .getMetaTileEntity()).bOutput = (!((GT_MetaTileEntity_Regulator) this.mTileEntity
+                        .getMetaTileEntity()).bOutput);
                 if (((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).bOutput) {
                     GT_Utility.sendChatToPlayer(aPlayer, trans("116", "Emit Energy to Outputside"));
                 } else {
@@ -82,7 +85,7 @@ public class GT_Container_Regulator
             if ((aSlotIndex < 19)) {
                 ItemStack tStack = aPlayer.inventory.getItemStack();
                 if (tStack != null) {
-                    tSlot.putStack(GT_Utility.copy(new Object[]{tStack}));
+                    tSlot.putStack(GT_Utility.copy(new Object[] { tStack }));
                 } else if (tSlot.getStack() != null) {
                     if (aMouseclick == 0) {
                         tSlot.getStack().stackSize -= (aShifthold == 1 ? 8 : 1);
@@ -91,15 +94,24 @@ public class GT_Container_Regulator
                         }
                     } else {
                         tSlot.getStack().stackSize += (aShifthold == 1 ? 8 : 1);
-                        if (tSlot.getStack().stackSize > tSlot.getStack().getMaxStackSize()) {
-                            tSlot.getStack().stackSize = tSlot.getStack().getMaxStackSize();
+                        if (tSlot.getStack().stackSize > tSlot.getStack()
+                            .getMaxStackSize()) {
+                            tSlot.getStack().stackSize = tSlot.getStack()
+                                .getMaxStackSize();
                         }
                     }
                 }
                 return null;
             }
             if ((aSlotIndex < 28)) {
-                ((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).mTargetSlots[(aSlotIndex - 19)] = Math.min(99, Math.max(0, ((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).mTargetSlots[(aSlotIndex - 19)] + (aMouseclick == 0 ? -1 : 1) * (aShifthold == 0 ? 1 : 16)));
+                ((GT_MetaTileEntity_Regulator) this.mTileEntity.getMetaTileEntity()).mTargetSlots[(aSlotIndex
+                    - 19)] = Math.min(
+                        99,
+                        Math.max(
+                            0,
+                            ((GT_MetaTileEntity_Regulator) this.mTileEntity
+                                .getMetaTileEntity()).mTargetSlots[(aSlotIndex - 19)]
+                                + (aMouseclick == 0 ? -1 : 1) * (aShifthold == 0 ? 1 : 16)));
                 return null;
             }
         }

@@ -1,19 +1,21 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraftforge.fluids.Fluid;
 
 public class GT_Cover_PlayerDetector extends GT_CoverBehavior {
 
     private String placer = "";
     private int range = 8;
 
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         boolean playerDetected = false;
 
         if (aTileEntity instanceof IGregTechTileEntity) {
@@ -28,13 +30,19 @@ public class GT_Cover_PlayerDetector extends GT_CoverBehavior {
         for (Object tObject : aTileEntity.getWorld().playerEntities) {
             if ((tObject instanceof EntityPlayerMP)) {
                 EntityPlayerMP tEntity = (EntityPlayerMP) tObject;
-                int dist = Math.max(1, (int) tEntity.getDistance(aTileEntity.getXCoord() + 0.5D, aTileEntity.getYCoord() + 0.5D, aTileEntity.getZCoord() + 0.5D));
+                int dist = Math.max(
+                    1,
+                    (int) tEntity.getDistance(
+                        aTileEntity.getXCoord() + 0.5D,
+                        aTileEntity.getYCoord() + 0.5D,
+                        aTileEntity.getZCoord() + 0.5D));
                 if (dist < range) {
                     if (aCoverVariable == 0) {
                         playerDetected = true;
                         break;
                     }
-                    if (tEntity.getDisplayName().equalsIgnoreCase(placer)) {
+                    if (tEntity.getDisplayName()
+                        .equalsIgnoreCase(placer)) {
                         if (aCoverVariable == 1) {
                             playerDetected = true;
                             break;
@@ -47,18 +55,26 @@ public class GT_Cover_PlayerDetector extends GT_CoverBehavior {
             }
         }
 
-
         aTileEntity.setOutputRedstoneSignal(aSide, (byte) (playerDetected ? 15 : 0));
         return aCoverVariable;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking()? -1 : 1)) % 3;
-        if(aCoverVariable <0){aCoverVariable = 2;}
-        switch(aCoverVariable) {
-            case 0: GT_Utility.sendChatToPlayer(aPlayer, trans("068", "Emit if any Player is close")); break;
-            case 1: GT_Utility.sendChatToPlayer(aPlayer, trans("070", "Emit if you are close")); break;
-            case 2: GT_Utility.sendChatToPlayer(aPlayer, trans("069", "Emit if other Player is close")); break;
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking() ? -1 : 1)) % 3;
+        if (aCoverVariable < 0) {
+            aCoverVariable = 2;
+        }
+        switch (aCoverVariable) {
+            case 0:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("068", "Emit if any Player is close"));
+                break;
+            case 1:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("070", "Emit if you are close"));
+                break;
+            case 2:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("069", "Emit if other Player is close"));
+                break;
         }
         return aCoverVariable;
     }
@@ -87,7 +103,8 @@ public class GT_Cover_PlayerDetector extends GT_CoverBehavior {
         return true;
     }
 
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return true;
     }
 

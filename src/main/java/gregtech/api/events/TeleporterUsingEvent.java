@@ -9,7 +9,8 @@ public class TeleporterUsingEvent extends net.minecraftforge.event.entity.Entity
     public final int mTargetX, mTargetY, mTargetZ, mTargetD;
     public final boolean mHasEgg;
 
-    public TeleporterUsingEvent(Entity aEntity, int aTargetX, int aTargetY, int aTargetZ, int aTargetD, boolean aHasEgg) {
+    public TeleporterUsingEvent(Entity aEntity, int aTargetX, int aTargetY, int aTargetZ, int aTargetD,
+        boolean aHasEgg) {
         super(aEntity);
         mEntity = aEntity;
         mTargetX = aTargetX;

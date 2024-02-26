@@ -1,5 +1,9 @@
 package gregtech.common.tileentities.automation;
 
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -12,34 +16,42 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_Container_TypeFilter;
 import gregtech.common.gui.GT_GUIContainer_TypeFilter;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class GT_MetaTileEntity_TypeFilter
-        extends GT_MetaTileEntity_Buffer {
+public class GT_MetaTileEntity_TypeFilter extends GT_MetaTileEntity_Buffer {
+
     public boolean bNBTAllowed = false;
     public boolean bInvertFilter = false;
     public int mRotationIndex = 0;
     public OrePrefixes mPrefix = OrePrefixes.ore;
 
     public GT_MetaTileEntity_TypeFilter(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 11, new String[]{
-        		"Filters 1 Item Type",
-        		"Use Screwdriver to regulate output stack size",
-        		"Consumes 1 EU per moved Item"});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            11,
+            new String[] { "Filters 1 Item Type", "Use Screwdriver to regulate output stack size",
+                "Consumes 1 EU per moved Item" });
     }
 
-    public GT_MetaTileEntity_TypeFilter(String aName, int aTier, int aInvSlotCount, String aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_TypeFilter(String aName, int aTier, int aInvSlotCount, String aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
 
-    public GT_MetaTileEntity_TypeFilter(String aName, int aTier, int aInvSlotCount, String[] aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_TypeFilter(String aName, int aTier, int aInvSlotCount, String[] aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
 
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_TypeFilter(this.mName, this.mTier, this.mInventory.length, this.mDescriptionArray, this.mTextures);
+        return new GT_MetaTileEntity_TypeFilter(
+            this.mName,
+            this.mTier,
+            this.mInventory.length,
+            this.mDescriptionArray,
+            this.mTextures);
     }
 
     public ITexture getOverlayIcon() {
@@ -78,7 +90,8 @@ public class GT_MetaTileEntity_TypeFilter
                                 }
                             } while (OrePrefixes.values()[i].mPrefixedItems.isEmpty());
                         }
-                        if (!OrePrefixes.values()[i].mPrefixedItems.isEmpty() && OrePrefixes.values()[i].mPrefixInto == OrePrefixes.values()[i])
+                        if (!OrePrefixes.values()[i].mPrefixedItems.isEmpty()
+                            && OrePrefixes.values()[i].mPrefixInto == OrePrefixes.values()[i])
                             mPrefix = OrePrefixes.values()[i];
                     }
                 }
@@ -93,7 +106,10 @@ public class GT_MetaTileEntity_TypeFilter
             if (this.mPrefix.mPrefixedItems.isEmpty()) {
                 this.mInventory[9] = null;
             } else {
-                this.mInventory[9] = GT_Utility.copyAmount(1L, new Object[]{this.mPrefix.mPrefixedItems.get(this.mRotationIndex = (this.mRotationIndex + 1) % this.mPrefix.mPrefixedItems.size())});
+                this.mInventory[9] = GT_Utility.copyAmount(
+                    1L,
+                    new Object[] { this.mPrefix.mPrefixedItems
+                        .get(this.mRotationIndex = (this.mRotationIndex + 1) % this.mPrefix.mPrefixedItems.size()) });
                 if (this.mInventory[9].getItemDamage() == 32767) {
                     this.mInventory[9].setItemDamage(0);
                 }
@@ -122,21 +138,22 @@ public class GT_MetaTileEntity_TypeFilter
             ItemData tData = GT_OreDictUnificator.getItemData(aStack);
             if (tData != null && tData.mPrefix != null) {
                 OrePrefixes tFix = tData.mPrefix;
-                if (tFix == OrePrefixes.oreBlackgranite ||
-                        tFix == OrePrefixes.oreDense ||
-                        tFix == OrePrefixes.oreEnd ||
-                        tFix == OrePrefixes.oreEndstone ||
-                        tFix == OrePrefixes.oreNether ||
-                        tFix == OrePrefixes.oreNetherrack ||
-                        tFix == OrePrefixes.oreNormal ||
-                        tFix == OrePrefixes.orePoor ||
-                        tFix == OrePrefixes.oreRedgranite ||
-                        tFix == OrePrefixes.oreRich ||
-                        tFix == OrePrefixes.oreSmall ||
-                        tFix == OrePrefixes.oreBasalt ||
-                        tFix == OrePrefixes.oreMarble) tAllowPrefix = true;
+                if (tFix == OrePrefixes.oreBlackgranite || tFix == OrePrefixes.oreDense
+                    || tFix == OrePrefixes.oreEnd
+                    || tFix == OrePrefixes.oreEndstone
+                    || tFix == OrePrefixes.oreNether
+                    || tFix == OrePrefixes.oreNetherrack
+                    || tFix == OrePrefixes.oreNormal
+                    || tFix == OrePrefixes.orePoor
+                    || tFix == OrePrefixes.oreRedgranite
+                    || tFix == OrePrefixes.oreRich
+                    || tFix == OrePrefixes.oreSmall
+                    || tFix == OrePrefixes.oreBasalt
+                    || tFix == OrePrefixes.oreMarble) tAllowPrefix = true;
             }
         }
-        return (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)) && ((this.bNBTAllowed) || (!aStack.hasTagCompound())) && (tAllowPrefix != this.bInvertFilter);
+        return (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack))
+            && ((this.bNBTAllowed) || (!aStack.hasTagCompound()))
+            && (tAllowPrefix != this.bInvertFilter);
     }
 }

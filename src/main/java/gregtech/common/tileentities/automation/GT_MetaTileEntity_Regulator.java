@@ -1,5 +1,12 @@
 package gregtech.common.tileentities.automation;
 
+import java.util.Arrays;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -9,36 +16,40 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_Container_Regulator;
 import gregtech.common.gui.GT_GUIContainer_Regulator;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-import java.util.Arrays;
+public class GT_MetaTileEntity_Regulator extends GT_MetaTileEntity_Buffer {
 
-public class GT_MetaTileEntity_Regulator
-        extends GT_MetaTileEntity_Buffer {
-    public int[] mTargetSlots = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public int[] mTargetSlots = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     private boolean charge = false, decharge = false;
 
     public GT_MetaTileEntity_Regulator(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 20, new String[]{
-        		"Filters up to 9 different Items",
-        		"Allows Item-specific output stack size",
-        		"Allows Item-specific output slot",
-        		"Consumes 3EU per moved Item"});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            20,
+            new String[] { "Filters up to 9 different Items", "Allows Item-specific output stack size",
+                "Allows Item-specific output slot", "Consumes 3EU per moved Item" });
     }
 
-    public GT_MetaTileEntity_Regulator(String aName, int aTier, int aInvSlotCount, String aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_Regulator(String aName, int aTier, int aInvSlotCount, String aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
-    
-    public GT_MetaTileEntity_Regulator(String aName, int aTier, int aInvSlotCount, String[] aDescription, ITexture[][][] aTextures) {
+
+    public GT_MetaTileEntity_Regulator(String aName, int aTier, int aInvSlotCount, String[] aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
 
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_Regulator(this.mName, this.mTier, this.mInventory.length, this.mDescriptionArray, this.mTextures);
+        return new GT_MetaTileEntity_Regulator(
+            this.mName,
+            this.mTier,
+            this.mInventory.length,
+            this.mDescriptionArray,
+            this.mTextures);
     }
 
     public ITexture getOverlayIcon() {
@@ -46,7 +57,7 @@ public class GT_MetaTileEntity_Regulator
     }
 
     public boolean isValidSlot(int aIndex) {
-        return aIndex < 9 ;
+        return aIndex < 9;
     }
 
     public Object getServerGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
@@ -85,14 +96,24 @@ public class GT_MetaTileEntity_Regulator
 
     @Override
     public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-    	//Regulation per Screwdriver is overridden by GUI regulation.
+        // Regulation per Screwdriver is overridden by GUI regulation.
     }
 
     public void moveItems(IGregTechTileEntity aBaseMetaTileEntity, long aTimer) {
         int i = 0;
         for (int tCosts = 0; i < 9; i++) {
             if (this.mInventory[(i + 9)] != null) {
-                tCosts = GT_Utility.moveOneItemStackIntoSlot(getBaseMetaTileEntity(), getBaseMetaTileEntity().getTileEntityAtSide(getBaseMetaTileEntity().getBackFacing()), getBaseMetaTileEntity().getBackFacing(), this.mTargetSlots[i], Arrays.asList(new ItemStack[]{this.mInventory[(i + 9)]}), false, (byte) this.mInventory[(i + 9)].stackSize, (byte) this.mInventory[(i + 9)].stackSize, (byte) 64, (byte) 1) * 3;
+                tCosts = GT_Utility.moveOneItemStackIntoSlot(
+                    getBaseMetaTileEntity(),
+                    getBaseMetaTileEntity().getTileEntityAtSide(getBaseMetaTileEntity().getBackFacing()),
+                    getBaseMetaTileEntity().getBackFacing(),
+                    this.mTargetSlots[i],
+                    Arrays.asList(new ItemStack[] { this.mInventory[(i + 9)] }),
+                    false,
+                    (byte) this.mInventory[(i + 9)].stackSize,
+                    (byte) this.mInventory[(i + 9)].stackSize,
+                    (byte) 64,
+                    (byte) 1) * 3;
                 if (tCosts > 0) {
                     this.mSuccess = 50;
                     getBaseMetaTileEntity().decreaseStoredEnergyUnits(tCosts, true);
@@ -103,7 +124,8 @@ public class GT_MetaTileEntity_Regulator
     }
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)) && (GT_Utility.areStacksEqual(aStack, this.mInventory[(aIndex + 9)]));
+        return (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack))
+            && (GT_Utility.areStacksEqual(aStack, this.mInventory[(aIndex + 9)]));
     }
 
     @Override

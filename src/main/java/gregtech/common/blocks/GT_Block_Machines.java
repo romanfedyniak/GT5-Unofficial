@@ -1,22 +1,9 @@
 package gregtech.common.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IDebugableBlock;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.items.GT_Generic_Block;
-import gregtech.api.metatileentity.BaseMetaPipeEntity;
-import gregtech.api.metatileentity.BaseMetaTileEntity;
-import gregtech.api.metatileentity.BaseTileEntity;
-import gregtech.api.objects.XSTR;
-import gregtech.api.util.GT_BaseCrop;
-import gregtech.api.util.GT_Log;
-import gregtech.api.util.GT_Utility;
-import gregtech.common.render.GT_Renderer_Block;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -39,13 +26,26 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IDebugableBlock;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.items.GT_Generic_Block;
+import gregtech.api.metatileentity.BaseMetaPipeEntity;
+import gregtech.api.metatileentity.BaseMetaTileEntity;
+import gregtech.api.metatileentity.BaseTileEntity;
+import gregtech.api.objects.XSTR;
+import gregtech.api.util.GT_BaseCrop;
+import gregtech.api.util.GT_Log;
+import gregtech.api.util.GT_Utility;
+import gregtech.common.render.GT_Renderer_Block;
 
-public class GT_Block_Machines
-        extends GT_Generic_Block
-        implements IDebugableBlock, ITileEntityProvider {
+public class GT_Block_Machines extends GT_Generic_Block implements IDebugableBlock, ITileEntityProvider {
+
     public static ThreadLocal<IGregTechTileEntity> mTemporaryTileEntity = new ThreadLocal();
 
     public GT_Block_Machines() {
@@ -186,10 +186,13 @@ public class GT_Block_Machines
         return tTileEntity != null ? tTileEntity.receiveClientEvent(aData1, aData2) : false;
     }
 
-    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB, List outputAABB, Entity collider) {
+    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB, List outputAABB,
+        Entity collider) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof IGregTechTileEntity)) && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
-            ((IGregTechTileEntity) tTileEntity).addCollisionBoxesToList(aWorld, aX, aY, aZ, inputAABB, outputAABB, collider);
+        if (((tTileEntity instanceof IGregTechTileEntity))
+            && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
+            ((IGregTechTileEntity) tTileEntity)
+                .addCollisionBoxesToList(aWorld, aX, aY, aZ, inputAABB, outputAABB, collider);
             return;
         }
         super.addCollisionBoxesToList(aWorld, aX, aY, aZ, inputAABB, outputAABB, collider);
@@ -197,7 +200,8 @@ public class GT_Block_Machines
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World aWorld, int aX, int aY, int aZ) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof IGregTechTileEntity)) && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
+        if (((tTileEntity instanceof IGregTechTileEntity))
+            && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
             return ((IGregTechTileEntity) tTileEntity).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ);
         }
         return super.getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ);
@@ -207,36 +211,40 @@ public class GT_Block_Machines
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World aWorld, int aX, int aY, int aZ) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof IGregTechTileEntity)) && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
+        if (((tTileEntity instanceof IGregTechTileEntity))
+            && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
             return ((IGregTechTileEntity) tTileEntity).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ);
         }
         return super.getSelectedBoundingBoxFromPool(aWorld, aX, aY, aZ);
     }
 
-    @Override  //THIS
+    @Override // THIS
     public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int aX, int aY, int aZ) {
         TileEntity tTileEntity = blockAccess.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof IGregTechTileEntity)) && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
-            AxisAlignedBB bbb=((IGregTechTileEntity)tTileEntity).getCollisionBoundingBoxFromPool(((IGregTechTileEntity)tTileEntity).getWorld(), 0, 0, 0);
-            minX=bbb.minX;//This essentially sets block bounds
-            minY=bbb.minY;
-            minZ=bbb.minZ;
-            maxX=bbb.maxX;
-            maxY=bbb.maxY;
-            maxZ=bbb.maxZ;
+        if (((tTileEntity instanceof IGregTechTileEntity))
+            && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
+            AxisAlignedBB bbb = ((IGregTechTileEntity) tTileEntity)
+                .getCollisionBoundingBoxFromPool(((IGregTechTileEntity) tTileEntity).getWorld(), 0, 0, 0);
+            minX = bbb.minX;// This essentially sets block bounds
+            minY = bbb.minY;
+            minZ = bbb.minZ;
+            maxX = bbb.maxX;
+            maxY = bbb.maxY;
+            maxZ = bbb.maxZ;
             return;
         }
-        super.setBlockBoundsBasedOnState(blockAccess,aX,aY,aZ);
+        super.setBlockBoundsBasedOnState(blockAccess, aX, aY, aZ);
     }
 
     @Override
     public void setBlockBoundsForItemRender() {
-        super.setBlockBounds(0,0,0,1,1,1);
+        super.setBlockBounds(0, 0, 0, 1, 1, 1);
     }
 
     public void onEntityCollidedWithBlock(World aWorld, int aX, int aY, int aZ, Entity collider) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof IGregTechTileEntity)) && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
+        if (((tTileEntity instanceof IGregTechTileEntity))
+            && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
             ((IGregTechTileEntity) tTileEntity).onEntityCollidedWithBlock(aWorld, aX, aY, aZ, collider);
             return;
         }
@@ -256,7 +264,9 @@ public class GT_Block_Machines
                         tMetaTileEntity.registerIcons(aIconRegister);
                     }
                 }
-            } catch (Throwable e) {e.printStackTrace(GT_Log.err);}
+            } catch (Throwable e) {
+                e.printStackTrace(GT_Log.err);
+            }
             GT_Log.out.println("GT_Mod: Registering Crop specific Textures");
             try {
                 for (GT_BaseCrop tCrop : GT_BaseCrop.sCropList) {
@@ -271,7 +281,9 @@ public class GT_Block_Machines
                 for (Runnable tRunnable : GregTech_API.sGTBlockIconload) {
                     tRunnable.run();
                 }
-            } catch (Throwable e) {e.printStackTrace(GT_Log.err);}
+            } catch (Throwable e) {
+                e.printStackTrace(GT_Log.err);
+            }
             GT_Log.out.println("GT_Mod: Finished Block Icon Load Phase");
             System.out.println("GT_Mod: Finished Block Icon Load Phase");
         }
@@ -283,24 +295,31 @@ public class GT_Block_Machines
 
     public float getPlayerRelativeBlockHardness(EntityPlayer aPlayer, World aWorld, int aX, int aY, int aZ) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
-        if (((tTileEntity instanceof BaseMetaTileEntity)) && (((BaseMetaTileEntity) tTileEntity).privateAccess()) && (!((BaseMetaTileEntity) tTileEntity).playerOwnsThis(aPlayer, true))) {
+        if (((tTileEntity instanceof BaseMetaTileEntity)) && (((BaseMetaTileEntity) tTileEntity).privateAccess())
+            && (!((BaseMetaTileEntity) tTileEntity).playerOwnsThis(aPlayer, true))) {
             return -1.0F;
         }
         return super.getPlayerRelativeBlockHardness(aPlayer, aWorld, aX, aY, aZ);
     }
 
-    public boolean onBlockActivated(World aWorld, int aX, int aY, int aZ, EntityPlayer aPlayer, int aSide, float par1, float par2, float par3) {
+    public boolean onBlockActivated(World aWorld, int aX, int aY, int aZ, EntityPlayer aPlayer, int aSide, float par1,
+        float par2, float par3) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (tTileEntity == null) {
             return false;
         }
-        if(aPlayer.isSneaking()){
-        	ItemStack tCurrentItem = aPlayer.inventory.getCurrentItem();
-        	if(tCurrentItem!=null){
-        		if(!GT_Utility.isStackInList(tCurrentItem, GregTech_API.sScrewdriverList) && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sWrenchList) && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sWireCutterList) && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sSolderingToolList)){
-        			return false;
-        		}
-        	}else {return false;}
+        if (aPlayer.isSneaking()) {
+            ItemStack tCurrentItem = aPlayer.inventory.getCurrentItem();
+            if (tCurrentItem != null) {
+                if (!GT_Utility.isStackInList(tCurrentItem, GregTech_API.sScrewdriverList)
+                    && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sWrenchList)
+                    && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sWireCutterList)
+                    && !GT_Utility.isStackInList(tCurrentItem, GregTech_API.sSolderingToolList)) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
         if ((tTileEntity instanceof IGregTechTileEntity)) {
             if (((IGregTechTileEntity) tTileEntity).getTimer() < 50L) {
@@ -347,9 +366,17 @@ public class GT_Block_Machines
             for (int i = 0; i < tGregTechTileEntity.getSizeInventory(); i++) {
                 ItemStack tItem = tGregTechTileEntity.getStackInSlot(i);
                 if ((tItem != null) && (tItem.stackSize > 0) && (tGregTechTileEntity.isValidSlot(i))) {
-                    EntityItem tItemEntity = new EntityItem(aWorld, aX + tRandom.nextFloat() * 0.8F + 0.1F, aY + tRandom.nextFloat() * 0.8F + 0.1F, aZ + tRandom.nextFloat() * 0.8F + 0.1F, new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
+                    EntityItem tItemEntity = new EntityItem(
+                        aWorld,
+                        aX + tRandom.nextFloat() * 0.8F + 0.1F,
+                        aY + tRandom.nextFloat() * 0.8F + 0.1F,
+                        aZ + tRandom.nextFloat() * 0.8F + 0.1F,
+                        new ItemStack(tItem.getItem(), tItem.stackSize, tItem.getItemDamage()));
                     if (tItem.hasTagCompound()) {
-                        tItemEntity.getEntityItem().setTagCompound((NBTTagCompound) tItem.getTagCompound().copy());
+                        tItemEntity.getEntityItem()
+                            .setTagCompound(
+                                (NBTTagCompound) tItem.getTagCompound()
+                                    .copy());
                     }
                     tItemEntity.motionX = (tRandom.nextGaussian() * 0.0500000007450581D);
                     tItemEntity.motionY = (tRandom.nextGaussian() * 0.0500000007450581D + 0.2000000029802322D);
@@ -369,7 +396,8 @@ public class GT_Block_Machines
         if ((tTileEntity instanceof IGregTechTileEntity)) {
             return ((IGregTechTileEntity) tTileEntity).getDrops();
         }
-        return mTemporaryTileEntity.get() == null ? new ArrayList() : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops();
+        return mTemporaryTileEntity.get() == null ? new ArrayList()
+            : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops();
     }
 
     @Override
@@ -382,8 +410,7 @@ public class GT_Block_Machines
     }
 
     @Override
-    public void harvestBlock(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, int aMeta)
-    {
+    public void harvestBlock(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, int aMeta) {
         super.harvestBlock(aWorld, aPlayer, aX, aY, aZ, aMeta);
         aWorld.setBlockToAir(aX, aY, aZ);
     }
@@ -440,10 +467,12 @@ public class GT_Block_Machines
             if ((tTileEntity instanceof BaseMetaTileEntity)) {
                 return true;
             }
-            if (((tTileEntity instanceof BaseMetaPipeEntity)) && ((((BaseMetaPipeEntity) tTileEntity).mConnections & 0xFFFFFFC0) != 0)) {
+            if (((tTileEntity instanceof BaseMetaPipeEntity))
+                && ((((BaseMetaPipeEntity) tTileEntity).mConnections & 0xFFFFFFC0) != 0)) {
                 return true;
             }
-            if (((tTileEntity instanceof ICoverable)) && (((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0)) {
+            if (((tTileEntity instanceof ICoverable))
+                && (((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide.ordinal()) != 0)) {
                 return true;
             }
         }
@@ -476,7 +505,8 @@ public class GT_Block_Machines
         return new BaseMetaPipeEntity();
     }
 
-    public float getExplosionResistance(Entity par1Entity, World aWorld, int aX, int aY, int aZ, double explosionX, double explosionY, double explosionZ) {
+    public float getExplosionResistance(Entity par1Entity, World aWorld, int aX, int aY, int aZ, double explosionX,
+        double explosionY, double explosionZ) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (((tTileEntity instanceof IGregTechTileEntity))) {
             return ((IGregTechTileEntity) tTileEntity).getBlastResistance((byte) 6);

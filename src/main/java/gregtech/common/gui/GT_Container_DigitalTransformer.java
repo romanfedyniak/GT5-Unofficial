@@ -1,18 +1,20 @@
 package gregtech.common.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.gui.GT_ContainerMetaTile_Machine;
-import gregtech.api.gui.GT_Slot_Holo;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Digital_Transformer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.gui.GT_ContainerMetaTile_Machine;
+import gregtech.api.gui.GT_Slot_Holo;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Digital_Transformer;
+
 public class GT_Container_DigitalTransformer extends GT_ContainerMetaTile_Machine {
+
     public int oTier, oAMP, iAmp = -1;
 
     public GT_Container_DigitalTransformer(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity) {
@@ -37,7 +39,8 @@ public class GT_Container_DigitalTransformer extends GT_ContainerMetaTile_Machin
         }
         Slot tSlot = (Slot) inventorySlots.get(aSlotIndex);
         if (tSlot != null && mTileEntity.getMetaTileEntity() != null) {
-            GT_MetaTileEntity_Digital_Transformer dpg = (GT_MetaTileEntity_Digital_Transformer) mTileEntity.getMetaTileEntity();
+            GT_MetaTileEntity_Digital_Transformer dpg = (GT_MetaTileEntity_Digital_Transformer) mTileEntity
+                .getMetaTileEntity();
             if (aSlotIndex > 5) {
                 return super.slotClick(aSlotIndex, aMouseclick, aShifthold, aPlayer);
             }
@@ -69,9 +72,9 @@ public class GT_Container_DigitalTransformer extends GT_ContainerMetaTile_Machin
             return;
         }
 
-        GT_MetaTileEntity_Digital_Transformer dpg = (GT_MetaTileEntity_Digital_Transformer) mTileEntity.getMetaTileEntity();
-        if (oTier == dpg.oTier && oAMP == dpg.oAmp && iAmp == dpg.iAmp)
-            return;
+        GT_MetaTileEntity_Digital_Transformer dpg = (GT_MetaTileEntity_Digital_Transformer) mTileEntity
+            .getMetaTileEntity();
+        if (oTier == dpg.oTier && oAMP == dpg.oAmp && iAmp == dpg.iAmp) return;
         oTier = dpg.oTier;
         oAMP = dpg.oAmp;
         iAmp = dpg.iAmp;

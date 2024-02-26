@@ -1,14 +1,15 @@
 package gregtech.api.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
+import java.util.Iterator;
+
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 
-import java.util.Iterator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicTank;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -36,8 +37,7 @@ public class GT_Container_BasicTank extends GT_ContainerMetaTile_Machine {
         if (mTileEntity.isClientSide() || mTileEntity.getMetaTileEntity() == null) return;
         if (((GT_MetaTileEntity_BasicTank) mTileEntity.getMetaTileEntity()).mFluid != null)
             mContent = ((GT_MetaTileEntity_BasicTank) mTileEntity.getMetaTileEntity()).mFluid.amount;
-        else
-            mContent = 0;
+        else mContent = 0;
         Iterator var2 = this.crafters.iterator();
         while (var2.hasNext()) {
             ICrafting var1 = (ICrafting) var2.next();

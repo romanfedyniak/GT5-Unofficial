@@ -1,15 +1,17 @@
 package gregtech.common.blocks;
 
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-import gregtech.api.net.GT_Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class GT_Packet_Ores
-        extends GT_Packet {
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+
+import gregtech.api.net.GT_Packet;
+
+public class GT_Packet_Ores extends GT_Packet {
+
     private int mX;
     private int mZ;
     private short mY;

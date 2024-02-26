@@ -4,6 +4,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 public interface IIconContainer {
+
     /**
      * @return A regular Icon.
      */

@@ -1,20 +1,28 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IMachineProgress;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fluids.Fluid;
 
-public class GT_Cover_EnergyOnly
-        extends GT_CoverBehavior {
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+public class GT_Cover_EnergyOnly extends GT_CoverBehavior {
+
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = (aCoverVariable + 1) % 3;
-        switch(aCoverVariable) {
-            case 0: GT_Utility.sendChatToPlayer(aPlayer, trans("028", "Allow")); break;
-            case 1: GT_Utility.sendChatToPlayer(aPlayer, trans("029", "Allow (conditional)")); break;
-            case 2: GT_Utility.sendChatToPlayer(aPlayer, trans("030", "Disallow (conditional)")); break;
+        switch (aCoverVariable) {
+            case 0:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("028", "Allow"));
+                break;
+            case 1:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("029", "Allow (conditional)"));
+                break;
+            case 2:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("030", "Disallow (conditional)"));
+                break;
         }
         return aCoverVariable;
     }
@@ -69,15 +77,18 @@ public class GT_Cover_EnergyOnly
         return false;
     }
 
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return false;
     }
 
-    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         return false;
     }
 
-    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, boolean aForced) {
+    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        boolean aForced) {
         return true;
     }
 }

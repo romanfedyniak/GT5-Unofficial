@@ -1,16 +1,17 @@
 package gregtech.loaders.postload;
 
-import gregtech.GT_Mod;
-import gregtech.api.util.GT_Utility;
+import java.util.Set;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemPickaxe;
 
-import java.util.Set;
+import gregtech.GT_Mod;
+import gregtech.api.util.GT_Utility;
 
-public class GT_BlockResistanceLoader
-        implements Runnable {
+public class GT_BlockResistanceLoader implements Runnable {
+
     public void run() {
         if (GT_Mod.gregtechproxy.mHardRock) {
             Blocks.stone.setHardness(16.0F);
@@ -26,7 +27,6 @@ public class GT_BlockResistanceLoader
         Blocks.brick_block.setResistance(20.0F);
         Blocks.hardened_clay.setResistance(15.0F);
         Blocks.stained_hardened_clay.setResistance(15.0F);
-
 
         Blocks.bed.setHarvestLevel("axe", 0);
         Blocks.hay_block.setHarvestLevel("axe", 0);

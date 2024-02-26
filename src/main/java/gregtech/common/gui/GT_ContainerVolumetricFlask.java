@@ -1,12 +1,14 @@
 package gregtech.common.gui;
 
-import gregtech.common.items.GT_VolumetricFlask;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 
+import gregtech.common.items.GT_VolumetricFlask;
+
 public final class GT_ContainerVolumetricFlask extends Container {
+
     ItemStack flask;
 
     public GT_ContainerVolumetricFlask(InventoryPlayer inventoryPlayer) {

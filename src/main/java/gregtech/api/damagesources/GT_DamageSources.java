@@ -1,9 +1,14 @@
 package gregtech.api.damagesources;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 
 public class GT_DamageSources {
+
     public static DamageSource getElectricDamage() {
         return ic2.api.info.Info.DMG_ELECTRIC;
     }
@@ -33,6 +38,7 @@ public class GT_DamageSources {
     }
 
     private static class DamageSourceCombat extends EntityDamageSource {
+
         private IChatComponent mDeathMessage;
 
         public DamageSourceCombat(String aType, EntityLivingBase aPlayer, IChatComponent aDeathMessage) {
@@ -47,6 +53,7 @@ public class GT_DamageSources {
     }
 
     private static class DamageSourceFrost extends DamageSource {
+
         public DamageSourceFrost() {
             super("frost");
             setDifficultyScaled();
@@ -54,11 +61,13 @@ public class GT_DamageSources {
 
         @Override
         public IChatComponent func_151519_b(EntityLivingBase aTarget) {
-            return new ChatComponentText(EnumChatFormatting.RED + aTarget.getCommandSenderName() + EnumChatFormatting.WHITE + " got frozen");
+            return new ChatComponentText(
+                EnumChatFormatting.RED + aTarget.getCommandSenderName() + EnumChatFormatting.WHITE + " got frozen");
         }
     }
 
     private static class DamageSourceHeat extends DamageSource {
+
         public DamageSourceHeat() {
             super("steam");
             setDifficultyScaled();
@@ -66,11 +75,15 @@ public class GT_DamageSources {
 
         @Override
         public IChatComponent func_151519_b(EntityLivingBase aTarget) {
-            return new ChatComponentText(EnumChatFormatting.RED + aTarget.getCommandSenderName() + EnumChatFormatting.WHITE + " was boiled alive");
+            return new ChatComponentText(
+                EnumChatFormatting.RED + aTarget.getCommandSenderName()
+                    + EnumChatFormatting.WHITE
+                    + " was boiled alive");
         }
     }
 
     public static class DamageSourceExploding extends DamageSource {
+
         public DamageSourceExploding() {
             super("exploded");
             setDamageAllowedInCreativeMode();
@@ -80,7 +93,8 @@ public class GT_DamageSources {
 
         @Override
         public IChatComponent func_151519_b(EntityLivingBase aTarget) {
-            return new ChatComponentText(EnumChatFormatting.RED + aTarget.getCommandSenderName() + EnumChatFormatting.WHITE + " exploded");
+            return new ChatComponentText(
+                EnumChatFormatting.RED + aTarget.getCommandSenderName() + EnumChatFormatting.WHITE + " exploded");
         }
     }
 }

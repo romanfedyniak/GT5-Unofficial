@@ -1,20 +1,21 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IMachineProgress;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fluids.Fluid;
 
-public class GT_Cover_ControlsWork
-        extends GT_CoverBehavior {
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+public class GT_Cover_ControlsWork extends GT_CoverBehavior {
+
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         if (aTileEntity instanceof IMachineProgress) {
             if ((aInputRedstone > 0) == (aCoverVariable == 0) && aCoverVariable != 2)
                 ((IMachineProgress) aTileEntity).enableWorking();
-            else
-                ((IMachineProgress) aTileEntity).disableWorking();
+            else((IMachineProgress) aTileEntity).disableWorking();
             ((IMachineProgress) aTileEntity).setWorkDataValue(aInputRedstone);
         }
         return aCoverVariable;
@@ -44,7 +45,8 @@ public class GT_Cover_ControlsWork
         return true;
     }
 
-    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, boolean aForced) {
+    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        boolean aForced) {
         if ((aTileEntity instanceof IMachineProgress)) {
             ((IMachineProgress) aTileEntity).enableWorking();
             ((IMachineProgress) aTileEntity).setWorkDataValue((byte) 0);
@@ -52,9 +54,12 @@ public class GT_Cover_ControlsWork
         return true;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking()? -1 : 1)) % 3;
-        if(aCoverVariable <0){aCoverVariable = 2;}
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking() ? -1 : 1)) % 3;
+        if (aCoverVariable < 0) {
+            aCoverVariable = 2;
+        }
         if (aCoverVariable == 0) {
             GT_Utility.sendChatToPlayer(aPlayer, trans("003", "Normal"));
         }

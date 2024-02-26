@@ -1,17 +1,17 @@
 package gregtech.api.objects;
 
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.util.GT_CoverBehavior;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fluids.Fluid;
+
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.util.GT_CoverBehavior;
 
 public class GT_Cover_None extends GT_CoverBehavior {
 
     /**
      * This is the Dummy, if there is no Cover
      */
-    public GT_Cover_None() {
-    }
+    public GT_Cover_None() {}
 
     @Override
     public float getBlastProofLevel(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
@@ -64,22 +64,26 @@ public class GT_Cover_None extends GT_CoverBehavior {
     }
 
     @Override
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return false;
     }
 
     @Override
-    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public boolean onCoverRightclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         return false;
     }
 
     @Override
-    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, boolean aForced) {
+    public boolean onCoverRemoval(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        boolean aForced) {
         return true;
     }
 
     @Override
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         return 0;
     }
 

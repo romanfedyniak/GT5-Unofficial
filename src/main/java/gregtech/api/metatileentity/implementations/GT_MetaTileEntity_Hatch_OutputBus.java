@@ -1,19 +1,34 @@
 package gregtech.api.metatileentity.implementations;
 
-import gregtech.api.enums.Textures;
-import gregtech.api.gui.*;
-import gregtech.api.interfaces.ITexture;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.objects.GT_RenderedTexture;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
+import gregtech.api.enums.Textures;
+import gregtech.api.gui.GT_Container_1by1;
+import gregtech.api.gui.GT_Container_2by2;
+import gregtech.api.gui.GT_Container_3by3;
+import gregtech.api.gui.GT_Container_4by4;
+import gregtech.api.gui.GT_GUIContainer_1by1;
+import gregtech.api.gui.GT_GUIContainer_2by2;
+import gregtech.api.gui.GT_GUIContainer_3by3;
+import gregtech.api.gui.GT_GUIContainer_4by4;
+import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.objects.GT_RenderedTexture;
+
 public class GT_MetaTileEntity_Hatch_OutputBus extends GT_MetaTileEntity_Hatch {
+
     public GT_MetaTileEntity_Hatch_OutputBus(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, getSlots(aTier), new String[]{"Item Output for Multiblocks",
-        		"Capacity: " + getSlots(aTier) + " stack" + (getSlots(aTier) >= 2 ? "s" : "")});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            getSlots(aTier),
+            new String[] { "Item Output for Multiblocks",
+                "Capacity: " + getSlots(aTier) + " stack" + (getSlots(aTier) >= 2 ? "s" : "") });
     }
 
     public GT_MetaTileEntity_Hatch_OutputBus(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
@@ -26,12 +41,12 @@ public class GT_MetaTileEntity_Hatch_OutputBus extends GT_MetaTileEntity_Hatch {
 
     @Override
     public ITexture[] getTexturesActive(ITexture aBaseTexture) {
-        return new ITexture[]{aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)};
+        return new ITexture[] { aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT) };
     }
 
     @Override
     public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
-        return new ITexture[]{aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT)};
+        return new ITexture[] { aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_PIPE_OUT) };
     }
 
     @Override

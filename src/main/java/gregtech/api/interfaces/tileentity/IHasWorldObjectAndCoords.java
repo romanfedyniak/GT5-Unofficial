@@ -10,13 +10,16 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fluids.IFluidHandler;
 
 /**
- * This is a bunch of Functions my TileEntities provide, to make life much easier, and to get rid of internal TileEntity stuff.
+ * This is a bunch of Functions my TileEntities provide, to make life much easier, and to get rid of internal TileEntity
+ * stuff.
  * <p/>
  * This also makes access to adjacent TileEntities more Efficient.
  * <p/>
- * Note: It doesn't have to be a TileEntity in certain cases! And only certain cases, such as the Recipe checking of the findRecipe Function.
+ * Note: It doesn't have to be a TileEntity in certain cases! And only certain cases, such as the Recipe checking of the
+ * findRecipe Function.
  */
 public interface IHasWorldObjectAndCoords {
+
     public World getWorld();
 
     public int getXCoord();
@@ -127,7 +130,8 @@ public interface IHasWorldObjectAndCoords {
     public boolean isDead();
 
     /**
-     * Sends a Block Event to the Client TileEntity, the byte Parameters are only for validation as Minecraft doesn't properly write Packet Data.
+     * Sends a Block Event to the Client TileEntity, the byte Parameters are only for validation as Minecraft doesn't
+     * properly write Packet Data.
      */
     public void sendBlockEvent(byte aID, byte aValue);
 

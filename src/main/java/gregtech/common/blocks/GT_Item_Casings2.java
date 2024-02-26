@@ -1,13 +1,13 @@
 package gregtech.common.blocks;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-import java.util.List;
+public class GT_Item_Casings2 extends GT_Item_Casings_Abstract {
 
-public class GT_Item_Casings2
-        extends GT_Item_Casings_Abstract {
     public GT_Item_Casings2(Block par1) {
         super(par1);
     }

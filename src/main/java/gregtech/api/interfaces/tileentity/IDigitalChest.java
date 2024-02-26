@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
  * You are allowed to include this File in your Download, as i will not change it.
  */
 public interface IDigitalChest extends IHasWorldObjectAndCoords {
+
     /**
      * Is this even a TileEntity of a Digital Chest?
      * I need things like this Function for MetaTileEntities, you MUST check this!!!
@@ -14,7 +15,8 @@ public interface IDigitalChest extends IHasWorldObjectAndCoords {
     public boolean isDigitalChest();
 
     /**
-     * Gives an Array of Stacks with Size (of all the Data-stored Items) of the correspondent Item kinds (regular QChests have only one)
+     * Gives an Array of Stacks with Size (of all the Data-stored Items) of the correspondent Item kinds (regular
+     * QChests have only one)
      * Does NOT include the 64 "ready" Items inside the Slots, and neither the 128 Items in the overflow Buffer.
      */
     public ItemStack[] getStoredItemData();
@@ -25,7 +27,8 @@ public interface IDigitalChest extends IHasWorldObjectAndCoords {
     public void setItemCount(int aCount);
 
     /**
-     * Gets the maximum Item count for this QChest alike Storage. This applies to the Data-Storage, not for the up to 192 buffered Items!
+     * Gets the maximum Item count for this QChest alike Storage. This applies to the Data-Storage, not for the up to
+     * 192 buffered Items!
      */
     public int getMaxItemCount();
 }

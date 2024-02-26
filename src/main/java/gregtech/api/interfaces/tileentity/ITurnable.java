@@ -1,10 +1,10 @@
 package gregtech.api.interfaces.tileentity;
 
-
 /**
  * Implemented by all my Machines. However without any security checks, if the Players are even allowed to rotate it.
  */
 public interface ITurnable {
+
     /**
      * Get the block's facing.
      *

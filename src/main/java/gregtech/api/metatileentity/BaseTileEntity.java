@@ -1,10 +1,8 @@
 package gregtech.api.metatileentity;
 
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
-import gregtech.api.net.GT_Packet_Block_Event;
-import gregtech.api.util.GT_LanguageManager;
-import gregtech.api.util.GT_Utility;
+import static gregtech.api.enums.GT_Values.GT;
+import static gregtech.api.enums.GT_Values.NW;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -16,8 +14,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.IFluidHandler;
 
-import static gregtech.api.enums.GT_Values.GT;
-import static gregtech.api.enums.GT_Values.NW;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.interfaces.tileentity.IHasWorldObjectAndCoords;
+import gregtech.api.net.GT_Packet_Block_Event;
+import gregtech.api.util.GT_LanguageManager;
+import gregtech.api.util.GT_Utility;
 
 /**
  * The Functions my old TileEntities and my BaseMetaTileEntities have in common.
@@ -25,10 +26,12 @@ import static gregtech.api.enums.GT_Values.NW;
  * Basically everything a TileEntity should have.
  */
 public abstract class BaseTileEntity extends TileEntity implements IHasWorldObjectAndCoords {
+
     /**
      * Buffers adjacent TileEntities for faster access
      * <p/>
-     * "this" means that there is no TileEntity, while "null" means that it doesn't know if there is even a TileEntity and still needs to check that if needed.
+     * "this" means that there is no TileEntity, while "null" means that it doesn't know if there is even a TileEntity
+     * and still needs to check that if needed.
      */
     private final TileEntity[] mBufferedTileEntities = new TileEntity[6];
     /**
@@ -38,7 +41,8 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
      */
     public boolean ignoreUnloadedChunks = true;
     /**
-     * This Variable checks if this TileEntity is dead, because Minecraft is too stupid to have proper TileEntity unloading.
+     * This Variable checks if this TileEntity is dead, because Minecraft is too stupid to have proper TileEntity
+     * unloading.
      */
     public boolean isDead = false;
 
@@ -373,7 +377,8 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
             mBufferedTileEntities[aSide] = null;
             return getTileEntityAtSide(aSide);
         }
-        if (mBufferedTileEntities[aSide].xCoord == tX && mBufferedTileEntities[aSide].yCoord == tY && mBufferedTileEntities[aSide].zCoord == tZ) {
+        if (mBufferedTileEntities[aSide].xCoord == tX && mBufferedTileEntities[aSide].yCoord == tY
+            && mBufferedTileEntities[aSide].zCoord == tZ) {
             return mBufferedTileEntities[aSide];
         }
         return null;
@@ -382,7 +387,7 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
     @Override
     public void writeToNBT(NBTTagCompound aNBT) {
         super.writeToNBT(aNBT);
-        //isDead = true;
+        // isDead = true;
     }
 
     @Override
@@ -421,7 +426,11 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
 
     @Override
     public final void sendBlockEvent(byte aID, byte aValue) {
-        NW.sendPacketToAllPlayersInRange(worldObj, new GT_Packet_Block_Event(xCoord, (short) yCoord, zCoord, aID, aValue), xCoord, zCoord);
+        NW.sendPacketToAllPlayersInRange(
+            worldObj,
+            new GT_Packet_Block_Event(xCoord, (short) yCoord, zCoord, aID, aValue),
+            xCoord,
+            zCoord);
     }
 
     private boolean crossedChunkBorder(int aX, int aZ) {
@@ -435,11 +444,11 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
     public final void setToFire() {
         worldObj.setBlock(xCoord, yCoord, zCoord, Blocks.fire);
     }
-    
-    @Override 
-    public void markDirty() {/* Do not do the super Function */} 
-    
-    public String trans(String aKey, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aKey, aEnglish, false);
+
+    @Override
+    public void markDirty() {/* Do not do the super Function */}
+
+    public String trans(String aKey, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 }

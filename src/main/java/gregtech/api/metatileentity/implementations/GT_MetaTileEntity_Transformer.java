@@ -1,5 +1,13 @@
 package gregtech.api.metatileentity.implementations;
 
+import static gregtech.api.enums.GT_Values.V;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyStorage;
 import crazypants.enderio.machine.capbank.TileCapBank;
@@ -13,13 +21,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_Utility;
 import ic2.api.energy.tile.IEnergySource;
 import ic2.api.reactor.IReactorChamber;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
-
-import static gregtech.api.enums.GT_Values.V;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -28,6 +29,7 @@ import static gregtech.api.enums.GT_Values.V;
  * Extend this class to make a simple Machine
  */
 public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachineBlock {
+
     public GT_MetaTileEntity_Transformer(int aID, String aName, String aNameRegional, int aTier, String aDescription) {
         super(aID, aName, aNameRegional, aTier, 0, aDescription);
     }
@@ -44,24 +46,37 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
     public ITexture[][][] getTextureSet(ITexture[] aTextures) {
         ITexture[][][] rTextures = new ITexture[12][17][];
         for (byte i = -1; i < 16; i++) {
-            rTextures[0][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier]};
-            rTextures[1][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier]};
-            rTextures[2][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier]};
-            rTextures[3][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier]};
-            rTextures[4][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier]};
-            rTextures[5][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier]};
-            rTextures[6][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier]};
-            rTextures[7][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier]};
-            rTextures[8][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier]};
-            rTextures[9][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier]};
-            rTextures[10][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier]};
-            rTextures[11][i + 1] = new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1], Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier]};
+            rTextures[0][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier] };
+            rTextures[1][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier] };
+            rTextures[2][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT[mTier] };
+            rTextures[3][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier] };
+            rTextures[4][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier] };
+            rTextures[5][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN_MULTI[mTier] };
+            rTextures[6][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier] };
+            rTextures[7][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier] };
+            rTextures[8][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_IN[mTier] };
+            rTextures[9][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier] };
+            rTextures[10][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier] };
+            rTextures[11][i + 1] = new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][i + 1],
+                Textures.BlockIcons.OVERLAYS_ENERGY_OUT_MULTI[mTier] };
         }
         return rTextures;
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         return mTextures[Math.min(2, aSide) + (aSide == aFacing ? 3 : 0) + (aActive ? 0 : 6)][aColorIndex + 1];
     }
 
@@ -97,7 +112,8 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
 
     @Override
     public boolean isInputFacing(byte aSide) {
-        return getBaseMetaTileEntity().isAllowedToWork() ? aSide == getBaseMetaTileEntity().getFrontFacing() : aSide != getBaseMetaTileEntity().getFrontFacing();
+        return getBaseMetaTileEntity().isAllowedToWork() ? aSide == getBaseMetaTileEntity().getFrontFacing()
+            : aSide != getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
@@ -150,39 +166,56 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
                     if (tTileEntity instanceof IReactorChamber) {
                         tTileEntity = (TileEntity) ((IReactorChamber) tTileEntity).getReactor();
                     }
-                    if (tTileEntity instanceof IEnergySource && ((IEnergySource) tTileEntity).emitsEnergyTo((TileEntity) aBaseMetaTileEntity, ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)))) {
+                    if (tTileEntity instanceof IEnergySource && ((IEnergySource) tTileEntity).emitsEnergyTo(
+                        (TileEntity) aBaseMetaTileEntity,
+                        ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)))) {
                         long tEU = Math.min(maxEUInput(), (long) ((IEnergySource) tTileEntity).getOfferedEnergy());
                         ((IEnergySource) tTileEntity).drawEnergy(tEU);
                         aBaseMetaTileEntity.injectEnergyUnits((byte) 6, tEU, 1);
-                    } else if (GregTech_API.mInputRF && tTileEntity instanceof IEnergyProvider && ((IEnergyProvider) tTileEntity).extractEnergy(ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)), 1, true) == 1) {
-                        long tEU = (long) ((IEnergyProvider) tTileEntity).extractEnergy(ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)), (int) maxEUInput() * 100 / GregTech_API.mRFtoEU, false);
-                        tEU = tEU * GregTech_API.mRFtoEU / 100;
-                        aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
-                    } else if (GregTech_API.mInputRF && tTileEntity instanceof IEnergyStorage && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
-                        long tEU = (long) ((IEnergyStorage) tTileEntity).extractEnergy((int) maxEUInput() * 100 / GregTech_API.mRFtoEU, false);
-                        tEU = tEU * GregTech_API.mRFtoEU / 100;
-                        aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
-                    } else if (GregTech_API.mInputRF && GregTech_API.meIOLoaded && tTileEntity instanceof IPowerContainer && ((IPowerContainer) tTileEntity).getEnergyStored() > 0) {
-                        int storedRF = ((IPowerContainer) tTileEntity).getEnergyStored();
-                        int extractRF = (int) maxEUInput() * 100 / GregTech_API.mRFtoEU;
-                        long tEU = 0;
-                        if (tTileEntity instanceof TileCapBank) {
-                            ICapBankNetwork network = ((TileCapBank) tTileEntity).getNetwork();
-                            if (network != null && network.getEnergyStoredL() > 0) {
-                                tEU = Math.min((Math.min(Math.min(network.getEnergyStoredL(), storedRF - extractRF), network.getMaxOutput())) * GregTech_API.mRFtoEU / 100, maxEUInput());
-                                network.addEnergy((int) -(tEU * 100 / GregTech_API.mRFtoEU));
-                            }
-                        } else {
-                            if (storedRF > extractRF) {
-                                ((IPowerContainer) tTileEntity).setEnergyStored(storedRF - extractRF);
-                                tEU = maxEUInput();
-                            } else {
-                                ((IPowerContainer) tTileEntity).setEnergyStored(0);
-                                tEU = storedRF * GregTech_API.mRFtoEU / 100;
-                            }
-                        }
-                        aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
-                    }
+                    } else if (GregTech_API.mInputRF && tTileEntity instanceof IEnergyProvider
+                        && ((IEnergyProvider) tTileEntity)
+                            .extractEnergy(ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)), 1, true)
+                            == 1) {
+                                long tEU = (long) ((IEnergyProvider) tTileEntity).extractEnergy(
+                                    ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)),
+                                    (int) maxEUInput() * 100 / GregTech_API.mRFtoEU,
+                                    false);
+                                tEU = tEU * GregTech_API.mRFtoEU / 100;
+                                aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
+                            } else
+                        if (GregTech_API.mInputRF && tTileEntity instanceof IEnergyStorage
+                            && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
+                                long tEU = (long) ((IEnergyStorage) tTileEntity)
+                                    .extractEnergy((int) maxEUInput() * 100 / GregTech_API.mRFtoEU, false);
+                                tEU = tEU * GregTech_API.mRFtoEU / 100;
+                                aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
+                            } else if (GregTech_API.mInputRF && GregTech_API.meIOLoaded
+                                && tTileEntity instanceof IPowerContainer
+                                && ((IPowerContainer) tTileEntity).getEnergyStored() > 0) {
+                                    int storedRF = ((IPowerContainer) tTileEntity).getEnergyStored();
+                                    int extractRF = (int) maxEUInput() * 100 / GregTech_API.mRFtoEU;
+                                    long tEU = 0;
+                                    if (tTileEntity instanceof TileCapBank) {
+                                        ICapBankNetwork network = ((TileCapBank) tTileEntity).getNetwork();
+                                        if (network != null && network.getEnergyStoredL() > 0) {
+                                            tEU = Math.min(
+                                                (Math.min(
+                                                    Math.min(network.getEnergyStoredL(), storedRF - extractRF),
+                                                    network.getMaxOutput())) * GregTech_API.mRFtoEU / 100,
+                                                maxEUInput());
+                                            network.addEnergy((int) -(tEU * 100 / GregTech_API.mRFtoEU));
+                                        }
+                                    } else {
+                                        if (storedRF > extractRF) {
+                                            ((IPowerContainer) tTileEntity).setEnergyStored(storedRF - extractRF);
+                                            tEU = maxEUInput();
+                                        } else {
+                                            ((IPowerContainer) tTileEntity).setEnergyStored(0);
+                                            tEU = storedRF * GregTech_API.mRFtoEU / 100;
+                                        }
+                                    }
+                                    aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
+                                }
                 }
         }
     }
@@ -205,15 +238,23 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         return false;
-    } 
-    
-    @Override
-    public boolean hasAlternativeModeText(){
-    	return true;
     }
-    
+
     @Override
-    public String getAlternativeModeText(){
-    	return (getBaseMetaTileEntity().isAllowedToWork() ? trans("145","Step Down, In: ") : trans("146","Step Up, In"))+maxEUInput()+trans("148","V@")+maxAmperesIn()+trans("147","Amp, Out: ")+maxEUOutput()+"V@"+maxAmperesOut()+trans("149","Amp");
+    public boolean hasAlternativeModeText() {
+        return true;
+    }
+
+    @Override
+    public String getAlternativeModeText() {
+        return (getBaseMetaTileEntity().isAllowedToWork() ? trans("145", "Step Down, In: ")
+            : trans("146", "Step Up, In")) + maxEUInput()
+            + trans("148", "V@")
+            + maxAmperesIn()
+            + trans("147", "Amp, Out: ")
+            + maxEUOutput()
+            + "V@"
+            + maxAmperesOut()
+            + trans("149", "Amp");
     }
 }

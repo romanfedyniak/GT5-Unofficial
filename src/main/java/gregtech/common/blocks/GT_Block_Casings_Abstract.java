@@ -1,10 +1,8 @@
 package gregtech.common.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.GregTech_API;
-import gregtech.api.items.GT_Generic_Block;
-import gregtech.api.util.GT_LanguageManager;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,11 +17,14 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.GregTech_API;
+import gregtech.api.items.GT_Generic_Block;
+import gregtech.api.util.GT_LanguageManager;
 
-public abstract class GT_Block_Casings_Abstract
-        extends GT_Generic_Block {
+public abstract class GT_Block_Casings_Abstract extends GT_Generic_Block {
+
     public GT_Block_Casings_Abstract(Class<? extends ItemBlock> aItemClass, String aName, Material aMaterial) {
         super(aItemClass, aName, aMaterial);
         setStepSound(soundTypeMetal);
@@ -109,14 +110,14 @@ public abstract class GT_Block_Casings_Abstract
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister aIconRegister) {
-    }
+    public void registerBlockIcons(IIconRegister aIconRegister) {}
 
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List aList) {
         for (int i = 0; i < 16; i++) {
             ItemStack aStack = new ItemStack(aItem, 1, i);
-            if (!aStack.getDisplayName().contains(".name")) aList.add(aStack);
+            if (!aStack.getDisplayName()
+                .contains(".name")) aList.add(aStack);
         }
     }
 }
