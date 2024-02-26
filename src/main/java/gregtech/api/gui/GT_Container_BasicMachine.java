@@ -1,16 +1,17 @@
 package gregtech.api.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
+import java.util.Iterator;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import java.util.Iterator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -181,11 +182,15 @@ public class GT_Container_BasicMachine extends GT_Container_BasicTank {
         switch (aSlotIndex) {
             case 0:
                 if (mTileEntity.getMetaTileEntity() == null) return null;
-                ((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mFluidTransfer = !((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mFluidTransfer;
+                ((GT_MetaTileEntity_BasicMachine) mTileEntity
+                    .getMetaTileEntity()).mFluidTransfer = !((GT_MetaTileEntity_BasicMachine) mTileEntity
+                        .getMetaTileEntity()).mFluidTransfer;
                 return null;
             case 1:
                 if (mTileEntity.getMetaTileEntity() == null) return null;
-                ((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mItemTransfer = !((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mItemTransfer;
+                ((GT_MetaTileEntity_BasicMachine) mTileEntity
+                    .getMetaTileEntity()).mItemTransfer = !((GT_MetaTileEntity_BasicMachine) mTileEntity
+                        .getMetaTileEntity()).mItemTransfer;
                 return null;
             default:
                 return super.slotClick(aSlotIndex, aMouseclick, aShifthold, aPlayer);
@@ -244,7 +249,9 @@ public class GT_Container_BasicMachine extends GT_Container_BasicTank {
 
     @Override
     public int getSlotCount() {
-        return getShiftClickSlotCount() + ((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mOutputItems.length + 2;
+        return getShiftClickSlotCount()
+            + ((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mOutputItems.length
+            + 2;
     }
 
     @Override

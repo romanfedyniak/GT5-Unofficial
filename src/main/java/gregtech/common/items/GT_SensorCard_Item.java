@@ -1,10 +1,10 @@
 package gregtech.common.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
-import gregtech.api.items.GT_Generic_Item;
-import gregtech.api.util.GT_LanguageManager;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.UUID;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -13,16 +13,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
+import gregtech.api.items.GT_Generic_Item;
+import gregtech.api.util.GT_LanguageManager;
 import shedar.mods.ic2.nuclearcontrol.api.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+public class GT_SensorCard_Item extends GT_Generic_Item implements IRemoteSensor, IPanelDataSource {
 
-public class GT_SensorCard_Item
-        extends GT_Generic_Item
-        implements IRemoteSensor, IPanelDataSource {
     private static final UUID CARD_TYPE = new UUID(0L, 41L);
 
     public GT_SensorCard_Item(String aUnlocalized, String aEnglish) {
@@ -38,7 +38,11 @@ public class GT_SensorCard_Item
                 aList.add(trans("014", "Missing Coodinates!"));
             } else {
                 aList.add(trans("015", "Device at:"));
-                aList.add(String.format("x: %d, y: %d, z: %d", new Object[]{Integer.valueOf(tNBT.getInteger("x")), Integer.valueOf(tNBT.getInteger("y")), Integer.valueOf(tNBT.getInteger("z"))}));
+                aList.add(
+                    String.format(
+                        "x: %d, y: %d, z: %d",
+                        new Object[] { Integer.valueOf(tNBT.getInteger("x")), Integer.valueOf(tNBT.getInteger("y")),
+                            Integer.valueOf(tNBT.getInteger("z")) }));
             }
         }
     }
@@ -51,7 +55,8 @@ public class GT_SensorCard_Item
         ChunkCoordinates target = aCard.getTarget();
 
         TileEntity tTileEntity = world.getTileEntity(target.posX, target.posY, target.posZ);
-        if (((tTileEntity instanceof IGregTechDeviceInformation)) && (((IGregTechDeviceInformation) tTileEntity).isGivingInformation())) {
+        if (((tTileEntity instanceof IGregTechDeviceInformation))
+            && (((IGregTechDeviceInformation) tTileEntity).isGivingInformation())) {
             String[] tInfoData = ((IGregTechDeviceInformation) tTileEntity).getInfoData();
             for (int i = 0; i < tInfoData.length; i++) {
                 aCard.setString("mString" + i, tInfoData[i]);
@@ -86,6 +91,5 @@ public class GT_SensorCard_Item
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item var1, CreativeTabs aTab, List aList) {
-    }
+    public void getSubItems(Item var1, CreativeTabs aTab, List aList) {}
 }

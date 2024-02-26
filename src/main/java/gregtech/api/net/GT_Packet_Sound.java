@@ -1,12 +1,15 @@
 package gregtech.api.net;
 
+import net.minecraft.world.IBlockAccess;
+
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+
 import gregtech.api.util.GT_Utility;
-import net.minecraft.world.IBlockAccess;
 
 public class GT_Packet_Sound extends GT_Packet {
+
     private int mX, mZ;
     private short mY;
     private String mSoundName;
@@ -40,7 +43,13 @@ public class GT_Packet_Sound extends GT_Packet {
 
     @Override
     public GT_Packet decode(ByteArrayDataInput aData) {
-        return new GT_Packet_Sound(aData.readUTF(), aData.readFloat(), aData.readFloat(), aData.readInt(), aData.readShort(), aData.readInt());
+        return new GT_Packet_Sound(
+            aData.readUTF(),
+            aData.readFloat(),
+            aData.readFloat(),
+            aData.readInt(),
+            aData.readShort(),
+            aData.readInt());
     }
 
     @Override

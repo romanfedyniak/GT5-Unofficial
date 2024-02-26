@@ -1,11 +1,7 @@
 package gregtech.common.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.ItemList;
-import gregtech.api.items.GT_Generic_Item;
-import gregtech.api.util.GT_Utility;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,10 +13,15 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.items.GT_Generic_Item;
+import gregtech.api.util.GT_Utility;
 
-public class GT_FluidDisplayItem
-        extends GT_Generic_Item {
+public class GT_FluidDisplayItem extends GT_Generic_Item {
+
     public GT_FluidDisplayItem() {
         super("GregTech_FluidDisplay", "Fluid Display", null);
         ItemList.Display_Fluid.set(this);
@@ -37,16 +38,23 @@ public class GT_FluidDisplayItem
         if (aNBT != null) {
             long tToolTipAmount = aNBT.getLong("mFluidDisplayAmount");
             if (tToolTipAmount > 0L) {
-                aList.add(EnumChatFormatting.BLUE + String.format(trans("016", "Amount: %s L"), "" + tToolTipAmount) + EnumChatFormatting.GRAY);
+                aList.add(
+                    EnumChatFormatting.BLUE + String.format(trans("016", "Amount: %s L"), "" + tToolTipAmount)
+                        + EnumChatFormatting.GRAY);
             }
-            aList.add(EnumChatFormatting.RED + String.format(trans("017", "Temperature: %s K"), "" + aNBT.getLong("mFluidDisplayHeat")) + EnumChatFormatting.GRAY);
-            aList.add(EnumChatFormatting.GREEN + String.format(trans("018", "State: %s"), aNBT.getBoolean("mFluidState") ? "Gas" : "Liquid") + EnumChatFormatting.GRAY);
+            aList.add(
+                EnumChatFormatting.RED
+                    + String.format(trans("017", "Temperature: %s K"), "" + aNBT.getLong("mFluidDisplayHeat"))
+                    + EnumChatFormatting.GRAY);
+            aList.add(
+                EnumChatFormatting.GREEN
+                    + String.format(trans("018", "State: %s"), aNBT.getBoolean("mFluidState") ? "Gas" : "Liquid")
+                    + EnumChatFormatting.GRAY);
         }
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister aIconRegister) {
-    }
+    public void registerIcons(IIconRegister aIconRegister) {}
 
     public IIcon getIconFromDamage(int aMeta) {
         Fluid tFluid = FluidRegistry.getFluid(aMeta);

@@ -1,5 +1,8 @@
 package gregtech.common.tileentities.machines.steam;
 
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_BasicMachine;
@@ -10,11 +13,9 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
 
-public class GT_MetaTileEntity_Furnace_Bronze
-        extends GT_MetaTileEntity_BasicMachine_Bronze {
+public class GT_MetaTileEntity_Furnace_Bronze extends GT_MetaTileEntity_BasicMachine_Bronze {
+
     public GT_MetaTileEntity_Furnace_Bronze(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional, "Smelting things with compressed Steam", 1, 1, true);
     }
@@ -28,7 +29,12 @@ public class GT_MetaTileEntity_Furnace_Bronze
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_BasicMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "BronzeFurnace.png", "smelting");
+        return new GT_GUIContainer_BasicMachine(
+            aPlayerInventory,
+            aBaseMetaTileEntity,
+            getLocalName(),
+            "BronzeFurnace.png",
+            "smelting");
     }
 
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
@@ -48,13 +54,15 @@ public class GT_MetaTileEntity_Furnace_Bronze
         if (!super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)) {
             return false;
         }
-        return GT_ModHandler.getSmeltingOutput(GT_Utility.copyAmount(64L, new Object[]{aStack}), false, null) != null;
+        return GT_ModHandler.getSmeltingOutput(GT_Utility.copyAmount(64L, new Object[] { aStack }), false, null)
+            != null;
     }
 
     public void startSoundLoop(byte aIndex, double aX, double aY, double aZ) {
         super.startSoundLoop(aIndex, aX, aY, aZ);
         if (aIndex == 1) {
-            GT_Utility.doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(207)), 10, 1.0F, aX, aY, aZ);
+            GT_Utility
+                .doSoundAtClient((String) GregTech_API.sSoundList.get(Integer.valueOf(207)), 10, 1.0F, aX, aY, aZ);
         }
     }
 
@@ -63,34 +71,42 @@ public class GT_MetaTileEntity_Furnace_Bronze
     }
 
     public ITexture[] getSideFacingActive(byte aColor) {
-        return new ITexture[]{super.getSideFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_FURNACE_ACTIVE)};
+        return new ITexture[] { super.getSideFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_FURNACE_ACTIVE) };
     }
 
     public ITexture[] getSideFacingInactive(byte aColor) {
-        return new ITexture[]{super.getSideFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_FURNACE)};
+        return new ITexture[] { super.getSideFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_STEAM_FURNACE) };
     }
 
     public ITexture[] getFrontFacingActive(byte aColor) {
-        return new ITexture[]{super.getFrontFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_FURNACE_ACTIVE)};
+        return new ITexture[] { super.getFrontFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_FURNACE_ACTIVE) };
     }
 
     public ITexture[] getFrontFacingInactive(byte aColor) {
-        return new ITexture[]{super.getFrontFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_FURNACE)};
+        return new ITexture[] { super.getFrontFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_STEAM_FURNACE) };
     }
 
     public ITexture[] getTopFacingActive(byte aColor) {
-        return new ITexture[]{super.getTopFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_FURNACE_ACTIVE)};
+        return new ITexture[] { super.getTopFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_FURNACE_ACTIVE) };
     }
 
     public ITexture[] getTopFacingInactive(byte aColor) {
-        return new ITexture[]{super.getTopFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_FURNACE)};
+        return new ITexture[] { super.getTopFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_STEAM_FURNACE) };
     }
 
     public ITexture[] getBottomFacingActive(byte aColor) {
-        return new ITexture[]{super.getBottomFacingActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_FURNACE_ACTIVE)};
+        return new ITexture[] { super.getBottomFacingActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_FURNACE_ACTIVE) };
     }
 
     public ITexture[] getBottomFacingInactive(byte aColor) {
-        return new ITexture[]{super.getBottomFacingInactive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_FURNACE)};
+        return new ITexture[] { super.getBottomFacingInactive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_STEAM_FURNACE) };
     }
 }

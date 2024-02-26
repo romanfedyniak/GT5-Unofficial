@@ -1,10 +1,8 @@
 package gregtech.common.tools;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.common.items.behaviors.Behaviour_Screwdriver;
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -17,14 +15,22 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
-import java.util.Arrays;
-import java.util.List;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.common.items.behaviors.Behaviour_Screwdriver;
 
 public class GT_Tool_Soldering_Iron extends GT_Tool {
-    public static final List<String> mEffectiveList = Arrays.asList(new String[]{EntityCaveSpider.class.getName(), EntitySpider.class.getName(), "EntityTFHedgeSpider", "EntityTFKingSpider", "EntityTFSwarmSpider", "EntityTFTowerBroodling"});
 
-    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer) {
-        String tName = aEntity.getClass().getName();
+    public static final List<String> mEffectiveList = Arrays.asList(
+        new String[] { EntityCaveSpider.class.getName(), EntitySpider.class.getName(), "EntityTFHedgeSpider",
+            "EntityTFKingSpider", "EntityTFSwarmSpider", "EntityTFTowerBroodling" });
+
+    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
+        EntityPlayer aPlayer) {
+        String tName = aEntity.getClass()
+            .getName();
         tName = tName.substring(tName.lastIndexOf('.') + 1);
         return mEffectiveList.contains(tName) ? aOriginalDamage * 2.0F : aOriginalDamage;
     }
@@ -99,11 +105,13 @@ public class GT_Tool_Soldering_Iron extends GT_Tool {
     }
 
     public IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack) {
-        return !aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mIconSet.mTextures[49] : Textures.ItemIcons.HANDLE_SOLDERING;
+        return !aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mIconSet.mTextures[49]
+            : Textures.ItemIcons.HANDLE_SOLDERING;
     }
 
     public short[] getRGBa(boolean aIsToolHead, ItemStack aStack) {
-        return !aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
+        return !aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa
+            : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
     }
 
     public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {
@@ -111,6 +119,13 @@ public class GT_Tool_Soldering_Iron extends GT_Tool {
     }
 
     public IChatComponent getDeathMessage(EntityLivingBase aPlayer, EntityLivingBase aEntity) {
-        return new ChatComponentText(EnumChatFormatting.RED + aEntity.getCommandSenderName() + EnumChatFormatting.WHITE + " got soldert! (by " + EnumChatFormatting.GREEN + aPlayer.getCommandSenderName() + EnumChatFormatting.WHITE + ")");
+        return new ChatComponentText(
+            EnumChatFormatting.RED + aEntity.getCommandSenderName()
+                + EnumChatFormatting.WHITE
+                + " got soldert! (by "
+                + EnumChatFormatting.GREEN
+                + aPlayer.getCommandSenderName()
+                + EnumChatFormatting.WHITE
+                + ")");
     }
 }

@@ -1,12 +1,13 @@
 package gregtech.common.tileentities.machines.multi;
 
+import net.minecraft.block.Block;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import net.minecraft.block.Block;
 
-public class GT_MetaTileEntity_LargeBoiler_Steel
-        extends GT_MetaTileEntity_LargeBoiler {
+public class GT_MetaTileEntity_LargeBoiler_Steel extends GT_MetaTileEntity_LargeBoiler {
+
     public GT_MetaTileEntity_LargeBoiler_Steel(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
     }
@@ -18,15 +19,15 @@ public class GT_MetaTileEntity_LargeBoiler_Steel
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         return new GT_MetaTileEntity_LargeBoiler_Steel(this.mName);
     }
-    
-    public String getCasingMaterial(){
-    	return "Steel";
+
+    public String getCasingMaterial() {
+        return "Steel";
     }
 
-	@Override
-	public String getCasingBlockType() {
-		return "Machine Casings";
-	}
+    @Override
+    public String getCasingBlockType() {
+        return "Machine Casings";
+    }
 
     public Block getCasingBlock() {
         return GregTech_API.sBlockCasings2;

@@ -1,20 +1,29 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IMachineProgress;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fluids.Fluid;
 
-public class GT_Cover_RedstoneSignalizer
-        extends GT_CoverBehavior {
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+public class GT_Cover_RedstoneSignalizer extends GT_CoverBehavior {
+
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = (aCoverVariable + 1) % 48;
-        switch(aCoverVariable / 16) {
-            case 0: GT_Utility.sendChatToPlayer(aPlayer, trans("078", "Signal = ") + (aCoverVariable & 0xF)); break;
-            case 1: GT_Utility.sendChatToPlayer(aPlayer, trans("079", "Conditional Signal = ") + (aCoverVariable & 0xF)); break;
-            case 2: GT_Utility.sendChatToPlayer(aPlayer, trans("080", "Inverted Conditional Signal = ") + (aCoverVariable & 0xF)); break;
+        switch (aCoverVariable / 16) {
+            case 0:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("078", "Signal = ") + (aCoverVariable & 0xF));
+                break;
+            case 1:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("079", "Conditional Signal = ") + (aCoverVariable & 0xF));
+                break;
+            case 2:
+                GT_Utility
+                    .sendChatToPlayer(aPlayer, trans("080", "Inverted Conditional Signal = ") + (aCoverVariable & 0xF));
+                break;
         }
         return aCoverVariable;
     }
@@ -47,7 +56,8 @@ public class GT_Cover_RedstoneSignalizer
         return true;
     }
 
-    public byte getRedstoneInput(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public byte getRedstoneInput(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         if (aCoverVariable < 16) {
             return (byte) (aCoverVariable & 0xF);
         }

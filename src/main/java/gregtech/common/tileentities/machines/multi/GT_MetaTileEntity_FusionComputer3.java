@@ -1,11 +1,12 @@
 package gregtech.common.tileentities.machines.multi;
 
+import net.minecraft.block.Block;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
-import net.minecraft.block.Block;
 
 public class GT_MetaTileEntity_FusionComputer3 extends GT_MetaTileEntity_FusionComputer {
 
@@ -48,14 +49,9 @@ public class GT_MetaTileEntity_FusionComputer3 extends GT_MetaTileEntity_FusionC
     }
 
     public String[] getDescription() {
-        return new String[]{
-        		"A SUN DOWN ON EARTH", 
-        		"Fusion Machine Casings MK II around Fusion Coil Blocks", 
-        		"2-16 Input Hatches", 
-        		"1-16 Output Hatches", 
-        		"1-16 Energy Hatches", 
-        		"All Hatches must be UV or better", 
-        		"8192EU/t and 40mio EU Cap per Energy Hatch"};
+        return new String[] { "A SUN DOWN ON EARTH", "Fusion Machine Casings MK II around Fusion Coil Blocks",
+            "2-16 Input Hatches", "1-16 Output Hatches", "1-16 Energy Hatches", "All Hatches must be UV or better",
+            "8192EU/t and 40mio EU Cap per Energy Hatch" };
     }
 
     @Override
@@ -73,4 +69,3 @@ public class GT_MetaTileEntity_FusionComputer3 extends GT_MetaTileEntity_FusionC
         return Textures.BlockIcons.OVERLAY_FUSION3;
     }
 }
-

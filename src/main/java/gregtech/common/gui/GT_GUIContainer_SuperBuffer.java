@@ -1,11 +1,12 @@
 package gregtech.common.gui;
 
-import gregtech.api.gui.GT_GUIContainerMetaTile_Machine;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class GT_GUIContainer_SuperBuffer
-        extends GT_GUIContainerMetaTile_Machine {
+import gregtech.api.gui.GT_GUIContainerMetaTile_Machine;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+
+public class GT_GUIContainer_SuperBuffer extends GT_GUIContainerMetaTile_Machine {
+
     public GT_GUIContainer_SuperBuffer(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity) {
         super(new GT_Container_SuperBuffer(aInventoryPlayer, aTileEntity), "gregtech:textures/gui/SuperBuffer.png");
     }

@@ -1,5 +1,14 @@
 package gregtech.common.tileentities.machines.multi;
 
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.GT_Mod;
 import gregtech.api.enums.Dyes;
 import gregtech.api.enums.GT_Values;
@@ -18,14 +27,6 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_GUIContainer_FusionReactor;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
-
-import java.util.ArrayList;
 
 public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity_MultiBlockBase {
 
@@ -51,7 +52,12 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
 
     @Override
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_FusionReactor(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "FusionComputer.png", GT_Recipe.GT_Recipe_Map.sFusionRecipes.mNEIName);
+        return new GT_GUIContainer_FusionReactor(
+            aPlayerInventory,
+            aBaseMetaTileEntity,
+            getLocalName(),
+            "FusionComputer.png",
+            GT_Recipe.GT_Recipe_Map.sFusionRecipes.mNEIName);
     }
 
     public abstract MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity);
@@ -73,53 +79,85 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
 
     @Override
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-        int xCenter = getBaseMetaTileEntity().getXCoord() + ForgeDirection.getOrientation(getBaseMetaTileEntity().getFrontFacing()).offsetX * 5;
+        int xCenter = getBaseMetaTileEntity().getXCoord()
+            + ForgeDirection.getOrientation(getBaseMetaTileEntity().getFrontFacing()).offsetX * 5;
         int yCenter = getBaseMetaTileEntity().getYCoord();
-        int zCenter = getBaseMetaTileEntity().getZCoord() + ForgeDirection.getOrientation(getBaseMetaTileEntity().getFrontFacing()).offsetZ * 5;
-        if (((isAdvancedMachineCasing(xCenter + 5, yCenter, zCenter)) || (xCenter + 5 == getBaseMetaTileEntity().getXCoord()))
-                && ((isAdvancedMachineCasing(xCenter - 5, yCenter, zCenter)) || (xCenter - 5 == getBaseMetaTileEntity().getXCoord()))
-                && ((isAdvancedMachineCasing(xCenter, yCenter, zCenter + 5)) || (zCenter + 5 == getBaseMetaTileEntity().getZCoord()))
-                && ((isAdvancedMachineCasing(xCenter, yCenter, zCenter - 5)) || (zCenter - 5 == getBaseMetaTileEntity().getZCoord())) && (checkCoils(xCenter, yCenter, zCenter))
-                && (checkHulls(xCenter, yCenter, zCenter)) && (checkUpperOrLowerHulls(xCenter, yCenter + 1, zCenter)) && (checkUpperOrLowerHulls(xCenter, yCenter - 1, zCenter))
-                && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter + 3, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter - 3, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter + 5, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter - 5, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter + 3, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter - 3, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter + 5, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter - 5, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter + 3, yCenter, zCenter + 4, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 3, yCenter, zCenter + 4, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter + 5, yCenter, zCenter + 4, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 5, yCenter, zCenter + 4, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter + 3, yCenter, zCenter - 4, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 3, yCenter, zCenter - 4, aBaseMetaTileEntity))
-                && (addIfEnergyInjector(xCenter + 5, yCenter, zCenter - 4, aBaseMetaTileEntity)) && (addIfEnergyInjector(xCenter - 5, yCenter, zCenter - 4, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter + 1, yCenter, zCenter - 5, aBaseMetaTileEntity)) && (addIfExtractor(xCenter + 1, yCenter, zCenter + 5, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter - 1, yCenter, zCenter - 5, aBaseMetaTileEntity)) && (addIfExtractor(xCenter - 1, yCenter, zCenter + 5, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter + 1, yCenter, zCenter - 7, aBaseMetaTileEntity)) && (addIfExtractor(xCenter + 1, yCenter, zCenter + 7, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter - 1, yCenter, zCenter - 7, aBaseMetaTileEntity)) && (addIfExtractor(xCenter - 1, yCenter, zCenter + 7, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter + 5, yCenter, zCenter - 1, aBaseMetaTileEntity)) && (addIfExtractor(xCenter + 5, yCenter, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter - 5, yCenter, zCenter - 1, aBaseMetaTileEntity)) && (addIfExtractor(xCenter - 5, yCenter, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter + 7, yCenter, zCenter - 1, aBaseMetaTileEntity)) && (addIfExtractor(xCenter + 7, yCenter, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfExtractor(xCenter - 7, yCenter, zCenter - 1, aBaseMetaTileEntity)) && (addIfExtractor(xCenter - 7, yCenter, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter + 1, yCenter + 1, zCenter - 6, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 1, yCenter + 1, zCenter + 6, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 1, yCenter + 1, zCenter - 6, aBaseMetaTileEntity)) && (addIfInjector(xCenter - 1, yCenter + 1, zCenter + 6, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 6, yCenter + 1, zCenter + 1, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 6, yCenter + 1, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 6, yCenter + 1, zCenter - 1, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 6, yCenter + 1, zCenter - 1, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter + 1, yCenter - 1, zCenter - 6, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 1, yCenter - 1, zCenter + 6, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 1, yCenter - 1, zCenter - 6, aBaseMetaTileEntity)) && (addIfInjector(xCenter - 1, yCenter - 1, zCenter + 6, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 6, yCenter - 1, zCenter + 1, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 6, yCenter - 1, zCenter + 1, aBaseMetaTileEntity))
-                && (addIfInjector(xCenter - 6, yCenter - 1, zCenter - 1, aBaseMetaTileEntity)) && (addIfInjector(xCenter + 6, yCenter - 1, zCenter - 1, aBaseMetaTileEntity))
-                && (this.mEnergyHatches.size() >= 1) && (this.mOutputHatches.size() >= 1) && (this.mInputHatches.size() >= 2)) {
+        int zCenter = getBaseMetaTileEntity().getZCoord()
+            + ForgeDirection.getOrientation(getBaseMetaTileEntity().getFrontFacing()).offsetZ * 5;
+        if (((isAdvancedMachineCasing(xCenter + 5, yCenter, zCenter))
+            || (xCenter + 5 == getBaseMetaTileEntity().getXCoord()))
+            && ((isAdvancedMachineCasing(xCenter - 5, yCenter, zCenter))
+                || (xCenter - 5 == getBaseMetaTileEntity().getXCoord()))
+            && ((isAdvancedMachineCasing(xCenter, yCenter, zCenter + 5))
+                || (zCenter + 5 == getBaseMetaTileEntity().getZCoord()))
+            && ((isAdvancedMachineCasing(xCenter, yCenter, zCenter - 5))
+                || (zCenter - 5 == getBaseMetaTileEntity().getZCoord()))
+            && (checkCoils(xCenter, yCenter, zCenter))
+            && (checkHulls(xCenter, yCenter, zCenter))
+            && (checkUpperOrLowerHulls(xCenter, yCenter + 1, zCenter))
+            && (checkUpperOrLowerHulls(xCenter, yCenter - 1, zCenter))
+            && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter + 3, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter - 3, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter + 5, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 4, yCenter, zCenter - 5, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter + 3, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter - 3, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter + 5, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 4, yCenter, zCenter - 5, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 3, yCenter, zCenter + 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 3, yCenter, zCenter + 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 5, yCenter, zCenter + 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 5, yCenter, zCenter + 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 3, yCenter, zCenter - 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 3, yCenter, zCenter - 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter + 5, yCenter, zCenter - 4, aBaseMetaTileEntity))
+            && (addIfEnergyInjector(xCenter - 5, yCenter, zCenter - 4, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 1, yCenter, zCenter - 5, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 1, yCenter, zCenter + 5, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 1, yCenter, zCenter - 5, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 1, yCenter, zCenter + 5, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 1, yCenter, zCenter - 7, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 1, yCenter, zCenter + 7, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 1, yCenter, zCenter - 7, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 1, yCenter, zCenter + 7, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 5, yCenter, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 5, yCenter, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 5, yCenter, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 5, yCenter, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 7, yCenter, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter + 7, yCenter, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 7, yCenter, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfExtractor(xCenter - 7, yCenter, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 1, yCenter + 1, zCenter - 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 1, yCenter + 1, zCenter + 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 1, yCenter + 1, zCenter - 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 1, yCenter + 1, zCenter + 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 6, yCenter + 1, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 6, yCenter + 1, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 6, yCenter + 1, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 6, yCenter + 1, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 1, yCenter - 1, zCenter - 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 1, yCenter - 1, zCenter + 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 1, yCenter - 1, zCenter - 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 1, yCenter - 1, zCenter + 6, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 6, yCenter - 1, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 6, yCenter - 1, zCenter + 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter - 6, yCenter - 1, zCenter - 1, aBaseMetaTileEntity))
+            && (addIfInjector(xCenter + 6, yCenter - 1, zCenter - 1, aBaseMetaTileEntity))
+            && (this.mEnergyHatches.size() >= 1)
+            && (this.mOutputHatches.size() >= 1)
+            && (this.mInputHatches.size() >= 2)) {
             int mEnergyHatches_sS = this.mEnergyHatches.size();
             for (int i = 0; i < mEnergyHatches_sS; i++) {
-                if (this.mEnergyHatches.get(i).mTier < tier())
-                    return false;
+                if (this.mEnergyHatches.get(i).mTier < tier()) return false;
             }
             int mOutputHatches_sS = this.mOutputHatches.size();
             for (int i = 0; i < mOutputHatches_sS; i++) {
-                if (this.mOutputHatches.get(i).mTier < tier())
-                    return false;
+                if (this.mOutputHatches.get(i).mTier < tier()) return false;
             }
             int mInputHatches_sS = this.mInputHatches.size();
             for (int i = 0; i < mInputHatches_sS; i++) {
-                if (this.mInputHatches.get(i).mTier < tier())
-                    return false;
+                if (this.mInputHatches.get(i).mTier < tier()) return false;
             }
             mWrench = true;
             mScrewdriver = true;
@@ -133,37 +171,93 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     }
 
     private boolean checkCoils(int aX, int aY, int aZ) {
-        return (isFusionCoil(aX + 6, aY, aZ - 1)) && (isFusionCoil(aX + 6, aY, aZ)) && (isFusionCoil(aX + 6, aY, aZ + 1)) && (isFusionCoil(aX + 5, aY, aZ - 3)) && (isFusionCoil(aX + 5, aY, aZ - 2))
-                && (isFusionCoil(aX + 5, aY, aZ + 2)) && (isFusionCoil(aX + 5, aY, aZ + 3)) && (isFusionCoil(aX + 4, aY, aZ - 4)) && (isFusionCoil(aX + 4, aY, aZ + 4))
-                && (isFusionCoil(aX + 3, aY, aZ - 5)) && (isFusionCoil(aX + 3, aY, aZ + 5)) && (isFusionCoil(aX + 2, aY, aZ - 5)) && (isFusionCoil(aX + 2, aY, aZ + 5))
-                && (isFusionCoil(aX + 1, aY, aZ - 6)) && (isFusionCoil(aX + 1, aY, aZ + 6)) && (isFusionCoil(aX, aY, aZ - 6)) && (isFusionCoil(aX, aY, aZ + 6)) && (isFusionCoil(aX - 1, aY, aZ - 6))
-                && (isFusionCoil(aX - 1, aY, aZ + 6)) && (isFusionCoil(aX - 2, aY, aZ - 5)) && (isFusionCoil(aX - 2, aY, aZ + 5)) && (isFusionCoil(aX - 3, aY, aZ - 5))
-                && (isFusionCoil(aX - 3, aY, aZ + 5)) && (isFusionCoil(aX - 4, aY, aZ - 4)) && (isFusionCoil(aX - 4, aY, aZ + 4)) && (isFusionCoil(aX - 5, aY, aZ - 3))
-                && (isFusionCoil(aX - 5, aY, aZ - 2)) && (isFusionCoil(aX - 5, aY, aZ + 2)) && (isFusionCoil(aX - 5, aY, aZ + 3)) && (isFusionCoil(aX - 6, aY, aZ - 1))
-                && (isFusionCoil(aX - 6, aY, aZ)) && (isFusionCoil(aX - 6, aY, aZ + 1));
+        return (isFusionCoil(aX + 6, aY, aZ - 1)) && (isFusionCoil(aX + 6, aY, aZ))
+            && (isFusionCoil(aX + 6, aY, aZ + 1))
+            && (isFusionCoil(aX + 5, aY, aZ - 3))
+            && (isFusionCoil(aX + 5, aY, aZ - 2))
+            && (isFusionCoil(aX + 5, aY, aZ + 2))
+            && (isFusionCoil(aX + 5, aY, aZ + 3))
+            && (isFusionCoil(aX + 4, aY, aZ - 4))
+            && (isFusionCoil(aX + 4, aY, aZ + 4))
+            && (isFusionCoil(aX + 3, aY, aZ - 5))
+            && (isFusionCoil(aX + 3, aY, aZ + 5))
+            && (isFusionCoil(aX + 2, aY, aZ - 5))
+            && (isFusionCoil(aX + 2, aY, aZ + 5))
+            && (isFusionCoil(aX + 1, aY, aZ - 6))
+            && (isFusionCoil(aX + 1, aY, aZ + 6))
+            && (isFusionCoil(aX, aY, aZ - 6))
+            && (isFusionCoil(aX, aY, aZ + 6))
+            && (isFusionCoil(aX - 1, aY, aZ - 6))
+            && (isFusionCoil(aX - 1, aY, aZ + 6))
+            && (isFusionCoil(aX - 2, aY, aZ - 5))
+            && (isFusionCoil(aX - 2, aY, aZ + 5))
+            && (isFusionCoil(aX - 3, aY, aZ - 5))
+            && (isFusionCoil(aX - 3, aY, aZ + 5))
+            && (isFusionCoil(aX - 4, aY, aZ - 4))
+            && (isFusionCoil(aX - 4, aY, aZ + 4))
+            && (isFusionCoil(aX - 5, aY, aZ - 3))
+            && (isFusionCoil(aX - 5, aY, aZ - 2))
+            && (isFusionCoil(aX - 5, aY, aZ + 2))
+            && (isFusionCoil(aX - 5, aY, aZ + 3))
+            && (isFusionCoil(aX - 6, aY, aZ - 1))
+            && (isFusionCoil(aX - 6, aY, aZ))
+            && (isFusionCoil(aX - 6, aY, aZ + 1));
     }
 
     private boolean checkUpperOrLowerHulls(int aX, int aY, int aZ) {
-        return (isAdvancedMachineCasing(aX + 6, aY, aZ)) && (isAdvancedMachineCasing(aX + 5, aY, aZ - 3)) && (isAdvancedMachineCasing(aX + 5, aY, aZ - 2))
-                && (isAdvancedMachineCasing(aX + 5, aY, aZ + 2)) && (isAdvancedMachineCasing(aX + 5, aY, aZ + 3)) && (isAdvancedMachineCasing(aX + 4, aY, aZ - 4))
-                && (isAdvancedMachineCasing(aX + 4, aY, aZ + 4)) && (isAdvancedMachineCasing(aX + 3, aY, aZ - 5)) && (isAdvancedMachineCasing(aX + 3, aY, aZ + 5))
-                && (isAdvancedMachineCasing(aX + 2, aY, aZ - 5)) && (isAdvancedMachineCasing(aX + 2, aY, aZ + 5)) && (isAdvancedMachineCasing(aX, aY, aZ - 6))
-                && (isAdvancedMachineCasing(aX, aY, aZ + 6)) && (isAdvancedMachineCasing(aX - 2, aY, aZ - 5)) && (isAdvancedMachineCasing(aX - 2, aY, aZ + 5))
-                && (isAdvancedMachineCasing(aX - 3, aY, aZ - 5)) && (isAdvancedMachineCasing(aX - 3, aY, aZ + 5)) && (isAdvancedMachineCasing(aX - 4, aY, aZ - 4))
-                && (isAdvancedMachineCasing(aX - 4, aY, aZ + 4)) && (isAdvancedMachineCasing(aX - 5, aY, aZ - 3)) && (isAdvancedMachineCasing(aX - 5, aY, aZ - 2))
-                && (isAdvancedMachineCasing(aX - 5, aY, aZ + 2)) && (isAdvancedMachineCasing(aX - 5, aY, aZ + 3)) && (isAdvancedMachineCasing(aX - 6, aY, aZ));
+        return (isAdvancedMachineCasing(aX + 6, aY, aZ)) && (isAdvancedMachineCasing(aX + 5, aY, aZ - 3))
+            && (isAdvancedMachineCasing(aX + 5, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX + 5, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX + 5, aY, aZ + 3))
+            && (isAdvancedMachineCasing(aX + 4, aY, aZ - 4))
+            && (isAdvancedMachineCasing(aX + 4, aY, aZ + 4))
+            && (isAdvancedMachineCasing(aX + 3, aY, aZ - 5))
+            && (isAdvancedMachineCasing(aX + 3, aY, aZ + 5))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ - 5))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ + 5))
+            && (isAdvancedMachineCasing(aX, aY, aZ - 6))
+            && (isAdvancedMachineCasing(aX, aY, aZ + 6))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ - 5))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ + 5))
+            && (isAdvancedMachineCasing(aX - 3, aY, aZ - 5))
+            && (isAdvancedMachineCasing(aX - 3, aY, aZ + 5))
+            && (isAdvancedMachineCasing(aX - 4, aY, aZ - 4))
+            && (isAdvancedMachineCasing(aX - 4, aY, aZ + 4))
+            && (isAdvancedMachineCasing(aX - 5, aY, aZ - 3))
+            && (isAdvancedMachineCasing(aX - 5, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX - 5, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX - 5, aY, aZ + 3))
+            && (isAdvancedMachineCasing(aX - 6, aY, aZ));
     }
 
     private boolean checkHulls(int aX, int aY, int aZ) {
-        return (isAdvancedMachineCasing(aX + 6, aY, aZ - 3)) && (isAdvancedMachineCasing(aX + 6, aY, aZ - 2)) && (isAdvancedMachineCasing(aX + 6, aY, aZ + 2))
-                && (isAdvancedMachineCasing(aX + 6, aY, aZ + 3)) && (isAdvancedMachineCasing(aX + 3, aY, aZ - 6)) && (isAdvancedMachineCasing(aX + 3, aY, aZ + 6))
-                && (isAdvancedMachineCasing(aX + 2, aY, aZ - 6)) && (isAdvancedMachineCasing(aX + 2, aY, aZ + 6)) && (isAdvancedMachineCasing(aX - 2, aY, aZ - 6))
-                && (isAdvancedMachineCasing(aX - 2, aY, aZ + 6)) && (isAdvancedMachineCasing(aX - 3, aY, aZ - 6)) && (isAdvancedMachineCasing(aX - 3, aY, aZ + 6))
-                && (isAdvancedMachineCasing(aX - 7, aY, aZ)) && (isAdvancedMachineCasing(aX + 7, aY, aZ)) && (isAdvancedMachineCasing(aX, aY, aZ - 7)) && (isAdvancedMachineCasing(aX, aY, aZ + 7))
-                && (isAdvancedMachineCasing(aX - 6, aY, aZ - 3)) && (isAdvancedMachineCasing(aX - 6, aY, aZ - 2)) && (isAdvancedMachineCasing(aX - 6, aY, aZ + 2))
-                && (isAdvancedMachineCasing(aX - 6, aY, aZ + 3)) && (isAdvancedMachineCasing(aX - 4, aY, aZ - 2)) && (isAdvancedMachineCasing(aX - 4, aY, aZ + 2))
-                && (isAdvancedMachineCasing(aX + 4, aY, aZ - 2)) && (isAdvancedMachineCasing(aX + 4, aY, aZ + 2)) && (isAdvancedMachineCasing(aX - 2, aY, aZ - 4))
-                && (isAdvancedMachineCasing(aX - 2, aY, aZ + 4)) && (isAdvancedMachineCasing(aX + 2, aY, aZ - 4)) && (isAdvancedMachineCasing(aX + 2, aY, aZ + 4));
+        return (isAdvancedMachineCasing(aX + 6, aY, aZ - 3)) && (isAdvancedMachineCasing(aX + 6, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX + 6, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX + 6, aY, aZ + 3))
+            && (isAdvancedMachineCasing(aX + 3, aY, aZ - 6))
+            && (isAdvancedMachineCasing(aX + 3, aY, aZ + 6))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ - 6))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ + 6))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ - 6))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ + 6))
+            && (isAdvancedMachineCasing(aX - 3, aY, aZ - 6))
+            && (isAdvancedMachineCasing(aX - 3, aY, aZ + 6))
+            && (isAdvancedMachineCasing(aX - 7, aY, aZ))
+            && (isAdvancedMachineCasing(aX + 7, aY, aZ))
+            && (isAdvancedMachineCasing(aX, aY, aZ - 7))
+            && (isAdvancedMachineCasing(aX, aY, aZ + 7))
+            && (isAdvancedMachineCasing(aX - 6, aY, aZ - 3))
+            && (isAdvancedMachineCasing(aX - 6, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX - 6, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX - 6, aY, aZ + 3))
+            && (isAdvancedMachineCasing(aX - 4, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX - 4, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX + 4, aY, aZ - 2))
+            && (isAdvancedMachineCasing(aX + 4, aY, aZ + 2))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ - 4))
+            && (isAdvancedMachineCasing(aX - 2, aY, aZ + 4))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ - 4))
+            && (isAdvancedMachineCasing(aX + 2, aY, aZ + 4));
     }
 
     private boolean addIfEnergyInjector(int aX, int aY, int aZ, IGregTechTileEntity aBaseMetaTileEntity) {
@@ -188,7 +282,8 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     }
 
     private boolean isAdvancedMachineCasing(int aX, int aY, int aZ) {
-        return (getBaseMetaTileEntity().getBlock(aX, aY, aZ) == getCasing()) && (getBaseMetaTileEntity().getMetaID(aX, aY, aZ) == getCasingMeta());
+        return (getBaseMetaTileEntity().getBlock(aX, aY, aZ) == getCasing())
+            && (getBaseMetaTileEntity().getMetaID(aX, aY, aZ) == getCasingMeta());
     }
 
     public abstract Block getCasing();
@@ -196,7 +291,8 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     public abstract int getCasingMeta();
 
     private boolean isFusionCoil(int aX, int aY, int aZ) {
-        return (getBaseMetaTileEntity().getBlock(aX, aY, aZ) == getFusionCoil() && (getBaseMetaTileEntity().getMetaID(aX, aY, aZ) == getFusionCoilMeta()));
+        return (getBaseMetaTileEntity().getBlock(aX, aY, aZ) == getFusionCoil()
+            && (getBaseMetaTileEntity().getMetaID(aX, aY, aZ) == getFusionCoilMeta()));
     }
 
     public abstract Block getFusionCoil();
@@ -205,15 +301,22 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
 
     public abstract String[] getDescription();
 
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         ITexture[] sTexture;
         if (aSide == aFacing) {
-            sTexture = new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS, Dyes.getModulation(-1, Dyes._NULL.mRGBa)), new GT_RenderedTexture(getIconOverlay())};
+            sTexture = new ITexture[] { new GT_RenderedTexture(
+                Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
+                Dyes.getModulation(-1, Dyes._NULL.mRGBa)), new GT_RenderedTexture(getIconOverlay()) };
         } else {
             if (!aActive) {
-                sTexture = new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS, Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
+                sTexture = new ITexture[] { new GT_RenderedTexture(
+                    Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS,
+                    Dyes.getModulation(-1, Dyes._NULL.mRGBa)) };
             } else {
-                sTexture = new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW, Dyes.getModulation(-1, Dyes._NULL.mRGBa))};
+                sTexture = new ITexture[] { new GT_RenderedTexture(
+                    Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW,
+                    Dyes.getModulation(-1, Dyes._NULL.mRGBa)) };
             }
         }
         return sTexture;
@@ -239,14 +342,16 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     @Override
     public boolean checkRecipe(ItemStack aStack) {
         ArrayList<FluidStack> tFluidList = getStoredFluids();
-        int tFluidList_sS=tFluidList.size();
+        int tFluidList_sS = tFluidList.size();
         for (int i = 0; i < tFluidList_sS - 1; i++) {
             for (int j = i + 1; j < tFluidList_sS; j++) {
                 if (GT_Utility.areFluidsEqual((FluidStack) tFluidList.get(i), (FluidStack) tFluidList.get(j))) {
                     if (((FluidStack) tFluidList.get(i)).amount >= ((FluidStack) tFluidList.get(j)).amount) {
-                        tFluidList.remove(j--); tFluidList_sS=tFluidList.size();
+                        tFluidList.remove(j--);
+                        tFluidList_sS = tFluidList.size();
                     } else {
-                        tFluidList.remove(i--); tFluidList_sS=tFluidList.size();
+                        tFluidList.remove(i--);
+                        tFluidList_sS = tFluidList.size();
                         break;
                     }
                 }
@@ -254,21 +359,27 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
         }
         if (tFluidList.size() > 1) {
             FluidStack[] tFluids = tFluidList.toArray(new FluidStack[tFluidList.size()]);
-            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sFusionRecipes.findRecipe(this.getBaseMetaTileEntity(), this.mLastRecipe, false, GT_Values.V[8], tFluids, new ItemStack[]{});
+            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sFusionRecipes.findRecipe(
+                this.getBaseMetaTileEntity(),
+                this.mLastRecipe,
+                false,
+                GT_Values.V[8],
+                tFluids,
+                new ItemStack[] {});
             if ((tRecipe == null && !mRunningOnLoad) || (maxEUStore() < tRecipe.mSpecialValue)) {
                 turnCasingActive(false);
                 this.mLastRecipe = null;
                 return false;
             }
-            if (mRunningOnLoad || tRecipe.isRecipeInputEqual(true, tFluids, new ItemStack[]{})) {
-            this.mLastRecipe = tRecipe;
-            this.mEUt = (this.mLastRecipe.mEUt * overclock(this.mLastRecipe.mSpecialValue));
-            this.mMaxProgresstime = this.mLastRecipe.mDuration / overclock(this.mLastRecipe.mSpecialValue);
-            this.mEfficiencyIncrease = 10000;
-            this.mOutputFluids = this.mLastRecipe.mFluidOutputs;
-            turnCasingActive(true);
-            mRunningOnLoad = false;
-            return true;
+            if (mRunningOnLoad || tRecipe.isRecipeInputEqual(true, tFluids, new ItemStack[] {})) {
+                this.mLastRecipe = tRecipe;
+                this.mEUt = (this.mLastRecipe.mEUt * overclock(this.mLastRecipe.mSpecialValue));
+                this.mMaxProgresstime = this.mLastRecipe.mDuration / overclock(this.mLastRecipe.mSpecialValue);
+                this.mEfficiencyIncrease = 10000;
+                this.mOutputFluids = this.mLastRecipe.mFluidOutputs;
+                turnCasingActive(true);
+                mRunningOnLoad = false;
+                return true;
             }
         }
         return false;
@@ -298,8 +409,7 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         if (aBaseMetaTileEntity.isServerSide()) {
-            if (mEfficiency < 0)
-                mEfficiency = 0;
+            if (mEfficiency < 0) mEfficiency = 0;
             if (mRunningOnLoad && checkMachine(aBaseMetaTileEntity, mInventory[1])) {
                 this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
                 checkRecipe(mInventory[1]);
@@ -321,7 +431,8 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
                         for (GT_MetaTileEntity_Hatch_Energy tHatch : mEnergyHatches)
                             if (isValidMetaTileEntity(tHatch)) {
                                 if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock()) < maxEUStore()
-                                        && tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(2048 * tierOverclock(), false)) {
+                                    && tHatch.getBaseMetaTileEntity()
+                                        .decreaseStoredEnergyUnits(2048 * tierOverclock(), false)) {
                                     aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock(), true);
                                 }
                             }
@@ -331,29 +442,37 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
                     }
                     if (getRepairStatus() > 0) {
                         if (mMaxProgresstime > 0) {
-                            this.getBaseMetaTileEntity().decreaseStoredEnergyUnits(mEUt, true);
+                            this.getBaseMetaTileEntity()
+                                .decreaseStoredEnergyUnits(mEUt, true);
                             if (mMaxProgresstime > 0 && ++mProgresstime >= mMaxProgresstime) {
                                 if (mOutputItems != null)
                                     for (ItemStack tStack : mOutputItems) if (tStack != null) addOutput(tStack);
                                 if (mOutputFluids != null)
                                     for (FluidStack tStack : mOutputFluids) if (tStack != null) addOutput(tStack);
-                                mEfficiency = Math.max(0, Math.min(mEfficiency + mEfficiencyIncrease, getMaxEfficiency(mInventory[1]) - ((getIdealStatus() - getRepairStatus()) * 1000)));
+                                mEfficiency = Math.max(
+                                    0,
+                                    Math.min(
+                                        mEfficiency + mEfficiencyIncrease,
+                                        getMaxEfficiency(mInventory[1])
+                                            - ((getIdealStatus() - getRepairStatus()) * 1000)));
                                 mOutputItems = null;
                                 mProgresstime = 0;
                                 mMaxProgresstime = 0;
                                 mEfficiencyIncrease = 0;
                                 if (mOutputFluids != null && mOutputFluids.length > 0) {
                                     try {
-                                        GT_Mod.instance.achievements.issueAchivementHatchFluid(aBaseMetaTileEntity.getWorld().getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()), mOutputFluids[0]);
-                                    } catch (Exception e) {
-                                    }
+                                        GT_Mod.instance.achievements.issueAchivementHatchFluid(
+                                            aBaseMetaTileEntity.getWorld()
+                                                .getPlayerEntityByName(aBaseMetaTileEntity.getOwnerName()),
+                                            mOutputFluids[0]);
+                                    } catch (Exception e) {}
                                 }
                                 this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
-                                if (aBaseMetaTileEntity.isAllowedToWork())
-                                    checkRecipe(mInventory[1]);
+                                if (aBaseMetaTileEntity.isAllowedToWork()) checkRecipe(mInventory[1]);
                             }
                         } else {
-                            if (aTick % 100 == 0 || aBaseMetaTileEntity.hasWorkJustBeenEnabled() || aBaseMetaTileEntity.hasInventoryBeenModified()) {
+                            if (aTick % 100 == 0 || aBaseMetaTileEntity.hasWorkJustBeenEnabled()
+                                || aBaseMetaTileEntity.hasInventoryBeenModified()) {
                                 turnCasingActive(mMaxProgresstime > 0);
                                 if (aBaseMetaTileEntity.isAllowedToWork()) {
                                     this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
@@ -362,11 +481,11 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
                                             mMaxProgresstime = 0;
                                             turnCasingActive(false);
                                         }
-                                        aBaseMetaTileEntity.decreaseStoredEnergyUnits(this.mLastRecipe.mSpecialValue, true);
+                                        aBaseMetaTileEntity
+                                            .decreaseStoredEnergyUnits(this.mLastRecipe.mSpecialValue, true);
                                     }
                                 }
-                                if (mMaxProgresstime <= 0)
-                                    mEfficiency = Math.max(0, mEfficiency - 1000);
+                                if (mMaxProgresstime <= 0) mEfficiency = Math.max(0, mEfficiency - 1000);
                             }
                         }
                     } else {
@@ -379,8 +498,14 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
                     stopMachine();
                 }
             }
-            aBaseMetaTileEntity.setErrorDisplayID((aBaseMetaTileEntity.getErrorDisplayID() & ~127) | (mWrench ? 0 : 1) | (mScrewdriver ? 0 : 2) | (mSoftHammer ? 0 : 4) | (mHardHammer ? 0 : 8)
-                    | (mSolderingTool ? 0 : 16) | (mCrowbar ? 0 : 32) | (mMachine ? 0 : 64));
+            aBaseMetaTileEntity.setErrorDisplayID(
+                (aBaseMetaTileEntity.getErrorDisplayID() & ~127) | (mWrench ? 0 : 1)
+                    | (mScrewdriver ? 0 : 2)
+                    | (mSoftHammer ? 0 : 4)
+                    | (mHardHammer ? 0 : 8)
+                    | (mSolderingTool ? 0 : 16)
+                    | (mCrowbar ? 0 : 32)
+                    | (mMachine ? 0 : 64));
             aBaseMetaTileEntity.setActive(mMaxProgresstime > 0);
         }
     }
@@ -420,6 +545,7 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
     public int getDamageToComponent(ItemStack aStack) {
         return 0;
     }
+
     @Override
     public boolean explodesOnComponentBreak(ItemStack aStack) {
         return false;
@@ -433,15 +559,12 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
         if (this.mLastRecipe != null) {
             powerRequired = this.mLastRecipe.mEUt;
             if (this.mLastRecipe.getFluidOutput(0) != null) {
-                plasmaOut = (float)this.mLastRecipe.getFluidOutput(0).amount / (float)this.mLastRecipe.mDuration;
+                plasmaOut = (float) this.mLastRecipe.getFluidOutput(0).amount / (float) this.mLastRecipe.mDuration;
             }
         }
 
-        return new String[]{
-                "Fusion Reactor MK "+tier,
-                "EU Required: "+powerRequired+"EU/t",
-                "Stored EU: "+mEUStore+" / "+maxEUStore(),
-                "Plasma Output: "+plasmaOut+"L/t"};
+        return new String[] { "Fusion Reactor MK " + tier, "EU Required: " + powerRequired + "EU/t",
+            "Stored EU: " + mEUStore + " / " + maxEUStore(), "Plasma Output: " + plasmaOut + "L/t" };
     }
 
     @Override

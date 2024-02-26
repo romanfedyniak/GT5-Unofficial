@@ -1,5 +1,14 @@
 package gregtech.common.tileentities.machines.multi;
 
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.ChunkPosition;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
@@ -10,14 +19,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockB
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 import gregtech.common.GT_Pollution;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.ChunkPosition;
-
-import java.util.ArrayList;
 
 public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlockBase {
 
@@ -37,22 +38,21 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
     }
 
     public String[] getDescription() {
-        return new String[]{
-                "Controller for the Charcoal Pit",
-                "Converts Logs into Brittle Charcoal blocks",
-                "Max Size(WxHxD): 11x6x11, Controller (Top layer, centered)",
-                "11x1x11 of Bricks (Bottom layer only)",
-                "11x5x11 of Logs (Above bottom Brick layer)",
-                "Only grass/dirt can touch Log blocks",
-                "No air between logs allowed",
-                "Causes 100 Pollution per second"};
+        return new String[] { "Controller for the Charcoal Pit", "Converts Logs into Brittle Charcoal blocks",
+            "Max Size(WxHxD): 11x6x11, Controller (Top layer, centered)", "11x1x11 of Bricks (Bottom layer only)",
+            "11x5x11 of Logs (Above bottom Brick layer)", "Only grass/dirt can touch Log blocks",
+            "No air between logs allowed", "Causes 100 Pollution per second" };
     }
 
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         if (aSide == 1) {
-            return new ITexture[]{Textures.BlockIcons.CASING_BLOCKS[10], new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_ROCK_BREAKER_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_ROCK_BREAKER)};
+            return new ITexture[] { Textures.BlockIcons.CASING_BLOCKS[10],
+                new GT_RenderedTexture(
+                    aActive ? Textures.BlockIcons.OVERLAY_FRONT_ROCK_BREAKER_ACTIVE
+                        : Textures.BlockIcons.OVERLAY_FRONT_ROCK_BREAKER) };
         }
-        return new ITexture[]{Textures.BlockIcons.CASING_BLOCKS[10]};
+        return new ITexture[] { Textures.BlockIcons.CASING_BLOCKS[10] };
     }
 
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
@@ -87,7 +87,7 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
             this.mEfficiency = 10000;
             this.mEfficiencyIncrease = 10000;
             this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
-            GT_Pollution.addPollution(getBaseMetaTileEntity(), mMaxProgresstime*5);
+            GT_Pollution.addPollution(getBaseMetaTileEntity(), mMaxProgresstime * 5);
             return true;
         } else {
             this.mEfficiency = 0;
@@ -101,7 +101,8 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
         ArrayList<ChunkPosition> tList1 = new ArrayList();
         ArrayList<ChunkPosition> tList2 = new ArrayList();
 
-        Block tBlock = this.getBaseMetaTileEntity().getBlockOffset(0, -1, 0);
+        Block tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(0, -1, 0);
         if (!isWoodLog(tBlock)) {
             return false;
         } else {
@@ -116,8 +117,21 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
         }
         if (running) {
             for (ChunkPosition tPos : tList1) {
-                if (isWoodLog(this.getBaseMetaTileEntity().getBlockOffset(tPos.chunkPosX, tPos.chunkPosY, tPos.chunkPosZ)))
-                    this.getBaseMetaTileEntity().getWorld().setBlock(this.getBaseMetaTileEntity().getXCoord() + tPos.chunkPosX, this.getBaseMetaTileEntity().getYCoord() + tPos.chunkPosY, this.getBaseMetaTileEntity().getZCoord() + tPos.chunkPosZ, GregTech_API.sBlockReinforced, 4, 3);
+                if (isWoodLog(
+                    this.getBaseMetaTileEntity()
+                        .getBlockOffset(tPos.chunkPosX, tPos.chunkPosY, tPos.chunkPosZ)))
+                    this.getBaseMetaTileEntity()
+                        .getWorld()
+                        .setBlock(
+                            this.getBaseMetaTileEntity()
+                                .getXCoord() + tPos.chunkPosX,
+                            this.getBaseMetaTileEntity()
+                                .getYCoord() + tPos.chunkPosY,
+                            this.getBaseMetaTileEntity()
+                                .getZCoord() + tPos.chunkPosZ,
+                            GregTech_API.sBlockReinforced,
+                            4,
+                            3);
             }
             running = false;
             return false;
@@ -128,57 +142,65 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
         return true;
     }
 
-    private boolean checkAllBlockSides(int aX, int aY, int aZ, ArrayList<ChunkPosition> aList1, ArrayList<ChunkPosition> aList2) {
+    private boolean checkAllBlockSides(int aX, int aY, int aZ, ArrayList<ChunkPosition> aList1,
+        ArrayList<ChunkPosition> aList2) {
         p1 = false;
         p2 = false;
         p3 = false;
         p4 = false;
         p5 = false;
         p6 = false;
-        Block tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX + 1, aY, aZ);
+        Block tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX + 1, aY, aZ);
         if (aX + 1 < 6 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX + 1, aY, aZ)) && (!aList2.contains(new ChunkPosition(aX + 1, aY, aZ))))
-                p1 = true;
+            if (!aList1.contains(new ChunkPosition(aX + 1, aY, aZ))
+                && (!aList2.contains(new ChunkPosition(aX + 1, aY, aZ)))) p1 = true;
         } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass)) {
             return false;
         }
 
-        tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX - 1, aY, aZ);
+        tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX - 1, aY, aZ);
         if (aX - 1 > -6 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX - 1, aY, aZ)) && (!aList2.contains(new ChunkPosition(aX - 1, aY, aZ))))
-                p2 = true;
+            if (!aList1.contains(new ChunkPosition(aX - 1, aY, aZ))
+                && (!aList2.contains(new ChunkPosition(aX - 1, aY, aZ)))) p2 = true;
         } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass)) {
             return false;
         }
 
-        tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX, aY + 1, aZ);
+        tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX, aY + 1, aZ);
         if (aY + 1 < 1 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX, aY + 1, aZ)) && (!aList2.contains(new ChunkPosition(aX, aY + 1, aZ))))
-                p3 = true;
-        } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass || (aX == 0 && aY == -1 && aZ == 0 && tBlock == GregTech_API.sBlockMachines))) {
-            return false;
-        }
+            if (!aList1.contains(new ChunkPosition(aX, aY + 1, aZ))
+                && (!aList2.contains(new ChunkPosition(aX, aY + 1, aZ)))) p3 = true;
+        } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass
+            || (aX == 0 && aY == -1 && aZ == 0 && tBlock == GregTech_API.sBlockMachines))) {
+                return false;
+            }
 
-        tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX, aY - 1, aZ);
+        tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX, aY - 1, aZ);
         if (aY - 1 > -6 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX, aY - 1, aZ)) && (!aList2.contains(new ChunkPosition(aX, aY - 1, aZ))))
-                p4 = true;
+            if (!aList1.contains(new ChunkPosition(aX, aY - 1, aZ))
+                && (!aList2.contains(new ChunkPosition(aX, aY - 1, aZ)))) p4 = true;
         } else if (tBlock != Blocks.brick_block) {
             return false;
         }
 
-        tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX, aY, aZ + 1);
+        tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX, aY, aZ + 1);
         if (aZ + 1 < 6 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX, aY, aZ + 1)) && (!aList2.contains(new ChunkPosition(aX, aY, aZ + 1))))
-                p5 = true;
+            if (!aList1.contains(new ChunkPosition(aX, aY, aZ + 1))
+                && (!aList2.contains(new ChunkPosition(aX, aY, aZ + 1)))) p5 = true;
         } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass)) {
             return false;
         }
 
-        tBlock = this.getBaseMetaTileEntity().getBlockOffset(aX, aY, aZ - 1);
+        tBlock = this.getBaseMetaTileEntity()
+            .getBlockOffset(aX, aY, aZ - 1);
         if (aZ - 1 > -6 && (isWoodLog(tBlock))) {
-            if (!aList1.contains(new ChunkPosition(aX, aY, aZ - 1)) && (!aList2.contains(new ChunkPosition(aX, aY, aZ - 1))))
-                p6 = true;
+            if (!aList1.contains(new ChunkPosition(aX, aY, aZ - 1))
+                && (!aList2.contains(new ChunkPosition(aX, aY, aZ - 1)))) p6 = true;
         } else if (!(tBlock == Blocks.dirt || tBlock == Blocks.grass)) {
             return false;
         }
@@ -192,9 +214,10 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
         return true;
     }
 
-    public boolean isWoodLog(Block log){
+    public boolean isWoodLog(Block log) {
         String tTool = log.getHarvestTool(0);
-        return  OrePrefixes.log.contains(new ItemStack(log, 1))&& ((tTool != null) && (tTool.equals("axe"))) && (log.getMaterial() == Material.wood);
+        return OrePrefixes.log.contains(new ItemStack(log, 1)) && ((tTool != null) && (tTool.equals("axe")))
+            && (log.getMaterial() == Material.wood);
     }
 
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {

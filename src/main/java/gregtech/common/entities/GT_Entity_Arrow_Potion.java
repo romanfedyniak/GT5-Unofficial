@@ -7,8 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class GT_Entity_Arrow_Potion
-        extends GT_Entity_Arrow {
+public class GT_Entity_Arrow_Potion extends GT_Entity_Arrow {
+
     private int[] mPotions = new int[0];
 
     public GT_Entity_Arrow_Potion(World aWorld) {
@@ -47,14 +47,28 @@ public class GT_Entity_Arrow_Potion
         }
     }
 
-    public int[] onHitEntity(Entity aHitEntity, Entity aShootingEntity, ItemStack aArrow, int aRegularDamage, int aMagicDamage, int aKnockback, int aFireDamage, int aHitTimer) {
+    public int[] onHitEntity(Entity aHitEntity, Entity aShootingEntity, ItemStack aArrow, int aRegularDamage,
+        int aMagicDamage, int aKnockback, int aFireDamage, int aHitTimer) {
         if ((aHitEntity instanceof EntityLivingBase)) {
             for (int i = 3; i < this.mPotions.length; i += 4) {
                 if (aHitEntity.worldObj.rand.nextInt(100) < this.mPotions[i]) {
-                    ((EntityLivingBase) aHitEntity).addPotionEffect(new PotionEffect(this.mPotions[(i - 3)], this.mPotions[(i - 2)], this.mPotions[(i - 1)], false));
+                    ((EntityLivingBase) aHitEntity).addPotionEffect(
+                        new PotionEffect(
+                            this.mPotions[(i - 3)],
+                            this.mPotions[(i - 2)],
+                            this.mPotions[(i - 1)],
+                            false));
                 }
             }
         }
-        return super.onHitEntity(aHitEntity, aShootingEntity, aArrow, 1, aMagicDamage, aKnockback, aFireDamage, aHitTimer);
+        return super.onHitEntity(
+            aHitEntity,
+            aShootingEntity,
+            aArrow,
+            1,
+            aMagicDamage,
+            aKnockback,
+            aFireDamage,
+            aHitTimer);
     }
 }

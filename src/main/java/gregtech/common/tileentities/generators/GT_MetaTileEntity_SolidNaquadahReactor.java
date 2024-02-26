@@ -10,8 +10,8 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicGenera
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 
-public class GT_MetaTileEntity_SolidNaquadahReactor
-        extends GT_MetaTileEntity_BasicGenerator {
+public class GT_MetaTileEntity_SolidNaquadahReactor extends GT_MetaTileEntity_BasicGenerator {
+
     public int mEfficiency;
 
     public GT_MetaTileEntity_SolidNaquadahReactor(int aID, String aName, String aNameRegional, int aTier) {
@@ -19,22 +19,29 @@ public class GT_MetaTileEntity_SolidNaquadahReactor
         onConfigLoad();
     }
 
-    public GT_MetaTileEntity_SolidNaquadahReactor(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_SolidNaquadahReactor(String aName, int aTier, String aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aDescription, aTextures);
         onConfigLoad();
     }
 
-    public GT_MetaTileEntity_SolidNaquadahReactor(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_SolidNaquadahReactor(String aName, int aTier, String[] aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aDescription, aTextures);
         onConfigLoad();
     }
 
     public boolean isOutputFacing(byte aSide) {
-        return (aSide > 1) && (aSide != getBaseMetaTileEntity().getFrontFacing()) && (aSide != getBaseMetaTileEntity().getBackFacing());
+        return (aSide > 1) && (aSide != getBaseMetaTileEntity().getFrontFacing())
+            && (aSide != getBaseMetaTileEntity().getBackFacing());
     }
 
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_SolidNaquadahReactor(this.mName, this.mTier, this.mDescriptionArray, this.mTextures);
+        return new GT_MetaTileEntity_SolidNaquadahReactor(
+            this.mName,
+            this.mTier,
+            this.mDescriptionArray,
+            this.mTextures);
     }
 
     public GT_Recipe.GT_Recipe_Map getRecipes() {
@@ -50,51 +57,62 @@ public class GT_MetaTileEntity_SolidNaquadahReactor
     }
 
     public void onConfigLoad() {
-        this.mEfficiency = GregTech_API.sMachineFile.get(ConfigCategories.machineconfig, "SolidNaquadah.efficiency.tier." + this.mTier, 40 + mTier * 10);
+        this.mEfficiency = GregTech_API.sMachineFile
+            .get(ConfigCategories.machineconfig, "SolidNaquadah.efficiency.tier." + this.mTier, 40 + mTier * 10);
     }
 
     public ITexture[] getFront(byte aColor) {
-        return new ITexture[]{super.getFront(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT)};
+        return new ITexture[] { super.getFront(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT) };
     }
 
     public ITexture[] getBack(byte aColor) {
-        return new ITexture[]{super.getBack(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BACK)};
+        return new ITexture[] { super.getBack(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BACK) };
     }
 
     public ITexture[] getBottom(byte aColor) {
-        return new ITexture[]{super.getBottom(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BOTTOM)};
+        return new ITexture[] { super.getBottom(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BOTTOM) };
     }
 
     public ITexture[] getTop(byte aColor) {
-        return new ITexture[]{super.getTop(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP)};
+        return new ITexture[] { super.getTop(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP) };
     }
 
     public ITexture[] getSides(byte aColor) {
-        return new ITexture[]{super.getSides(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_SIDE)};
+        return new ITexture[] { super.getSides(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_SIDE) };
     }
 
     public ITexture[] getFrontActive(byte aColor) {
-        return new ITexture[]{super.getFrontActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE)};
+        return new ITexture[] { super.getFrontActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_FRONT_ACTIVE) };
     }
 
     public ITexture[] getBackActive(byte aColor) {
-        return new ITexture[]{super.getBackActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BACK_ACTIVE)};
+        return new ITexture[] { super.getBackActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BACK_ACTIVE) };
     }
 
     public ITexture[] getBottomActive(byte aColor) {
-        return new ITexture[]{super.getBottomActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BOTTOM_ACTIVE)};
+        return new ITexture[] { super.getBottomActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_BOTTOM_ACTIVE) };
     }
 
     public ITexture[] getTopActive(byte aColor) {
-        return new ITexture[]{super.getTopActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE)};
+        return new ITexture[] { super.getTopActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_TOP_ACTIVE) };
     }
 
     public ITexture[] getSidesActive(byte aColor) {
-        return new ITexture[]{super.getSidesActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_SIDE_ACTIVE)};
+        return new ITexture[] { super.getSidesActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.NAQUADAH_REACTOR_SOLID_SIDE_ACTIVE) };
     }
 
-	@Override
-	public int getPollution() {
-		return 0;
-	}
+    @Override
+    public int getPollution() {
+        return 0;
+    }
 }

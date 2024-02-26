@@ -1,11 +1,11 @@
 package gregtech.api.events;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 @cpw.mods.fml.common.eventhandler.Cancelable
 public class BlockScanningEvent extends net.minecraftforge.event.world.WorldEvent {
@@ -23,7 +23,8 @@ public class BlockScanningEvent extends net.minecraftforge.event.world.WorldEven
      */
     public int mEUCost = 0;
 
-    public BlockScanningEvent(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, byte aSide, int aScanLevel, Block aBlock, TileEntity aTileEntity, ArrayList<String> aList, float aClickX, float aClickY, float aClickZ) {
+    public BlockScanningEvent(World aWorld, EntityPlayer aPlayer, int aX, int aY, int aZ, byte aSide, int aScanLevel,
+        Block aBlock, TileEntity aTileEntity, ArrayList<String> aList, float aClickX, float aClickY, float aClickZ) {
         super(aWorld);
         mPlayer = aPlayer;
         mScanLevel = aScanLevel;

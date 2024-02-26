@@ -1,10 +1,8 @@
 package gregtech.common.tools;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.enums.Textures;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.common.items.behaviors.Behaviour_Wrench;
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -17,15 +15,21 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
-import java.util.Arrays;
-import java.util.List;
+import gregtech.api.GregTech_API;
+import gregtech.api.enums.Textures;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.common.items.behaviors.Behaviour_Wrench;
 
-public class GT_Tool_Wrench
-        extends GT_Tool {
-    public static final List<String> mEffectiveList = Arrays.asList(new String[]{EntityIronGolem.class.getName(), "EntityTowerGuardian"});
+public class GT_Tool_Wrench extends GT_Tool {
 
-    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer) {
-        String tName = aEntity.getClass().getName();
+    public static final List<String> mEffectiveList = Arrays
+        .asList(new String[] { EntityIronGolem.class.getName(), "EntityTowerGuardian" });
+
+    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
+        EntityPlayer aPlayer) {
+        String tName = aEntity.getClass()
+            .getName();
         tName = tName.substring(tName.lastIndexOf('.') + 1);
         return (mEffectiveList.contains(tName)) || (tName.contains("Golem")) ? aOriginalDamage * 2.0F : aOriginalDamage;
     }
@@ -93,10 +97,13 @@ public class GT_Tool_Wrench
     public boolean isWrench() {
         return true;
     }
-    
+
     public boolean isMinableBlock(Block aBlock, byte aMetaData) {
         String tTool = aBlock.getHarvestTool(aMetaData);
-        return ((tTool != null) && (tTool.equals("wrench"))) || (aBlock.getMaterial() == Material.piston) || (aBlock == Blocks.hopper) || (aBlock == Blocks.dispenser) || (aBlock == Blocks.dropper);
+        return ((tTool != null) && (tTool.equals("wrench"))) || (aBlock.getMaterial() == Material.piston)
+            || (aBlock == Blocks.hopper)
+            || (aBlock == Blocks.dispenser)
+            || (aBlock == Blocks.dropper);
     }
 
     public ItemStack getBrokenItem(ItemStack aStack) {
@@ -116,16 +123,18 @@ public class GT_Tool_Wrench
     }
 
     public IChatComponent getDeathMessage(EntityLivingBase aPlayer, EntityLivingBase aEntity) {
-        return new ChatComponentText(EnumChatFormatting.GREEN + aPlayer.getCommandSenderName() + EnumChatFormatting.WHITE + " threw a Monkey Wrench into the Plans of " + EnumChatFormatting.RED + aEntity.getCommandSenderName() + EnumChatFormatting.WHITE);
+        return new ChatComponentText(
+            EnumChatFormatting.GREEN + aPlayer.getCommandSenderName()
+                + EnumChatFormatting.WHITE
+                + " threw a Monkey Wrench into the Plans of "
+                + EnumChatFormatting.RED
+                + aEntity.getCommandSenderName()
+                + EnumChatFormatting.WHITE);
     }
 }
 
-
-
-/* Location:           F:\Torrent\minecraft\jd-gui-0.3.6.windows\gregtech_1.7.10-5.07.07-dev.jar
-
- * Qualified Name:     gregtech.common.tools.GT_Tool_Wrench
-
- * JD-Core Version:    0.7.0.1
-
+/*
+ * Location: F:\Torrent\minecraft\jd-gui-0.3.6.windows\gregtech_1.7.10-5.07.07-dev.jar
+ * Qualified Name: gregtech.common.tools.GT_Tool_Wrench
+ * JD-Core Version: 0.7.0.1
  */

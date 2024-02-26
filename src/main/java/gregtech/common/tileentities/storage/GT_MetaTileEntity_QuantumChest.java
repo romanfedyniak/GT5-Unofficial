@@ -1,5 +1,10 @@
 package gregtech.common.tileentities.storage;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -9,16 +14,20 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_Container_QuantumChest;
 import gregtech.common.gui.GT_GUIContainer_QuantumChest;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMachineBlock {
+
     public int mItemCount = 0;
     public ItemStack mItemStack = null;
+
     public GT_MetaTileEntity_QuantumChest(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 3, "This Chest stores " + ((int) ((Math.pow(6, aTier)) * 270000)) + " Blocks");
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            3,
+            "This Chest stores " + ((int) ((Math.pow(6, aTier)) * 270000)) + " Blocks");
     }
 
     public GT_MetaTileEntity_QuantumChest(String aName, int aTier, String aDescription, ITexture[][][] aTextures) {
@@ -82,7 +91,8 @@ public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMach
             if (this.mItemStack == null && this.mInventory[0] != null) {
                 this.mItemStack = mInventory[0].copy();
             }
-            if ((this.mInventory[0] != null) && (this.mItemCount < getMaxItemCount()) && GT_Utility.areStacksEqual(this.mInventory[0], this.mItemStack)) {
+            if ((this.mInventory[0] != null) && (this.mItemCount < getMaxItemCount())
+                && GT_Utility.areStacksEqual(this.mInventory[0], this.mItemStack)) {
                 this.mItemCount += this.mInventory[0].stackSize;
                 if (this.mItemCount > getMaxItemCount()) {
                     this.mInventory[0].stackSize = (this.mItemCount - getMaxItemCount());
@@ -95,11 +105,13 @@ public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMach
                 this.mInventory[1] = mItemStack.copy();
                 this.mInventory[1].stackSize = Math.min(mItemStack.getMaxStackSize(), this.mItemCount);
                 this.mItemCount -= this.mInventory[1].stackSize;
-            } else if ((this.mItemCount > 0) && GT_Utility.areStacksEqual(this.mInventory[1], this.mItemStack) && this.mInventory[1].getMaxStackSize() > this.mInventory[1].stackSize) {
-                int tmp = Math.min(this.mItemCount, this.mInventory[1].getMaxStackSize() - this.mInventory[1].stackSize);
-                this.mInventory[1].stackSize += tmp;
-                this.mItemCount -= tmp;
-            }
+            } else if ((this.mItemCount > 0) && GT_Utility.areStacksEqual(this.mInventory[1], this.mItemStack)
+                && this.mInventory[1].getMaxStackSize() > this.mInventory[1].stackSize) {
+                    int tmp = Math
+                        .min(this.mItemCount, this.mInventory[1].getMaxStackSize() - this.mInventory[1].stackSize);
+                    this.mInventory[1].stackSize += tmp;
+                    this.mItemCount -= tmp;
+                }
             if (this.mItemStack != null) {
                 this.mInventory[2] = this.mItemStack.copy();
                 this.mInventory[2].stackSize = Math.min(mItemStack.getMaxStackSize(), this.mItemCount);
@@ -118,7 +130,8 @@ public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMach
     }
 
     public int getProgresstime() {
-        return this.mItemCount + (this.mInventory[0] == null ? 0 : this.mInventory[0].stackSize) + (this.mInventory[1] == null ? 0 : this.mInventory[1].stackSize);
+        return this.mItemCount + (this.mInventory[0] == null ? 0 : this.mInventory[0].stackSize)
+            + (this.mInventory[1] == null ? 0 : this.mInventory[1].stackSize);
     }
 
     public int maxProgresstime() {
@@ -131,31 +144,23 @@ public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMach
 
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aIndex==1;
+        return aIndex == 1;
     }
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return aIndex==0&&(mInventory[0]==null||GT_Utility.areStacksEqual(this.mInventory[0], aStack));
+        return aIndex == 0 && (mInventory[0] == null || GT_Utility.areStacksEqual(this.mInventory[0], aStack));
     }
 
     @Override
     public String[] getInfoData() {
 
         if (mItemStack == null) {
-            return new String[]{
-                    "Quantum Chest",
-                    "Stored Items:",
-                    "No Items",
-                    Integer.toString(0),
-                    Integer.toString(getMaxItemCount())};
+            return new String[] { "Quantum Chest", "Stored Items:", "No Items", Integer.toString(0),
+                Integer.toString(getMaxItemCount()) };
         }
-        return new String[]{
-                "Quantum Chest",
-                "Stored Items:",
-                mItemStack.getDisplayName(),
-                Integer.toString(mItemCount),
-                Integer.toString(getMaxItemCount())};
+        return new String[] { "Quantum Chest", "Stored Items:", mItemStack.getDisplayName(),
+            Integer.toString(mItemCount), Integer.toString(getMaxItemCount()) };
     }
 
     @Override
@@ -166,24 +171,41 @@ public class GT_MetaTileEntity_QuantumChest extends GT_MetaTileEntity_TieredMach
     @Override
     public void saveNBTData(NBTTagCompound aNBT) {
         aNBT.setInteger("mItemCount", this.mItemCount);
-        if (this.mItemStack != null)
-            aNBT.setTag("mItemStack", this.mItemStack.writeToNBT(new NBTTagCompound()));
+        if (this.mItemStack != null) aNBT.setTag("mItemStack", this.mItemStack.writeToNBT(new NBTTagCompound()));
     }
 
     @Override
     public void loadNBTData(NBTTagCompound aNBT) {
-        if (aNBT.hasKey("mItemCount"))
-            this.mItemCount = aNBT.getInteger("mItemCount");
+        if (aNBT.hasKey("mItemCount")) this.mItemCount = aNBT.getInteger("mItemCount");
         if (aNBT.hasKey("mItemStack"))
             this.mItemStack = ItemStack.loadItemStackFromNBT((NBTTagCompound) aNBT.getTag("mItemStack"));
     }
 
     @Override
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         if (aBaseMetaTileEntity.getFrontFacing() == 0 && aSide == 4) {
-            return new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QCHEST)};
+            return new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1],
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QCHEST) };
         }
-        return aSide == aBaseMetaTileEntity.getFrontFacing() ? new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1], new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QCHEST)} : new ITexture[]{Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1]};//aSide != aFacing ? mMachineBlock != 0 ? new ITexture[] {Textures.BlockIcons.CASING_BLOCKS[mMachineBlock]} : new ITexture[] {Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1]} : mMachineBlock != 0 ? aActive ? getTexturesActive(Textures.BlockIcons.CASING_BLOCKS[mMachineBlock]) : getTexturesInactive(Textures.BlockIcons.CASING_BLOCKS[mMachineBlock]) : aActive ? getTexturesActive(Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1]) : getTexturesInactive(Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1]);
+        return aSide == aBaseMetaTileEntity.getFrontFacing()
+            ? new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1],
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_QCHEST) }
+            : new ITexture[] { Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex + 1] };// aSide != aFacing ?
+                                                                                             // mMachineBlock != 0 ? new
+                                                                                             // ITexture[]
+                                                                                             // {Textures.BlockIcons.CASING_BLOCKS[mMachineBlock]}
+                                                                                             // : new ITexture[]
+                                                                                             // {Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1]}
+                                                                                             // : mMachineBlock != 0 ?
+                                                                                             // aActive ?
+                                                                                             // getTexturesActive(Textures.BlockIcons.CASING_BLOCKS[mMachineBlock])
+                                                                                             // :
+                                                                                             // getTexturesInactive(Textures.BlockIcons.CASING_BLOCKS[mMachineBlock])
+                                                                                             // : aActive ?
+                                                                                             // getTexturesActive(Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1])
+                                                                                             // :
+                                                                                             // getTexturesInactive(Textures.BlockIcons.MACHINE_CASINGS[mTier][aColorIndex+1]);
     }
 
     @Override

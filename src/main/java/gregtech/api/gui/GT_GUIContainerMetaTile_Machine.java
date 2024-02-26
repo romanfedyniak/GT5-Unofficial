@@ -1,10 +1,12 @@
 package gregtech.api.gui;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemDye;
+
 import org.lwjgl.opengl.GL11;
+
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -20,7 +22,8 @@ public class GT_GUIContainerMetaTile_Machine extends GT_GUIContainer {
         mContainer = aContainer;
     }
 
-    public GT_GUIContainerMetaTile_Machine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aGUIbackground) {
+    public GT_GUIContainerMetaTile_Machine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity,
+        String aGUIbackground) {
         this(new GT_ContainerMetaTile_Machine(aInventoryPlayer, aTileEntity), aGUIbackground);
     }
 
@@ -31,7 +34,11 @@ public class GT_GUIContainerMetaTile_Machine extends GT_GUIContainer {
             int tColor = mContainer.mTileEntity.getColorization() & 15;
             if (tColor < ItemDye.field_150922_c.length) {
                 tColor = ItemDye.field_150922_c[tColor];
-                GL11.glColor4f(((tColor >> 16) & 255) / 255.0F, ((tColor >> 8) & 255) / 255.0F, (tColor & 255) / 255.0F, 1.0F);
+                GL11.glColor4f(
+                    ((tColor >> 16) & 255) / 255.0F,
+                    ((tColor >> 8) & 255) / 255.0F,
+                    (tColor & 255) / 255.0F,
+                    1.0F);
             } else GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         } else GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }

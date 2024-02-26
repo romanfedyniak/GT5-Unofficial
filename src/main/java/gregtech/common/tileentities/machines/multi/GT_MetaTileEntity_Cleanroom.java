@@ -1,5 +1,9 @@
 package gregtech.common.tileentities.machines.multi;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Textures;
 import gregtech.api.gui.GT_GUIContainer_MultiMachine;
@@ -11,11 +15,9 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachin
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockBase;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
 
 public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBase {
+
     private int mHeatingCapacity = 0;
 
     public GT_MetaTileEntity_Cleanroom(int aID, String aName, String aNameRegional) {
@@ -31,15 +33,12 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
     }
 
     public String[] getDescription() {
-        return new String[]{
-                "Controller Block for the Cleanroom",
-                "Min(WxHxD): 3x4x3 (Hollow), Max(WxHxD): 15x15x15 (Hollow)",
-                "Controller (Top center)",
-                "Top besides contoller and edges Filter Machine Casings",
-                "1 Reinforced Door (keep closed for 100% efficency",
-                "1x LV+ Energy Hatch(40EU/t startup, 4EU/t keepup), 1x Maintainance Hatch",
-                "Up to 10 Machine Hulls to transfer Items & Energy through walls",
-                "Remaining Blocks Plascrete"};
+        return new String[] { "Controller Block for the Cleanroom",
+            "Min(WxHxD): 3x4x3 (Hollow), Max(WxHxD): 15x15x15 (Hollow)", "Controller (Top center)",
+            "Top besides contoller and edges Filter Machine Casings",
+            "1 Reinforced Door (keep closed for 100% efficency",
+            "1x LV+ Energy Hatch(40EU/t startup, 4EU/t keepup), 1x Maintainance Hatch",
+            "Up to 10 Machine Hulls to transfer Items & Energy through walls", "Remaining Blocks Plascrete" };
     }
 
     public boolean checkRecipe(ItemStack aStack) {
@@ -93,8 +92,7 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
                                 if (tBlock != GregTech_API.sBlockReinforced || tMeta != 2) {
                                     return false;
                                 }
-                            } else if (dX == 0 && dZ == 0) {
-                            } else {
+                            } else if (dX == 0 && dZ == 0) {} else {
                                 if (tBlock != GregTech_API.sBlockCasings3 || tMeta != 11) {
                                     return false;
                                 }
@@ -102,11 +100,14 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
                         } else if (tBlock == GregTech_API.sBlockReinforced && tMeta == 2) {
                             mPlascreteCount++;
                         } else {
-                            IGregTechTileEntity tTileEntity = aBaseMetaTileEntity.getIGregTechTileEntityOffset(dX, dY, dZ);
-                            if ((!addMaintenanceToMachineList(tTileEntity, 82)) && (!addEnergyInputToMachineList(tTileEntity, 82))) {
+                            IGregTechTileEntity tTileEntity = aBaseMetaTileEntity
+                                .getIGregTechTileEntityOffset(dX, dY, dZ);
+                            if ((!addMaintenanceToMachineList(tTileEntity, 82))
+                                && (!addEnergyInputToMachineList(tTileEntity, 82))) {
                                 if (tBlock instanceof ic2.core.block.BlockIC2Door) {
                                     if ((tMeta & 8) == 0) {
-                                        doorState = (Math.abs(dX) > Math.abs(dZ) == ((tMeta & 1) != 0)) != ((tMeta & 4) != 0);
+                                        doorState = (Math.abs(dX) > Math.abs(dZ) == ((tMeta & 1) != 0))
+                                            != ((tMeta & 4) != 0);
                                     }
                                     mDoorCount++;
                                 } else {
@@ -138,7 +139,8 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
                     IGregTechTileEntity tTileEntity = aBaseMetaTileEntity.getIGregTechTileEntityOffset(dX, dY, dZ);
                     if (tTileEntity != null) {
                         IMetaTileEntity aMetaTileEntity = tTileEntity.getMetaTileEntity();
-                        if (aMetaTileEntity != null && aMetaTileEntity instanceof GT_MetaTileEntity_BasicMachine_GT_Recipe) {
+                        if (aMetaTileEntity != null
+                            && aMetaTileEntity instanceof GT_MetaTileEntity_BasicMachine_GT_Recipe) {
                             ((GT_MetaTileEntity_BasicMachine_GT_Recipe) aMetaTileEntity).mCleanroom = this;
                         }
                     }
@@ -149,30 +151,37 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
         if (doorState) {
             mEfficiency = Math.max(0, mEfficiency - 200);
         }
-        for(byte i = 0 ; i<6 ; i++){
-        	byte t = (byte) Math.max(1, (byte)(15/(10000f / mEfficiency)));
-        aBaseMetaTileEntity.setInternalOutputRedstoneSignal(i, t);
+        for (byte i = 0; i < 6; i++) {
+            byte t = (byte) Math.max(1, (byte) (15 / (10000f / mEfficiency)));
+            aBaseMetaTileEntity.setInternalOutputRedstoneSignal(i, t);
         }
-        
+
         return true;
     }
-    
+
     @Override
-    public boolean allowGeneralRedstoneOutput(){
-    	return true;
+    public boolean allowGeneralRedstoneOutput() {
+        return true;
     }
 
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         if (aSide == 0 || aSide == 1) {
-            return new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.BLOCK_PLASCRETE),
-                    new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_TOP_CLEANROOM_ACTIVE : Textures.BlockIcons.OVERLAY_TOP_CLEANROOM)};
+            return new ITexture[] { new GT_RenderedTexture(Textures.BlockIcons.BLOCK_PLASCRETE),
+                new GT_RenderedTexture(
+                    aActive ? Textures.BlockIcons.OVERLAY_TOP_CLEANROOM_ACTIVE
+                        : Textures.BlockIcons.OVERLAY_TOP_CLEANROOM) };
 
         }
-        return new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.BLOCK_PLASCRETE)};
+        return new ITexture[] { new GT_RenderedTexture(Textures.BlockIcons.BLOCK_PLASCRETE) };
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "MultiblockDisplay.png");
+        return new GT_GUIContainer_MultiMachine(
+            aPlayerInventory,
+            aBaseMetaTileEntity,
+            getLocalName(),
+            "MultiblockDisplay.png");
     }
 
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {

@@ -1,7 +1,8 @@
 package gregtech.api.interfaces.tileentity;
 
-import gregtech.api.interfaces.IDescribable;
-import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,8 +11,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.IFluidHandler;
 
-import java.util.ArrayList;
-import java.util.List;
+import gregtech.api.interfaces.IDescribable;
+import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 
 /**
  * A simple compound Interface for all my TileEntities.
@@ -20,7 +21,9 @@ import java.util.List;
  * <p/>
  * It can cause Problems to include this Interface!
  */
-public interface IGregTechTileEntity extends ITexturedTileEntity, IGearEnergyTileEntity, ICoverable, IFluidHandler, ITurnable, IGregTechDeviceInformation, IUpgradableMachine, IDigitalChest, IDescribable, IMachineBlockUpdateable {
+public interface IGregTechTileEntity extends ITexturedTileEntity, IGearEnergyTileEntity, ICoverable, IFluidHandler,
+    ITurnable, IGregTechDeviceInformation, IUpgradableMachine, IDigitalChest, IDescribable, IMachineBlockUpdateable {
+
     /**
      * gets the Error displayed on the GUI
      */
@@ -48,7 +51,8 @@ public interface IGregTechTileEntity extends ITexturedTileEntity, IGearEnergyTil
 
     /**
      * Sets the MetaTileEntity.
-     * Even though this uses the Universal Interface, certain BaseMetaTileEntities only accept one kind of MetaTileEntity
+     * Even though this uses the Universal Interface, certain BaseMetaTileEntities only accept one kind of
+     * MetaTileEntity
      * so only use this if you are sure its the correct one or you will get a Class cast Error.
      *
      * @param aMetaTileEntity
@@ -119,7 +123,8 @@ public interface IGregTechTileEntity extends ITexturedTileEntity, IGearEnergyTil
      */
     public int getLightOpacity();
 
-    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB, List<AxisAlignedBB> outputAABB, Entity collider);
+    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB,
+        List<AxisAlignedBB> outputAABB, Entity collider);
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World aWorld, int aX, int aY, int aZ);
 

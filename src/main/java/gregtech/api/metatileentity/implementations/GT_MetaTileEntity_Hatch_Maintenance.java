@@ -1,5 +1,15 @@
 package gregtech.api.metatileentity.implementations;
 
+import java.util.Arrays;
+import java.util.List;
+
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.ItemList;
@@ -17,18 +27,11 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch {
-    public boolean mWrench = false, mScrewdriver = false, mSoftHammer = false, mHardHammer = false, mSolderingTool = false, mCrowbar = false, mAuto;
+
+    public boolean mWrench = false, mScrewdriver = false, mSoftHammer = false, mHardHammer = false,
+        mSolderingTool = false, mCrowbar = false, mAuto;
 
     public GT_MetaTileEntity_Hatch_Maintenance(int aID, String aName, String aNameRegional, int aTier) {
         super(aID, aName, aNameRegional, aTier, 1, "For maintaining Multiblocks");
@@ -40,12 +43,14 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
         mAuto = aAuto;
     }
 
-    public GT_MetaTileEntity_Hatch_Maintenance(String aName, int aTier, String aDescription, ITexture[][][] aTextures, boolean aAuto) {
+    public GT_MetaTileEntity_Hatch_Maintenance(String aName, int aTier, String aDescription, ITexture[][][] aTextures,
+        boolean aAuto) {
         super(aName, aTier, aAuto ? 4 : 1, aDescription, aTextures);
         mAuto = aAuto;
     }
 
-    public GT_MetaTileEntity_Hatch_Maintenance(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures, boolean aAuto) {
+    public GT_MetaTileEntity_Hatch_Maintenance(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures,
+        boolean aAuto) {
         super(aName, aTier, aAuto ? 4 : 1, aDescription, aTextures);
         mAuto = aAuto;
     }
@@ -69,12 +74,13 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
 
     @Override
     public ITexture[] getTexturesActive(ITexture aBaseTexture) {
-        return new ITexture[]{aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_MAINTENANCE)};
+        return new ITexture[] { aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_MAINTENANCE) };
     }
 
     @Override
     public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
-        return new ITexture[]{aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_MAINTENANCE), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_DUCTTAPE)};
+        return new ITexture[] { aBaseTexture, new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_MAINTENANCE),
+            new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_DUCTTAPE) };
     }
 
     @Override
@@ -110,7 +116,8 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
     }
 
     @Override
-    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX, float aY, float aZ) {
+    public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX,
+        float aY, float aZ) {
         if (aBaseMetaTileEntity.isClientSide()) return true;
         if (aSide == aBaseMetaTileEntity.getFrontFacing()) aBaseMetaTileEntity.openGUI(aPlayer);
         return true;
@@ -135,7 +142,10 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
 
     public boolean autoMaintainance() {
         boolean tSuccess = true;
-        ItemStack[] mInputs = new ItemStack[]{ItemList.Duct_Tape.get(4, new Object[]{}), GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 2), GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 4), GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 2)};
+        ItemStack[] mInputs = new ItemStack[] { ItemList.Duct_Tape.get(4, new Object[] {}),
+            GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 2),
+            GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 4),
+            GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 2) };
         List<ItemStack> aInputs = Arrays.asList(mInventory);
         if (mInputs.length > 0 && aInputs == null) tSuccess = false;
         int amt = 0;
@@ -144,7 +154,8 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
                 amt = tStack.stackSize;
                 boolean temp = true;
                 for (ItemStack aStack : aInputs) {
-                    if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
+                    if ((GT_Utility.areUnificationsEqual(aStack, tStack, true)
+                        || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
                         amt -= aStack.stackSize;
                         if (amt < 1) {
                             temp = false;
@@ -160,7 +171,8 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
                 if (tStack != null) {
                     amt = tStack.stackSize;
                     for (ItemStack aStack : aInputs) {
-                        if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
+                        if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility
+                            .areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
                             if (aStack.stackSize < amt) {
                                 amt -= aStack.stackSize;
                                 aStack.stackSize = 0;
@@ -187,16 +199,16 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
 
     public void onToolClick(ItemStack aStack, EntityLivingBase aPlayer) {
         if (aStack == null || aPlayer == null) return;
-        if (GT_Utility.isStackInList(aStack, GregTech_API.sWrenchList) && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer))
-            mWrench = true;
-        if (GT_Utility.isStackInList(aStack, GregTech_API.sScrewdriverList) && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer))
-            mScrewdriver = true;
-        if (GT_Utility.isStackInList(aStack, GregTech_API.sSoftHammerList) && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer))
-            mSoftHammer = true;
-        if (GT_Utility.isStackInList(aStack, GregTech_API.sHardHammerList) && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer))
-            mHardHammer = true;
-        if (GT_Utility.isStackInList(aStack, GregTech_API.sCrowbarList) && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer))
-            mCrowbar = true;
+        if (GT_Utility.isStackInList(aStack, GregTech_API.sWrenchList)
+            && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer)) mWrench = true;
+        if (GT_Utility.isStackInList(aStack, GregTech_API.sScrewdriverList)
+            && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer)) mScrewdriver = true;
+        if (GT_Utility.isStackInList(aStack, GregTech_API.sSoftHammerList)
+            && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer)) mSoftHammer = true;
+        if (GT_Utility.isStackInList(aStack, GregTech_API.sHardHammerList)
+            && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer)) mHardHammer = true;
+        if (GT_Utility.isStackInList(aStack, GregTech_API.sCrowbarList)
+            && GT_ModHandler.damageOrDechargeItem(aStack, 1, 1000, aPlayer)) mCrowbar = true;
         if (GT_ModHandler.useSolderingIron(aStack, aPlayer)) mSolderingTool = true;
         if (GT_OreDictUnificator.isItemStackInstanceOf(aStack, "craftingDuctTape")) {
             mWrench = mScrewdriver = mSoftHammer = mHardHammer = mCrowbar = mSolderingTool = true;
@@ -207,28 +219,35 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
             EntityPlayerMP tPlayer = (EntityPlayerMP) aPlayer;
             try {
                 GT_Mod.achievements.issueAchievement(tPlayer, "maintainance");
-            } catch (Exception ignored) {
-            }
+            } catch (Exception ignored) {}
         }
     }
 
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        if(!(mAuto && GT_Mod.gregtechproxy.mAMHInteraction))
-            return false;
-        ItemStack[] mInputs = new ItemStack[]{ItemList.Duct_Tape.get(32, new Object[]{}), GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 32), GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 32), GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 32)};
+        if (!(mAuto && GT_Mod.gregtechproxy.mAMHInteraction)) return false;
+        ItemStack[] mInputs = new ItemStack[] { ItemList.Duct_Tape.get(32, new Object[] {}),
+            GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 32),
+            GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 32),
+            GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 32) };
         ItemStack[] aInputs = mInventory;
-        for(ItemStack nStack :mInputs) {
-            if (GT_Utility.areUnificationsEqual(aStack, nStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), GT_OreDictUnificator.get(false, nStack), true)) {
-                for (byte i = 0;i<mInventory.length;i++) {
-                    ItemStack tStack =aInputs[i];
-                    if (GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), GT_OreDictUnificator.get(false, tStack), true)) {
-                        if ((tStack.stackSize < 64)){
+        for (ItemStack nStack : mInputs) {
+            if (GT_Utility.areUnificationsEqual(aStack, nStack, true) || GT_Utility.areUnificationsEqual(
+                GT_OreDictUnificator.get(false, aStack),
+                GT_OreDictUnificator.get(false, nStack),
+                true)) {
+                for (byte i = 0; i < mInventory.length; i++) {
+                    ItemStack tStack = aInputs[i];
+                    if (GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(
+                        GT_OreDictUnificator.get(false, aStack),
+                        GT_OreDictUnificator.get(false, tStack),
+                        true)) {
+                        if ((tStack.stackSize < 64)) {
                             return true;
                         }
                         return false;
                     }
-                    if(i == 3){
+                    if (i == 3) {
                         return true;
                     }
 
@@ -240,21 +259,29 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        if(!(mAuto && GT_Mod.gregtechproxy.mAMHInteraction))
-            return false;
-        ItemStack[] mInputs = new ItemStack[]{ItemList.Duct_Tape.get(32, new Object[]{}), GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 32), GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 32), GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 32)};
+        if (!(mAuto && GT_Mod.gregtechproxy.mAMHInteraction)) return false;
+        ItemStack[] mInputs = new ItemStack[] { ItemList.Duct_Tape.get(32, new Object[] {}),
+            GT_OreDictUnificator.get(OrePrefixes.cell, Materials.Lubricant, 32),
+            GT_OreDictUnificator.get(OrePrefixes.screw, Materials.Steel, 32),
+            GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 32) };
         ItemStack[] aInputs = mInventory;
-        for(ItemStack nStack :mInputs) {
-            if (GT_Utility.areUnificationsEqual(aStack, nStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), GT_OreDictUnificator.get(false, nStack), true)) {
-                for (byte i = 0;i<mInventory.length;i++) {
-                    ItemStack tStack =aInputs[i];
-                    if (GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), GT_OreDictUnificator.get(false, tStack), true)) {
-                        if ((tStack.stackSize < 64)){
+        for (ItemStack nStack : mInputs) {
+            if (GT_Utility.areUnificationsEqual(aStack, nStack, true) || GT_Utility.areUnificationsEqual(
+                GT_OreDictUnificator.get(false, aStack),
+                GT_OreDictUnificator.get(false, nStack),
+                true)) {
+                for (byte i = 0; i < mInventory.length; i++) {
+                    ItemStack tStack = aInputs[i];
+                    if (GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(
+                        GT_OreDictUnificator.get(false, aStack),
+                        GT_OreDictUnificator.get(false, tStack),
+                        true)) {
+                        if ((tStack.stackSize < 64)) {
                             return true;
                         }
                         return false;
                     }
-                    if(i == 3){
+                    if (i == 3) {
                         return true;
                     }
 

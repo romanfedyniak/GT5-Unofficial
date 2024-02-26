@@ -1,9 +1,10 @@
 package gregtech.api.gui;
 
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
+
 import net.minecraft.entity.player.InventoryPlayer;
 
-import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 
 public class GT_GUIContainer_2by2 extends GT_GUIContainerMetaTile_Machine {
 
@@ -13,8 +14,9 @@ public class GT_GUIContainer_2by2 extends GT_GUIContainerMetaTile_Machine {
         super(new GT_Container_2by2(aInventoryPlayer, aTileEntity), RES_PATH_GUI + "2by2.png");
         mName = aName;
     }
-    
-    public GT_GUIContainer_2by2(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName, String aBackground) {
+
+    public GT_GUIContainer_2by2(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName,
+        String aBackground) {
         super(new GT_Container_2by2(aInventoryPlayer, aTileEntity), RES_PATH_GUI + aBackground + "2by2.png");
         mName = aName;
     }

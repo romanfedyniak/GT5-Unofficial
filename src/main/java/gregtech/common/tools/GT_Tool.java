@@ -1,9 +1,7 @@
 package gregtech.common.tools;
 
-import gregtech.api.GregTech_API;
-import gregtech.api.damagesources.GT_DamageSources;
-import gregtech.api.interfaces.IToolStats;
-import gregtech.api.items.GT_MetaGenerated_Tool;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -17,12 +15,15 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 
-import java.util.List;
+import gregtech.api.GregTech_API;
+import gregtech.api.damagesources.GT_DamageSources;
+import gregtech.api.interfaces.IToolStats;
+import gregtech.api.items.GT_MetaGenerated_Tool;
 
-public abstract class GT_Tool
-        implements IToolStats {
-    public static final Enchantment[] FORTUNE_ENCHANTMENT = {Enchantment.fortune};
-    public static final Enchantment[] LOOTING_ENCHANTMENT = {Enchantment.looting};
+public abstract class GT_Tool implements IToolStats {
+
+    public static final Enchantment[] FORTUNE_ENCHANTMENT = { Enchantment.fortune };
+    public static final Enchantment[] LOOTING_ENCHANTMENT = { Enchantment.looting };
     public static final Enchantment[] ZERO_ENCHANTMENTS = new Enchantment[0];
     public static final int[] ZERO_ENCHANTMENT_LEVELS = new int[0];
 
@@ -85,11 +86,11 @@ public abstract class GT_Tool
     public boolean isGrafter() {
         return false;
     }
-    
-    public boolean isChainsaw(){
-    	return false;
+
+    public boolean isChainsaw() {
+        return false;
     }
-    
+
     public boolean isWrench() {
         return false;
     }
@@ -107,14 +108,19 @@ public abstract class GT_Tool
     }
 
     public DamageSource getDamageSource(EntityLivingBase aPlayer, Entity aEntity) {
-        return GT_DamageSources.getCombatDamage((aPlayer instanceof EntityPlayer) ? "player" : "mob", aPlayer, (aEntity instanceof EntityLivingBase) ? getDeathMessage(aPlayer, (EntityLivingBase) aEntity) : null);
+        return GT_DamageSources.getCombatDamage(
+            (aPlayer instanceof EntityPlayer) ? "player" : "mob",
+            aPlayer,
+            (aEntity instanceof EntityLivingBase) ? getDeathMessage(aPlayer, (EntityLivingBase) aEntity) : null);
     }
 
     public IChatComponent getDeathMessage(EntityLivingBase aPlayer, EntityLivingBase aEntity) {
-        return new EntityDamageSource((aPlayer instanceof EntityPlayer) ? "player" : "mob", aPlayer).func_151519_b(aEntity);
+        return new EntityDamageSource((aPlayer instanceof EntityPlayer) ? "player" : "mob", aPlayer)
+            .func_151519_b(aEntity);
     }
 
-    public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX, int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {
+    public int convertBlockDrops(List<ItemStack> aDrops, ItemStack aStack, EntityPlayer aPlayer, Block aBlock, int aX,
+        int aY, int aZ, byte aMetaData, int aFortune, boolean aSilkTouch, BlockEvent.HarvestDropsEvent aEvent) {
         return 0;
     }
 
@@ -136,19 +142,21 @@ public abstract class GT_Tool
         aPlayer.triggerAchievement(AchievementList.buildWorkBench);
     }
 
-    public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {
-    }
+    public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {}
 
-    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer) {
+    public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
+        EntityPlayer aPlayer) {
         return aOriginalDamage;
     }
 
-    public float getMagicDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack, EntityPlayer aPlayer) {
+    public float getMagicDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
+        EntityPlayer aPlayer) {
         return aOriginalDamage;
     }
 
-	@Override
-	public float getMiningSpeed(Block aBlock, byte aMetaData, float aDefault, EntityPlayer aPlayer, World worldObj, int aX, int aY, int aZ) {
-		return aDefault;
-	}
+    @Override
+    public float getMiningSpeed(Block aBlock, byte aMetaData, float aDefault, EntityPlayer aPlayer, World worldObj,
+        int aX, int aY, int aZ) {
+        return aDefault;
+    }
 }

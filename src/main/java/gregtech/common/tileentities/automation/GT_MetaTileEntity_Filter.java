@@ -1,5 +1,9 @@
 package gregtech.common.tileentities.automation;
 
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -9,32 +13,40 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_Container_Filter;
 import gregtech.common.gui.GT_GUIContainer_Filter;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class GT_MetaTileEntity_Filter
-        extends GT_MetaTileEntity_Buffer {
+public class GT_MetaTileEntity_Filter extends GT_MetaTileEntity_Buffer {
+
     public boolean bIgnoreNBT = false;
     public boolean bInvertFilter = false;
 
     public GT_MetaTileEntity_Filter(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 19, new String[]{
-        		"Filters up to 9 different Items",
-        		"Use Screwdriver to regulate output stack size",
-        		"Consumes 1EU per moved Item"});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            19,
+            new String[] { "Filters up to 9 different Items", "Use Screwdriver to regulate output stack size",
+                "Consumes 1EU per moved Item" });
     }
 
-    public GT_MetaTileEntity_Filter(String aName, int aTier, int aInvSlotCount, String aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_Filter(String aName, int aTier, int aInvSlotCount, String aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
-    
-    public GT_MetaTileEntity_Filter(String aName, int aTier, int aInvSlotCount, String[] aDescription, ITexture[][][] aTextures) {
+
+    public GT_MetaTileEntity_Filter(String aName, int aTier, int aInvSlotCount, String[] aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
 
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_Filter(this.mName, this.mTier, this.mInventory.length, this.mDescriptionArray, this.mTextures);
+        return new GT_MetaTileEntity_Filter(
+            this.mName,
+            this.mTier,
+            this.mInventory.length,
+            this.mDescriptionArray,
+            this.mTextures);
     }
 
     public ITexture getOverlayIcon() {

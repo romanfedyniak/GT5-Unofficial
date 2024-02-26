@@ -1,5 +1,7 @@
 package gregtech.loaders.misc;
 
+import java.util.Arrays;
+
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.genetics.IAllele;
@@ -8,12 +10,10 @@ import forestry.apiculture.genetics.alleles.AlleleEffect;
 import forestry.core.genetics.alleles.AlleleHelper;
 import forestry.core.genetics.alleles.EnumAllele;
 
-import java.util.Arrays;
-
-
 public enum GT_BranchDefinition {
 
     ORGANIC("Fuelis") {
+
         @Override
         protected void setBranchProperties(IAllele[] alleles) {
             AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.UP_2);
@@ -23,6 +23,7 @@ public enum GT_BranchDefinition {
         }
     },
     GEM("Ornamentis") {
+
         @Override
         protected void setBranchProperties(IAllele[] alleles) {
             AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
@@ -32,6 +33,7 @@ public enum GT_BranchDefinition {
         }
     },
     METAL("Metaliferis") {
+
         @Override
         protected void setBranchProperties(IAllele[] alleles) {
             AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_2);
@@ -41,6 +43,7 @@ public enum GT_BranchDefinition {
         }
     },
     RAREMETAL("Mineralis") {
+
         @Override
         protected void setBranchProperties(IAllele[] alleles) {
             AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.DOWN_1);
@@ -50,6 +53,7 @@ public enum GT_BranchDefinition {
         }
     },
     RADIOACTIVE("Criticalis") {
+
         @Override
         protected void setBranchProperties(IAllele[] alleles) {
             AlleleHelper.instance.set(alleles, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
@@ -63,7 +67,10 @@ public enum GT_BranchDefinition {
     private final IClassification branch;
 
     GT_BranchDefinition(String scientific) {
-        branch = BeeManager.beeFactory.createBranch(this.name().toLowerCase(), scientific);
+        branch = BeeManager.beeFactory.createBranch(
+            this.name()
+                .toLowerCase(),
+            scientific);
     }
 
     private static IAllele[] getDefaultTemplate() {
@@ -73,7 +80,8 @@ public enum GT_BranchDefinition {
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.SPEED, EnumAllele.Speed.SLOWEST);
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.LIFESPAN, EnumAllele.Lifespan.SHORTER);
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.FERTILITY, EnumAllele.Fertility.NORMAL);
-            AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
+            AlleleHelper.instance
+                .set(defaultTemplate, EnumBeeChromosome.TEMPERATURE_TOLERANCE, EnumAllele.Tolerance.NONE);
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.NOCTURNAL, false);
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.HUMIDITY_TOLERANCE, EnumAllele.Tolerance.NONE);
             AlleleHelper.instance.set(defaultTemplate, EnumBeeChromosome.TOLERANT_FLYER, false);

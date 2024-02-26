@@ -1,17 +1,18 @@
 package gregtech.common.gui;
 
-import gregtech.api.gui.GT_ContainerMetaTile_Machine;
-import gregtech.api.gui.GT_Slot_Holo;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.util.GT_Utility;
-import gregtech.common.tileentities.automation.GT_MetaTileEntity_ChestBuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class GT_Container_ChestBuffer
-        extends GT_ContainerMetaTile_Machine {
+import gregtech.api.gui.GT_ContainerMetaTile_Machine;
+import gregtech.api.gui.GT_Slot_Holo;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.util.GT_Utility;
+import gregtech.common.tileentities.automation.GT_MetaTileEntity_ChestBuffer;
+
+public class GT_Container_ChestBuffer extends GT_ContainerMetaTile_Machine {
+
     public GT_Container_ChestBuffer(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity) {
         super(aInventoryPlayer, aTileEntity);
     }
@@ -37,29 +38,35 @@ public class GT_Container_ChestBuffer
                 return null;
             }
             if (aSlotIndex == 27) {
-                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bOutput = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bOutput);
+                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                    .getMetaTileEntity()).bOutput = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                        .getMetaTileEntity()).bOutput);
                 if (((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bOutput) {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("116","Emit Energy to Outputside"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("116", "Emit Energy to Outputside"));
                 } else {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("117","Don't emit Energy"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("117", "Don't emit Energy"));
                 }
                 return null;
             }
             if (aSlotIndex == 28) {
-                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bRedstoneIfFull = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bRedstoneIfFull);
+                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                    .getMetaTileEntity()).bRedstoneIfFull = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                        .getMetaTileEntity()).bRedstoneIfFull);
                 if (((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bRedstoneIfFull) {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("118","Emit Redstone if no Slot is free"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("118", "Emit Redstone if no Slot is free"));
                 } else {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("119","Don't emit Redstone"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("119", "Don't emit Redstone"));
                 }
                 return null;
             }
             if (aSlotIndex == 29) {
-                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bInvert = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bInvert);
+                ((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                    .getMetaTileEntity()).bInvert = (!((GT_MetaTileEntity_ChestBuffer) this.mTileEntity
+                        .getMetaTileEntity()).bInvert);
                 if (((GT_MetaTileEntity_ChestBuffer) this.mTileEntity.getMetaTileEntity()).bInvert) {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("120","Invert Redstone"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("120", "Invert Redstone"));
                 } else {
-                    GT_Utility.sendChatToPlayer(aPlayer, trans("121","Don't invert Redstone"));
+                    GT_Utility.sendChatToPlayer(aPlayer, trans("121", "Don't invert Redstone"));
                 }
                 return null;
             }

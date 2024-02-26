@@ -1,12 +1,15 @@
 package gregtech.api.net;
 
+import net.minecraft.world.IBlockAccess;
+
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+
 import gregtech.common.GT_Pollution;
-import net.minecraft.world.IBlockAccess;
 
 public class GT_Packet_Pollution extends GT_Packet {
+
     private int mPollution;
 
     public GT_Packet_Pollution() {
@@ -32,7 +35,7 @@ public class GT_Packet_Pollution extends GT_Packet {
 
     @Override
     public void process(IBlockAccess aWorld) {
-    	GT_Pollution.mPlayerPollution = mPollution;
+        GT_Pollution.mPlayerPollution = mPollution;
     }
 
     @Override

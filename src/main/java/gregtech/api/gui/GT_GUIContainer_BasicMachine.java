@@ -1,31 +1,37 @@
 package gregtech.api.gui;
 
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import net.minecraft.entity.player.InventoryPlayer;
+import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static gregtech.api.enums.GT_Values.RES_PATH_GUI;
+import net.minecraft.entity.player.InventoryPlayer;
+
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
  * <p/>
  * The GUI-Container I use for all my Basic Machines
  * <p/>
- * As the NEI-RecipeTransferRect Handler can't handle one GUI-Class for all GUIs I needed to produce some dummy-classes which extend this class
+ * As the NEI-RecipeTransferRect Handler can't handle one GUI-Class for all GUIs I needed to produce some dummy-classes
+ * which extend this class
  */
 public class GT_GUIContainer_BasicMachine extends GT_GUIContainerMetaTile_Machine {
 
     public final String mName, mNEI;
     public final byte mProgressBarDirection, mProgressBarAmount;
 
-    public GT_GUIContainer_BasicMachine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName, String aTextureFile, String aNEI) {
+    public GT_GUIContainer_BasicMachine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName,
+        String aTextureFile, String aNEI) {
         this(aInventoryPlayer, aTileEntity, aName, aTextureFile, aNEI, (byte) 0, (byte) 1);
     }
 
-    public GT_GUIContainer_BasicMachine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName, String aTextureFile, String aNEI, byte aProgressBarDirection, byte aProgressBarAmount) {
-        super(new GT_Container_BasicMachine(aInventoryPlayer, aTileEntity), RES_PATH_GUI + "basicmachines/" + aTextureFile);
+    public GT_GUIContainer_BasicMachine(InventoryPlayer aInventoryPlayer, IGregTechTileEntity aTileEntity, String aName,
+        String aTextureFile, String aNEI, byte aProgressBarDirection, byte aProgressBarAmount) {
+        super(
+            new GT_Container_BasicMachine(aInventoryPlayer, aTileEntity),
+            RES_PATH_GUI + "basicmachines/" + aTextureFile);
         mProgressBarDirection = aProgressBarDirection;
         mProgressBarAmount = (byte) Math.max(1, aProgressBarAmount);
         mName = aName;
@@ -34,8 +40,8 @@ public class GT_GUIContainer_BasicMachine extends GT_GUIContainerMetaTile_Machin
 
     @Override
     public void drawScreen(int par1, int par2, float par3) {
-    	super.drawScreen(par1, par2, par3);
-    	drawTooltip(par1, par2);
+        super.drawScreen(par1, par2, par3);
+        drawTooltip(par1, par2);
     }
 
     @Override
@@ -57,8 +63,7 @@ public class GT_GUIContainer_BasicMachine extends GT_GUIContainerMetaTile_Machin
                 list.add("Item Auto-Output");
             }
         }
-        if (!list.isEmpty())
-            drawHoveringText(list, x2, y2, fontRendererObj);
+        if (!list.isEmpty()) drawHoveringText(list, x2, y2, fontRendererObj);
     }
 
     @Override
@@ -76,7 +81,13 @@ public class GT_GUIContainer_BasicMachine extends GT_GUIContainerMetaTile_Machin
                 drawTexturedModalRect(x + 79, y + 44, 176, 54, 18, 18);
 
             if (mContainer.mMaxProgressTime > 0) {
-                int tSize = (mProgressBarDirection < 2 ? 20 : 18), tProgress = Math.max(1, Math.min(tSize * mProgressBarAmount, (mContainer.mProgressTime > 0 ? 1 : 0) + (mContainer.mProgressTime * tSize * mProgressBarAmount) / mContainer.mMaxProgressTime)) % (tSize + 1);
+                int tSize = (mProgressBarDirection < 2 ? 20 : 18), tProgress = Math.max(
+                    1,
+                    Math.min(
+                        tSize * mProgressBarAmount,
+                        (mContainer.mProgressTime > 0 ? 1 : 0)
+                            + (mContainer.mProgressTime * tSize * mProgressBarAmount) / mContainer.mMaxProgressTime))
+                    % (tSize + 1);
 
                 switch (mProgressBarDirection) { // yes, my OCD was mad at me before I did the Tabs.
                     case 0:

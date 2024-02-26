@@ -10,8 +10,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicGenera
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 
-public class GT_MetaTileEntity_PlasmaGenerator
-        extends GT_MetaTileEntity_BasicGenerator {
+public class GT_MetaTileEntity_PlasmaGenerator extends GT_MetaTileEntity_BasicGenerator {
 
     public int mEfficiency;
 
@@ -47,56 +46,70 @@ public class GT_MetaTileEntity_PlasmaGenerator
     }
 
     public void onConfigLoad() {
-        this.mEfficiency = GregTech_API.sMachineFile.get(ConfigCategories.machineconfig, "PlasmaGenerator.efficiency.tier." + this.mTier, (10 + (this.mTier * 10)));
+        this.mEfficiency = GregTech_API.sMachineFile.get(
+            ConfigCategories.machineconfig,
+            "PlasmaGenerator.efficiency.tier." + this.mTier,
+            (10 + (this.mTier * 10)));
     }
-
 
     public int getEfficiency() {
         return this.mEfficiency;
     }
 
     public ITexture[] getFront(byte aColor) {
-        return new ITexture[]{super.getFront(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS), Textures.BlockIcons.OVERLAYS_ENERGY_OUT[this.mTier]};
+        return new ITexture[] { super.getFront(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS),
+            Textures.BlockIcons.OVERLAYS_ENERGY_OUT[this.mTier] };
     }
 
     public ITexture[] getBack(byte aColor) {
-        return new ITexture[]{super.getBack(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS)};
+        return new ITexture[] { super.getBack(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS) };
     }
 
     public ITexture[] getBottom(byte aColor) {
-        return new ITexture[]{super.getBottom(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS)};
+        return new ITexture[] { super.getBottom(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS) };
     }
 
     public ITexture[] getTop(byte aColor) {
-        return new ITexture[]{super.getTop(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS)};
+        return new ITexture[] { super.getTop(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS) };
     }
 
     public ITexture[] getSides(byte aColor) {
-        return new ITexture[]{super.getSides(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS)};
+        return new ITexture[] { super.getSides(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS) };
     }
 
     public ITexture[] getFrontActive(byte aColor) {
-        return new ITexture[]{super.getFrontActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW), Textures.BlockIcons.OVERLAYS_ENERGY_OUT[this.mTier]};
+        return new ITexture[] { super.getFrontActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW),
+            Textures.BlockIcons.OVERLAYS_ENERGY_OUT[this.mTier] };
     }
 
     public ITexture[] getBackActive(byte aColor) {
-        return new ITexture[]{super.getBackActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW)};
+        return new ITexture[] { super.getBackActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW) };
     }
 
     public ITexture[] getBottomActive(byte aColor) {
-        return new ITexture[]{super.getBottomActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW)};
+        return new ITexture[] { super.getBottomActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW) };
     }
 
     public ITexture[] getTopActive(byte aColor) {
-        return new ITexture[]{super.getTopActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW)};
+        return new ITexture[] { super.getTopActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW) };
     }
 
     public ITexture[] getSidesActive(byte aColor) {
-        return new ITexture[]{super.getSidesActive(aColor)[0], new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW)};
+        return new ITexture[] { super.getSidesActive(aColor)[0],
+            new GT_RenderedTexture(Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS_YELLOW) };
     }
 
-	@Override
-	public int getPollution() {
-		return 0;
-	}
+    @Override
+    public int getPollution() {
+        return 0;
+    }
 }

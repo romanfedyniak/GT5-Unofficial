@@ -1,9 +1,7 @@
 package gregtech.common.items.behaviors;
 
-import gregtech.api.enums.SubTag;
-import gregtech.api.interfaces.IItemBehaviour;
-import gregtech.api.items.GT_MetaBase_Item;
-import gregtech.api.util.GT_LanguageManager;
+import java.util.List;
+
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBlockSource;
@@ -16,19 +14,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-import java.util.List;
+import gregtech.api.enums.SubTag;
+import gregtech.api.interfaces.IItemBehaviour;
+import gregtech.api.items.GT_MetaBase_Item;
+import gregtech.api.util.GT_LanguageManager;
 
-public class Behaviour_None
-        implements IItemBehaviour<GT_MetaBase_Item> {
+public class Behaviour_None implements IItemBehaviour<GT_MetaBase_Item> {
+
     public boolean onLeftClickEntity(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, Entity aEntity) {
         return false;
     }
 
-    public boolean onItemUse(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, World aWorld, int aX, int aY, int aZ, int aSide, float hitX, float hitY, float hitZ) {
+    public boolean onItemUse(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, World aWorld, int aX,
+        int aY, int aZ, int aSide, float hitX, float hitY, float hitZ) {
         return false;
     }
 
-    public boolean onItemUseFirst(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, World aWorld, int aX, int aY, int aZ, int aSide, float hitX, float hitY, float hitZ) {
+    public boolean onItemUseFirst(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, World aWorld, int aX,
+        int aY, int aZ, int aSide, float hitX, float hitY, float hitZ) {
         return false;
     }
 
@@ -40,8 +43,8 @@ public class Behaviour_None
         return aList;
     }
 
-    public void onUpdate(GT_MetaBase_Item aItem, ItemStack aStack, World aWorld, Entity aPlayer, int aTimer, boolean aIsInHand) {
-    }
+    public void onUpdate(GT_MetaBase_Item aItem, ItemStack aStack, World aWorld, Entity aPlayer, int aTimer,
+        boolean aIsInHand) {}
 
     public boolean isItemStackUsable(GT_MetaBase_Item aItem, ItemStack aStack) {
         return true;
@@ -63,15 +66,17 @@ public class Behaviour_None
         return false;
     }
 
-    public EntityArrow getProjectile(GT_MetaBase_Item aItem, SubTag aProjectileType, ItemStack aStack, World aWorld, double aX, double aY, double aZ) {
+    public EntityArrow getProjectile(GT_MetaBase_Item aItem, SubTag aProjectileType, ItemStack aStack, World aWorld,
+        double aX, double aY, double aZ) {
         return null;
     }
 
-    public EntityArrow getProjectile(GT_MetaBase_Item aItem, SubTag aProjectileType, ItemStack aStack, World aWorld, EntityLivingBase aEntity, float aSpeed) {
+    public EntityArrow getProjectile(GT_MetaBase_Item aItem, SubTag aProjectileType, ItemStack aStack, World aWorld,
+        EntityLivingBase aEntity, float aSpeed) {
         return null;
-    } 
-    
-    public String trans(String aKey, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aKey, aEnglish, false);
+    }
+
+    public String trans(String aKey, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 }

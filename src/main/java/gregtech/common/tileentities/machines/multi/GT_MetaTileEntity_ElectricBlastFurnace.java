@@ -1,5 +1,12 @@
 package gregtech.common.tileentities.machines.multi;
 
+import java.util.ArrayList;
+
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Textures;
@@ -14,19 +21,13 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.FluidStack;
 
-import java.util.ArrayList;
+public class GT_MetaTileEntity_ElectricBlastFurnace extends GT_MetaTileEntity_MultiBlockBase {
 
-public class GT_MetaTileEntity_ElectricBlastFurnace
-        extends GT_MetaTileEntity_MultiBlockBase {
     private int mHeatingCapacity = 0;
     private int controllerY;
-    private FluidStack[] pollutionFluidStacks = new FluidStack[]{Materials.CarbonDioxide.getGas(1000), 
-    		Materials.CarbonMonoxide.getGas(1000), Materials.SulfurDioxide.getGas(1000)};
+    private FluidStack[] pollutionFluidStacks = new FluidStack[] { Materials.CarbonDioxide.getGas(1000),
+        Materials.CarbonMonoxide.getGas(1000), Materials.SulfurDioxide.getGas(1000) };
 
     public GT_MetaTileEntity_ElectricBlastFurnace(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -41,33 +42,36 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
     }
 
     public String[] getDescription() {
-        return new String[]{
-                "Controller Block for the Blast Furnace",
-                "Size(WxHxD): 3x4x3 (Hollow), Controller (Front middle bottom)",
-                "16x Heating Coils (Two middle Layers, hollow)",
-                "1x Input Hatch/Bus (Any bottom layer casing)",
-                "1x Output Hatch/Bus (Any bottom layer casing)",
-                "1x Energy Hatch (Any bottom layer casing)",
-                "1x Maintenance Hatch (Any bottom layer casing)",
-                "1x Muffler Hatch (Top middle)",
-                "1x Output Hatch to recover CO2/CO/SO2 (optional, any top layer casing),",
-                "    Recovery scales with Muffler Hatch tier",
-                "Heat Proof Machine Casings for the rest",
-                "Each 900K over the min. Heat Capacity grants 5% speedup (multiplicatively)",
-                "Each 1800K over the min. Heat Capacity allows for one upgraded overclock",
-                "Upgraded overclocks reduce recipe time to 25% and increase EU/t to 400%",
-                "Causes " + 20 * getPollutionPerTick(null) + " Pollution per second"};
+        return new String[] { "Controller Block for the Blast Furnace",
+            "Size(WxHxD): 3x4x3 (Hollow), Controller (Front middle bottom)",
+            "16x Heating Coils (Two middle Layers, hollow)", "1x Input Hatch/Bus (Any bottom layer casing)",
+            "1x Output Hatch/Bus (Any bottom layer casing)", "1x Energy Hatch (Any bottom layer casing)",
+            "1x Maintenance Hatch (Any bottom layer casing)", "1x Muffler Hatch (Top middle)",
+            "1x Output Hatch to recover CO2/CO/SO2 (optional, any top layer casing),",
+            "    Recovery scales with Muffler Hatch tier", "Heat Proof Machine Casings for the rest",
+            "Each 900K over the min. Heat Capacity grants 5% speedup (multiplicatively)",
+            "Each 1800K over the min. Heat Capacity allows for one upgraded overclock",
+            "Upgraded overclocks reduce recipe time to 25% and increase EU/t to 400%",
+            "Causes " + 20 * getPollutionPerTick(null) + " Pollution per second" };
     }
 
-    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex, boolean aActive, boolean aRedstone) {
+    public ITexture[] getTexture(IGregTechTileEntity aBaseMetaTileEntity, byte aSide, byte aFacing, byte aColorIndex,
+        boolean aActive, boolean aRedstone) {
         if (aSide == aFacing) {
-            return new ITexture[]{Textures.BlockIcons.CASING_BLOCKS[11], new GT_RenderedTexture(aActive ? Textures.BlockIcons.OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE_ACTIVE : Textures.BlockIcons.OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE)};
+            return new ITexture[] { Textures.BlockIcons.CASING_BLOCKS[11],
+                new GT_RenderedTexture(
+                    aActive ? Textures.BlockIcons.OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE_ACTIVE
+                        : Textures.BlockIcons.OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE) };
         }
-        return new ITexture[]{Textures.BlockIcons.CASING_BLOCKS[11]};
+        return new ITexture[] { Textures.BlockIcons.CASING_BLOCKS[11] };
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "ElectricBlastFurnace.png");
+        return new GT_GUIContainer_MultiMachine(
+            aPlayerInventory,
+            aBaseMetaTileEntity,
+            getLocalName(),
+            "ElectricBlastFurnace.png");
     }
 
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
@@ -121,8 +125,10 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
         if (tInputList.size() > 0) {
             long tVoltage = getMaxInputVoltage();
             byte tTier = (byte) Math.max(1, GT_Utility.getTier(tVoltage));
-            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sBlastRecipes.findRecipe(getBaseMetaTileEntity(), false, gregtech.api.enums.GT_Values.V[tTier], tFluids, tInputs);
-            if ((tRecipe != null) && (this.mHeatingCapacity >= tRecipe.mSpecialValue) && (tRecipe.isRecipeInputEqual(true, tFluids, tInputs))) {
+            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sBlastRecipes
+                .findRecipe(getBaseMetaTileEntity(), false, gregtech.api.enums.GT_Values.V[tTier], tFluids, tInputs);
+            if ((tRecipe != null) && (this.mHeatingCapacity >= tRecipe.mSpecialValue)
+                && (tRecipe.isRecipeInputEqual(true, tFluids, tInputs))) {
                 this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
                 this.mEfficiencyIncrease = 10000;
                 int tHeatCapacityDivTiers = (mHeatingCapacity - tRecipe.mSpecialValue) / 900;
@@ -144,8 +150,8 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
                     this.mEUt = (-this.mEUt);
                 }
                 this.mMaxProgresstime = Math.max(1, this.mMaxProgresstime);
-                this.mOutputItems = new ItemStack[]{tRecipe.getOutput(0), tRecipe.getOutput(1)};
-                this.mOutputFluids = new FluidStack[]{tRecipe.getFluidOutput(0)};
+                this.mOutputItems = new ItemStack[] { tRecipe.getOutput(0), tRecipe.getOutput(1) };
+                this.mOutputFluids = new FluidStack[] { tRecipe.getFluidOutput(0) };
                 updateSlots();
                 return true;
             }
@@ -154,7 +160,7 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
     }
 
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-    	controllerY = aBaseMetaTileEntity.getYCoord();
+        controllerY = aBaseMetaTileEntity.getYCoord();
         int xDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetX;
         int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ;
 
@@ -210,13 +216,15 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
                     if (aBaseMetaTileEntity.getMetaIDOffset(xDir + i, 1, zDir + j) != tUsedMeta) {
                         return false;
                     }
-                    if (!addOutputToMachineList(aBaseMetaTileEntity.getIGregTechTileEntityOffset(xDir + i, 3, zDir + j), 11)) {
-                    	if (aBaseMetaTileEntity.getBlockOffset(xDir + i, 3, zDir + j) != GregTech_API.sBlockCasings1) {
-                    		return false;
-                    	}
-                    	if (aBaseMetaTileEntity.getMetaIDOffset(xDir + i, 3, zDir + j) != 11) {
-                    		return false;
-                    	}
+                    if (!addOutputToMachineList(
+                        aBaseMetaTileEntity.getIGregTechTileEntityOffset(xDir + i, 3, zDir + j),
+                        11)) {
+                        if (aBaseMetaTileEntity.getBlockOffset(xDir + i, 3, zDir + j) != GregTech_API.sBlockCasings1) {
+                            return false;
+                        }
+                        if (aBaseMetaTileEntity.getMetaIDOffset(xDir + i, 3, zDir + j) != 11) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -224,8 +232,11 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if ((xDir + i != 0) || (zDir + j != 0)) {
-                    IGregTechTileEntity tTileEntity = aBaseMetaTileEntity.getIGregTechTileEntityOffset(xDir + i, 0, zDir + j);
-                    if ((!addMaintenanceToMachineList(tTileEntity, 11)) && (!addInputToMachineList(tTileEntity, 11)) && (!addOutputToMachineList(tTileEntity, 11)) && (!addEnergyInputToMachineList(tTileEntity, 11))) {
+                    IGregTechTileEntity tTileEntity = aBaseMetaTileEntity
+                        .getIGregTechTileEntityOffset(xDir + i, 0, zDir + j);
+                    if ((!addMaintenanceToMachineList(tTileEntity, 11)) && (!addInputToMachineList(tTileEntity, 11))
+                        && (!addOutputToMachineList(tTileEntity, 11))
+                        && (!addEnergyInputToMachineList(tTileEntity, 11))) {
                         if (aBaseMetaTileEntity.getBlockOffset(xDir + i, 0, zDir + j) != GregTech_API.sBlockCasings1) {
                             return false;
                         }
@@ -269,14 +280,16 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
                 }
                 for (int yPos = tY + 1; yPos <= tY + 2; yPos++) {
                     tUsedMeta = aBaseMetaTileEntity.getMetaID(xPos, yPos, zPos);
-                    if (tUsedMeta >= 12 && tUsedMeta <= 14 && aBaseMetaTileEntity.getBlock(xPos, yPos, zPos) == GregTech_API.sBlockCasings1) {
-                        aBaseMetaTileEntity.getWorld().setBlock(xPos, yPos, zPos, GregTech_API.sBlockCasings5, tUsedMeta - 12, 3);
+                    if (tUsedMeta >= 12 && tUsedMeta <= 14
+                        && aBaseMetaTileEntity.getBlock(xPos, yPos, zPos) == GregTech_API.sBlockCasings1) {
+                        aBaseMetaTileEntity.getWorld()
+                            .setBlock(xPos, yPos, zPos, GregTech_API.sBlockCasings5, tUsedMeta - 12, 3);
                     }
                 }
             }
         }
     }
-    
+
     @Override
     public boolean addOutput(FluidStack aLiquid) {
         if (aLiquid == null) return false;
@@ -284,34 +297,36 @@ public class GT_MetaTileEntity_ElectricBlastFurnace
         FluidStack tLiquid = aLiquid.copy();
         boolean isOutputPollution = false;
         for (FluidStack pollutionFluidStack : pollutionFluidStacks) {
-        	if (tLiquid.isFluidEqual(pollutionFluidStack)) {
-        		isOutputPollution = true;
-        		break;
-        	}
+            if (tLiquid.isFluidEqual(pollutionFluidStack)) {
+                isOutputPollution = true;
+                break;
+            }
         }
-    	if (isOutputPollution) {
-    		targetHeight = this.controllerY + 3;
-    		int pollutionReduction = 0;
+        if (isOutputPollution) {
+            targetHeight = this.controllerY + 3;
+            int pollutionReduction = 0;
             for (GT_MetaTileEntity_Hatch_Muffler tHatch : mMufflerHatches) {
                 if (isValidMetaTileEntity(tHatch)) {
-                	pollutionReduction = 100 - tHatch.calculatePollutionReduction(100);
-                	break;
+                    pollutionReduction = 100 - tHatch.calculatePollutionReduction(100);
+                    break;
                 }
             }
             tLiquid.amount = tLiquid.amount * (pollutionReduction + 5) / 100;
-    	} else {
-    		targetHeight = this.controllerY;
-    	}
+        } else {
+            targetHeight = this.controllerY;
+        }
         for (GT_MetaTileEntity_Hatch_Output tHatch : mOutputHatches) {
-            if (isValidMetaTileEntity(tHatch) && GT_ModHandler.isSteam(aLiquid) ? tHatch.outputsSteam() : tHatch.outputsLiquids()) {
-            	if (tHatch.getBaseMetaTileEntity().getYCoord() == targetHeight) {
-            		int tAmount = tHatch.fill(tLiquid, false);
-                	if (tAmount >= tLiquid.amount) {
-                    	return tHatch.fill(tLiquid, true) >= tLiquid.amount;
-                	} else if (tAmount > 0) {
-                    	tLiquid.amount = tLiquid.amount - tHatch.fill(tLiquid, true);
-                	}
-            	}
+            if (isValidMetaTileEntity(tHatch) && GT_ModHandler.isSteam(aLiquid) ? tHatch.outputsSteam()
+                : tHatch.outputsLiquids()) {
+                if (tHatch.getBaseMetaTileEntity()
+                    .getYCoord() == targetHeight) {
+                    int tAmount = tHatch.fill(tLiquid, false);
+                    if (tAmount >= tLiquid.amount) {
+                        return tHatch.fill(tLiquid, true) >= tLiquid.amount;
+                    } else if (tAmount > 0) {
+                        tLiquid.amount = tLiquid.amount - tHatch.fill(tLiquid, true);
+                    }
+                }
             }
         }
         return false;

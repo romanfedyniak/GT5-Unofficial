@@ -1,9 +1,5 @@
 package gregtech.common.render;
 
-import cpw.mods.fml.relauncher.SideOnly;
-import gregtech.api.enums.ItemList;
-import gregtech.common.items.GT_VolumetricFlask;
-import ic2.core.util.DrawUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,10 +9,17 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fluids.FluidStack;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.enums.ItemList;
+import gregtech.common.items.GT_VolumetricFlask;
+import ic2.core.util.DrawUtil;
 
 @SideOnly(cpw.mods.fml.relauncher.Side.CLIENT)
 public final class GT_FlaskRenderer implements net.minecraftforge.client.IItemRenderer {
+
     public GT_FlaskRenderer() {
         MinecraftForgeClient.registerItemRenderer(ItemList.VOLUMETRIC_FLASK.getItem(), this);
     }
@@ -24,7 +27,6 @@ public final class GT_FlaskRenderer implements net.minecraftforge.client.IItemRe
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return type != ItemRenderType.FIRST_PERSON_MAP;
     }
-
 
     public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, IItemRenderer.ItemRendererHelper helper) {
         return type == ItemRenderType.ENTITY;
@@ -50,8 +52,10 @@ public final class GT_FlaskRenderer implements net.minecraftforge.client.IItemRe
         FluidStack fs = cell.getFluid(item);
         if (fs != null) {
             IIcon iconWindow = cell.iconWindow;
-            IIcon fluidicon = fs.getFluid().getIcon(fs);
-            int fluidColor = fs.getFluid().getColor(fs);
+            IIcon fluidicon = fs.getFluid()
+                .getIcon(fs);
+            int fluidColor = fs.getFluid()
+                .getColor(fs);
             Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.locationItemsTexture);
             GL11.glBlendFunc(0, 1);
             if (type.equals(ItemRenderType.INVENTORY)) {
@@ -81,7 +85,15 @@ public final class GT_FlaskRenderer implements net.minecraftforge.client.IItemRe
         if (type.equals(ItemRenderType.INVENTORY)) {
             DrawUtil.renderIcon(icon, 16.0D, 0.001D, 0.0F, 0.0F, -1.0F);
         } else {
-            ItemRenderer.renderItemIn2D(Tessellator.instance, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
+            ItemRenderer.renderItemIn2D(
+                Tessellator.instance,
+                icon.getMaxU(),
+                icon.getMinV(),
+                icon.getMinU(),
+                icon.getMaxV(),
+                icon.getIconWidth(),
+                icon.getIconHeight(),
+                0.0625F);
         }
         GL11.glDisable(3008);
         GL11.glDisable(3042);

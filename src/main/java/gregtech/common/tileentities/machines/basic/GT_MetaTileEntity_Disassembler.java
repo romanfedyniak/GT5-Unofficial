@@ -1,5 +1,9 @@
 package gregtech.common.tileentities.machines.basic;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -8,40 +12,63 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-public class GT_MetaTileEntity_Disassembler
-        extends GT_MetaTileEntity_BasicMachine {
+public class GT_MetaTileEntity_Disassembler extends GT_MetaTileEntity_BasicMachine {
+
     public GT_MetaTileEntity_Disassembler(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 1, "Disassembles Machines at " + Math.min(100, (50 + 10 * aTier)) + "% Efficiency", 1, 9, "Disassembler.png", "", new ITexture[]{new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_DISASSEMBLER_ACTIVE), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_DISASSEMBLER), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_DISASSEMBLER_ACTIVE), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_DISASSEMBLER), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_DISASSEMBLER_ACTIVE), new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_DISASSEMBLER)});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            1,
+            "Disassembles Machines at " + Math.min(100, (50 + 10 * aTier)) + "% Efficiency",
+            1,
+            9,
+            "Disassembler.png",
+            "",
+            new ITexture[] { new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_DISASSEMBLER_ACTIVE),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SIDE_DISASSEMBLER),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER_ACTIVE),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_FRONT_DISASSEMBLER),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_DISASSEMBLER_ACTIVE),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_TOP_DISASSEMBLER),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_DISASSEMBLER_ACTIVE),
+                new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_BOTTOM_DISASSEMBLER) });
     }
 
-    public GT_MetaTileEntity_Disassembler(String aName, int aTier, String aDescription, ITexture[][][] aTextures, String aGUIName, String aNEIName) {
+    public GT_MetaTileEntity_Disassembler(String aName, int aTier, String aDescription, ITexture[][][] aTextures,
+        String aGUIName, String aNEIName) {
         super(aName, aTier, 1, aDescription, aTextures, 1, 9, aGUIName, aNEIName);
     }
 
-    public GT_MetaTileEntity_Disassembler(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures, String aGUIName, String aNEIName) {
+    public GT_MetaTileEntity_Disassembler(String aName, int aTier, String[] aDescription, ITexture[][][] aTextures,
+        String aGUIName, String aNEIName) {
         super(aName, aTier, 1, aDescription, aTextures, 1, 9, aGUIName, aNEIName);
     }
 
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_Disassembler(this.mName, this.mTier, this.mDescriptionArray, this.mTextures, this.mGUIName, this.mNEIName);
+        return new GT_MetaTileEntity_Disassembler(
+            this.mName,
+            this.mTier,
+            this.mDescriptionArray,
+            this.mTextures,
+            this.mGUIName,
+            this.mNEIName);
     }
 
     public int checkRecipe() {
         if ((getInputAt(0) != null) && (isOutputEmpty())) {
-        	if(GT_Utility.areStacksEqual(getInputAt(0), new ItemStack(Items.egg))){
-        		getInputAt(0).stackSize -= 1;
+            if (GT_Utility.areStacksEqual(getInputAt(0), new ItemStack(Items.egg))) {
+                getInputAt(0).stackSize -= 1;
                 this.mEUt = (16 * (1 << this.mTier - 1) * (1 << this.mTier - 1));
                 this.mMaxProgresstime = 2400;
                 this.mMaxProgresstime = this.mMaxProgresstime >> (mTier);
-                if (getBaseMetaTileEntity().getRandomNumber(100) < (this.mTier+1)) {
+                if (getBaseMetaTileEntity().getRandomNumber(100) < (this.mTier + 1)) {
                     this.mOutputItems[0] = ItemList.Circuit_Chip_Stemcell.get(1, new Object[0]);
-                    }
-        		return 2;
-        	}
+                }
+                return 2;
+            }
             NBTTagCompound tNBT = getInputAt(0).getTagCompound();
             if (tNBT != null) {
                 tNBT = tNBT.getCompoundTag("GT.CraftingComponents");
@@ -56,11 +83,11 @@ public class GT_MetaTileEntity_Disassembler
                             }
                         }
                     }
-                    if(this.mTier>5){
-                    	this.mMaxProgresstime = this.mMaxProgresstime >> (mTier-5);
+                    if (this.mTier > 5) {
+                        this.mMaxProgresstime = this.mMaxProgresstime >> (mTier - 5);
                     }
-                    if(mMaxProgresstime==80){
-                    	return 0;
+                    if (mMaxProgresstime == 80) {
+                        return 0;
                     }
                     getInputAt(0).stackSize -= 1;
                     return 2;
@@ -71,6 +98,9 @@ public class GT_MetaTileEntity_Disassembler
     }
 
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
-        return (aIndex == 4 && GT_Utility.areStacksEqual(aStack, new ItemStack(Items.egg))) || (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)) && (aStack.getTagCompound() != null) && (aStack.getTagCompound().getCompoundTag("GT.CraftingComponents") != null);
+        return (aIndex == 4 && GT_Utility.areStacksEqual(aStack, new ItemStack(Items.egg)))
+            || (super.allowPutStack(aBaseMetaTileEntity, aIndex, aSide, aStack)) && (aStack.getTagCompound() != null)
+                && (aStack.getTagCompound()
+                    .getCompoundTag("GT.CraftingComponents") != null);
     }
 }

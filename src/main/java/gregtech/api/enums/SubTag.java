@@ -1,11 +1,11 @@
 package gregtech.api.enums;
 
-import gregtech.api.interfaces.ICondition;
-import gregtech.api.interfaces.ISubTagContainer;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+
+import gregtech.api.interfaces.ICondition;
+import gregtech.api.interfaces.ISubTagContainer;
 
 /**
  * Just a simple Class to be able to add special Tags for Materials.
@@ -18,20 +18,25 @@ import java.util.HashSet;
  * <p/>
  * -------------------------------------------------------------------------------------------------
  * <p/>
- * Some SubTags are used for other things than Materials too. It is useful when I need an easy way to declare Stuff in Items.
+ * Some SubTags are used for other things than Materials too. It is useful when I need an easy way to declare Stuff in
+ * Items.
  */
 public final class SubTag implements ICondition<ISubTagContainer> {
+
     public static final HashMap<String, SubTag> sSubTags = new HashMap<String, SubTag>();
     private static long sSubtagID = 0;
     public final long mSubtagID;
     public final String mName;
     /**
-     * Add this to your Material if you want to have its Ore Calcite heated in a Blast Furnace for more output. Already listed are:
+     * Add this to your Material if you want to have its Ore Calcite heated in a Blast Furnace for more output. Already
+     * listed are:
      * Iron, Pyrite, PigIron, DeepIron, ShadowIron, WroughtIron and MeteoricIron.
      */
-    public static final SubTag BLASTFURNACE_CALCITE_DOUBLE = getNewSubTag("BLASTFURNACE_CALCITE_DOUBLE"), BLASTFURNACE_CALCITE_TRIPLE = getNewSubTag("BLASTFURNACE_CALCITE_TRIPLE");
+    public static final SubTag BLASTFURNACE_CALCITE_DOUBLE = getNewSubTag("BLASTFURNACE_CALCITE_DOUBLE"),
+        BLASTFURNACE_CALCITE_TRIPLE = getNewSubTag("BLASTFURNACE_CALCITE_TRIPLE");
     /**
-     * Add this to a material with Direct Smelting to prevent the automatic generation of a Bricked/Bronze Blast Furnace recipe. Already listed are:
+     * Add this to a material with Direct Smelting to prevent the automatic generation of a Bricked/Bronze Blast Furnace
+     * recipe. Already listed are:
      * Chalcopyrite, Tetrahedrite
      */
     public static final SubTag DONT_ADD_DEFAULT_BBF_RECIPE = getNewSubTag("DONT_ADD_DEFAULT_BBF_RECIPE");
@@ -61,9 +66,11 @@ public final class SubTag implements ICondition<ISubTagContainer> {
     /**
      * Add this to your Material if you want to have its Ore electromagnetically separated to give Neodymium.
      */
-    public static final SubTag ELECTROMAGNETIC_SEPERATION_NEODYMIUM = getNewSubTag("ELECTROMAGNETIC_SEPERATION_NEODYMIUM");
+    public static final SubTag ELECTROMAGNETIC_SEPERATION_NEODYMIUM = getNewSubTag(
+        "ELECTROMAGNETIC_SEPERATION_NEODYMIUM");
     /**
-     * Add this to your Material if you want to have its Ore giving Cinnabar Crystals on Pulverization. Already listed are:
+     * Add this to your Material if you want to have its Ore giving Cinnabar Crystals on Pulverization. Already listed
+     * are:
      * Redstone
      */
     public static final SubTag PULVERIZING_CINNABAR = getNewSubTag("PULVERIZING_CINNABAR");
@@ -72,7 +79,8 @@ public final class SubTag implements ICondition<ISubTagContainer> {
      */
     public static final SubTag NO_WORKING = getNewSubTag("NO_WORKING");
     /**
-     * This Material cannot be used for regular Metal working techniques since it is not possible to bend it. Already listed are:
+     * This Material cannot be used for regular Metal working techniques since it is not possible to bend it. Already
+     * listed are:
      * Rubber, Plastic, Paper, Wood, Stone
      */
     public static final SubTag NO_SMASHING = getNewSubTag("NO_SMASHING");

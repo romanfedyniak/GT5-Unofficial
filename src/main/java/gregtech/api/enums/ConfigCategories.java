@@ -1,6 +1,7 @@
 package gregtech.api.enums;
 
 public enum ConfigCategories {
+
     news,
     general,
     machineconfig,
@@ -25,7 +26,7 @@ public enum ConfigCategories {
         disabledrecipes,
         recipereplacements,
         storageblockcrafting,
-        storageblockdecrafting, 
+        storageblockdecrafting,
         crops;
     }
 
@@ -61,6 +62,6 @@ public enum ConfigCategories {
         hammertripleplate,
         hammerquadrupleplate,
         hammerquintupleplate,
-		scoop;
+        scoop;
     }
 }

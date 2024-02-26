@@ -12,7 +12,7 @@ public class GT_Bees {
         if (Loader.isModLoaded("Forestry") && GT_Mod.gregtechproxy.mGTBees) {
             combs = new ItemComb();
             combs.initCombsRecipes();
-            GT_BeeDefinition.initBees();            
+            GT_BeeDefinition.initBees();
         }
     }
 }

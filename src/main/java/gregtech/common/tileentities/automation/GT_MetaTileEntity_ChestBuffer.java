@@ -1,5 +1,7 @@
 package gregtech.common.tileentities.automation;
 
+import net.minecraft.entity.player.InventoryPlayer;
+
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -9,35 +11,47 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.gui.GT_Container_ChestBuffer;
 import gregtech.common.gui.GT_GUIContainer_ChestBuffer;
-import net.minecraft.entity.player.InventoryPlayer;
 
-public class GT_MetaTileEntity_ChestBuffer
-        extends GT_MetaTileEntity_Buffer {
+public class GT_MetaTileEntity_ChestBuffer extends GT_MetaTileEntity_Buffer {
+
     public GT_MetaTileEntity_ChestBuffer(int aID, String aName, String aNameRegional, int aTier) {
-        super(aID, aName, aNameRegional, aTier, 28, new String[]{
-        		"Buffers up to 27 Item Stacks",
-        		"Use Screwdriver to regulate output stack size",
-        		"Consumes 1EU per moved Item"});
+        super(
+            aID,
+            aName,
+            aNameRegional,
+            aTier,
+            28,
+            new String[] { "Buffers up to 27 Item Stacks", "Use Screwdriver to regulate output stack size",
+                "Consumes 1EU per moved Item" });
     }
 
-    public GT_MetaTileEntity_ChestBuffer(int aID, String aName, String aNameRegional, int aTier, int aInvSlotCount, String aDescription) {
+    public GT_MetaTileEntity_ChestBuffer(int aID, String aName, String aNameRegional, int aTier, int aInvSlotCount,
+        String aDescription) {
         super(aID, aName, aNameRegional, aTier, aInvSlotCount, aDescription);
     }
 
-    public GT_MetaTileEntity_ChestBuffer(int aID, String aName, String aNameRegional, int aTier, int aInvSlotCount, String[] aDescription) {
+    public GT_MetaTileEntity_ChestBuffer(int aID, String aName, String aNameRegional, int aTier, int aInvSlotCount,
+        String[] aDescription) {
         super(aID, aName, aNameRegional, aTier, aInvSlotCount, aDescription);
     }
 
-    public GT_MetaTileEntity_ChestBuffer(String aName, int aTier, int aInvSlotCount, String aDescription, ITexture[][][] aTextures) {
+    public GT_MetaTileEntity_ChestBuffer(String aName, int aTier, int aInvSlotCount, String aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
-    
-    public GT_MetaTileEntity_ChestBuffer(String aName, int aTier, int aInvSlotCount, String[] aDescription, ITexture[][][] aTextures) {
+
+    public GT_MetaTileEntity_ChestBuffer(String aName, int aTier, int aInvSlotCount, String[] aDescription,
+        ITexture[][][] aTextures) {
         super(aName, aTier, aInvSlotCount, aDescription, aTextures);
     }
 
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_ChestBuffer(this.mName, this.mTier, this.mInventory.length, this.mDescriptionArray, this.mTextures);
+        return new GT_MetaTileEntity_ChestBuffer(
+            this.mName,
+            this.mTier,
+            this.mInventory.length,
+            this.mDescriptionArray,
+            this.mTextures);
     }
 
     public ITexture getOverlayIcon() {
@@ -57,8 +71,17 @@ public class GT_MetaTileEntity_ChestBuffer
     protected void fillStacksIntoFirstSlots() {
         for (int i = 0; i < this.mInventory.length - 1; i++) {
             for (int j = i + 1; j < this.mInventory.length - 1; j++) {
-                if ((this.mInventory[j] != null) && ((this.mInventory[i] == null) || (GT_Utility.areStacksEqual(this.mInventory[i], this.mInventory[j])))) {
-                    GT_Utility.moveStackFromSlotAToSlotB(getBaseMetaTileEntity(), getBaseMetaTileEntity(), j, i, (byte) 64, (byte) 1, (byte) 64, (byte) 1);
+                if ((this.mInventory[j] != null) && ((this.mInventory[i] == null)
+                    || (GT_Utility.areStacksEqual(this.mInventory[i], this.mInventory[j])))) {
+                    GT_Utility.moveStackFromSlotAToSlotB(
+                        getBaseMetaTileEntity(),
+                        getBaseMetaTileEntity(),
+                        j,
+                        i,
+                        (byte) 64,
+                        (byte) 1,
+                        (byte) 64,
+                        (byte) 1);
                 }
             }
         }

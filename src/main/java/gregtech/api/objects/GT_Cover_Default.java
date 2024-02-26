@@ -1,12 +1,14 @@
 package gregtech.api.objects;
 
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.util.GT_CoverBehavior;
-import gregtech.api.util.GT_Utility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fluids.Fluid;
 
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.util.GT_CoverBehavior;
+import gregtech.api.util.GT_Utility;
+
 public class GT_Cover_Default extends GT_CoverBehavior {
+
     /**
      * This is the Dummy, if there is a generic Cover without behavior
      */
@@ -20,9 +22,15 @@ public class GT_Cover_Default extends GT_CoverBehavior {
     }
 
     @Override
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = ((aCoverVariable + 1) & 15);
-        GT_Utility.sendChatToPlayer(aPlayer, ((aCoverVariable & 1) != 0 ? trans("128", "Redstone ") : "") + ((aCoverVariable & 2) != 0 ? trans("129", "Energy ") : "") + ((aCoverVariable & 4) != 0 ? trans("130", "Fluids ") : "") + ((aCoverVariable & 8) != 0 ? trans("131", "Items ") : ""));
+        GT_Utility.sendChatToPlayer(
+            aPlayer,
+            ((aCoverVariable & 1) != 0 ? trans("128", "Redstone ") : "")
+                + ((aCoverVariable & 2) != 0 ? trans("129", "Energy ") : "")
+                + ((aCoverVariable & 4) != 0 ? trans("130", "Fluids ") : "")
+                + ((aCoverVariable & 8) != 0 ? trans("131", "Items ") : ""));
         return aCoverVariable;
     }
 

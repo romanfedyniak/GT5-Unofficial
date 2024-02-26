@@ -1,11 +1,13 @@
 package gregtech.api.objects;
 
-import gregtech.api.util.GT_Utility;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import gregtech.api.util.GT_Utility;
+
 public class GT_ItemStack {
+
     public final Item mItem;
     public final byte mStackSize;
     public final short mMetaData;
@@ -17,7 +19,10 @@ public class GT_ItemStack {
     }
 
     public GT_ItemStack(ItemStack aStack) {
-        this(aStack == null ? null : aStack.getItem(), aStack == null ? 0 : aStack.stackSize, aStack == null ? 0 : Items.feather.getDamage(aStack));
+        this(
+            aStack == null ? null : aStack.getItem(),
+            aStack == null ? 0 : aStack.stackSize,
+            aStack == null ? 0 : Items.feather.getDamage(aStack));
     }
 
     public GT_ItemStack(int aHashCode) {

@@ -4,6 +4,7 @@ package gregtech.api.interfaces.tileentity;
  * For Machines which have Progress
  */
 public interface IMachineProgress extends IHasWorldObjectAndCoords {
+
     /**
      * returns the Progress this Machine has made. Warning, this can also be negative!
      */

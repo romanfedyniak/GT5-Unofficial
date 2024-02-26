@@ -6,6 +6,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GT_Slot_Armor extends Slot {
+
     final int mArmorType;
     final EntityPlayer mPlayer;
 
@@ -22,6 +23,8 @@ public class GT_Slot_Armor extends Slot {
 
     @Override
     public boolean isItemValid(ItemStack aStack) {
-        return aStack != null && aStack.getItem() != null && aStack.getItem().isValidArmor(aStack, mArmorType, mPlayer);
+        return aStack != null && aStack.getItem() != null
+            && aStack.getItem()
+                .isValidArmor(aStack, mArmorType, mPlayer);
     }
 }

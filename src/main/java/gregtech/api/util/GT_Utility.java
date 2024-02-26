@@ -32,40 +32,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.mojang.authlib.GameProfile;
-
-import cofh.api.transport.IItemDuct;
-import cpw.mods.fml.common.FMLCommonHandler;
-import gregtech.api.GregTech_API;
-import gregtech.api.damagesources.GT_DamageSources;
-import gregtech.api.enchants.Enchantment_Radioactivity;
-import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.ItemList;
-import gregtech.api.enums.SubTag;
-import gregtech.api.enums.Textures;
-import gregtech.api.events.BlockScanningEvent;
-import gregtech.api.interfaces.IDebugableBlock;
-import gregtech.api.interfaces.IProjectileItem;
-import gregtech.api.interfaces.ITexture;
-import gregtech.api.interfaces.tileentity.IBasicEnergyContainer;
-import gregtech.api.interfaces.tileentity.ICoverable;
-import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
-import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
-import gregtech.api.interfaces.tileentity.IMachineProgress;
-import gregtech.api.interfaces.tileentity.IUpgradableMachine;
-import gregtech.api.items.GT_EnergyArmor_Item;
-import gregtech.api.items.GT_Generic_Item;
-import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Cable;
-import gregtech.api.net.GT_Packet_Sound;
-import gregtech.api.objects.GT_ItemStack;
-import gregtech.api.objects.ItemData;
-import gregtech.api.threads.GT_Runnable_Sound;
-import gregtech.common.GT_Proxy;
-import ic2.api.recipe.IRecipeInput;
-import ic2.api.recipe.RecipeInputItemStack;
-import ic2.api.recipe.RecipeInputOreDict;
-import ic2.api.recipe.RecipeOutput;
-import ic2.core.IC2Potion;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -113,50 +79,92 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidContainerItem;
 import net.minecraftforge.fluids.IFluidHandler;
 
+import com.mojang.authlib.GameProfile;
+
+import cofh.api.transport.IItemDuct;
+import cpw.mods.fml.common.FMLCommonHandler;
+import gregtech.api.GregTech_API;
+import gregtech.api.damagesources.GT_DamageSources;
+import gregtech.api.enchants.Enchantment_Radioactivity;
+import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.ItemList;
+import gregtech.api.enums.SubTag;
+import gregtech.api.enums.Textures;
+import gregtech.api.events.BlockScanningEvent;
+import gregtech.api.interfaces.IDebugableBlock;
+import gregtech.api.interfaces.IProjectileItem;
+import gregtech.api.interfaces.ITexture;
+import gregtech.api.interfaces.tileentity.IBasicEnergyContainer;
+import gregtech.api.interfaces.tileentity.ICoverable;
+import gregtech.api.interfaces.tileentity.IGregTechDeviceInformation;
+import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.interfaces.tileentity.IMachineProgress;
+import gregtech.api.interfaces.tileentity.IUpgradableMachine;
+import gregtech.api.items.GT_EnergyArmor_Item;
+import gregtech.api.items.GT_Generic_Item;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_Cable;
+import gregtech.api.net.GT_Packet_Sound;
+import gregtech.api.objects.GT_ItemStack;
+import gregtech.api.objects.ItemData;
+import gregtech.api.threads.GT_Runnable_Sound;
+import gregtech.common.GT_Proxy;
+import ic2.api.recipe.IRecipeInput;
+import ic2.api.recipe.RecipeInputItemStack;
+import ic2.api.recipe.RecipeInputOreDict;
+import ic2.api.recipe.RecipeOutput;
+import ic2.core.IC2Potion;
+
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
  * <p/>
  * Just a few Utility Functions I use.
  */
 public class GT_Utility {
+
     /**
-     * Forge screwed the Fluid Registry up again, so I make my own, which is also much more efficient than the stupid Stuff over there.
+     * Forge screwed the Fluid Registry up again, so I make my own, which is also much more efficient than the stupid
+     * Stuff over there.
      */
     private static final List<FluidContainerData> sFluidContainerList = new ArrayList<FluidContainerData>();
-    private static final Map<GT_ItemStack, FluidContainerData> sFilledContainerToData = new /*Concurrent*/HashMap<GT_ItemStack, FluidContainerData>();
-    private static final Map<GT_ItemStack, Map<Fluid, FluidContainerData>> sEmptyContainerToFluidToData = new /*Concurrent*/HashMap<GT_ItemStack, Map<Fluid, FluidContainerData>>();
+    private static final Map<GT_ItemStack, FluidContainerData> sFilledContainerToData = new /* Concurrent */HashMap<GT_ItemStack, FluidContainerData>();
+    private static final Map<GT_ItemStack, Map<Fluid, FluidContainerData>> sEmptyContainerToFluidToData = new /*
+                                                                                                               * Concurrent
+                                                                                                               */HashMap<GT_ItemStack, Map<Fluid, FluidContainerData>>();
     public static volatile int VERSION = 509;
     public static boolean TE_CHECK = false, BC_CHECK = false, CHECK_ALL = true, RF_CHECK = false;
-    public static Map<GT_PlayedSound, Integer> sPlayedSoundMap = new /*Concurrent*/HashMap<GT_PlayedSound, Integer>();
+    public static Map<GT_PlayedSound, Integer> sPlayedSoundMap = new /* Concurrent */HashMap<GT_PlayedSound, Integer>();
     private static int sBookCount = 0;
 
     static {
         GregTech_API.sItemStackMappings.add(sFilledContainerToData);
         GregTech_API.sItemStackMappings.add(sEmptyContainerToFluidToData);
     }
-    
-    public static int safeInt(long number, int margin){
-        return number>Integer.MAX_VALUE-margin ? Integer.MAX_VALUE-margin :(int)number;
+
+    public static int safeInt(long number, int margin) {
+        return number > Integer.MAX_VALUE - margin ? Integer.MAX_VALUE - margin : (int) number;
     }
 
-    public static int safeInt(long number){
-        return number>GT_Values.V[GT_Values.V.length-1] ? safeInt(GT_Values.V[GT_Values.V.length-1],1) : number<Integer.MIN_VALUE ? Integer.MIN_VALUE : (int)number;
-}
+    public static int safeInt(long number) {
+        return number > GT_Values.V[GT_Values.V.length - 1] ? safeInt(GT_Values.V[GT_Values.V.length - 1], 1)
+            : number < Integer.MIN_VALUE ? Integer.MIN_VALUE : (int) number;
+    }
 
     public static Field getPublicField(Object aObject, String aField) {
         Field rField = null;
         try {
-            rField = aObject.getClass().getDeclaredField(aField);
-        } catch (Throwable e) {/*Do nothing*/}
+            rField = aObject.getClass()
+                .getDeclaredField(aField);
+        } catch (Throwable e) {/* Do nothing */}
         return rField;
     }
 
     public static Field getField(Object aObject, String aField) {
         Field rField = null;
         try {
-            rField = aObject.getClass().getDeclaredField(aField);
+            rField = aObject.getClass()
+                .getDeclaredField(aField);
             rField.setAccessible(true);
-        } catch (Throwable e) {/*Do nothing*/}
+        } catch (Throwable e) {/* Do nothing */}
         return rField;
     }
 
@@ -165,7 +173,7 @@ public class GT_Utility {
         try {
             rField = aObject.getDeclaredField(aField);
             rField.setAccessible(true);
-        } catch (Throwable e) {/*Do nothing*/}
+        } catch (Throwable e) {/* Do nothing */}
         return rField;
     }
 
@@ -174,22 +182,27 @@ public class GT_Utility {
         try {
             rMethod = aObject.getMethod(aMethod, aParameterTypes);
             rMethod.setAccessible(true);
-        } catch (Throwable e) {/*Do nothing*/}
+        } catch (Throwable e) {/* Do nothing */}
         return rMethod;
     }
 
     public static Method getMethod(Object aObject, String aMethod, Class<?>... aParameterTypes) {
         Method rMethod = null;
         try {
-            rMethod = aObject.getClass().getMethod(aMethod, aParameterTypes);
+            rMethod = aObject.getClass()
+                .getMethod(aMethod, aParameterTypes);
             rMethod.setAccessible(true);
-        } catch (Throwable e) {/*Do nothing*/}
+        } catch (Throwable e) {/* Do nothing */}
         return rMethod;
     }
 
     public static Field getField(Object aObject, String aField, boolean aPrivate, boolean aLogErrors) {
         try {
-            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField) : (aObject instanceof String) ? Class.forName((String) aObject).getDeclaredField(aField) : aObject.getClass().getDeclaredField(aField);
+            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField)
+                : (aObject instanceof String) ? Class.forName((String) aObject)
+                    .getDeclaredField(aField)
+                    : aObject.getClass()
+                        .getDeclaredField(aField);
             if (aPrivate) tField.setAccessible(true);
             return tField;
         } catch (Throwable e) {
@@ -200,7 +213,11 @@ public class GT_Utility {
 
     public static Object getFieldContent(Object aObject, String aField, boolean aPrivate, boolean aLogErrors) {
         try {
-            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField) : (aObject instanceof String) ? Class.forName((String) aObject).getDeclaredField(aField) : aObject.getClass().getDeclaredField(aField);
+            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField)
+                : (aObject instanceof String) ? Class.forName((String) aObject)
+                    .getDeclaredField(aField)
+                    : aObject.getClass()
+                        .getDeclaredField(aField);
             if (aPrivate) tField.setAccessible(true);
             return tField.get(aObject instanceof Class || aObject instanceof String ? null : aObject);
         } catch (Throwable e) {
@@ -217,7 +234,8 @@ public class GT_Utility {
         return callMethod(aObject, aMethod, true, false, true, aParameters);
     }
 
-    public static Object callMethod(Object aObject, String aMethod, boolean aPrivate, boolean aUseUpperCasedDataTypes, boolean aLogErrors, Object... aParameters) {
+    public static Object callMethod(Object aObject, String aMethod, boolean aPrivate, boolean aUseUpperCasedDataTypes,
+        boolean aLogErrors, Object... aParameters) {
         try {
             Class<?>[] tParameterTypes = new Class<?>[aParameters.length];
             for (byte i = 0; i < aParameters.length; i++) {
@@ -238,7 +256,9 @@ public class GT_Utility {
                 }
             }
 
-            Method tMethod = (aObject instanceof Class) ? ((Class) aObject).getMethod(aMethod, tParameterTypes) : aObject.getClass().getMethod(aMethod, tParameterTypes);
+            Method tMethod = (aObject instanceof Class) ? ((Class) aObject).getMethod(aMethod, tParameterTypes)
+                : aObject.getClass()
+                    .getMethod(aMethod, tParameterTypes);
             if (aPrivate) tMethod.setAccessible(true);
             return tMethod.invoke(aObject, aParameters);
         } catch (Throwable e) {
@@ -247,20 +267,23 @@ public class GT_Utility {
         return null;
     }
 
-    public static Object callConstructor(String aClass, int aConstructorIndex, Object aReplacementObject, boolean aLogErrors, Object... aParameters) {
+    public static Object callConstructor(String aClass, int aConstructorIndex, Object aReplacementObject,
+        boolean aLogErrors, Object... aParameters) {
         if (aConstructorIndex < 0) {
             try {
-                for (Constructor tConstructor : Class.forName(aClass).getConstructors()) {
+                for (Constructor tConstructor : Class.forName(aClass)
+                    .getConstructors()) {
                     try {
                         return tConstructor.newInstance(aParameters);
-                    } catch (Throwable e) {/*Do nothing*/}
+                    } catch (Throwable e) {/* Do nothing */}
                 }
             } catch (Throwable e) {
                 if (aLogErrors) e.printStackTrace(GT_Log.err);
             }
         } else {
             try {
-                return Class.forName(aClass).getConstructors()[aConstructorIndex].newInstance(aParameters);
+                return Class.forName(aClass)
+                    .getConstructors()[aConstructorIndex].newInstance(aParameters);
             } catch (Throwable e) {
                 if (aLogErrors) e.printStackTrace(GT_Log.err);
             }
@@ -269,8 +292,8 @@ public class GT_Utility {
     }
 
     public static String capitalizeString(String aString) {
-        if (aString != null && aString.length() > 0)
-            return aString.substring(0, 1).toUpperCase() + aString.substring(1);
+        if (aString != null && aString.length() > 0) return aString.substring(0, 1)
+            .toUpperCase() + aString.substring(1);
         return E;
     }
 
@@ -300,7 +323,12 @@ public class GT_Utility {
 
     public static String getClassName(Object aObject) {
         if (aObject == null) return "null";
-        return aObject.getClass().getName().substring(aObject.getClass().getName().lastIndexOf(".") + 1);
+        return aObject.getClass()
+            .getName()
+            .substring(
+                aObject.getClass()
+                    .getName()
+                    .lastIndexOf(".") + 1);
     }
 
     public static void removePotion(EntityLivingBase aPlayer, int aPotionIndex) {
@@ -331,7 +359,8 @@ public class GT_Utility {
                 for (int i = 0; i < 4; i++) {
                     if (aPlayer.inventory.armorInventory[i] != null) {
                         if (aPlayer.inventory.armorInventory[i].getItem() instanceof GT_EnergyArmor_Item) {
-                            if ((((GT_EnergyArmor_Item) aPlayer.inventory.armorInventory[i].getItem()).mSpecials & 512) != 0) {
+                            if ((((GT_EnergyArmor_Item) aPlayer.inventory.armorInventory[i].getItem()).mSpecials & 512)
+                                != 0) {
                                 if (GT_ModHandler.canUseElectricItem(aPlayer.inventory.armorInventory[i], 10000)) {
                                     return true;
                                 }
@@ -346,8 +375,11 @@ public class GT_Utility {
         return false;
     }
 
-    public static ItemStack suckOneItemStackAt(World aWorld, double aX, double aY, double aZ, double aL, double aH, double aW) {
-        for (EntityItem tItem : (ArrayList<EntityItem>) aWorld.getEntitiesWithinAABB(EntityItem.class, AxisAlignedBB.getBoundingBox(aX, aY, aZ, aX + aL, aY + aH, aZ + aW))) {
+    public static ItemStack suckOneItemStackAt(World aWorld, double aX, double aY, double aZ, double aL, double aH,
+        double aW) {
+        for (EntityItem tItem : (ArrayList<EntityItem>) aWorld.getEntitiesWithinAABB(
+            EntityItem.class,
+            AxisAlignedBB.getBoundingBox(aX, aY, aZ, aX + aL, aY + aH, aZ + aW))) {
             if (!tItem.isDead) {
                 aWorld.removeEntity(tItem);
                 tItem.setDead();
@@ -358,7 +390,9 @@ public class GT_Utility {
     }
 
     public static byte getOppositeSide(int aSide) {
-        return (byte) ForgeDirection.getOrientation(aSide).getOpposite().ordinal();
+        return (byte) ForgeDirection.getOrientation(aSide)
+            .getOpposite()
+            .ordinal();
     }
 
     public static byte getTier(long l) {
@@ -399,31 +433,46 @@ public class GT_Utility {
         checkAvailabilities();
         if (TE_CHECK && aTileEntity instanceof IItemDuct) return true;
         if (BC_CHECK && aTileEntity instanceof buildcraft.api.transport.IPipeTile)
-            return ((buildcraft.api.transport.IPipeTile) aTileEntity).isPipeConnected(ForgeDirection.getOrientation(aSide));
-        
+            return ((buildcraft.api.transport.IPipeTile) aTileEntity)
+                .isPipeConnected(ForgeDirection.getOrientation(aSide));
+
         if (GregTech_API.mTranslocator) {
-        	try {
-        		Class aCodeChickenTranslocator = Class.forName("codechicken.translocator.TileLiquidTranslocator");
-        		if (aCodeChickenTranslocator != null) {
-        			if (aCodeChickenTranslocator.isInstance(aTileEntity)) {
-        				return true;
-        			}               	
-        		}
-        	}
-        	catch (Throwable t) {
-        		
-        	}
+            try {
+                Class aCodeChickenTranslocator = Class.forName("codechicken.translocator.TileLiquidTranslocator");
+                if (aCodeChickenTranslocator != null) {
+                    if (aCodeChickenTranslocator.isInstance(aTileEntity)) {
+                        return true;
+                    }
+                }
+            } catch (Throwable t) {
+
+            }
         }
 
         return false;
     }
+
     /**
      * Moves Stack from Inv-Slot to Inv-Slot, without checking if its even allowed.
      *
      * @return the Amount of moved Items
      */
-    public static byte moveStackIntoPipe(IInventory aTileEntity1, Object aTileEntity2, int[] aGrabSlots, int aGrabFrom, int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
-    return moveStackIntoPipe(aTileEntity1, aTileEntity2, aGrabSlots, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, true);
+    public static byte moveStackIntoPipe(IInventory aTileEntity1, Object aTileEntity2, int[] aGrabSlots, int aGrabFrom,
+        int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
+        return moveStackIntoPipe(
+            aTileEntity1,
+            aTileEntity2,
+            aGrabSlots,
+            aGrabFrom,
+            aPutTo,
+            aFilter,
+            aInvertFilter,
+            aMaxTargetStackSize,
+            aMinTargetStackSize,
+            aMaxMoveAtOnce,
+            aMinMoveAtOnce,
+            true);
     }
 
     /**
@@ -431,21 +480,38 @@ public class GT_Utility {
      *
      * @return the Amount of moved Items
      */
-    public static byte moveStackIntoPipe(IInventory aTileEntity1, Object aTileEntity2, int[] aGrabSlots, int aGrabFrom, int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce, boolean dropItem) {
-        if (aTileEntity1 == null || aMaxTargetStackSize <= 0 || aMinTargetStackSize <= 0 || aMinTargetStackSize > aMaxTargetStackSize || aMaxMoveAtOnce <= 0 || aMinMoveAtOnce > aMaxMoveAtOnce)
-            return 0;
+    public static byte moveStackIntoPipe(IInventory aTileEntity1, Object aTileEntity2, int[] aGrabSlots, int aGrabFrom,
+        int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce, boolean dropItem) {
+        if (aTileEntity1 == null || aMaxTargetStackSize <= 0
+            || aMinTargetStackSize <= 0
+            || aMinTargetStackSize > aMaxTargetStackSize
+            || aMaxMoveAtOnce <= 0
+            || aMinMoveAtOnce > aMaxMoveAtOnce) return 0;
         if (aTileEntity2 != null) {
             checkAvailabilities();
             if (TE_CHECK && aTileEntity2 instanceof IItemDuct) {
                 for (int i = 0; i < aGrabSlots.length; i++) {
                     if (listContainsItem(aFilter, aTileEntity1.getStackInSlot(aGrabSlots[i]), true, aInvertFilter)) {
-                        if (isAllowedToTakeFromSlot(aTileEntity1, aGrabSlots[i], (byte) aGrabFrom, aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
-                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize) <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
-                                ItemStack tStack = copyAmount(Math.min(aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize, Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)), aTileEntity1.getStackInSlot(aGrabSlots[i]));
-                                ItemStack rStack = ((IItemDuct) aTileEntity2).insertItem(ForgeDirection.getOrientation(aPutTo), copy(tStack));
-                                byte tMovedItemCount = (byte) (tStack.stackSize - (rStack == null ? 0 : rStack.stackSize));
-                                if (tMovedItemCount >= 1/*Math.max(aMinMoveAtOnce, aMinTargetStackSize)*/) {
-                                    //((cofh.api.transport.IItemConduit)aTileEntity2).insertItem(ForgeDirection.getOrientation(aPutTo), copyAmount(tMovedItemCount, tStack), F);
+                        if (isAllowedToTakeFromSlot(
+                            aTileEntity1,
+                            aGrabSlots[i],
+                            (byte) aGrabFrom,
+                            aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
+                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize)
+                                <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
+                                ItemStack tStack = copyAmount(
+                                    Math.min(
+                                        aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize,
+                                        Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)),
+                                    aTileEntity1.getStackInSlot(aGrabSlots[i]));
+                                ItemStack rStack = ((IItemDuct) aTileEntity2)
+                                    .insertItem(ForgeDirection.getOrientation(aPutTo), copy(tStack));
+                                byte tMovedItemCount = (byte) (tStack.stackSize
+                                    - (rStack == null ? 0 : rStack.stackSize));
+                                if (tMovedItemCount >= 1/* Math.max(aMinMoveAtOnce, aMinTargetStackSize) */) {
+                                    // ((cofh.api.transport.IItemConduit)aTileEntity2).insertItem(ForgeDirection.getOrientation(aPutTo),
+                                    // copyAmount(tMovedItemCount, tStack), F);
                                     aTileEntity1.decrStackSize(aGrabSlots[i], tMovedItemCount);
                                     aTileEntity1.markDirty();
                                     return tMovedItemCount;
@@ -459,12 +525,26 @@ public class GT_Utility {
             if (BC_CHECK && aTileEntity2 instanceof buildcraft.api.transport.IPipeTile) {
                 for (int i = 0; i < aGrabSlots.length; i++) {
                     if (listContainsItem(aFilter, aTileEntity1.getStackInSlot(aGrabSlots[i]), true, aInvertFilter)) {
-                        if (isAllowedToTakeFromSlot(aTileEntity1, aGrabSlots[i], (byte) aGrabFrom, aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
-                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize) <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
-                                ItemStack tStack = copyAmount(Math.min(aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize, Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)), aTileEntity1.getStackInSlot(aGrabSlots[i]));
-                                byte tMovedItemCount = (byte) ((buildcraft.api.transport.IPipeTile) aTileEntity2).injectItem(copy(tStack), false, ForgeDirection.getOrientation(aPutTo));
+                        if (isAllowedToTakeFromSlot(
+                            aTileEntity1,
+                            aGrabSlots[i],
+                            (byte) aGrabFrom,
+                            aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
+                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize)
+                                <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
+                                ItemStack tStack = copyAmount(
+                                    Math.min(
+                                        aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize,
+                                        Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)),
+                                    aTileEntity1.getStackInSlot(aGrabSlots[i]));
+                                byte tMovedItemCount = (byte) ((buildcraft.api.transport.IPipeTile) aTileEntity2)
+                                    .injectItem(copy(tStack), false, ForgeDirection.getOrientation(aPutTo));
                                 if (tMovedItemCount >= Math.max(aMinMoveAtOnce, aMinTargetStackSize)) {
-                                    tMovedItemCount = (byte) (((buildcraft.api.transport.IPipeTile) aTileEntity2).injectItem(copyAmount(tMovedItemCount, tStack), true, ForgeDirection.getOrientation(aPutTo)));
+                                    tMovedItemCount = (byte) (((buildcraft.api.transport.IPipeTile) aTileEntity2)
+                                        .injectItem(
+                                            copyAmount(tMovedItemCount, tStack),
+                                            true,
+                                            ForgeDirection.getOrientation(aPutTo)));
                                     aTileEntity1.decrStackSize(aGrabSlots[i], tMovedItemCount);
                                     aTileEntity1.markDirty();
                                     return tMovedItemCount;
@@ -478,17 +558,35 @@ public class GT_Utility {
         }
 
         ForgeDirection tDirection = ForgeDirection.getOrientation(aGrabFrom);
-        if (aTileEntity1 instanceof TileEntity && tDirection != ForgeDirection.UNKNOWN && tDirection.getOpposite() == ForgeDirection.getOrientation(aPutTo)) {
-            int tX = ((TileEntity) aTileEntity1).xCoord + tDirection.offsetX, tY = ((TileEntity) aTileEntity1).yCoord + tDirection.offsetY, tZ = ((TileEntity) aTileEntity1).zCoord + tDirection.offsetZ;
+        if (aTileEntity1 instanceof TileEntity && tDirection != ForgeDirection.UNKNOWN
+            && tDirection.getOpposite() == ForgeDirection.getOrientation(aPutTo)) {
+            int tX = ((TileEntity) aTileEntity1).xCoord + tDirection.offsetX,
+                tY = ((TileEntity) aTileEntity1).yCoord + tDirection.offsetY,
+                tZ = ((TileEntity) aTileEntity1).zCoord + tDirection.offsetZ;
             if (!hasBlockHitBox(((TileEntity) aTileEntity1).getWorldObj(), tX, tY, tZ) && dropItem) {
                 for (int i = 0; i < aGrabSlots.length; i++) {
                     if (listContainsItem(aFilter, aTileEntity1.getStackInSlot(aGrabSlots[i]), true, aInvertFilter)) {
-                        if (isAllowedToTakeFromSlot(aTileEntity1, aGrabSlots[i], (byte) aGrabFrom, aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
-                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize) <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
-                                ItemStack tStack = copyAmount(Math.min(aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize, Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)), aTileEntity1.getStackInSlot(aGrabSlots[i]));
-                                EntityItem tEntity = new EntityItem(((TileEntity) aTileEntity1).getWorldObj(), tX + 0.5, tY + 0.5, tZ + 0.5, tStack);
+                        if (isAllowedToTakeFromSlot(
+                            aTileEntity1,
+                            aGrabSlots[i],
+                            (byte) aGrabFrom,
+                            aTileEntity1.getStackInSlot(aGrabSlots[i]))) {
+                            if (Math.max(aMinMoveAtOnce, aMinTargetStackSize)
+                                <= aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize) {
+                                ItemStack tStack = copyAmount(
+                                    Math.min(
+                                        aTileEntity1.getStackInSlot(aGrabSlots[i]).stackSize,
+                                        Math.min(aMaxMoveAtOnce, aMaxTargetStackSize)),
+                                    aTileEntity1.getStackInSlot(aGrabSlots[i]));
+                                EntityItem tEntity = new EntityItem(
+                                    ((TileEntity) aTileEntity1).getWorldObj(),
+                                    tX + 0.5,
+                                    tY + 0.5,
+                                    tZ + 0.5,
+                                    tStack);
                                 tEntity.motionX = tEntity.motionY = tEntity.motionZ = 0;
-                                ((TileEntity) aTileEntity1).getWorldObj().spawnEntityInWorld(tEntity);
+                                ((TileEntity) aTileEntity1).getWorldObj()
+                                    .spawnEntityInWorld(tEntity);
                                 aTileEntity1.decrStackSize(aGrabSlots[i], tStack.stackSize);
                                 aTileEntity1.markDirty();
                                 return (byte) tStack.stackSize;
@@ -502,22 +600,37 @@ public class GT_Utility {
     }
 
     /**
-     * Moves Stack from Inv-Slot to Inv-Slot, without checking if its even allowed. (useful for internal Inventory Operations)
+     * Moves Stack from Inv-Slot to Inv-Slot, without checking if its even allowed. (useful for internal Inventory
+     * Operations)
      *
      * @return the Amount of moved Items
      */
-    public static byte moveStackFromSlotAToSlotB(IInventory aTileEntity1, IInventory aTileEntity2, int aGrabFrom, int aPutTo, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
-        if (aTileEntity1 == null || aTileEntity2 == null || aMaxTargetStackSize <= 0 || aMinTargetStackSize <= 0 || aMinTargetStackSize > aMaxTargetStackSize || aMaxMoveAtOnce <= 0 || aMinMoveAtOnce > aMaxMoveAtOnce)
-            return 0;
+    public static byte moveStackFromSlotAToSlotB(IInventory aTileEntity1, IInventory aTileEntity2, int aGrabFrom,
+        int aPutTo, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
+        if (aTileEntity1 == null || aTileEntity2 == null
+            || aMaxTargetStackSize <= 0
+            || aMinTargetStackSize <= 0
+            || aMinTargetStackSize > aMaxTargetStackSize
+            || aMaxMoveAtOnce <= 0
+            || aMinMoveAtOnce > aMaxMoveAtOnce) return 0;
 
-        ItemStack tStack1 = aTileEntity1.getStackInSlot(aGrabFrom), tStack2 = aTileEntity2.getStackInSlot(aPutTo), tStack3 = null;
+        ItemStack tStack1 = aTileEntity1.getStackInSlot(aGrabFrom), tStack2 = aTileEntity2.getStackInSlot(aPutTo),
+            tStack3 = null;
         if (tStack1 != null) {
             if (tStack2 != null && !areStacksEqual(tStack1, tStack2)) return 0;
             tStack3 = copy(tStack1);
-            aMaxTargetStackSize = (byte) Math.min(aMaxTargetStackSize, Math.min(tStack3.getMaxStackSize(), Math.min(tStack2 == null ? Integer.MAX_VALUE : tStack2.getMaxStackSize(), aTileEntity2.getInventoryStackLimit())));
-            tStack3.stackSize = Math.min(tStack3.stackSize, aMaxTargetStackSize - (tStack2 == null ? 0 : tStack2.stackSize));
+            aMaxTargetStackSize = (byte) Math.min(
+                aMaxTargetStackSize,
+                Math.min(
+                    tStack3.getMaxStackSize(),
+                    Math.min(
+                        tStack2 == null ? Integer.MAX_VALUE : tStack2.getMaxStackSize(),
+                        aTileEntity2.getInventoryStackLimit())));
+            tStack3.stackSize = Math
+                .min(tStack3.stackSize, aMaxTargetStackSize - (tStack2 == null ? 0 : tStack2.stackSize));
             if (tStack3.stackSize > aMaxMoveAtOnce) tStack3.stackSize = aMaxMoveAtOnce;
-            if (tStack3.stackSize + (tStack2 == null ? 0 : tStack2.stackSize) >= Math.min(tStack3.getMaxStackSize(), aMinTargetStackSize) && tStack3.stackSize >= aMinMoveAtOnce) {
+            if (tStack3.stackSize + (tStack2 == null ? 0 : tStack2.stackSize)
+                >= Math.min(tStack3.getMaxStackSize(), aMinTargetStackSize) && tStack3.stackSize >= aMinMoveAtOnce) {
                 tStack3 = aTileEntity1.decrStackSize(aGrabFrom, tStack3.stackSize);
                 aTileEntity1.markDirty();
                 if (tStack3 != null) {
@@ -538,31 +651,32 @@ public class GT_Utility {
     public static boolean isAllowedToTakeFromSlot(IInventory aTileEntity, int aSlot, byte aSide, ItemStack aStack) {
         if (ForgeDirection.getOrientation(aSide) == ForgeDirection.UNKNOWN) {
             return isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 0, aStack)
-                    || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 1, aStack)
-                    || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 2, aStack)
-                    || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 3, aStack)
-                    || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 4, aStack)
-                    || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 5, aStack);
+                || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 1, aStack)
+                || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 2, aStack)
+                || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 3, aStack)
+                || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 4, aStack)
+                || isAllowedToTakeFromSlot(aTileEntity, aSlot, (byte) 5, aStack);
         }
         if (aTileEntity instanceof ISidedInventory)
             return ((ISidedInventory) aTileEntity).canExtractItem(aSlot, aStack, aSide);
         return true;
     }
 
-    public static boolean isAllowedToPutIntoSlot(IInventory aTileEntity, int aSlot, byte aSide, ItemStack aStack, byte aMaxStackSize) {
+    public static boolean isAllowedToPutIntoSlot(IInventory aTileEntity, int aSlot, byte aSide, ItemStack aStack,
+        byte aMaxStackSize) {
         ItemStack tStack = aTileEntity.getStackInSlot(aSlot);
         if (tStack != null && (!areStacksEqual(tStack, aStack) || tStack.stackSize >= tStack.getMaxStackSize()))
             return false;
         if (ForgeDirection.getOrientation(aSide) == ForgeDirection.UNKNOWN) {
             return isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 0, aStack, aMaxStackSize)
-                    || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 1, aStack, aMaxStackSize)
-                    || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 2, aStack, aMaxStackSize)
-                    || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 3, aStack, aMaxStackSize)
-                    || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 4, aStack, aMaxStackSize)
-                    || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 5, aStack, aMaxStackSize);
+                || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 1, aStack, aMaxStackSize)
+                || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 2, aStack, aMaxStackSize)
+                || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 3, aStack, aMaxStackSize)
+                || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 4, aStack, aMaxStackSize)
+                || isAllowedToPutIntoSlot(aTileEntity, aSlot, (byte) 5, aStack, aMaxStackSize);
         }
-        if (aTileEntity instanceof ISidedInventory && !((ISidedInventory) aTileEntity).canInsertItem(aSlot, aStack, aSide))
-            return false;
+        if (aTileEntity instanceof ISidedInventory
+            && !((ISidedInventory) aTileEntity).canInsertItem(aSlot, aStack, aSide)) return false;
         return aSlot < aTileEntity.getSizeInventory() && aTileEntity.isItemValidForSlot(aSlot, aStack);
     }
 
@@ -571,17 +685,42 @@ public class GT_Utility {
      *
      * @return the Amount of moved Items
      */
-    public static byte moveOneItemStack(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
-        if (aTileEntity1 instanceof IInventory)
-            return moveOneItemStack((IInventory) aTileEntity1, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, true);
+    public static byte moveOneItemStack(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo,
+        List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
+        if (aTileEntity1 instanceof IInventory) return moveOneItemStack(
+            (IInventory) aTileEntity1,
+            aTileEntity2,
+            aGrabFrom,
+            aPutTo,
+            aFilter,
+            aInvertFilter,
+            aMaxTargetStackSize,
+            aMinTargetStackSize,
+            aMaxMoveAtOnce,
+            aMinMoveAtOnce,
+            true);
         return 0;
     }
 
-    public  static  byte moveSomeItemStacks(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce, byte aTimes) {
+    public static byte moveSomeItemStacks(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo,
+        List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce, byte aTimes) {
         byte movedItems = 0;
-        if (aTileEntity1 instanceof IInventory){
+        if (aTileEntity1 instanceof IInventory) {
             for (byte i = 0; i < aTimes; i++) {
-                movedItems += moveOneItemStack((IInventory) aTileEntity1, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, true);
+                movedItems += moveOneItemStack(
+                    (IInventory) aTileEntity1,
+                    aTileEntity2,
+                    aGrabFrom,
+                    aPutTo,
+                    aFilter,
+                    aInvertFilter,
+                    aMaxTargetStackSize,
+                    aMinTargetStackSize,
+                    aMaxMoveAtOnce,
+                    aMinMoveAtOnce,
+                    true);
             }
             return movedItems;
         }
@@ -591,9 +730,14 @@ public class GT_Utility {
     /**
      * This is only because I needed an additional Parameter for the Double Chest Check.
      */
-    private static byte moveOneItemStack(IInventory aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce, boolean aDoCheckChests) {
-        if (aTileEntity1 == null || aMaxTargetStackSize <= 0 || aMinTargetStackSize <= 0 || aMaxMoveAtOnce <= 0 || aMinTargetStackSize > aMaxTargetStackSize || aMinMoveAtOnce > aMaxMoveAtOnce)
-            return 0;
+    private static byte moveOneItemStack(IInventory aTileEntity1, Object aTileEntity2, byte aGrabFrom, byte aPutTo,
+        List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce, boolean aDoCheckChests) {
+        if (aTileEntity1 == null || aMaxTargetStackSize <= 0
+            || aMinTargetStackSize <= 0
+            || aMaxMoveAtOnce <= 0
+            || aMinTargetStackSize > aMaxTargetStackSize
+            || aMinMoveAtOnce > aMaxMoveAtOnce) return 0;
 
         int[] tGrabSlots = null;
         if (aTileEntity1 instanceof ISidedInventory)
@@ -614,14 +758,31 @@ public class GT_Utility {
             }
 
             for (int i = 0; i < tGrabSlots.length; i++) {
-            	byte tMovedItemCount = 0;
+                byte tMovedItemCount = 0;
                 for (int j = 0; j < tPutSlots.length; j++) {
                     if (listContainsItem(aFilter, aTileEntity1.getStackInSlot(tGrabSlots[i]), true, aInvertFilter)) {
-                        if (isAllowedToTakeFromSlot(aTileEntity1, tGrabSlots[i], aGrabFrom, aTileEntity1.getStackInSlot(tGrabSlots[i]))) {
-                            if (isAllowedToPutIntoSlot((IInventory) aTileEntity2, tPutSlots[j], aPutTo, aTileEntity1.getStackInSlot(tGrabSlots[i]), aMaxTargetStackSize)) {
-                                tMovedItemCount += moveStackFromSlotAToSlotB(aTileEntity1, (IInventory) aTileEntity2, tGrabSlots[i], tPutSlots[j], aMaxTargetStackSize, aMinTargetStackSize, (byte) (aMaxMoveAtOnce - tMovedItemCount), aMinMoveAtOnce);
+                        if (isAllowedToTakeFromSlot(
+                            aTileEntity1,
+                            tGrabSlots[i],
+                            aGrabFrom,
+                            aTileEntity1.getStackInSlot(tGrabSlots[i]))) {
+                            if (isAllowedToPutIntoSlot(
+                                (IInventory) aTileEntity2,
+                                tPutSlots[j],
+                                aPutTo,
+                                aTileEntity1.getStackInSlot(tGrabSlots[i]),
+                                aMaxTargetStackSize)) {
+                                tMovedItemCount += moveStackFromSlotAToSlotB(
+                                    aTileEntity1,
+                                    (IInventory) aTileEntity2,
+                                    tGrabSlots[i],
+                                    tPutSlots[j],
+                                    aMaxTargetStackSize,
+                                    aMinTargetStackSize,
+                                    (byte) (aMaxMoveAtOnce - tMovedItemCount),
+                                    aMinMoveAtOnce);
                                 if (tMovedItemCount >= aMaxMoveAtOnce) {
-                                	return tMovedItemCount;
+                                    return tMovedItemCount;
                                 }
                             }
                         }
@@ -635,13 +796,57 @@ public class GT_Utility {
                 if (tTileEntity1.adjacentChestChecked) {
                     byte tAmount = 0;
                     if (tTileEntity1.adjacentChestXNeg != null) {
-                        tAmount = moveOneItemStack(tTileEntity1.adjacentChestXNeg, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            tTileEntity1.adjacentChestXNeg,
+                            aTileEntity2,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity1.adjacentChestZNeg != null) {
-                        tAmount = moveOneItemStack(tTileEntity1.adjacentChestZNeg, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            tTileEntity1.adjacentChestZNeg,
+                            aTileEntity2,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity1.adjacentChestXPos != null) {
-                        tAmount = moveOneItemStack(tTileEntity1.adjacentChestXPos, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            tTileEntity1.adjacentChestXPos,
+                            aTileEntity2,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity1.adjacentChestZPos != null) {
-                        tAmount = moveOneItemStack(tTileEntity1.adjacentChestZPos, aTileEntity2, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            tTileEntity1.adjacentChestZPos,
+                            aTileEntity2,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     }
                     if (tAmount != 0) return tAmount;
                 }
@@ -651,20 +856,76 @@ public class GT_Utility {
                 if (tTileEntity2.adjacentChestChecked) {
                     byte tAmount = 0;
                     if (tTileEntity2.adjacentChestXNeg != null) {
-                        tAmount = moveOneItemStack(aTileEntity1, tTileEntity2.adjacentChestXNeg, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            aTileEntity1,
+                            tTileEntity2.adjacentChestXNeg,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity2.adjacentChestZNeg != null) {
-                        tAmount = moveOneItemStack(aTileEntity1, tTileEntity2.adjacentChestZNeg, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            aTileEntity1,
+                            tTileEntity2.adjacentChestZNeg,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity2.adjacentChestXPos != null) {
-                        tAmount = moveOneItemStack(aTileEntity1, tTileEntity2.adjacentChestXPos, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            aTileEntity1,
+                            tTileEntity2.adjacentChestXPos,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     } else if (tTileEntity2.adjacentChestZPos != null) {
-                        tAmount = moveOneItemStack(aTileEntity1, tTileEntity2.adjacentChestZPos, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, false);
+                        tAmount = moveOneItemStack(
+                            aTileEntity1,
+                            tTileEntity2.adjacentChestZPos,
+                            aGrabFrom,
+                            aPutTo,
+                            aFilter,
+                            aInvertFilter,
+                            aMaxTargetStackSize,
+                            aMinTargetStackSize,
+                            aMaxMoveAtOnce,
+                            aMinMoveAtOnce,
+                            false);
                     }
                     if (tAmount != 0) return tAmount;
                 }
             }
         }
 
-        return moveStackIntoPipe(aTileEntity1, aTileEntity2, tGrabSlots, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce, aDoCheckChests);
+        return moveStackIntoPipe(
+            aTileEntity1,
+            aTileEntity2,
+            tGrabSlots,
+            aGrabFrom,
+            aPutTo,
+            aFilter,
+            aInvertFilter,
+            aMaxTargetStackSize,
+            aMinTargetStackSize,
+            aMaxMoveAtOnce,
+            aMinMoveAtOnce,
+            aDoCheckChests);
     }
 
     /**
@@ -672,9 +933,16 @@ public class GT_Utility {
      *
      * @return the Amount of moved Items
      */
-    public static byte moveOneItemStackIntoSlot(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
-        if (aTileEntity1 == null || !(aTileEntity1 instanceof IInventory) || aPutTo < 0 || aMaxTargetStackSize <= 0 || aMinTargetStackSize <= 0 || aMaxMoveAtOnce <= 0 || aMinTargetStackSize > aMaxTargetStackSize || aMinMoveAtOnce > aMaxMoveAtOnce)
-            return 0;
+    public static byte moveOneItemStackIntoSlot(Object aTileEntity1, Object aTileEntity2, byte aGrabFrom, int aPutTo,
+        List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
+        if (aTileEntity1 == null || !(aTileEntity1 instanceof IInventory)
+            || aPutTo < 0
+            || aMaxTargetStackSize <= 0
+            || aMinTargetStackSize <= 0
+            || aMaxMoveAtOnce <= 0
+            || aMinTargetStackSize > aMaxTargetStackSize
+            || aMinMoveAtOnce > aMaxMoveAtOnce) return 0;
 
         int[] tGrabSlots = null;
         if (aTileEntity1 instanceof ISidedInventory)
@@ -686,10 +954,31 @@ public class GT_Utility {
 
         if (aTileEntity2 instanceof IInventory) {
             for (int i = 0; i < tGrabSlots.length; i++) {
-                if (listContainsItem(aFilter, ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]), true, aInvertFilter)) {
-                    if (isAllowedToTakeFromSlot((IInventory) aTileEntity1, tGrabSlots[i], aGrabFrom, ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]))) {
-                        if (isAllowedToPutIntoSlot((IInventory) aTileEntity2, aPutTo, (byte) 6, ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]), aMaxTargetStackSize)) {
-                            byte tMovedItemCount = moveStackFromSlotAToSlotB((IInventory) aTileEntity1, (IInventory) aTileEntity2, tGrabSlots[i], aPutTo, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce);
+                if (listContainsItem(
+                    aFilter,
+                    ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]),
+                    true,
+                    aInvertFilter)) {
+                    if (isAllowedToTakeFromSlot(
+                        (IInventory) aTileEntity1,
+                        tGrabSlots[i],
+                        aGrabFrom,
+                        ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]))) {
+                        if (isAllowedToPutIntoSlot(
+                            (IInventory) aTileEntity2,
+                            aPutTo,
+                            (byte) 6,
+                            ((IInventory) aTileEntity1).getStackInSlot(tGrabSlots[i]),
+                            aMaxTargetStackSize)) {
+                            byte tMovedItemCount = moveStackFromSlotAToSlotB(
+                                (IInventory) aTileEntity1,
+                                (IInventory) aTileEntity2,
+                                tGrabSlots[i],
+                                aPutTo,
+                                aMaxTargetStackSize,
+                                aMinTargetStackSize,
+                                aMaxMoveAtOnce,
+                                aMinMoveAtOnce);
                             if (tMovedItemCount > 0) return tMovedItemCount;
                         }
                     }
@@ -697,7 +986,18 @@ public class GT_Utility {
             }
         }
 
-        moveStackIntoPipe(((IInventory) aTileEntity1), aTileEntity2, tGrabSlots, aGrabFrom, aPutTo, aFilter, aInvertFilter, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce);
+        moveStackIntoPipe(
+            ((IInventory) aTileEntity1),
+            aTileEntity2,
+            tGrabSlots,
+            aGrabFrom,
+            aPutTo,
+            aFilter,
+            aInvertFilter,
+            aMaxTargetStackSize,
+            aMinTargetStackSize,
+            aMaxMoveAtOnce,
+            aMinMoveAtOnce);
         return 0;
     }
 
@@ -706,13 +1006,34 @@ public class GT_Utility {
      *
      * @return the Amount of moved Items
      */
-    public static byte moveFromSlotToSlot(IInventory aTileEntity1, IInventory aTileEntity2, int aGrabFrom, int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize, byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
-        if (aTileEntity1 == null || aTileEntity2 == null || aGrabFrom < 0 || aPutTo < 0 || aMaxTargetStackSize <= 0 || aMinTargetStackSize <= 0 || aMaxMoveAtOnce <= 0 || aMinTargetStackSize > aMaxTargetStackSize || aMinMoveAtOnce > aMaxMoveAtOnce)
-            return 0;
+    public static byte moveFromSlotToSlot(IInventory aTileEntity1, IInventory aTileEntity2, int aGrabFrom, int aPutTo,
+        List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
+        byte aMaxMoveAtOnce, byte aMinMoveAtOnce) {
+        if (aTileEntity1 == null || aTileEntity2 == null
+            || aGrabFrom < 0
+            || aPutTo < 0
+            || aMaxTargetStackSize <= 0
+            || aMinTargetStackSize <= 0
+            || aMaxMoveAtOnce <= 0
+            || aMinTargetStackSize > aMaxTargetStackSize
+            || aMinMoveAtOnce > aMaxMoveAtOnce) return 0;
         if (listContainsItem(aFilter, aTileEntity1.getStackInSlot(aGrabFrom), true, aInvertFilter)) {
             if (isAllowedToTakeFromSlot(aTileEntity1, aGrabFrom, (byte) 6, aTileEntity1.getStackInSlot(aGrabFrom))) {
-                if (isAllowedToPutIntoSlot(aTileEntity2, aPutTo, (byte) 6, aTileEntity1.getStackInSlot(aGrabFrom), aMaxTargetStackSize)) {
-                    byte tMovedItemCount = moveStackFromSlotAToSlotB(aTileEntity1, aTileEntity2, aGrabFrom, aPutTo, aMaxTargetStackSize, aMinTargetStackSize, aMaxMoveAtOnce, aMinMoveAtOnce);
+                if (isAllowedToPutIntoSlot(
+                    aTileEntity2,
+                    aPutTo,
+                    (byte) 6,
+                    aTileEntity1.getStackInSlot(aGrabFrom),
+                    aMaxTargetStackSize)) {
+                    byte tMovedItemCount = moveStackFromSlotAToSlotB(
+                        aTileEntity1,
+                        aTileEntity2,
+                        aGrabFrom,
+                        aPutTo,
+                        aMaxTargetStackSize,
+                        aMinTargetStackSize,
+                        aMaxMoveAtOnce,
+                        aMinMoveAtOnce);
                     if (tMovedItemCount > 0) return tMovedItemCount;
                 }
             }
@@ -720,7 +1041,8 @@ public class GT_Utility {
         return 0;
     }
 
-    public static boolean listContainsItem(Collection<ItemStack> aList, ItemStack aStack, boolean aTIfListEmpty, boolean aInvertFilter) {
+    public static boolean listContainsItem(Collection<ItemStack> aList, ItemStack aStack, boolean aTIfListEmpty,
+        boolean aInvertFilter) {
         if (aStack == null || aStack.stackSize < 1) return false;
         if (aList == null) return aTIfListEmpty;
         while (aList.contains(null)) aList.remove(null);
@@ -734,8 +1056,14 @@ public class GT_Utility {
 
     public static boolean areStacksOrToolsEqual(ItemStack aStack1, ItemStack aStack2) {
         if (aStack1 != null && aStack2 != null && aStack1.getItem() == aStack2.getItem()) {
-            if (aStack1.getItem().isDamageable()) return true;
-            return ((aStack1.getTagCompound() == null) == (aStack2.getTagCompound() == null)) && (aStack1.getTagCompound() == null || aStack1.getTagCompound().equals(aStack2.getTagCompound())) && (Items.feather.getDamage(aStack1) == Items.feather.getDamage(aStack2) || Items.feather.getDamage(aStack1) == W || Items.feather.getDamage(aStack2) == W);
+            if (aStack1.getItem()
+                .isDamageable()) return true;
+            return ((aStack1.getTagCompound() == null) == (aStack2.getTagCompound() == null))
+                && (aStack1.getTagCompound() == null || aStack1.getTagCompound()
+                    .equals(aStack2.getTagCompound()))
+                && (Items.feather.getDamage(aStack1) == Items.feather.getDamage(aStack2)
+                    || Items.feather.getDamage(aStack1) == W
+                    || Items.feather.getDamage(aStack2) == W);
         }
         return false;
     }
@@ -745,7 +1073,10 @@ public class GT_Utility {
     }
 
     public static boolean areFluidsEqual(FluidStack aFluid1, FluidStack aFluid2, boolean aIgnoreNBT) {
-        return aFluid1 != null && aFluid2 != null && aFluid1.getFluid() == aFluid2.getFluid() && (aIgnoreNBT || ((aFluid1.tag == null) == (aFluid2.tag == null)) && (aFluid1.tag == null || aFluid1.tag.equals(aFluid2.tag)));
+        return aFluid1 != null && aFluid2 != null
+            && aFluid1.getFluid() == aFluid2.getFluid()
+            && (aIgnoreNBT || ((aFluid1.tag == null) == (aFluid2.tag == null))
+                && (aFluid1.tag == null || aFluid1.tag.equals(aFluid2.tag)));
     }
 
     public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2) {
@@ -753,7 +1084,14 @@ public class GT_Utility {
     }
 
     public static boolean areStacksEqual(ItemStack aStack1, ItemStack aStack2, boolean aIgnoreNBT) {
-        return aStack1 != null && aStack2 != null && aStack1.getItem() == aStack2.getItem() && (aIgnoreNBT || ((aStack1.getTagCompound() == null) == (aStack2.getTagCompound() == null)) && (aStack1.getTagCompound() == null || aStack1.getTagCompound().equals(aStack2.getTagCompound()))) && (Items.feather.getDamage(aStack1) == Items.feather.getDamage(aStack2) || Items.feather.getDamage(aStack1) == W || Items.feather.getDamage(aStack2) == W);
+        return aStack1 != null && aStack2 != null
+            && aStack1.getItem() == aStack2.getItem()
+            && (aIgnoreNBT || ((aStack1.getTagCompound() == null) == (aStack2.getTagCompound() == null))
+                && (aStack1.getTagCompound() == null || aStack1.getTagCompound()
+                    .equals(aStack2.getTagCompound())))
+            && (Items.feather.getDamage(aStack1) == Items.feather.getDamage(aStack2)
+                || Items.feather.getDamage(aStack1) == W
+                || Items.feather.getDamage(aStack2) == W);
     }
 
     public static boolean areUnificationsEqual(ItemStack aStack1, ItemStack aStack2) {
@@ -767,8 +1105,9 @@ public class GT_Utility {
     public static String getFluidName(Fluid aFluid, boolean aLocalized) {
         if (aFluid == null) return E;
         String rName = aLocalized ? aFluid.getLocalizedName(new FluidStack(aFluid, 0)) : aFluid.getUnlocalizedName();
-        if (rName.contains("fluid.") || rName.contains("tile."))
-            return capitalizeString(rName.replaceAll("fluid.", E).replaceAll("tile.", E));
+        if (rName.contains("fluid.") || rName.contains("tile.")) return capitalizeString(
+            rName.replaceAll("fluid.", E)
+                .replaceAll("tile.", E));
         return rName;
     }
 
@@ -782,9 +1121,12 @@ public class GT_Utility {
         sEmptyContainerToFluidToData.clear();
         for (FluidContainerData tData : sFluidContainerList) {
             sFilledContainerToData.put(new GT_ItemStack(tData.filledContainer), tData);
-            Map<Fluid, FluidContainerData> tFluidToContainer = sEmptyContainerToFluidToData.get(new GT_ItemStack(tData.emptyContainer));
+            Map<Fluid, FluidContainerData> tFluidToContainer = sEmptyContainerToFluidToData
+                .get(new GT_ItemStack(tData.emptyContainer));
             if (tFluidToContainer == null) {
-                sEmptyContainerToFluidToData.put(new GT_ItemStack(tData.emptyContainer), tFluidToContainer = new /*Concurrent*/HashMap<Fluid, FluidContainerData>());
+                sEmptyContainerToFluidToData.put(
+                    new GT_ItemStack(tData.emptyContainer),
+                    tFluidToContainer = new /* Concurrent */HashMap<Fluid, FluidContainerData>());
                 GregTech_API.sFluidMappings.add(tFluidToContainer);
             }
             tFluidToContainer.put(tData.fluid.getFluid(), tData);
@@ -794,15 +1136,19 @@ public class GT_Utility {
     public static void addFluidContainerData(FluidContainerData aData) {
         sFluidContainerList.add(aData);
         sFilledContainerToData.put(new GT_ItemStack(aData.filledContainer), aData);
-        Map<Fluid, FluidContainerData> tFluidToContainer = sEmptyContainerToFluidToData.get(new GT_ItemStack(aData.emptyContainer));
+        Map<Fluid, FluidContainerData> tFluidToContainer = sEmptyContainerToFluidToData
+            .get(new GT_ItemStack(aData.emptyContainer));
         if (tFluidToContainer == null) {
-            sEmptyContainerToFluidToData.put(new GT_ItemStack(aData.emptyContainer), tFluidToContainer = new /*Concurrent*/HashMap<Fluid, FluidContainerData>());
+            sEmptyContainerToFluidToData.put(
+                new GT_ItemStack(aData.emptyContainer),
+                tFluidToContainer = new /* Concurrent */HashMap<Fluid, FluidContainerData>());
             GregTech_API.sFluidMappings.add(tFluidToContainer);
         }
         tFluidToContainer.put(aData.fluid.getFluid(), aData);
     }
 
-    public static ItemStack fillFluidContainer(FluidStack aFluid, ItemStack aStack, boolean aRemoveFluidDirectly, boolean aCheckIFluidContainerItems) {
+    public static ItemStack fillFluidContainer(FluidStack aFluid, ItemStack aStack, boolean aRemoveFluidDirectly,
+        boolean aCheckIFluidContainerItems) {
         if (isStackInvalid(aStack) || aFluid == null) return null;
         if (GT_ModHandler.isWater(aFluid) && ItemList.Bottle_Empty.isStackEqual(aStack)) {
             if (aFluid.amount >= 250) {
@@ -811,11 +1157,12 @@ public class GT_Utility {
             }
             return null;
         }
-        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem && ((IFluidContainerItem) aStack.getItem()).getFluid(aStack) == null && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) <= aFluid.amount) {
-            if (aRemoveFluidDirectly)
-                aFluid.amount -= ((IFluidContainerItem) aStack.getItem()).fill(aStack = copyAmount(1, aStack), aFluid, true);
-            else
-                ((IFluidContainerItem) aStack.getItem()).fill(aStack = copyAmount(1, aStack), aFluid, true);
+        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
+            && ((IFluidContainerItem) aStack.getItem()).getFluid(aStack) == null
+            && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) <= aFluid.amount) {
+            if (aRemoveFluidDirectly) aFluid.amount -= ((IFluidContainerItem) aStack.getItem())
+                .fill(aStack = copyAmount(1, aStack), aFluid, true);
+            else((IFluidContainerItem) aStack.getItem()).fill(aStack = copyAmount(1, aStack), aFluid, true);
             return aStack;
         }
         Map<Fluid, FluidContainerData> tFluidToContainer = sEmptyContainerToFluidToData.get(new GT_ItemStack(aStack));
@@ -834,30 +1181,40 @@ public class GT_Utility {
         if (aFluid == null || aFluid.getFluid() == null) return null;
         int tmp = 0;
         try {
-            tmp = aFluid.getFluid().getID();
+            tmp = aFluid.getFluid()
+                .getID();
         } catch (Exception e) {
             System.err.println(e);
         }
         ItemStack rStack = ItemList.Display_Fluid.getWithDamage(aUseStackSize ? aFluid.amount / 1000 : 1, tmp);
         NBTTagCompound tNBT = new NBTTagCompound();
         tNBT.setLong("mFluidDisplayAmount", aFluid.amount);
-        tNBT.setLong("mFluidDisplayHeat", aFluid.getFluid().getTemperature(aFluid));
-        tNBT.setBoolean("mFluidState", aFluid.getFluid().isGaseous(aFluid));
+        tNBT.setLong(
+            "mFluidDisplayHeat",
+            aFluid.getFluid()
+                .getTemperature(aFluid));
+        tNBT.setBoolean(
+            "mFluidState",
+            aFluid.getFluid()
+                .isGaseous(aFluid));
         rStack.setTagCompound(tNBT);
         return rStack;
     }
 
     public static boolean containsFluid(ItemStack aStack, FluidStack aFluid, boolean aCheckIFluidContainerItems) {
         if (isStackInvalid(aStack) || aFluid == null) return false;
-        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0)
-            return aFluid.isFluidEqual(((IFluidContainerItem) aStack.getItem()).getFluid(aStack = copyAmount(1, aStack)));
+        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
+            && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0)
+            return aFluid
+                .isFluidEqual(((IFluidContainerItem) aStack.getItem()).getFluid(aStack = copyAmount(1, aStack)));
         FluidContainerData tData = sFilledContainerToData.get(new GT_ItemStack(aStack));
         return tData == null ? false : tData.fluid.isFluidEqual(aFluid);
     }
 
     public static FluidStack getFluidForFilledItem(ItemStack aStack, boolean aCheckIFluidContainerItems) {
         if (isStackInvalid(aStack)) return null;
-        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0)
+        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
+            && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0)
             return ((IFluidContainerItem) aStack.getItem()).drain(copyAmount(1, aStack), Integer.MAX_VALUE, true);
         FluidContainerData tData = sFilledContainerToData.get(new GT_ItemStack(aStack));
         return tData == null ? null : tData.fluid.copy();
@@ -867,7 +1224,8 @@ public class GT_Utility {
         if (isStackInvalid(aStack)) return null;
         FluidContainerData tData = sFilledContainerToData.get(new GT_ItemStack(aStack));
         if (tData != null) return copyAmount(1, tData.emptyContainer);
-        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0) {
+        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
+            && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0) {
             ((IFluidContainerItem) aStack.getItem()).drain(aStack = copyAmount(1, aStack), Integer.MAX_VALUE, true);
             return aStack;
         }
@@ -876,14 +1234,21 @@ public class GT_Utility {
 
     public static ItemStack getContainerItem(ItemStack aStack, boolean aCheckIFluidContainerItems) {
         if (isStackInvalid(aStack)) return null;
-        if (aStack.getItem().hasContainerItem(aStack)) return aStack.getItem().getContainerItem(aStack);
-        /** These are all special Cases, in which it is intended to have only GT Blocks outputting those Container Items */
+        if (aStack.getItem()
+            .hasContainerItem(aStack))
+            return aStack.getItem()
+                .getContainerItem(aStack);
+        /**
+         * These are all special Cases, in which it is intended to have only GT Blocks outputting those Container Items
+         */
         if (ItemList.Cell_Empty.isStackEqual(aStack, false, true)) return null;
         if (ItemList.IC2_Fuel_Can_Filled.isStackEqual(aStack, false, true)) return ItemList.IC2_Fuel_Can_Empty.get(1);
-        if (aStack.getItem() == Items.potionitem || aStack.getItem() == Items.experience_bottle || ItemList.TF_Vial_FieryBlood.isStackEqual(aStack) || ItemList.TF_Vial_FieryTears.isStackEqual(aStack))
-            return ItemList.Bottle_Empty.get(1);
+        if (aStack.getItem() == Items.potionitem || aStack.getItem() == Items.experience_bottle
+            || ItemList.TF_Vial_FieryBlood.isStackEqual(aStack)
+            || ItemList.TF_Vial_FieryTears.isStackEqual(aStack)) return ItemList.Bottle_Empty.get(1);
 
-        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0) {
+        if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
+            && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0) {
             ItemStack tStack = copyAmount(1, aStack);
             ((IFluidContainerItem) aStack.getItem()).drain(tStack, Integer.MAX_VALUE, true);
             if (!areStacksEqual(aStack, tStack)) return tStack;
@@ -897,15 +1262,20 @@ public class GT_Utility {
             return copyMetaData(Items.feather.getDamage(aStack) + 1, aStack);
         return null;
     }
-    
-    public static synchronized boolean removeIC2BottleRecipe(ItemStack aContainer, ItemStack aInput, Map<ic2.api.recipe.ICannerBottleRecipeManager.Input, RecipeOutput> aRecipeList, ItemStack aOutput){
-        if ((isStackInvalid(aInput) && isStackInvalid(aOutput) && isStackInvalid(aContainer)) || aRecipeList == null) return false;
+
+    public static synchronized boolean removeIC2BottleRecipe(ItemStack aContainer, ItemStack aInput,
+        Map<ic2.api.recipe.ICannerBottleRecipeManager.Input, RecipeOutput> aRecipeList, ItemStack aOutput) {
+        if ((isStackInvalid(aInput) && isStackInvalid(aOutput) && isStackInvalid(aContainer)) || aRecipeList == null)
+            return false;
         boolean rReturn = false;
-        Iterator<Map.Entry<ic2.api.recipe.ICannerBottleRecipeManager.Input, RecipeOutput>> tIterator = aRecipeList.entrySet().iterator();
+        Iterator<Map.Entry<ic2.api.recipe.ICannerBottleRecipeManager.Input, RecipeOutput>> tIterator = aRecipeList
+            .entrySet()
+            .iterator();
         aOutput = GT_OreDictUnificator.get(aOutput);
         while (tIterator.hasNext()) {
             Map.Entry<ic2.api.recipe.ICannerBottleRecipeManager.Input, RecipeOutput> tEntry = tIterator.next();
-            if (aInput == null || tEntry.getKey().matches(aContainer, aInput)) {
+            if (aInput == null || tEntry.getKey()
+                .matches(aContainer, aInput)) {
                 List<ItemStack> tList = tEntry.getValue().items;
                 if (tList != null) for (ItemStack tOutput : tList)
                     if (aOutput == null || areStacksEqual(GT_OreDictUnificator.get(tOutput), aOutput)) {
@@ -918,14 +1288,17 @@ public class GT_Utility {
         return rReturn;
     }
 
-    public static synchronized boolean removeSimpleIC2MachineRecipe(ItemStack aInput, Map<IRecipeInput, RecipeOutput> aRecipeList, ItemStack aOutput) {
+    public static synchronized boolean removeSimpleIC2MachineRecipe(ItemStack aInput,
+        Map<IRecipeInput, RecipeOutput> aRecipeList, ItemStack aOutput) {
         if ((isStackInvalid(aInput) && isStackInvalid(aOutput)) || aRecipeList == null) return false;
         boolean rReturn = false;
-        Iterator<Map.Entry<IRecipeInput, RecipeOutput>> tIterator = aRecipeList.entrySet().iterator();
+        Iterator<Map.Entry<IRecipeInput, RecipeOutput>> tIterator = aRecipeList.entrySet()
+            .iterator();
         aOutput = GT_OreDictUnificator.get(aOutput);
         while (tIterator.hasNext()) {
             Map.Entry<IRecipeInput, RecipeOutput> tEntry = tIterator.next();
-            if (aInput == null || tEntry.getKey().matches(aInput)) {
+            if (aInput == null || tEntry.getKey()
+                .matches(aInput)) {
                 List<ItemStack> tList = tEntry.getValue().items;
                 if (tList != null) for (ItemStack tOutput : tList)
                     if (aOutput == null || areStacksEqual(GT_OreDictUnificator.get(tOutput), aOutput)) {
@@ -938,7 +1311,8 @@ public class GT_Utility {
         return rReturn;
     }
 
-    public static boolean addSimpleIC2MachineRecipe(ItemStack aInput, Map<IRecipeInput, RecipeOutput> aRecipeList, NBTTagCompound aNBT, Object... aOutput) {
+    public static boolean addSimpleIC2MachineRecipe(ItemStack aInput, Map<IRecipeInput, RecipeOutput> aRecipeList,
+        NBTTagCompound aNBT, Object... aOutput) {
         if (isStackInvalid(aInput) || aOutput.length == 0 || aRecipeList == null) return false;
         ItemData tOreName = GT_OreDictUnificator.getAssociation(aInput);
         for (int i = 0; i < aOutput.length; i++) {
@@ -948,10 +1322,15 @@ public class GT_Utility {
             }
         }
         ItemStack[] tStack = GT_OreDictUnificator.getStackArray(true, aOutput);
-        if(tStack==null||(tStack.length>0&&GT_Utility.areStacksEqual(aInput, tStack[0])))return false;
+        if (tStack == null || (tStack.length > 0 && GT_Utility.areStacksEqual(aInput, tStack[0]))) return false;
         if (tOreName != null) {
-        	if(tOreName.toString().equals("dustAsh")&&tStack[0].getUnlocalizedName().equals("tile.volcanicAsh"))return false;
-            aRecipeList.put(new RecipeInputOreDict(tOreName.toString(), aInput.stackSize), new RecipeOutput(aNBT, tStack));
+            if (tOreName.toString()
+                .equals("dustAsh")
+                && tStack[0].getUnlocalizedName()
+                    .equals("tile.volcanicAsh"))
+                return false;
+            aRecipeList
+                .put(new RecipeInputOreDict(tOreName.toString(), aInput.stackSize), new RecipeOutput(aNBT, tStack));
         } else {
             aRecipeList.put(new RecipeInputItemStack(copy(aInput), aInput.stackSize), new RecipeOutput(aNBT, tStack));
         }
@@ -981,21 +1360,31 @@ public class GT_Utility {
         tNBT.setString("author", aAuthor);
         NBTTagList tNBTList = new NBTTagList();
         for (byte i = 0; i < aPages.length; i++) {
-            aPages[i] = GT_LanguageManager.addStringLocalization("Book." + aTitle + ".Page" + ((i < 10) ? "0" + i : i), aPages[i]);
+            aPages[i] = GT_LanguageManager
+                .addStringLocalization("Book." + aTitle + ".Page" + ((i < 10) ? "0" + i : i), aPages[i]);
             if (i < 48) {
-                if (aPages[i].length() < 256)
-                    tNBTList.appendTag(new NBTTagString(aPages[i]));
-                else
-                    GT_Log.err.println("WARNING: String for written Book too long! -> " + aPages[i]);
+                if (aPages[i].length() < 256) tNBTList.appendTag(new NBTTagString(aPages[i]));
+                else GT_Log.err.println("WARNING: String for written Book too long! -> " + aPages[i]);
             } else {
                 GT_Log.err.println("WARNING: Too much Pages for written Book! -> " + aTitle);
                 break;
             }
         }
-        tNBTList.appendTag(new NBTTagString("Credits to " + aAuthor + " for writing this Book. This was Book Nr. " + sBookCount + " at its creation. Gotta get 'em all!"));
+        tNBTList.appendTag(
+            new NBTTagString(
+                "Credits to " + aAuthor
+                    + " for writing this Book. This was Book Nr. "
+                    + sBookCount
+                    + " at its creation. Gotta get 'em all!"));
         tNBT.setTag("pages", tNBTList);
         rStack.setTagCompound(tNBT);
-        GT_Log.out.println("GT_Mod: Added Book to Book List  -  Mapping: '" + aMapping + "'  -  Name: '" + aTitle + "'  -  Author: '" + aAuthor + "'");
+        GT_Log.out.println(
+            "GT_Mod: Added Book to Book List  -  Mapping: '" + aMapping
+                + "'  -  Name: '"
+                + aTitle
+                + "'  -  Author: '"
+                + aAuthor
+                + "'");
         GregTech_API.sBookList.put(aMapping, rStack);
         return copy(rStack);
     }
@@ -1004,28 +1393,59 @@ public class GT_Utility {
         return doSoundAtClient(aSoundName, aTimeUntilNextSound, aSoundStrength, GT.getThePlayer());
     }
 
-    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength, Entity aEntity) {
+    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength,
+        Entity aEntity) {
         if (aEntity == null) return false;
-        return doSoundAtClient(aSoundName, aTimeUntilNextSound, aSoundStrength, aEntity.posX, aEntity.posY, aEntity.posZ);
+        return doSoundAtClient(
+            aSoundName,
+            aTimeUntilNextSound,
+            aSoundStrength,
+            aEntity.posX,
+            aEntity.posY,
+            aEntity.posZ);
     }
 
-    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength, double aX, double aY, double aZ) {
+    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength, double aX,
+        double aY, double aZ) {
         return doSoundAtClient(aSoundName, aTimeUntilNextSound, aSoundStrength, 1.01818028F, aX, aY, aZ);
     }
 
-    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength, float aSoundModulation, double aX, double aY, double aZ) {
-        if (isStringInvalid(aSoundName) || !FMLCommonHandler.instance().getEffectiveSide().isClient() || GT.getThePlayer() == null || !GT.getThePlayer().worldObj.isRemote)
-            return false;
-        if (GregTech_API.sMultiThreadedSounds)
-            new Thread(new GT_Runnable_Sound(GT.getThePlayer().worldObj, MathHelper.floor_double(aX), MathHelper.floor_double(aY), MathHelper.floor_double(aZ), aTimeUntilNextSound, aSoundName, aSoundStrength, aSoundModulation), "Sound Effect").start();
-        else
-            new GT_Runnable_Sound(GT.getThePlayer().worldObj, MathHelper.floor_double(aX), MathHelper.floor_double(aY), MathHelper.floor_double(aZ), aTimeUntilNextSound, aSoundName, aSoundStrength, aSoundModulation).run();
+    public static boolean doSoundAtClient(String aSoundName, int aTimeUntilNextSound, float aSoundStrength,
+        float aSoundModulation, double aX, double aY, double aZ) {
+        if (isStringInvalid(aSoundName) || !FMLCommonHandler.instance()
+            .getEffectiveSide()
+            .isClient() || GT.getThePlayer() == null || !GT.getThePlayer().worldObj.isRemote) return false;
+        if (GregTech_API.sMultiThreadedSounds) new Thread(
+            new GT_Runnable_Sound(
+                GT.getThePlayer().worldObj,
+                MathHelper.floor_double(aX),
+                MathHelper.floor_double(aY),
+                MathHelper.floor_double(aZ),
+                aTimeUntilNextSound,
+                aSoundName,
+                aSoundStrength,
+                aSoundModulation),
+            "Sound Effect").start();
+        else new GT_Runnable_Sound(
+            GT.getThePlayer().worldObj,
+            MathHelper.floor_double(aX),
+            MathHelper.floor_double(aY),
+            MathHelper.floor_double(aZ),
+            aTimeUntilNextSound,
+            aSoundName,
+            aSoundStrength,
+            aSoundModulation).run();
         return true;
     }
 
-    public static boolean sendSoundToPlayers(World aWorld, String aSoundName, float aSoundStrength, float aSoundModulation, int aX, int aY, int aZ) {
+    public static boolean sendSoundToPlayers(World aWorld, String aSoundName, float aSoundStrength,
+        float aSoundModulation, int aX, int aY, int aZ) {
         if (isStringInvalid(aSoundName) || aWorld == null || aWorld.isRemote) return false;
-        NW.sendPacketToAllPlayersInRange(aWorld, new GT_Packet_Sound(aSoundName, aSoundStrength, aSoundModulation, aX, (short) aY, aZ), aX, aZ);
+        NW.sendPacketToAllPlayersInRange(
+            aWorld,
+            new GT_Packet_Sound(aSoundName, aSoundStrength, aSoundModulation, aX, (short) aY, aZ),
+            aX,
+            aZ);
         return true;
     }
 
@@ -1086,7 +1506,7 @@ public class GT_Utility {
     public static <T> ArrayList<T> getArrayListWithoutTrailingNulls(T... aArray) {
         if (aArray == null) return new ArrayList<T>();
         ArrayList<T> rList = new ArrayList<T>(Arrays.asList(aArray));
-        for (int i = rList.size() - 1; i >= 0 && rList.get(i) == null; ) rList.remove(i--);
+        for (int i = rList.size() - 1; i >= 0 && rList.get(i) == null;) rList.remove(i--);
         return rList;
     }
 
@@ -1112,23 +1532,31 @@ public class GT_Utility {
     }
 
     public static boolean isStringValid(Object aString) {
-        return aString != null && !aString.toString().isEmpty();
+        return aString != null && !aString.toString()
+            .isEmpty();
     }
 
     public static boolean isStringInvalid(Object aString) {
-        return aString == null || aString.toString().isEmpty();
+        return aString == null || aString.toString()
+            .isEmpty();
     }
 
     public static boolean isStackValid(Object aStack) {
-        return (aStack instanceof ItemStack) && ((ItemStack) aStack).getItem() != null && ((ItemStack) aStack).stackSize >= 0;
+        return (aStack instanceof ItemStack) && ((ItemStack) aStack).getItem() != null
+            && ((ItemStack) aStack).stackSize >= 0;
     }
 
     public static boolean isStackInvalid(Object aStack) {
-        return aStack == null || !(aStack instanceof ItemStack) || ((ItemStack) aStack).getItem() == null || ((ItemStack) aStack).stackSize < 0;
+        return aStack == null || !(aStack instanceof ItemStack)
+            || ((ItemStack) aStack).getItem() == null
+            || ((ItemStack) aStack).stackSize < 0;
     }
 
     public static boolean isDebugItem(ItemStack aStack) {
-        return /*ItemList.Armor_Cheat.isStackEqual(aStack, T, T) || */areStacksEqual(GT_ModHandler.getIC2Item("debug", 1), aStack, true);
+        return /* ItemList.Armor_Cheat.isStackEqual(aStack, T, T) || */areStacksEqual(
+            GT_ModHandler.getIC2Item("debug", 1),
+            aStack,
+            true);
     }
 
     public static ItemStack updateItemStack(ItemStack aStack) {
@@ -1138,39 +1566,48 @@ public class GT_Utility {
     }
 
     public static boolean isOpaqueBlock(World aWorld, int aX, int aY, int aZ) {
-        return aWorld.getBlock(aX, aY, aZ).isOpaqueCube();
+        return aWorld.getBlock(aX, aY, aZ)
+            .isOpaqueCube();
     }
 
     public static boolean isBlockAir(World aWorld, int aX, int aY, int aZ) {
-        return aWorld.getBlock(aX, aY, aZ).isAir(aWorld, aX, aY, aZ);
+        return aWorld.getBlock(aX, aY, aZ)
+            .isAir(aWorld, aX, aY, aZ);
     }
 
     public static boolean hasBlockHitBox(World aWorld, int aX, int aY, int aZ) {
-        return aWorld.getBlock(aX, aY, aZ).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ) != null;
+        return aWorld.getBlock(aX, aY, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ) != null;
     }
 
     public static void setCoordsOnFire(World aWorld, int aX, int aY, int aZ, boolean aReplaceCenter) {
-        if (aReplaceCenter)
-            if (aWorld.getBlock(aX, aY, aZ).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ) == null)
-                aWorld.setBlock(aX, aY, aZ, Blocks.fire);
-        if (aWorld.getBlock(aX + 1, aY, aZ).getCollisionBoundingBoxFromPool(aWorld, aX + 1, aY, aZ) == null)
+        if (aReplaceCenter) if (aWorld.getBlock(aX, aY, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ) == null) aWorld.setBlock(aX, aY, aZ, Blocks.fire);
+        if (aWorld.getBlock(aX + 1, aY, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX + 1, aY, aZ) == null)
             aWorld.setBlock(aX + 1, aY, aZ, Blocks.fire);
-        if (aWorld.getBlock(aX - 1, aY, aZ).getCollisionBoundingBoxFromPool(aWorld, aX - 1, aY, aZ) == null)
+        if (aWorld.getBlock(aX - 1, aY, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX - 1, aY, aZ) == null)
             aWorld.setBlock(aX - 1, aY, aZ, Blocks.fire);
-        if (aWorld.getBlock(aX, aY + 1, aZ).getCollisionBoundingBoxFromPool(aWorld, aX, aY + 1, aZ) == null)
+        if (aWorld.getBlock(aX, aY + 1, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY + 1, aZ) == null)
             aWorld.setBlock(aX, aY + 1, aZ, Blocks.fire);
-        if (aWorld.getBlock(aX, aY - 1, aZ).getCollisionBoundingBoxFromPool(aWorld, aX, aY - 1, aZ) == null)
+        if (aWorld.getBlock(aX, aY - 1, aZ)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY - 1, aZ) == null)
             aWorld.setBlock(aX, aY - 1, aZ, Blocks.fire);
-        if (aWorld.getBlock(aX, aY, aZ + 1).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ + 1) == null)
+        if (aWorld.getBlock(aX, aY, aZ + 1)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ + 1) == null)
             aWorld.setBlock(aX, aY, aZ + 1, Blocks.fire);
-        if (aWorld.getBlock(aX, aY, aZ - 1).getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ - 1) == null)
+        if (aWorld.getBlock(aX, aY, aZ - 1)
+            .getCollisionBoundingBoxFromPool(aWorld, aX, aY, aZ - 1) == null)
             aWorld.setBlock(aX, aY, aZ - 1, Blocks.fire);
     }
 
     public static ItemStack getProjectile(SubTag aProjectileType, IInventory aInventory) {
         if (aInventory != null) for (int i = 0, j = aInventory.getSizeInventory(); i < j; i++) {
             ItemStack rStack = aInventory.getStackInSlot(i);
-            if (isStackValid(rStack) && rStack.getItem() instanceof IProjectileItem && ((IProjectileItem) rStack.getItem()).hasProjectile(aProjectileType, rStack))
+            if (isStackValid(rStack) && rStack.getItem() instanceof IProjectileItem
+                && ((IProjectileItem) rStack.getItem()).hasProjectile(aProjectileType, rStack))
                 return updateItemStack(rStack);
         }
         return null;
@@ -1183,13 +1620,13 @@ public class GT_Utility {
                 aInventory.setInventorySlotContents(i, null);
         }
     }
-    
+
     /**
      * Initializes a new texture page.
      */
-    public static boolean addTexturePage(byte page){
-        if(Textures.BlockIcons.casingTexturePages[page]==null){
-            Textures.BlockIcons.casingTexturePages[page]=new ITexture[128];
+    public static boolean addTexturePage(byte page) {
+        if (Textures.BlockIcons.casingTexturePages[page] == null) {
+            Textures.BlockIcons.casingTexturePages[page] = new ITexture[128];
             return true;
         }
         return false;
@@ -1304,7 +1741,9 @@ public class GT_Utility {
 
     public static float getHeatDamageFromItem(ItemStack aStack) {
         ItemData tData = GT_OreDictUnificator.getItemData(aStack);
-        return tData == null ? 0 : (tData.mPrefix == null ? 0 : tData.mPrefix.mHeatDamage) + (tData.hasValidMaterialData() ? tData.mMaterial.mMaterial.mHeatDamage : 0);
+        return tData == null ? 0
+            : (tData.mPrefix == null ? 0 : tData.mPrefix.mHeatDamage)
+                + (tData.hasValidMaterialData() ? tData.mMaterial.mMaterial.mHeatDamage : 0);
     }
 
     public static int getRadioactivityLevel(ItemStack aStack) {
@@ -1323,7 +1762,9 @@ public class GT_Utility {
     }
 
     public static boolean applyHeatDamage(EntityLivingBase aEntity, float aDamage) {
-        if (aDamage > 0 && aEntity != null && aEntity.getActivePotionEffect(Potion.fireResistance) == null && !isWearingFullHeatHazmat(aEntity)) {
+        if (aDamage > 0 && aEntity != null
+            && aEntity.getActivePotionEffect(Potion.fireResistance) == null
+            && !isWearingFullHeatHazmat(aEntity)) {
             aEntity.attackEntityFrom(GT_DamageSources.getHeatDamage(), aDamage);
             return true;
         }
@@ -1348,14 +1789,58 @@ public class GT_Utility {
     }
 
     public static boolean applyRadioactivity(EntityLivingBase aEntity, int aLevel, int aAmountOfItems) {
-        if (aLevel > 0 && aEntity != null && aEntity.getCreatureAttribute() != EnumCreatureAttribute.UNDEAD && aEntity.getCreatureAttribute() != EnumCreatureAttribute.ARTHROPOD && !isWearingFullRadioHazmat(aEntity)) {
+        if (aLevel > 0 && aEntity != null
+            && aEntity.getCreatureAttribute() != EnumCreatureAttribute.UNDEAD
+            && aEntity.getCreatureAttribute() != EnumCreatureAttribute.ARTHROPOD
+            && !isWearingFullRadioHazmat(aEntity)) {
             PotionEffect tEffect = null;
-            aEntity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, aLevel * 140 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.moveSlowdown)) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
-            aEntity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, aLevel * 150 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.digSlowdown)) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
-            aEntity.addPotionEffect(new PotionEffect(Potion.confusion.id, aLevel * 130 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.confusion)) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
-            aEntity.addPotionEffect(new PotionEffect(Potion.weakness.id, aLevel * 150 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.weakness)) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
-            aEntity.addPotionEffect(new PotionEffect(Potion.hunger.id, aLevel * 130 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.hunger)) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
-            aEntity.addPotionEffect(new PotionEffect(IC2Potion.radiation.id, aLevel * 180 * aAmountOfItems + Math.max(0, ((tEffect = aEntity.getActivePotionEffect(Potion.potionTypes[24])) == null ? 0 : tEffect.getDuration())), Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    Potion.moveSlowdown.id,
+                    aLevel * 140 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.moveSlowdown)) == null ? 0
+                            : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    Potion.digSlowdown.id,
+                    aLevel * 150 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.digSlowdown)) == null ? 0
+                            : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    Potion.confusion.id,
+                    aLevel * 130 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.confusion)) == null ? 0
+                            : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    Potion.weakness.id,
+                    aLevel * 150 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.weakness)) == null ? 0
+                            : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    Potion.hunger.id,
+                    aLevel * 130 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.hunger)) == null ? 0 : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
+            aEntity.addPotionEffect(
+                new PotionEffect(
+                    IC2Potion.radiation.id,
+                    aLevel * 180 * aAmountOfItems + Math.max(
+                        0,
+                        ((tEffect = aEntity.getActivePotionEffect(Potion.potionTypes[24])) == null ? 0
+                            : tEffect.getDuration())),
+                    Math.max(0, (5 * aLevel) / 7)));
             return true;
         }
         return false;
@@ -1439,8 +1924,12 @@ public class GT_Utility {
         if (aNBT == null) return null;
         ItemStack rStack = ItemStack.loadItemStackFromNBT(aNBT);
         try {
-            if (rStack != null && (rStack.getItem().getClass().getName().startsWith("ic2.core.migration"))) {
-                rStack.getItem().onUpdate(rStack, DW, null, 0, false);
+            if (rStack != null && (rStack.getItem()
+                .getClass()
+                .getName()
+                .startsWith("ic2.core.migration"))) {
+                rStack.getItem()
+                    .onUpdate(rStack, DW, null, 0, false);
             }
         } catch (Throwable e) {
             e.printStackTrace(GT_Log.err);
@@ -1478,14 +1967,15 @@ public class GT_Utility {
     }
 
     public static boolean isStackInList(GT_ItemStack aStack, Collection<GT_ItemStack> aList) {
-        return aStack != null && (aList.contains(aStack) || aList.contains(new GT_ItemStack(aStack.mItem, aStack.mStackSize, W)));
+        return aStack != null
+            && (aList.contains(aStack) || aList.contains(new GT_ItemStack(aStack.mItem, aStack.mStackSize, W)));
     }
 
     /**
      * re-maps all Keys of a Map after the Keys were weakened.
      */
     public static <X, Y> Map<X, Y> reMap(Map<X, Y> aMap) {
-        Map<X, Y> tMap = new /*Concurrent*/HashMap<X, Y>();
+        Map<X, Y> tMap = new /* Concurrent */HashMap<X, Y>();
         tMap.putAll(aMap);
         aMap.clear();
         aMap.putAll(tMap);
@@ -1498,9 +1988,11 @@ public class GT_Utility {
     public static <X, Y extends Comparable> LinkedHashMap<X, Y> sortMapByValuesAcending(Map<X, Y> aMap) {
         List<Map.Entry<X, Y>> tEntrySet = new LinkedList<Map.Entry<X, Y>>(aMap.entrySet());
         Collections.sort(tEntrySet, new Comparator<Map.Entry<X, Y>>() {
+
             @Override
             public int compare(Entry<X, Y> aValue1, Entry<X, Y> aValue2) {
-                return aValue1.getValue().compareTo(aValue2.getValue());
+                return aValue1.getValue()
+                    .compareTo(aValue2.getValue());
             }
         });
         LinkedHashMap<X, Y> rMap = new LinkedHashMap<X, Y>();
@@ -1514,9 +2006,11 @@ public class GT_Utility {
     public static <X, Y extends Comparable> LinkedHashMap<X, Y> sortMapByValuesDescending(Map<X, Y> aMap) {
         List<Map.Entry<X, Y>> tEntrySet = new LinkedList<Map.Entry<X, Y>>(aMap.entrySet());
         Collections.sort(tEntrySet, new Comparator<Map.Entry<X, Y>>() {
+
             @Override
             public int compare(Entry<X, Y> aValue1, Entry<X, Y> aValue2) {
-                return aValue2.getValue().compareTo(aValue1.getValue());//FB: RV - RV_NEGATING_RESULT_OF_COMPARETO
+                return aValue2.getValue()
+                    .compareTo(aValue1.getValue());// FB: RV - RV_NEGATING_RESULT_OF_COMPARETO
             }
         });
         LinkedHashMap<X, Y> rMap = new LinkedHashMap<X, Y>();
@@ -1532,10 +2026,14 @@ public class GT_Utility {
     }
 
     /**
-     * Translates a Material Amount into an Amount of Fluid. Second Parameter for things like Bucket Amounts (1000) and similar
+     * Translates a Material Amount into an Amount of Fluid. Second Parameter for things like Bucket Amounts (1000) and
+     * similar
      */
     public static long translateMaterialToAmount(long aMaterialAmount, long aAmountPerUnit, boolean aRoundUp) {
-        return Math.max(0, ((aMaterialAmount * aAmountPerUnit) / M) + (aRoundUp && (aMaterialAmount * aAmountPerUnit) % M > 0 ? 1 : 0));
+        return Math.max(
+            0,
+            ((aMaterialAmount * aAmountPerUnit) / M)
+                + (aRoundUp && (aMaterialAmount * aAmountPerUnit) % M > 0 ? 1 : 0));
     }
 
     /**
@@ -1544,44 +2042,61 @@ public class GT_Utility {
      */
     public static boolean isRealDimension(int aDimensionID) {
         try {
-            if (DimensionManager.getProvider(aDimensionID).getClass().getName().contains("com.xcompwiz.mystcraft"))
-                return true;
-        } catch (Throwable e) {/*Do nothing*/}
+            if (DimensionManager.getProvider(aDimensionID)
+                .getClass()
+                .getName()
+                .contains("com.xcompwiz.mystcraft")) return true;
+        } catch (Throwable e) {/* Do nothing */}
         try {
-            if (DimensionManager.getProvider(aDimensionID).getClass().getName().contains("TwilightForest")) return true;
-        } catch (Throwable e) {/*Do nothing*/}
+            if (DimensionManager.getProvider(aDimensionID)
+                .getClass()
+                .getName()
+                .contains("TwilightForest")) return true;
+        } catch (Throwable e) {/* Do nothing */}
         try {
-            if (DimensionManager.getProvider(aDimensionID).getClass().getName().contains("galacticraft")) return true;
-        } catch (Throwable e) {/*Do nothing*/}
+            if (DimensionManager.getProvider(aDimensionID)
+                .getClass()
+                .getName()
+                .contains("galacticraft")) return true;
+        } catch (Throwable e) {/* Do nothing */}
         return GregTech_API.sDimensionalList.contains(aDimensionID);
     }
 
-    public static boolean moveEntityToDimensionAtCoords(Entity aEntity, int aDimension, double aX, double aY, double aZ) {
-        WorldServer tTargetWorld = DimensionManager.getWorld(aDimension), tOriginalWorld = DimensionManager.getWorld(aEntity.worldObj.provider.dimensionId);
+    public static boolean moveEntityToDimensionAtCoords(Entity aEntity, int aDimension, double aX, double aY,
+        double aZ) {
+        WorldServer tTargetWorld = DimensionManager.getWorld(aDimension),
+            tOriginalWorld = DimensionManager.getWorld(aEntity.worldObj.provider.dimensionId);
         if (tTargetWorld != null && tOriginalWorld != null && tTargetWorld != tOriginalWorld) {
             if (aEntity.ridingEntity != null) aEntity.mountEntity(null);
             if (aEntity.riddenByEntity != null) aEntity.riddenByEntity.mountEntity(null);
             if (aEntity instanceof EntityPlayerMP) {
                 EntityPlayerMP aPlayer = (EntityPlayerMP) aEntity;
-//                aPlayer.dimension = aDimension;
-//                aPlayer.playerNetServerHandler.sendPacket(new S07PacketRespawn(aPlayer.dimension, aPlayer.worldObj.difficultySetting, aPlayer.worldObj.getWorldInfo().getTerrainType(), aPlayer.theItemInWorldManager.getGameType()));
-//                tOriginalWorld.removePlayerEntityDangerously(aPlayer);
-//                aPlayer.isDead = false;
-//                aPlayer.setWorld(tTargetWorld);
-//                MinecraftServer.getServer().getConfigurationManager().func_72375_a(aPlayer, tOriginalWorld);
-//                aPlayer.playerNetServerHandler.setPlayerLocation(aX + 0.5, aY + 0.5, aZ + 0.5, aPlayer.rotationYaw, aPlayer.rotationPitch);
-//                aPlayer.theItemInWorldManager.setWorld(tTargetWorld);
-//                MinecraftServer.getServer().getConfigurationManager().updateTimeAndWeatherForPlayer(aPlayer, tTargetWorld);
-//                MinecraftServer.getServer().getConfigurationManager().syncPlayerInventory(aPlayer);
-//                Iterator tIterator = aPlayer.getActivePotionEffects().iterator();
-//                while (tIterator.hasNext()) {
-//                    PotionEffect potioneffect = (PotionEffect) tIterator.next();
-//                    aPlayer.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(aPlayer.getEntityId(), potioneffect));
-//                }
-//                FMLCommonHandler.instance().firePlayerChangedDimensionEvent(aPlayer, tOriginalWorld.provider.dimensionId, aDimension);
-            	aPlayer.travelToDimension(aDimension);
-                aPlayer.playerNetServerHandler.setPlayerLocation(aX + 0.5, aY + 0.5, aZ + 0.5, aPlayer.rotationYaw, aPlayer.rotationPitch);
-            	
+                // aPlayer.dimension = aDimension;
+                // aPlayer.playerNetServerHandler.sendPacket(new S07PacketRespawn(aPlayer.dimension,
+                // aPlayer.worldObj.difficultySetting, aPlayer.worldObj.getWorldInfo().getTerrainType(),
+                // aPlayer.theItemInWorldManager.getGameType()));
+                // tOriginalWorld.removePlayerEntityDangerously(aPlayer);
+                // aPlayer.isDead = false;
+                // aPlayer.setWorld(tTargetWorld);
+                // MinecraftServer.getServer().getConfigurationManager().func_72375_a(aPlayer, tOriginalWorld);
+                // aPlayer.playerNetServerHandler.setPlayerLocation(aX + 0.5, aY + 0.5, aZ + 0.5, aPlayer.rotationYaw,
+                // aPlayer.rotationPitch);
+                // aPlayer.theItemInWorldManager.setWorld(tTargetWorld);
+                // MinecraftServer.getServer().getConfigurationManager().updateTimeAndWeatherForPlayer(aPlayer,
+                // tTargetWorld);
+                // MinecraftServer.getServer().getConfigurationManager().syncPlayerInventory(aPlayer);
+                // Iterator tIterator = aPlayer.getActivePotionEffects().iterator();
+                // while (tIterator.hasNext()) {
+                // PotionEffect potioneffect = (PotionEffect) tIterator.next();
+                // aPlayer.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(aPlayer.getEntityId(),
+                // potioneffect));
+                // }
+                // FMLCommonHandler.instance().firePlayerChangedDimensionEvent(aPlayer,
+                // tOriginalWorld.provider.dimensionId, aDimension);
+                aPlayer.travelToDimension(aDimension);
+                aPlayer.playerNetServerHandler
+                    .setPlayerLocation(aX + 0.5, aY + 0.5, aZ + 0.5, aPlayer.rotationYaw, aPlayer.rotationPitch);
+
             } else {
                 aEntity.setPosition(aX + 0.5, aY + 0.5, aZ + 0.5);
                 aEntity.worldObj.removeEntity(aEntity);
@@ -1615,74 +2130,79 @@ public class GT_Utility {
     }
 
     public static int getScaleCoordinates(double aValue, int aScale) {
-    	return (int)Math.floor(aValue / aScale);
+        return (int) Math.floor(aValue / aScale);
     }
 
-//    public static FluidStack getUndergroundOil(World aWorld, int aX, int aZ) {
-//    	return getUndergroundOil(aWorld, aX, aZ, false);
-//    }
-//
-//    public static FluidStack getUndergroundOil(World aWorld, int aX, int aZ, boolean needConsumeOil) {
-//
-//    	if (GT_Mod.gregtechproxy.mUndergroundOil.CheckBlackList(aWorld.provider.dimensionId))
-//    		return null;
-//
-//        Random tRandom = new Random((aWorld.getSeed() + aWorld.provider.dimensionId * 2 + (getScaleCoordinates(aX,96)) + (7 * (getScaleCoordinates(aZ,96)))));
-//        int tAmount = 0;
-//        int tFluidId = 0;
-//        int tDecreasePerOperationAmount = 5;
-//        Fluid tFluid = null;
-////        System.out.println("Dimension: "+GT_Mod.gregtechproxy.mUndergroundOil.GetDimension(aWorld.provider.dimensionId).Dimension);
-//        try {
-//            GT_UO_Fluid uoFluid = GT_Mod.gregtechproxy.mUndergroundOil.GetDimension(aWorld.provider.dimensionId).getRandomFluid(tRandom);
-//            if (uoFluid != null)
-//            {
-//            	tFluid = uoFluid.getFluid();
-//            	tAmount = uoFluid.getRandomAmount(tRandom);
-//            	tDecreasePerOperationAmount = uoFluid.DecreasePerOperationAmount;
-//            	if (tFluid != null)
-//            		tFluidId = tFluid.getID();
-//                //System.out.println("Fluid: ("+tFluidId+")"+tFluid.getName()+" Amount:"+tAmount);
-//            }
-//			
-//		} catch (Exception e) {
-//	        tAmount = 0;
-//	        tFluidId = 0;
-//		}
-//
-//        try {
-//        ChunkPosition tPos = new ChunkPosition(getScaleCoordinates(aX,16), aWorld.provider.dimensionId, getScaleCoordinates(aZ,16));
-//        int[] tInts = new int[3];
-//    	if(GT_Proxy.chunkData.containsKey(tPos)){
-//    		tInts = GT_Proxy.chunkData.get(tPos);
-//    		if(tInts.length>0){
-//    			if(tInts[0]>0){tAmount = tInts[0];}
-//    		}
-//    		if(tInts.length>2){
-//    			if(tInts[2]>0&&tInts[2]!=tFluidId)
-//    			{
-//    				tFluidId = tInts[2];
-//    				tFluid = FluidRegistry.getFluid(tFluidId);
-//    			}
-//    		}
-//    		GT_Proxy.chunkData.remove(tPos);
-//    	}
-//
-//    	if (needConsumeOil && tAmount >= 5000)
-//    		tAmount = tAmount - tDecreasePerOperationAmount;
-//
-//    	tInts[0] = tAmount;
-//    	tInts[2] = tFluidId;
-//    	GT_Proxy.chunkData.put(tPos, tInts);
-//		} catch (Exception e) {
-//			System.out.println("getUndergroundOil() - Error put data");
-//		}
-//    	if (tFluid!=null)
-//    		return new FluidStack(tFluid, tAmount);
-//    	return null;
-//    }
-    
-    public static int getCoordinateScan(ArrayList<String> aList, EntityPlayer aPlayer, World aWorld, int aScanLevel, int aX, int aY, int aZ, int aSide, float aClickX, float aClickY, float aClickZ) {
+    // public static FluidStack getUndergroundOil(World aWorld, int aX, int aZ) {
+    // return getUndergroundOil(aWorld, aX, aZ, false);
+    // }
+    //
+    // public static FluidStack getUndergroundOil(World aWorld, int aX, int aZ, boolean needConsumeOil) {
+    //
+    // if (GT_Mod.gregtechproxy.mUndergroundOil.CheckBlackList(aWorld.provider.dimensionId))
+    // return null;
+    //
+    // Random tRandom = new Random((aWorld.getSeed() + aWorld.provider.dimensionId * 2 + (getScaleCoordinates(aX,96)) +
+    // (7 * (getScaleCoordinates(aZ,96)))));
+    // int tAmount = 0;
+    // int tFluidId = 0;
+    // int tDecreasePerOperationAmount = 5;
+    // Fluid tFluid = null;
+    //// System.out.println("Dimension:
+    // "+GT_Mod.gregtechproxy.mUndergroundOil.GetDimension(aWorld.provider.dimensionId).Dimension);
+    // try {
+    // GT_UO_Fluid uoFluid =
+    // GT_Mod.gregtechproxy.mUndergroundOil.GetDimension(aWorld.provider.dimensionId).getRandomFluid(tRandom);
+    // if (uoFluid != null)
+    // {
+    // tFluid = uoFluid.getFluid();
+    // tAmount = uoFluid.getRandomAmount(tRandom);
+    // tDecreasePerOperationAmount = uoFluid.DecreasePerOperationAmount;
+    // if (tFluid != null)
+    // tFluidId = tFluid.getID();
+    // //System.out.println("Fluid: ("+tFluidId+")"+tFluid.getName()+" Amount:"+tAmount);
+    // }
+    //
+    // } catch (Exception e) {
+    // tAmount = 0;
+    // tFluidId = 0;
+    // }
+    //
+    // try {
+    // ChunkPosition tPos = new ChunkPosition(getScaleCoordinates(aX,16), aWorld.provider.dimensionId,
+    // getScaleCoordinates(aZ,16));
+    // int[] tInts = new int[3];
+    // if(GT_Proxy.chunkData.containsKey(tPos)){
+    // tInts = GT_Proxy.chunkData.get(tPos);
+    // if(tInts.length>0){
+    // if(tInts[0]>0){tAmount = tInts[0];}
+    // }
+    // if(tInts.length>2){
+    // if(tInts[2]>0&&tInts[2]!=tFluidId)
+    // {
+    // tFluidId = tInts[2];
+    // tFluid = FluidRegistry.getFluid(tFluidId);
+    // }
+    // }
+    // GT_Proxy.chunkData.remove(tPos);
+    // }
+    //
+    // if (needConsumeOil && tAmount >= 5000)
+    // tAmount = tAmount - tDecreasePerOperationAmount;
+    //
+    // tInts[0] = tAmount;
+    // tInts[2] = tFluidId;
+    // GT_Proxy.chunkData.put(tPos, tInts);
+    // } catch (Exception e) {
+    // System.out.println("getUndergroundOil() - Error put data");
+    // }
+    // if (tFluid!=null)
+    // return new FluidStack(tFluid, tAmount);
+    // return null;
+    // }
+
+    public static int getCoordinateScan(ArrayList<String> aList, EntityPlayer aPlayer, World aWorld, int aScanLevel,
+        int aX, int aY, int aZ, int aSide, float aClickX, float aClickY, float aClickZ) {
         if (aList == null) return 0;
 
         ArrayList<String> tList = new ArrayList<String>();
@@ -1694,13 +2214,22 @@ public class GT_Utility {
 
         tList.add("----- X: " + aX + " Y: " + aY + " Z: " + aZ + " D: " + aWorld.provider.dimensionId + " -----");
         try {
-            if (tTileEntity instanceof IInventory)
-                tList.add(trans("162","Name: ") + ((IInventory) tTileEntity).getInventoryName() + trans("163","  MetaData: ") + aWorld.getBlockMetadata(aX, aY, aZ));
-            else
-                tList.add(trans("162","Name: ") + tBlock.getUnlocalizedName() + trans("163","  MetaData: ") + aWorld.getBlockMetadata(aX, aY, aZ));
+            if (tTileEntity instanceof IInventory) tList.add(
+                trans("162", "Name: ") + ((IInventory) tTileEntity).getInventoryName()
+                    + trans("163", "  MetaData: ")
+                    + aWorld.getBlockMetadata(aX, aY, aZ));
+            else tList.add(
+                trans("162", "Name: ") + tBlock.getUnlocalizedName()
+                    + trans("163", "  MetaData: ")
+                    + aWorld.getBlockMetadata(aX, aY, aZ));
 
-            tList.add(trans("164","Hardness: ") + tBlock.getBlockHardness(aWorld, aX, aY, aZ) + trans("165","  Blast Resistance: ") + tBlock.getExplosionResistance(aPlayer, aWorld, aX, aY, aZ, aPlayer.posX, aPlayer.posY, aPlayer.posZ));
-            if (tBlock.isBeaconBase(aWorld, aX, aY, aZ, aX, aY + 1, aZ)) tList.add(trans("166","Is valid Beacon Pyramid Material"));
+            tList.add(
+                trans("164", "Hardness: ") + tBlock.getBlockHardness(aWorld, aX, aY, aZ)
+                    + trans("165", "  Blast Resistance: ")
+                    + tBlock
+                        .getExplosionResistance(aPlayer, aWorld, aX, aY, aZ, aPlayer.posX, aPlayer.posY, aPlayer.posZ));
+            if (tBlock.isBeaconBase(aWorld, aX, aY, aZ, aX, aY + 1, aZ))
+                tList.add(trans("166", "Is valid Beacon Pyramid Material"));
         } catch (Throwable e) {
             if (D1) e.printStackTrace(GT_Log.err);
         }
@@ -1708,9 +2237,17 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof IFluidHandler) {
                     rEUAmount += 500;
-                    FluidTankInfo[] tTanks = ((IFluidHandler) tTileEntity).getTankInfo(ForgeDirection.getOrientation(aSide));
+                    FluidTankInfo[] tTanks = ((IFluidHandler) tTileEntity)
+                        .getTankInfo(ForgeDirection.getOrientation(aSide));
                     if (tTanks != null) for (byte i = 0; i < tTanks.length; i++) {
-                        tList.add(trans("167","Tank ") + i + ": " + GT_Utility.formatNumbers((tTanks[i].fluid == null ? 0 : tTanks[i].fluid.amount)) + " / " + GT_Utility.formatNumbers(tTanks[i].capacity) + " " + getFluidName(tTanks[i].fluid, true));
+                        tList.add(
+                            trans("167", "Tank ") + i
+                                + ": "
+                                + GT_Utility.formatNumbers((tTanks[i].fluid == null ? 0 : tTanks[i].fluid.amount))
+                                + " / "
+                                + GT_Utility.formatNumbers(tTanks[i].capacity)
+                                + " "
+                                + getFluidName(tTanks[i].fluid, true));
                     }
                 }
             } catch (Throwable e) {
@@ -1727,8 +2264,15 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.reactor.IReactor) {
                     rEUAmount += 500;
-                    tList.add(trans("168","Heat: ") + ((ic2.api.reactor.IReactor) tTileEntity).getHeat() + "/" + ((ic2.api.reactor.IReactor) tTileEntity).getMaxHeat()
-                            + trans("169","  HEM: ") + ((ic2.api.reactor.IReactor) tTileEntity).getHeatEffectModifier() + trans("170","  Base EU Output: ")/* + ((ic2.api.reactor.IReactor)tTileEntity).getOutput()*/);
+                    tList.add(
+                        trans("168", "Heat: ") + ((ic2.api.reactor.IReactor) tTileEntity).getHeat()
+                            + "/"
+                            + ((ic2.api.reactor.IReactor) tTileEntity).getMaxHeat()
+                            + trans("169", "  HEM: ")
+                            + ((ic2.api.reactor.IReactor) tTileEntity).getHeatEffectModifier()
+                            + trans(
+                                "170",
+                                "  Base EU Output: ")/* + ((ic2.api.reactor.IReactor)tTileEntity).getOutput() */);
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1736,8 +2280,15 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.tile.IWrenchable) {
                     rEUAmount += 100;
-                    tList.add(trans("171","Facing: ") + ((ic2.api.tile.IWrenchable) tTileEntity).getFacing() + trans("172"," / Chance: ") + (((ic2.api.tile.IWrenchable) tTileEntity).getWrenchDropRate() * 100) + "%");
-                    tList.add(((ic2.api.tile.IWrenchable) tTileEntity).wrenchCanRemove(aPlayer) ? trans("173","You can remove this with a Wrench") : trans("174","You can NOT remove this with a Wrench"));
+                    tList.add(
+                        trans("171", "Facing: ") + ((ic2.api.tile.IWrenchable) tTileEntity).getFacing()
+                            + trans("172", " / Chance: ")
+                            + (((ic2.api.tile.IWrenchable) tTileEntity).getWrenchDropRate() * 100)
+                            + "%");
+                    tList.add(
+                        ((ic2.api.tile.IWrenchable) tTileEntity).wrenchCanRemove(aPlayer)
+                            ? trans("173", "You can remove this with a Wrench")
+                            : trans("174", "You can NOT remove this with a Wrench"));
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1745,7 +2296,8 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.energy.tile.IEnergyTile) {
                     rEUAmount += 200;
-                    //aList.add(((ic2.api.energy.tile.IEnergyTile)tTileEntity).isAddedToEnergyNet()?"Added to E-net":"Not added to E-net! Bug?");
+                    // aList.add(((ic2.api.energy.tile.IEnergyTile)tTileEntity).isAddedToEnergyNet()?"Added to
+                    // E-net":"Not added to E-net! Bug?");
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1753,9 +2305,10 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.energy.tile.IEnergySink) {
                     rEUAmount += 400;
-                    //aList.add("Demanded Energy: " + ((ic2.api.energy.tile.IEnergySink)tTileEntity).demandsEnergy());
-                    //tList.add("Max Safe Input: " + getTier(((ic2.api.energy.tile.IEnergySink)tTileEntity).getSinkTier()));
-                    //tList.add("Max Safe Input: " + ((ic2.api.energy.tile.IEnergySink)tTileEntity).getMaxSafeInput());
+                    // aList.add("Demanded Energy: " + ((ic2.api.energy.tile.IEnergySink)tTileEntity).demandsEnergy());
+                    // tList.add("Max Safe Input: " +
+                    // getTier(((ic2.api.energy.tile.IEnergySink)tTileEntity).getSinkTier()));
+                    // tList.add("Max Safe Input: " + ((ic2.api.energy.tile.IEnergySink)tTileEntity).getMaxSafeInput());
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1763,7 +2316,8 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.energy.tile.IEnergySource) {
                     rEUAmount += 400;
-                    //aList.add("Max Energy Output: " + ((ic2.api.energy.tile.IEnergySource)tTileEntity).getMaxEnergyOutput());
+                    // aList.add("Max Energy Output: " +
+                    // ((ic2.api.energy.tile.IEnergySource)tTileEntity).getMaxEnergyOutput());
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1771,7 +2325,9 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.energy.tile.IEnergyConductor) {
                     rEUAmount += 200;
-                    tList.add(trans("175","Conduction Loss: ") + ((ic2.api.energy.tile.IEnergyConductor) tTileEntity).getConductionLoss());
+                    tList.add(
+                        trans("175", "Conduction Loss: ")
+                            + ((ic2.api.energy.tile.IEnergyConductor) tTileEntity).getConductionLoss());
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1779,8 +2335,12 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ic2.api.tile.IEnergyStorage) {
                     rEUAmount += 200;
-                    tList.add(trans("176","Contained Energy: ") + ((ic2.api.tile.IEnergyStorage) tTileEntity).getStored() + trans("205"," of ") + ((ic2.api.tile.IEnergyStorage) tTileEntity).getCapacity());
-                    //aList.add(((ic2.api.tile.IEnergyStorage)tTileEntity).isTeleporterCompatible(ic2.api.Direction.YP)?"Teleporter Compatible":"Not Teleporter Compatible");
+                    tList.add(
+                        trans("176", "Contained Energy: ") + ((ic2.api.tile.IEnergyStorage) tTileEntity).getStored()
+                            + trans("205", " of ")
+                            + ((ic2.api.tile.IEnergyStorage) tTileEntity).getCapacity());
+                    // aList.add(((ic2.api.tile.IEnergyStorage)tTileEntity).isTeleporterCompatible(ic2.api.Direction.YP)?"Teleporter
+                    // Compatible":"Not Teleporter Compatible");
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1788,7 +2348,8 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof IUpgradableMachine) {
                     rEUAmount += 500;
-                    if (((IUpgradableMachine) tTileEntity).hasMufflerUpgrade()) tList.add(trans("177","Has Muffler Upgrade"));
+                    if (((IUpgradableMachine) tTileEntity).hasMufflerUpgrade())
+                        tList.add(trans("177", "Has Muffler Upgrade"));
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1797,8 +2358,10 @@ public class GT_Utility {
                 if (tTileEntity instanceof IMachineProgress) {
                     rEUAmount += 400;
                     int tValue = 0;
-                    if (0 < (tValue = ((IMachineProgress) tTileEntity).getMaxProgress()))
-                        tList.add(trans("178","Progress: ") + GT_Utility.formatNumbers(tValue) + " / " + GT_Utility.formatNumbers(((IMachineProgress) tTileEntity).getProgress()));
+                    if (0 < (tValue = ((IMachineProgress) tTileEntity).getMaxProgress())) tList.add(
+                        trans("178", "Progress: ") + GT_Utility.formatNumbers(tValue)
+                            + " / "
+                            + GT_Utility.formatNumbers(((IMachineProgress) tTileEntity).getProgress()));
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
@@ -1806,15 +2369,22 @@ public class GT_Utility {
             try {
                 if (tTileEntity instanceof ICoverable) {
                     rEUAmount += 300;
-                    String tString = ((ICoverable) tTileEntity).getCoverBehaviorAtSide((byte) aSide).getDescription((byte) aSide, ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide), ((ICoverable) tTileEntity).getCoverDataAtSide((byte) aSide), (ICoverable) tTileEntity);
+                    String tString = ((ICoverable) tTileEntity).getCoverBehaviorAtSide((byte) aSide)
+                        .getDescription(
+                            (byte) aSide,
+                            ((ICoverable) tTileEntity).getCoverIDAtSide((byte) aSide),
+                            ((ICoverable) tTileEntity).getCoverDataAtSide((byte) aSide),
+                            (ICoverable) tTileEntity);
                     if (tString != null && !tString.equals(E)) tList.add(tString);
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
             }
             try {
-                if (tTileEntity instanceof IGregTechTileEntity && ((IGregTechTileEntity) tTileEntity).getMetaTileEntity() instanceof GT_MetaPipeEntity_Cable) {
-                    GT_MetaPipeEntity_Cable c = (GT_MetaPipeEntity_Cable) ((IGregTechTileEntity) tTileEntity).getMetaTileEntity();
+                if (tTileEntity instanceof IGregTechTileEntity
+                    && ((IGregTechTileEntity) tTileEntity).getMetaTileEntity() instanceof GT_MetaPipeEntity_Cable) {
+                    GT_MetaPipeEntity_Cable c = (GT_MetaPipeEntity_Cable) ((IGregTechTileEntity) tTileEntity)
+                        .getMetaTileEntity();
                     tList.add("Max voltage last second " + c.mTransferredVoltageLast20);
                     tList.add("Max amperage last second " + c.mTransferredAmperageLast20);
                 }
@@ -1822,23 +2392,36 @@ public class GT_Utility {
                 if (D1) e.printStackTrace(GT_Log.err);
             }
             try {
-                if (tTileEntity instanceof IBasicEnergyContainer && ((IBasicEnergyContainer) tTileEntity).getEUCapacity() > 0) {
-                    tList.add(trans("179","Max IN: ") + ((IBasicEnergyContainer) tTileEntity).getInputVoltage() + trans("180"," EU"));
-                    tList.add(trans("181","Max OUT: ") + ((IBasicEnergyContainer) tTileEntity).getOutputVoltage() + trans("182"," EU at ") + ((IBasicEnergyContainer) tTileEntity).getOutputAmperage() + trans("183"," Amperes"));
-                    tList.add(trans("184","Energy: ") + GT_Utility.formatNumbers(((IBasicEnergyContainer) tTileEntity).getStoredEU()) + " / " + GT_Utility.formatNumbers(((IBasicEnergyContainer) tTileEntity).getEUCapacity()) + trans("185","EU"));
+                if (tTileEntity instanceof IBasicEnergyContainer
+                    && ((IBasicEnergyContainer) tTileEntity).getEUCapacity() > 0) {
+                    tList.add(
+                        trans("179", "Max IN: ") + ((IBasicEnergyContainer) tTileEntity).getInputVoltage()
+                            + trans("180", " EU"));
+                    tList.add(
+                        trans("181", "Max OUT: ") + ((IBasicEnergyContainer) tTileEntity).getOutputVoltage()
+                            + trans("182", " EU at ")
+                            + ((IBasicEnergyContainer) tTileEntity).getOutputAmperage()
+                            + trans("183", " Amperes"));
+                    tList.add(
+                        trans("184", "Energy: ")
+                            + GT_Utility.formatNumbers(((IBasicEnergyContainer) tTileEntity).getStoredEU())
+                            + " / "
+                            + GT_Utility.formatNumbers(((IBasicEnergyContainer) tTileEntity).getEUCapacity())
+                            + trans("185", "EU"));
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
             }
             try {
                 if (tTileEntity instanceof IGregTechTileEntity) {
-                    tList.add(trans("186","Owned by: ") + ((IGregTechTileEntity) tTileEntity).getOwnerName());
+                    tList.add(trans("186", "Owned by: ") + ((IGregTechTileEntity) tTileEntity).getOwnerName());
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
             }
             try {
-                if (tTileEntity instanceof IGregTechDeviceInformation && ((IGregTechDeviceInformation) tTileEntity).isGivingInformation()) {
+                if (tTileEntity instanceof IGregTechDeviceInformation
+                    && ((IGregTechDeviceInformation) tTileEntity).isGivingInformation()) {
                     tList.addAll(Arrays.asList(((IGregTechDeviceInformation) tTileEntity).getInfoData()));
                 }
             } catch (Throwable e) {
@@ -1850,54 +2433,95 @@ public class GT_Utility {
                         rEUAmount += 10000;
                         ((ic2.api.crops.ICropTile) tTileEntity).setScanLevel((byte) 4);
                     }
-                    if (((ic2.api.crops.ICropTile) tTileEntity).getID() >= 0 && ((ic2.api.crops.ICropTile) tTileEntity).getID() < ic2.api.crops.Crops.instance.getCropList().length && ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()] != null) {
+                    if (((ic2.api.crops.ICropTile) tTileEntity).getID() >= 0
+                        && ((ic2.api.crops.ICropTile) tTileEntity).getID()
+                            < ic2.api.crops.Crops.instance.getCropList().length
+                        && ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()]
+                            != null) {
                         rEUAmount += 1000;
-                        tList.add(trans("187","Type -- Crop-Name: ") + ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()].name()
-                                        + trans("188","  Growth: ") + ((ic2.api.crops.ICropTile) tTileEntity).getGrowth()
-                                        + trans("189","  Gain: ") + ((ic2.api.crops.ICropTile) tTileEntity).getGain()
-                                        + trans("190","  Resistance: ") + ((ic2.api.crops.ICropTile) tTileEntity).getResistance()
-                        );
-                        tList.add(trans("191","Plant -- Fertilizer: ") + ((ic2.api.crops.ICropTile) tTileEntity).getNutrientStorage()
-                                        + trans("192","  Water: ") + ((ic2.api.crops.ICropTile) tTileEntity).getHydrationStorage()
-                                        + trans("193","  Weed-Ex: ") + ((ic2.api.crops.ICropTile) tTileEntity).getWeedExStorage()
-                                        + trans("194","  Scan-Level: ") + ((ic2.api.crops.ICropTile) tTileEntity).getScanLevel()
-                        );
-                        tList.add(trans("195","Environment -- Nutrients: ") + ((ic2.api.crops.ICropTile) tTileEntity).getNutrients()
-                                        + trans("196","  Humidity: ") + ((ic2.api.crops.ICropTile) tTileEntity).getHumidity()
-                                        + trans("197","  Air-Quality: ") + ((ic2.api.crops.ICropTile) tTileEntity).getAirQuality()
-                        );
+                        tList.add(
+                            trans("187", "Type -- Crop-Name: ")
+                                + ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity)
+                                    .getID()].name()
+                                + trans("188", "  Growth: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getGrowth()
+                                + trans("189", "  Gain: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getGain()
+                                + trans("190", "  Resistance: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getResistance());
+                        tList.add(
+                            trans("191", "Plant -- Fertilizer: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getNutrientStorage()
+                                + trans("192", "  Water: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getHydrationStorage()
+                                + trans("193", "  Weed-Ex: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getWeedExStorage()
+                                + trans("194", "  Scan-Level: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getScanLevel());
+                        tList.add(
+                            trans("195", "Environment -- Nutrients: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getNutrients()
+                                + trans("196", "  Humidity: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getHumidity()
+                                + trans("197", "  Air-Quality: ")
+                                + ((ic2.api.crops.ICropTile) tTileEntity).getAirQuality());
                         StringBuilder tStringB = new StringBuilder();
-                        for (String tAttribute : ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()].attributes()) {
-                            tStringB.append(", ").append(tAttribute);
+                        for (String tAttribute : ic2.api.crops.Crops.instance
+                            .getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()].attributes()) {
+                            tStringB.append(", ")
+                                .append(tAttribute);
                         }
                         String tString = tStringB.toString();
-                        tList.add(trans("198","Attributes:") + tString.replaceFirst(",", E));
-                        tList.add(trans("199","Discovered by: ") + ic2.api.crops.Crops.instance.getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()].discoveredBy());
+                        tList.add(trans("198", "Attributes:") + tString.replaceFirst(",", E));
+                        tList.add(
+                            trans("199", "Discovered by: ") + ic2.api.crops.Crops.instance
+                                .getCropList()[((ic2.api.crops.ICropTile) tTileEntity).getID()].discoveredBy());
                     }
                 }
             } catch (Throwable e) {
                 if (D1) e.printStackTrace(GT_Log.err);
             }
         }
-        
+
         if (aPlayer.capabilities.isCreativeMode && GT_Values.D1) {
-            FluidStack tFluid = undergroundOilReadInformation(aWorld.getChunkFromBlockCoords(aX,aZ));
-            if (tFluid!=null)
-            	tList.add(EnumChatFormatting.GOLD+tFluid.getLocalizedName()+EnumChatFormatting.RESET+": " +EnumChatFormatting.YELLOW+ tFluid.amount +EnumChatFormatting.RESET+trans("200"," L"));
-            else
-                tList.add(EnumChatFormatting.GOLD+trans("201","Nothing")+EnumChatFormatting.RESET+": " +EnumChatFormatting.YELLOW+ '0' +EnumChatFormatting.RESET+trans("200"," L"));
+            FluidStack tFluid = undergroundOilReadInformation(aWorld.getChunkFromBlockCoords(aX, aZ));
+            if (tFluid != null) tList.add(
+                EnumChatFormatting.GOLD + tFluid.getLocalizedName()
+                    + EnumChatFormatting.RESET
+                    + ": "
+                    + EnumChatFormatting.YELLOW
+                    + tFluid.amount
+                    + EnumChatFormatting.RESET
+                    + trans("200", " L"));
+            else tList.add(
+                EnumChatFormatting.GOLD + trans("201", "Nothing")
+                    + EnumChatFormatting.RESET
+                    + ": "
+                    + EnumChatFormatting.YELLOW
+                    + '0'
+                    + EnumChatFormatting.RESET
+                    + trans("200", " L"));
         }
-//      if(aPlayer.capabilities.isCreativeMode){
-        int[] chunkData = GT_Proxy.dimensionWiseChunkData.get(aWorld.provider.dimensionId).get(aWorld.getChunkFromBlockCoords(aX,aZ).getChunkCoordIntPair());
-        if(chunkData !=null){
-            if(chunkData[GTPOLLUTION]>0){
-                tList.add(trans("202","Pollution in Chunk: ")+EnumChatFormatting.RED+chunkData[GTPOLLUTION]+EnumChatFormatting.RESET+trans("203"," gibbl"));
-            }else{
-                tList.add(EnumChatFormatting.GREEN+trans("204","No Pollution in Chunk! HAYO!")+EnumChatFormatting.RESET);
+        // if(aPlayer.capabilities.isCreativeMode){
+        int[] chunkData = GT_Proxy.dimensionWiseChunkData.get(aWorld.provider.dimensionId)
+            .get(
+                aWorld.getChunkFromBlockCoords(aX, aZ)
+                    .getChunkCoordIntPair());
+        if (chunkData != null) {
+            if (chunkData[GTPOLLUTION] > 0) {
+                tList.add(
+                    trans("202", "Pollution in Chunk: ") + EnumChatFormatting.RED
+                        + chunkData[GTPOLLUTION]
+                        + EnumChatFormatting.RESET
+                        + trans("203", " gibbl"));
+            } else {
+                tList.add(
+                    EnumChatFormatting.GREEN + trans("204", "No Pollution in Chunk! HAYO!") + EnumChatFormatting.RESET);
             }
-        }else{
-            tList.add(EnumChatFormatting.GREEN+trans("204","No Pollution in Chunk! HAYO!")+EnumChatFormatting.RESET);
-}
+        } else {
+            tList.add(
+                EnumChatFormatting.GREEN + trans("204", "No Pollution in Chunk! HAYO!") + EnumChatFormatting.RESET);
+        }
 
         try {
             if (tBlock instanceof IDebugableBlock) {
@@ -1909,36 +2533,50 @@ public class GT_Utility {
             if (D1) e.printStackTrace(GT_Log.err);
         }
 
-        BlockScanningEvent tEvent = new BlockScanningEvent(aWorld, aPlayer, aX, aY, aZ, (byte) aSide, aScanLevel, tBlock, tTileEntity, tList, aClickX, aClickY, aClickZ);
+        BlockScanningEvent tEvent = new BlockScanningEvent(
+            aWorld,
+            aPlayer,
+            aX,
+            aY,
+            aZ,
+            (byte) aSide,
+            aScanLevel,
+            tBlock,
+            tTileEntity,
+            tList,
+            aClickX,
+            aClickY,
+            aClickZ);
         tEvent.mEUCost = rEUAmount;
         MinecraftForge.EVENT_BUS.post(tEvent);
         if (!tEvent.isCanceled()) aList.addAll(tList);
         return tEvent.mEUCost;
-    }    
+    }
 
-    public static String trans(String aKey, String aEnglish){
-    	return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_"+aKey, aEnglish, false);
+    public static String trans(String aKey, String aEnglish) {
+        return GT_LanguageManager.addStringLocalization("Interaction_DESCRIPTION_Index_" + aKey, aEnglish, false);
     }
 
     /**
-     * @return an Array containing the X and the Y Coordinate of the clicked Point, with the top left Corner as Origin, like on the Texture Sheet. return values should always be between [0.0F and 0.99F].
+     * @return an Array containing the X and the Y Coordinate of the clicked Point, with the top left Corner as Origin,
+     *         like on the Texture Sheet. return values should always be between [0.0F and 0.99F].
      */
     public static float[] getClickedFacingCoords(byte aSide, float aX, float aY, float aZ) {
         switch (aSide) {
             case 0:
-                return new float[]{Math.min(0.99F, Math.max(0, 1 - aX)), Math.min(0.99F, Math.max(0, aZ))};
+                return new float[] { Math.min(0.99F, Math.max(0, 1 - aX)), Math.min(0.99F, Math.max(0, aZ)) };
             case 1:
-                return new float[]{Math.min(0.99F, Math.max(0, aX)), Math.min(0.99F, Math.max(0, aZ))};
+                return new float[] { Math.min(0.99F, Math.max(0, aX)), Math.min(0.99F, Math.max(0, aZ)) };
             case 2:
-                return new float[]{Math.min(0.99F, Math.max(0, 1 - aX)), Math.min(0.99F, Math.max(0, 1 - aY))};
+                return new float[] { Math.min(0.99F, Math.max(0, 1 - aX)), Math.min(0.99F, Math.max(0, 1 - aY)) };
             case 3:
-                return new float[]{Math.min(0.99F, Math.max(0, aX)), Math.min(0.99F, Math.max(0, 1 - aY))};
+                return new float[] { Math.min(0.99F, Math.max(0, aX)), Math.min(0.99F, Math.max(0, 1 - aY)) };
             case 4:
-                return new float[]{Math.min(0.99F, Math.max(0, aZ)), Math.min(0.99F, Math.max(0, 1 - aY))};
+                return new float[] { Math.min(0.99F, Math.max(0, aZ)), Math.min(0.99F, Math.max(0, 1 - aY)) };
             case 5:
-                return new float[]{Math.min(0.99F, Math.max(0, 1 - aZ)), Math.min(0.99F, Math.max(0, 1 - aY))};
+                return new float[] { Math.min(0.99F, Math.max(0, 1 - aZ)), Math.min(0.99F, Math.max(0, 1 - aY)) };
             default:
-                return new float[]{0.5F, 0.5F};
+                return new float[] { 0.5F, 0.5F };
         }
     }
 
@@ -2010,91 +2648,98 @@ public class GT_Utility {
      */
     public static boolean consumeItems(EntityPlayer player, ItemStack stack, Item item, int count) {
         if (stack != null && stack.getItem() == item && stack.stackSize >= count) {
-            if ((!player.capabilities.isCreativeMode) && (stack.stackSize != 111))
-                stack.stackSize -= count;
+            if ((!player.capabilities.isCreativeMode) && (stack.stackSize != 111)) stack.stackSize -= count;
             return true;
         }
         return false;
-        }
+    }
 
     /*
      * Check if stack has enough items of given gregtech material (will be oredicted)
      * and subtract from stack, if there's no creative or 111 stack.
      */
-    public static boolean consumeItems(EntityPlayer player, ItemStack stack, gregtech.api.enums.Materials mat, int count) {
-        if (stack != null
-            && GT_OreDictUnificator.getItemData(stack).mMaterial.mMaterial == mat
+    public static boolean consumeItems(EntityPlayer player, ItemStack stack, gregtech.api.enums.Materials mat,
+        int count) {
+        if (stack != null && GT_OreDictUnificator.getItemData(stack).mMaterial.mMaterial == mat
             && stack.stackSize >= count) {
-            if ((!player.capabilities.isCreativeMode) && (stack.stackSize != 111))
-                stack.stackSize -= count;
+            if ((!player.capabilities.isCreativeMode) && (stack.stackSize != 111)) stack.stackSize -= count;
             return true;
-            }
+        }
         return false;
     }
 
-    public static ArrayList<String> sortByValueToList( Map<String, Integer> map ) {
-        List<Map.Entry<String, Integer>> list =
-            new LinkedList<Map.Entry<String, Integer>>( map.entrySet() );
-        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
-        {
-            public int compare( Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2 )
-            {
+    public static ArrayList<String> sortByValueToList(Map<String, Integer> map) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
                 return o2.getValue() - o1.getValue();
             }
-        } );
+        });
 
         ArrayList<String> result = new ArrayList<String>();
-        for (Map.Entry<String, Integer> e : list)
-            result.add(e.getKey());
+        for (Map.Entry<String, Integer> e : list) result.add(e.getKey());
         return result;
     }
 
     public static String joinListToString(List<String> list) {
         String result = "";
-        for (String s : list)
-            result += (result.isEmpty() ? "" : "|") + s;
+        for (String s : list) result += (result.isEmpty() ? "" : "|") + s;
         return result;
     }
 
-    public static ItemStack getIntegratedCircuit(int config){
-    	return ItemList.Circuit_Integrated.getWithDamage(0, config, new Object[0]);
+    public static ItemStack getIntegratedCircuit(int config) {
+        return ItemList.Circuit_Integrated.getWithDamage(0, config, new Object[0]);
     }
 
     public static float getBlockHardnessAt(World aWorld, int aX, int aY, int aZ) {
-    	return aWorld.getBlock(aX, aY, aZ).getBlockHardness(aWorld, aX, aY, aZ);
+        return aWorld.getBlock(aX, aY, aZ)
+            .getBlockHardness(aWorld, aX, aY, aZ);
     }
 
     public static FakePlayer getFakePlayer(IGregTechTileEntity aBaseMetaTileEntity) {
-    	if (aBaseMetaTileEntity.getWorld() instanceof WorldServer) {
-    		return FakePlayerFactory.get((WorldServer) aBaseMetaTileEntity.getWorld(), new GameProfile(null, aBaseMetaTileEntity.getOwnerName()));
-    	}
-    	return null;
+        if (aBaseMetaTileEntity.getWorld() instanceof WorldServer) {
+            return FakePlayerFactory.get(
+                (WorldServer) aBaseMetaTileEntity.getWorld(),
+                new GameProfile(null, aBaseMetaTileEntity.getOwnerName()));
+        }
+        return null;
     }
 
     public static boolean eraseBlockByFakePlayer(FakePlayer aPlayer, int aX, int aY, int aZ, boolean isSimulate) {
-    	if (aPlayer == null) return false;
-    	World aWorld = aPlayer.worldObj;
-    	BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(aX, aY, aZ, aWorld, aWorld.getBlock(aX, aY, aZ), aWorld.getBlockMetadata(aX, aY, aZ), aPlayer);
-    	MinecraftForge.EVENT_BUS.post(event);
-    	if (!event.isCanceled()) {
-    		if (!isSimulate) return aWorld.setBlockToAir(aX, aY, aZ);
-    		return true;
-    	}
-    	return false;
+        if (aPlayer == null) return false;
+        World aWorld = aPlayer.worldObj;
+        BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(
+            aX,
+            aY,
+            aZ,
+            aWorld,
+            aWorld.getBlock(aX, aY, aZ),
+            aWorld.getBlockMetadata(aX, aY, aZ),
+            aPlayer);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (!event.isCanceled()) {
+            if (!isSimulate) return aWorld.setBlockToAir(aX, aY, aZ);
+            return true;
+        }
+        return false;
     }
 
-    public static boolean setBlockByFakePlayer(FakePlayer aPlayer, int aX, int aY, int aZ, Block aBlock, int aMeta, boolean isSimulate) {
-    	if (aPlayer == null) return false;
-    	World aWorld = aPlayer.worldObj;
-    	BlockEvent.PlaceEvent event = ForgeEventFactory.onPlayerBlockPlace(aPlayer, new BlockSnapshot(aWorld, aX, aY, aZ, aBlock, aMeta), ForgeDirection.UNKNOWN);
-    	if (!event.isCanceled()) {
-    		if (!isSimulate) return aWorld.setBlock(aX, aY, aZ, aBlock, aMeta, 3);
-    		return true;
-    	}
-    	return false;
+    public static boolean setBlockByFakePlayer(FakePlayer aPlayer, int aX, int aY, int aZ, Block aBlock, int aMeta,
+        boolean isSimulate) {
+        if (aPlayer == null) return false;
+        World aWorld = aPlayer.worldObj;
+        BlockEvent.PlaceEvent event = ForgeEventFactory
+            .onPlayerBlockPlace(aPlayer, new BlockSnapshot(aWorld, aX, aY, aZ, aBlock, aMeta), ForgeDirection.UNKNOWN);
+        if (!event.isCanceled()) {
+            if (!isSimulate) return aWorld.setBlock(aX, aY, aZ, aBlock, aMeta, 3);
+            return true;
+        }
+        return false;
     }
 
     public static class ItemNBT {
+
         public static void setNBT(ItemStack aStack, NBTTagCompound aNBT) {
             if (aNBT == null) {
                 aStack.setTagCompound(null);
@@ -2103,7 +2748,8 @@ public class GT_Utility {
             ArrayList<String> tTagsToRemove = new ArrayList<String>();
             for (Object tKey : aNBT.func_150296_c()) {
                 NBTBase tValue = aNBT.getTag((String) tKey);
-                if (tValue == null || (tValue instanceof NBTPrimitive && ((NBTPrimitive) tValue).func_150291_c() == 0) || (tValue instanceof NBTTagString && isStringInvalid(((NBTTagString) tValue).func_150285_a_())))
+                if (tValue == null || (tValue instanceof NBTPrimitive && ((NBTPrimitive) tValue).func_150291_c() == 0)
+                    || (tValue instanceof NBTTagString && isStringInvalid(((NBTTagString) tValue).func_150285_a_())))
                     tTagsToRemove.add((String) tKey);
             }
             for (Object tKey : tTagsToRemove) aNBT.removeTag((String) tKey);
@@ -2171,11 +2817,11 @@ public class GT_Utility {
             return tNBT.getString("author");
         }
 
-        public static void setProspectionData(ItemStack aStack, int aX, int aY, int aZ, int aDim, FluidStack aFluid, String[] aOres) {
+        public static void setProspectionData(ItemStack aStack, int aX, int aY, int aZ, int aDim, FluidStack aFluid,
+            String[] aOres) {
             NBTTagCompound tNBT = getNBT(aStack);
             String tData = aX + "," + aY + "," + aZ + "," + aDim + ",";
-            if (aFluid!=null)
-            	tData += (aFluid.amount) + "," + aFluid.getLocalizedName() + ",";
+            if (aFluid != null) tData += (aFluid.amount) + "," + aFluid.getLocalizedName() + ",";
             for (String tString : aOres) {
                 tData += tString + ",";
             }
@@ -2183,20 +2829,14 @@ public class GT_Utility {
             setNBT(aStack, tNBT);
         }
 
-        public static void setAdvancedProspectionData(
-                byte aTier,
-                ItemStack aStack,
-                int aX, short aY, int aZ, int aDim,
-                ArrayList<String> aOils,
-                ArrayList<String> aNearOres,
-                ArrayList<String> aMiddleOres,
-                ArrayList<String> aFarOres,
-                int aNear, int aMiddle, int aRadius) {
+        public static void setAdvancedProspectionData(byte aTier, ItemStack aStack, int aX, short aY, int aZ, int aDim,
+            ArrayList<String> aOils, ArrayList<String> aNearOres, ArrayList<String> aMiddleOres,
+            ArrayList<String> aFarOres, int aNear, int aMiddle, int aRadius) {
 
             setBookTitle(aStack, "Raw Prospection Data");
 
             NBTTagCompound tNBT = GT_Utility.ItemNBT.getNBT(aStack);
-            
+
             tNBT.setByte("prospection_tier", aTier);
             tNBT.setString("prospection_pos", "X: " + aX + " Y: " + aY + " Z: " + aZ + " Dim: " + aDim);
 
@@ -2208,10 +2848,10 @@ public class GT_Utility {
             // oils
             ArrayList<String> tOilsTransformed = new ArrayList<String>(aOils.size());
             for (String aStr : aOils) {
-            	String[] aStats = aStr.split(",");
-            	tOilsTransformed.add(aStats[0] + ": " + aStats[1] + "L " + aStats[2]);
+                String[] aStats = aStr.split(",");
+                tOilsTransformed.add(aStats[0] + ": " + aStats[1] + "L " + aStats[2]);
             }
-            
+
             tNBT.setString("prospection_oils", joinListToString(tOilsTransformed));
 
             tNBT.setString("prospection_bounds", aNear + "|" + aMiddle + "|" + aRadius);
@@ -2227,19 +2867,40 @@ public class GT_Utility {
                 String tData = tNBT.getString("prospection");
                 String[] tDataArray = tData.split(",");
                 if (tDataArray.length > 6) {
-                    tNBT.setString("author", "X: " + tDataArray[0] + " Y: " + tDataArray[1] + " Z: " + tDataArray[2] + " Dim: " + tDataArray[3]);
+                    tNBT.setString(
+                        "author",
+                        "X: " + tDataArray[0]
+                            + " Y: "
+                            + tDataArray[1]
+                            + " Z: "
+                            + tDataArray[2]
+                            + " Dim: "
+                            + tDataArray[3]);
                     NBTTagList tNBTList = new NBTTagList();
                     String tOres = " Prospected Ores: ";
                     for (int i = 6; tDataArray.length > i; i++) {
                         tOres += (tDataArray[i] + " ");
                     }
-                    tNBTList.appendTag(new NBTTagString("Prospection Data From: X" + tDataArray[0] + " Z:" + tDataArray[2] + " Dim:" + tDataArray[3] + " Produces " + tDataArray[4] + "L " + tDataArray[5] + " " + tOres));
+                    tNBTList.appendTag(
+                        new NBTTagString(
+                            "Prospection Data From: X" + tDataArray[0]
+                                + " Z:"
+                                + tDataArray[2]
+                                + " Dim:"
+                                + tDataArray[3]
+                                + " Produces "
+                                + tDataArray[4]
+                                + "L "
+                                + tDataArray[5]
+                                + " "
+                                + tOres));
                     tNBT.setTag("pages", tNBTList);
                 }
                 setNBT(aStack, tNBT);
             } else { // advanced prospection data
                 String tPos = tNBT.getString("prospection_pos");
-                String[] tBounds = tNBT.getString("prospection_bounds").split("\\|");
+                String[] tBounds = tNBT.getString("prospection_bounds")
+                    .split("\\|");
 
                 String tNearOresStr = tNBT.getString("prospection_near");
                 String tMiddleOresStr = tNBT.getString("prospection_middle");
@@ -2253,45 +2914,66 @@ public class GT_Utility {
 
                 NBTTagList tNBTList = new NBTTagList();
 
-                String tPageText = "Advanced prospection\n\n"
-                    + tPos + "\n"
+                String tPageText = "Advanced prospection\n\n" + tPos
+                    + "\n"
                     + "Results:\n"
-                    + "- Close Range Ores: " + (tNearOres != null ? tNearOres.length : 0) + "\n"
-                    + "- Mid Range Ores: " + (tMiddleOres != null ? tMiddleOres.length : 0) + "\n"
-                    + "- Far Range Ores: " + (tFarOres != null ? tFarOres.length : 0) + "\n"
-                    + "- Oils: " + (tOils != null ? tOils.length : 0) + "\n\n"
+                    + "- Close Range Ores: "
+                    + (tNearOres != null ? tNearOres.length : 0)
+                    + "\n"
+                    + "- Mid Range Ores: "
+                    + (tMiddleOres != null ? tMiddleOres.length : 0)
+                    + "\n"
+                    + "- Far Range Ores: "
+                    + (tFarOres != null ? tFarOres.length : 0)
+                    + "\n"
+                    + "- Oils: "
+                    + (tOils != null ? tOils.length : 0)
+                    + "\n\n"
                     + "Lists was sorted by volume";
                 tNBTList.appendTag(new NBTTagString(tPageText));
-  
-                if (tNearOres != null)
-                    fillBookWithList(tNBTList, "Close Range Ores%s\n\n", ", ", 20, tNearOres);
-                if (tMiddleOres != null)
-                    fillBookWithList(tNBTList, "Mid Range Ores%s\n\n", ", ", 20, tMiddleOres);
-                if (tFarOres != null)
-                    fillBookWithList(tNBTList, "Far Range Ores%s\n\n", ", ", 20, tFarOres);
-                
-                tPageText = "Ore notes\n\n"
-                        + "Close range:\nR <= " + tBounds[0] + "\n"
-                        + "Mid range:\n" + tBounds[0] + " < R <= " + tBounds[1] + "\n"
-                        + "Far range:\n" + tBounds[1] + " < R <= " + tBounds[2] + "\n"
-                        + "\n"
-                        + "[F][F][F][F][F]" + "\n"
-                        + "[F][M][M][M][F]" + "\n"
-                        + "[F][M][C][M][F]" + "\n"
-                        + "[F][M][M][M][F]" + "\n"
-                        + "[F][F][F][F][F]";
+
+                if (tNearOres != null) fillBookWithList(tNBTList, "Close Range Ores%s\n\n", ", ", 20, tNearOres);
+                if (tMiddleOres != null) fillBookWithList(tNBTList, "Mid Range Ores%s\n\n", ", ", 20, tMiddleOres);
+                if (tFarOres != null) fillBookWithList(tNBTList, "Far Range Ores%s\n\n", ", ", 20, tFarOres);
+
+                tPageText = "Ore notes\n\n" + "Close range:\nR <= "
+                    + tBounds[0]
+                    + "\n"
+                    + "Mid range:\n"
+                    + tBounds[0]
+                    + " < R <= "
+                    + tBounds[1]
+                    + "\n"
+                    + "Far range:\n"
+                    + tBounds[1]
+                    + " < R <= "
+                    + tBounds[2]
+                    + "\n"
+                    + "\n"
+                    + "[F][F][F][F][F]"
+                    + "\n"
+                    + "[F][M][M][M][F]"
+                    + "\n"
+                    + "[F][M][C][M][F]"
+                    + "\n"
+                    + "[F][M][M][M][F]"
+                    + "\n"
+                    + "[F][F][F][F][F]";
                 tNBTList.appendTag(new NBTTagString(tPageText));
-                
-                if (tOils != null)
-                    fillBookWithList(tNBTList, "Oils%s\n\n", "\n", 9, tOils);
+
+                if (tOils != null) fillBookWithList(tNBTList, "Oils%s\n\n", "\n", 9, tOils);
 
                 tPageText = "Oil notes\n\n"
-                        + "Prospects from NW to SE 324 chunks (9 oilfields) around and gives min-max amount" + "\n\n"
-                        + "[1][2][3]" + "\n"
-                        + "[4][5][6]" + "\n"
-                        + "[7][8][9]" + "\n"
-                        + "\n"
-                        + "[5] - Prospector";
+                    + "Prospects from NW to SE 324 chunks (9 oilfields) around and gives min-max amount"
+                    + "\n\n"
+                    + "[1][2][3]"
+                    + "\n"
+                    + "[4][5][6]"
+                    + "\n"
+                    + "[7][8][9]"
+                    + "\n"
+                    + "\n"
+                    + "[5] - Prospector";
                 tNBTList.appendTag(new NBTTagString(tPageText));
 
                 tNBT.setString("author", tPos);
@@ -2300,14 +2982,15 @@ public class GT_Utility {
             }
         }
 
-        public static void fillBookWithList(NBTTagList aBook, String aPageHeader, String aListDelimiter, int aItemsPerPage, String[] list) {
+        public static void fillBookWithList(NBTTagList aBook, String aPageHeader, String aListDelimiter,
+            int aItemsPerPage, String[] list) {
             String aPageFormatter = " %d/%d";
             int tTotalPages = list.length / aItemsPerPage + (list.length % aItemsPerPage > 0 ? 1 : 0);
             int tPage = 0;
             String tPageText;
             do {
                 tPageText = "";
-                for (int i = tPage*aItemsPerPage; i < (tPage+1)*aItemsPerPage && i < list.length; i += 1)
+                for (int i = tPage * aItemsPerPage; i < (tPage + 1) * aItemsPerPage && i < list.length; i += 1)
                     tPageText += (tPageText.isEmpty() ? "" : aListDelimiter) + list[i];
 
                 if (!tPageText.isEmpty()) {
@@ -2351,6 +3034,7 @@ public class GT_Utility {
      * THIS IS BULLSHIT!!! WHY DO I HAVE TO DO THIS SHIT JUST TO HAVE ENCHANTS PROPERLY!?!
      */
     public static class GT_EnchantmentHelper {
+
         private static final BullshitIteratorA mBullshitIteratorA = new BullshitIteratorA();
         private static final BullshitIteratorB mBullshitIteratorB = new BullshitIteratorB();
 
@@ -2360,8 +3044,10 @@ public class GT_Utility {
                 if (nbttaglist != null) {
                     try {
                         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
-                            short short1 = nbttaglist.getCompoundTagAt(i).getShort("id");
-                            short short2 = nbttaglist.getCompoundTagAt(i).getShort("lvl");
+                            short short1 = nbttaglist.getCompoundTagAt(i)
+                                .getShort("id");
+                            short short2 = nbttaglist.getCompoundTagAt(i)
+                                .getShort("lvl");
                             if (Enchantment.enchantmentsList[short1] != null)
                                 aBullshitModifier.calculateModifier(Enchantment.enchantmentsList[short1], short2);
                         }
@@ -2394,15 +3080,16 @@ public class GT_Utility {
         }
 
         interface IBullshit {
+
             void calculateModifier(Enchantment aEnchantment, int aLevel);
         }
 
         static final class BullshitIteratorA implements IBullshit {
+
             public EntityLivingBase mPlayer;
             public Entity mEntity;
 
-            BullshitIteratorA() {
-            }
+            BullshitIteratorA() {}
 
             @Override
             public void calculateModifier(Enchantment aEnchantment, int aLevel) {
@@ -2411,11 +3098,11 @@ public class GT_Utility {
         }
 
         static final class BullshitIteratorB implements IBullshit {
+
             public EntityLivingBase mPlayer;
             public Entity mEntity;
 
-            BullshitIteratorB() {
-            }
+            BullshitIteratorB() {}
 
             @Override
             public void calculateModifier(Enchantment aEnchantment, int aLevel) {

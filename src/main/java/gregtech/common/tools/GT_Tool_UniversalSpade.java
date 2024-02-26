@@ -1,10 +1,5 @@
 package gregtech.common.tools;
 
-import gregtech.GT_Mod;
-import gregtech.api.GregTech_API;
-import gregtech.api.interfaces.IIconContainer;
-import gregtech.api.items.GT_MetaGenerated_Tool;
-import gregtech.common.items.behaviors.Behaviour_Crowbar;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,8 +10,14 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
-public class GT_Tool_UniversalSpade
-        extends GT_Tool {
+import gregtech.GT_Mod;
+import gregtech.api.GregTech_API;
+import gregtech.api.interfaces.IIconContainer;
+import gregtech.api.items.GT_MetaGenerated_Tool;
+import gregtech.common.items.behaviors.Behaviour_Crowbar;
+
+public class GT_Tool_UniversalSpade extends GT_Tool {
+
     public int getToolDamagePerBlockBreak() {
         return 50;
     }
@@ -79,7 +80,27 @@ public class GT_Tool_UniversalSpade
 
     public boolean isMinableBlock(Block aBlock, byte aMetaData) {
         String tTool = aBlock.getHarvestTool(aMetaData);
-        return ((tTool != null) && ((tTool.equals("shovel")) || (tTool.equals("axe")) || (tTool.equals("saw")) || (tTool.equals("sword")) || (tTool.equals("crowbar")))) || (aBlock.getMaterial() == Material.sand) || (aBlock.getMaterial() == Material.grass) || (aBlock.getMaterial() == Material.ground) || (aBlock.getMaterial() == Material.snow) || (aBlock.getMaterial() == Material.clay) || (aBlock.getMaterial() == Material.leaves) || (aBlock.getMaterial() == Material.vine) || (aBlock.getMaterial() == Material.wood) || (aBlock.getMaterial() == Material.cactus) || (aBlock.getMaterial() == Material.circuits) || (aBlock.getMaterial() == Material.gourd) || (aBlock.getMaterial() == Material.web) || (aBlock.getMaterial() == Material.cloth) || (aBlock.getMaterial() == Material.carpet) || (aBlock.getMaterial() == Material.plants) || (aBlock.getMaterial() == Material.cake) || (aBlock.getMaterial() == Material.tnt) || (aBlock.getMaterial() == Material.sponge);
+        return ((tTool != null) && ((tTool.equals("shovel")) || (tTool.equals("axe"))
+            || (tTool.equals("saw"))
+            || (tTool.equals("sword"))
+            || (tTool.equals("crowbar")))) || (aBlock.getMaterial() == Material.sand)
+            || (aBlock.getMaterial() == Material.grass)
+            || (aBlock.getMaterial() == Material.ground)
+            || (aBlock.getMaterial() == Material.snow)
+            || (aBlock.getMaterial() == Material.clay)
+            || (aBlock.getMaterial() == Material.leaves)
+            || (aBlock.getMaterial() == Material.vine)
+            || (aBlock.getMaterial() == Material.wood)
+            || (aBlock.getMaterial() == Material.cactus)
+            || (aBlock.getMaterial() == Material.circuits)
+            || (aBlock.getMaterial() == Material.gourd)
+            || (aBlock.getMaterial() == Material.web)
+            || (aBlock.getMaterial() == Material.cloth)
+            || (aBlock.getMaterial() == Material.carpet)
+            || (aBlock.getMaterial() == Material.plants)
+            || (aBlock.getMaterial() == Material.cake)
+            || (aBlock.getMaterial() == Material.tnt)
+            || (aBlock.getMaterial() == Material.sponge);
     }
 
     public ItemStack getBrokenItem(ItemStack aStack) {
@@ -87,11 +108,16 @@ public class GT_Tool_UniversalSpade
     }
 
     public IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadUniversalSpade.mTextureIndex] : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.stick.mTextureIndex];
+        return aIsToolHead
+            ? GT_MetaGenerated_Tool.getPrimaryMaterial(
+                aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.toolHeadUniversalSpade.mTextureIndex]
+            : GT_MetaGenerated_Tool
+                .getSecondaryMaterial(aStack).mIconSet.mTextures[gregtech.api.enums.OrePrefixes.stick.mTextureIndex];
     }
 
     public short[] getRGBa(boolean aIsToolHead, ItemStack aStack) {
-        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
+        return aIsToolHead ? GT_MetaGenerated_Tool.getPrimaryMaterial(aStack).mRGBa
+            : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
     }
 
     public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {
@@ -103,11 +129,16 @@ public class GT_Tool_UniversalSpade
         aPlayer.triggerAchievement(AchievementList.buildSword);
         try {
             GT_Mod.instance.achievements.issueAchievement(aPlayer, "unitool");
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
     public IChatComponent getDeathMessage(EntityLivingBase aPlayer, EntityLivingBase aEntity) {
-        return new ChatComponentText(EnumChatFormatting.RED + aEntity.getCommandSenderName() + EnumChatFormatting.WHITE + " has been digged by " + EnumChatFormatting.GREEN + aPlayer.getCommandSenderName() + EnumChatFormatting.WHITE);
+        return new ChatComponentText(
+            EnumChatFormatting.RED + aEntity.getCommandSenderName()
+                + EnumChatFormatting.WHITE
+                + " has been digged by "
+                + EnumChatFormatting.GREEN
+                + aPlayer.getCommandSenderName()
+                + EnumChatFormatting.WHITE);
     }
 }

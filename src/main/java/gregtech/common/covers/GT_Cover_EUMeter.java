@@ -1,5 +1,9 @@
 package gregtech.common.covers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.ICoverable;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -9,46 +13,59 @@ import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
 import ic2.api.item.IElectricItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
 
-public class GT_Cover_EUMeter
-        extends GT_CoverBehavior {
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+public class GT_Cover_EUMeter extends GT_CoverBehavior {
+
+    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        long aTimer) {
         long tScale = 0L;
         if (aCoverVariable < 2) {
             tScale = aTileEntity.getUniversalEnergyCapacity() / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getUniversalEnergyStored() / tScale) : (byte) (int) (15L - aTileEntity.getUniversalEnergyStored() / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getUniversalEnergyStored() / tScale)
+                        : (byte) (int) (15L - aTileEntity.getUniversalEnergyStored() / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
         } else if (aCoverVariable < 4) {
             tScale = aTileEntity.getEUCapacity() / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getStoredEU() / tScale) : (byte) (int) (15L - aTileEntity.getStoredEU() / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getStoredEU() / tScale)
+                        : (byte) (int) (15L - aTileEntity.getStoredEU() / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
         } else if (aCoverVariable < 6) {
             tScale = aTileEntity.getSteamCapacity() / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getStoredSteam() / tScale) : (byte) (int) (15L - aTileEntity.getStoredSteam() / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getStoredSteam() / tScale)
+                        : (byte) (int) (15L - aTileEntity.getStoredSteam() / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
         } else if (aCoverVariable < 8) {
             tScale = aTileEntity.getInputVoltage() * aTileEntity.getInputAmperage() / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getAverageElectricInput() / tScale) : (byte) (int) (15L - aTileEntity.getAverageElectricInput() / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getAverageElectricInput() / tScale)
+                        : (byte) (int) (15L - aTileEntity.getAverageElectricInput() / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
         } else if (aCoverVariable < 10) {
             tScale = aTileEntity.getOutputVoltage() * aTileEntity.getOutputAmperage() / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getAverageElectricOutput() / tScale) : (byte) (int) (15L - aTileEntity.getAverageElectricOutput() / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (aTileEntity.getAverageElectricOutput() / tScale)
+                        : (byte) (int) (15L - aTileEntity.getAverageElectricOutput() / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
@@ -82,7 +99,9 @@ public class GT_Cover_EUMeter
             }
             tScale = tScale / 15L;
             if (tScale > 0L) {
-                aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (tStored / tScale) : (byte) (int) (15L - tStored / tScale));
+                aTileEntity.setOutputRedstoneSignal(
+                    aSide,
+                    aCoverVariable % 2 == 0 ? (byte) (int) (tStored / tScale) : (byte) (int) (15L - tStored / tScale));
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
@@ -90,22 +109,49 @@ public class GT_Cover_EUMeter
         return aCoverVariable;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
-        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking()? -1 : 1)) % 12;
-        if(aCoverVariable <0){aCoverVariable = 11;}
-        switch(aCoverVariable) {
-            case 0: GT_Utility.sendChatToPlayer(aPlayer, trans("031", "Normal Universal Storage")); break;
-            case 1: GT_Utility.sendChatToPlayer(aPlayer, trans("032", "Inverted Universal Storage")); break;
-            case 2: GT_Utility.sendChatToPlayer(aPlayer, trans("033", "Normal Electricity Storage")); break;
-            case 3: GT_Utility.sendChatToPlayer(aPlayer, trans("034", "Inverted Electricity Storage")); break;
-            case 4: GT_Utility.sendChatToPlayer(aPlayer, trans("035", "Normal Steam Storage")); break;
-            case 5: GT_Utility.sendChatToPlayer(aPlayer, trans("036", "Inverted Steam Storage")); break;
-            case 6: GT_Utility.sendChatToPlayer(aPlayer, trans("037", "Normal Average Electric Input")); break;
-            case 7: GT_Utility.sendChatToPlayer(aPlayer, trans("038", "Inverted Average Electric Input")); break;
-            case 8: GT_Utility.sendChatToPlayer(aPlayer, trans("039", "Normal Average Electric Output")); break;
-            case 9: GT_Utility.sendChatToPlayer(aPlayer, trans("040", "Inverted Average Electric Output")); break;
-            case 10: GT_Utility.sendChatToPlayer(aPlayer, trans("041", "Normal Electricity Storage(Including Batteries)")); break;
-            case 11: GT_Utility.sendChatToPlayer(aPlayer, trans("042", "Inverted Electricity Storage(Including Batteries)")); break;
+    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity,
+        EntityPlayer aPlayer, float aX, float aY, float aZ) {
+        aCoverVariable = (aCoverVariable + (aPlayer.isSneaking() ? -1 : 1)) % 12;
+        if (aCoverVariable < 0) {
+            aCoverVariable = 11;
+        }
+        switch (aCoverVariable) {
+            case 0:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("031", "Normal Universal Storage"));
+                break;
+            case 1:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("032", "Inverted Universal Storage"));
+                break;
+            case 2:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("033", "Normal Electricity Storage"));
+                break;
+            case 3:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("034", "Inverted Electricity Storage"));
+                break;
+            case 4:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("035", "Normal Steam Storage"));
+                break;
+            case 5:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("036", "Inverted Steam Storage"));
+                break;
+            case 6:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("037", "Normal Average Electric Input"));
+                break;
+            case 7:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("038", "Inverted Average Electric Input"));
+                break;
+            case 8:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("039", "Normal Average Electric Output"));
+                break;
+            case 9:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("040", "Inverted Average Electric Output"));
+                break;
+            case 10:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("041", "Normal Electricity Storage(Including Batteries)"));
+                break;
+            case 11:
+                GT_Utility.sendChatToPlayer(aPlayer, trans("042", "Inverted Electricity Storage(Including Batteries)"));
+                break;
         }
         return aCoverVariable;
     }
@@ -134,7 +180,8 @@ public class GT_Cover_EUMeter
         return true;
     }
 
-    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity) {
+    public boolean manipulatesSidedRedstoneOutput(byte aSide, int aCoverID, int aCoverVariable,
+        ICoverable aTileEntity) {
         return true;
     }
 

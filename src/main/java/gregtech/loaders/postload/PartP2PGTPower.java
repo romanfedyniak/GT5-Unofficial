@@ -2,6 +2,11 @@ package gregtech.loaders.postload;
 
 import java.lang.reflect.Field;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.ticking.IGridTickable;
 import appeng.api.networking.ticking.TickRateModulation;
@@ -11,12 +16,9 @@ import appeng.parts.p2p.PartP2PIC2Power;
 import gregtech.api.interfaces.tileentity.IEnergyConnected;
 import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Utility;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class PartP2PGTPower extends PartP2PIC2Power implements IGridTickable {
+
     public PartP2PGTPower(ItemStack is) {
         super(is);
     }
@@ -68,7 +70,8 @@ public class PartP2PGTPower extends PartP2PIC2Power implements IGridTickable {
             if (voltage > getOfferedEnergy()) {
                 voltage = (long) getOfferedEnergy();
             }
-            if (((IEnergyConnected) t).injectEnergyUnits(GT_Utility.getOppositeSide(getSide().ordinal()), voltage, 1) > 0) {
+            if (((IEnergyConnected) t).injectEnergyUnits(GT_Utility.getOppositeSide(getSide().ordinal()), voltage, 1)
+                > 0) {
                 drawEnergy(voltage);
                 return true;
             }
@@ -86,15 +89,15 @@ public class PartP2PGTPower extends PartP2PIC2Power implements IGridTickable {
         return outputEnergy() ? TickRateModulation.FASTER : TickRateModulation.SLOWER;
     }
 
-    public ForgeDirection getSide(){
-    	try {
-    		Field fSide = AEBasePart.class.getDeclaredField("side");
-			fSide.setAccessible(true);
-    		return (ForgeDirection) fSide.get(this);
-    	} catch (Exception e) {
-    		GT_Log.out.println("A fatal error occured at the P2P tunnel for GT electricity");
+    public ForgeDirection getSide() {
+        try {
+            Field fSide = AEBasePart.class.getDeclaredField("side");
+            fSide.setAccessible(true);
+            return (ForgeDirection) fSide.get(this);
+        } catch (Exception e) {
+            GT_Log.out.println("A fatal error occured at the P2P tunnel for GT electricity");
             e.printStackTrace(GT_Log.out);
-    		throw new RuntimeException(e);
-    	}
+            throw new RuntimeException(e);
+        }
     }
 }
