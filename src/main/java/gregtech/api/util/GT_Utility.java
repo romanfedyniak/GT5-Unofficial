@@ -168,7 +168,7 @@ public class GT_Utility {
         return rField;
     }
 
-    public static Field getField(Class aObject, String aField) {
+    public static Field getField(Class<?> aObject, String aField) {
         Field rField = null;
         try {
             rField = aObject.getDeclaredField(aField);
@@ -177,7 +177,7 @@ public class GT_Utility {
         return rField;
     }
 
-    public static Method getMethod(Class aObject, String aMethod, Class<?>... aParameterTypes) {
+    public static Method getMethod(Class<?> aObject, String aMethod, Class<?>... aParameterTypes) {
         Method rMethod = null;
         try {
             rMethod = aObject.getMethod(aMethod, aParameterTypes);
@@ -198,7 +198,7 @@ public class GT_Utility {
 
     public static Field getField(Object aObject, String aField, boolean aPrivate, boolean aLogErrors) {
         try {
-            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField)
+            Field tField = (aObject instanceof Class) ? ((Class<?>) aObject).getDeclaredField(aField)
                 : (aObject instanceof String) ? Class.forName((String) aObject)
                     .getDeclaredField(aField)
                     : aObject.getClass()
@@ -213,7 +213,7 @@ public class GT_Utility {
 
     public static Object getFieldContent(Object aObject, String aField, boolean aPrivate, boolean aLogErrors) {
         try {
-            Field tField = (aObject instanceof Class) ? ((Class) aObject).getDeclaredField(aField)
+            Field tField = (aObject instanceof Class) ? ((Class<?>) aObject).getDeclaredField(aField)
                 : (aObject instanceof String) ? Class.forName((String) aObject)
                     .getDeclaredField(aField)
                     : aObject.getClass()
@@ -240,7 +240,7 @@ public class GT_Utility {
             Class<?>[] tParameterTypes = new Class<?>[aParameters.length];
             for (byte i = 0; i < aParameters.length; i++) {
                 if (aParameters[i] instanceof Class) {
-                    tParameterTypes[i] = (Class) aParameters[i];
+                    tParameterTypes[i] = (Class<?>) aParameters[i];
                     aParameters[i] = null;
                 } else {
                     tParameterTypes[i] = aParameters[i].getClass();
@@ -256,7 +256,7 @@ public class GT_Utility {
                 }
             }
 
-            Method tMethod = (aObject instanceof Class) ? ((Class) aObject).getMethod(aMethod, tParameterTypes)
+            Method tMethod = (aObject instanceof Class) ? ((Class<?>) aObject).getMethod(aMethod, tParameterTypes)
                 : aObject.getClass()
                     .getMethod(aMethod, tParameterTypes);
             if (aPrivate) tMethod.setAccessible(true);
@@ -271,7 +271,7 @@ public class GT_Utility {
         boolean aLogErrors, Object... aParameters) {
         if (aConstructorIndex < 0) {
             try {
-                for (Constructor tConstructor : Class.forName(aClass)
+                for (Constructor<?> tConstructor : Class.forName(aClass)
                     .getConstructors()) {
                     try {
                         return tConstructor.newInstance(aParameters);
@@ -314,7 +314,7 @@ public class GT_Utility {
             }
 
             if (tPotionHashmap != null)
-                return ((HashMap) tPotionHashmap.get(aPlayer)).get(Integer.valueOf(aPotionIndex)) != null;
+                return ((HashMap<?, ?>) tPotionHashmap.get(aPlayer)).get(Integer.valueOf(aPotionIndex)) != null;
         } catch (Throwable e) {
             if (D1) e.printStackTrace(GT_Log.err);
         }
@@ -347,7 +347,8 @@ public class GT_Utility {
                 }
             }
 
-            if (tPotionHashmap != null) ((HashMap) tPotionHashmap.get(aPlayer)).remove(Integer.valueOf(aPotionIndex));
+            if (tPotionHashmap != null)
+                ((HashMap<?, ?>) tPotionHashmap.get(aPlayer)).remove(Integer.valueOf(aPotionIndex));
         } catch (Throwable e) {
             if (D1) e.printStackTrace(GT_Log.err);
         }
@@ -410,17 +411,17 @@ public class GT_Utility {
     public static void checkAvailabilities() {
         if (CHECK_ALL) {
             try {
-                Class tClass = IItemDuct.class;
+                Class<?> tClass = IItemDuct.class;
                 tClass.getCanonicalName();
                 TE_CHECK = true;
             } catch (Throwable e) {/**/}
             try {
-                Class tClass = buildcraft.api.transport.IPipeTile.class;
+                Class<?> tClass = buildcraft.api.transport.IPipeTile.class;
                 tClass.getCanonicalName();
                 BC_CHECK = true;
             } catch (Throwable e) {/**/}
             try {
-                Class tClass = cofh.api.energy.IEnergyReceiver.class;
+                Class<?> tClass = cofh.api.energy.IEnergyReceiver.class;
                 tClass.getCanonicalName();
                 RF_CHECK = true;
             } catch (Throwable e) {/**/}
@@ -438,7 +439,7 @@ public class GT_Utility {
 
         if (GregTech_API.mTranslocator) {
             try {
-                Class aCodeChickenTranslocator = Class.forName("codechicken.translocator.TileLiquidTranslocator");
+                Class<?> aCodeChickenTranslocator = Class.forName("codechicken.translocator.TileLiquidTranslocator");
                 if (aCodeChickenTranslocator != null) {
                     if (aCodeChickenTranslocator.isInstance(aTileEntity)) {
                         return true;
@@ -480,6 +481,7 @@ public class GT_Utility {
      *
      * @return the Amount of moved Items
      */
+    @SuppressWarnings("deprecation")
     public static byte moveStackIntoPipe(IInventory aTileEntity1, Object aTileEntity2, int[] aGrabSlots, int aGrabFrom,
         int aPutTo, List<ItemStack> aFilter, boolean aInvertFilter, byte aMaxTargetStackSize, byte aMinTargetStackSize,
         byte aMaxMoveAtOnce, byte aMinMoveAtOnce, boolean dropItem) {
@@ -1486,24 +1488,24 @@ public class GT_Utility {
         return listContains(aObject, Arrays.asList(aObjects));
     }
 
-    public static boolean listContains(Object aObject, Collection aObjects) {
+    public static boolean listContains(Object aObject, Collection<?> aObjects) {
         if (aObjects == null) return false;
         return aObjects.contains(aObject);
     }
 
-    public static <T> boolean arrayContainsNonNull(T... aArray) {
+    public static <T> boolean arrayContainsNonNull(@SuppressWarnings("unchecked") T... aArray) {
         if (aArray != null) for (Object tObject : aArray) if (tObject != null) return true;
         return false;
     }
 
-    public static <T> ArrayList<T> getArrayListWithoutNulls(T... aArray) {
+    public static <T> ArrayList<T> getArrayListWithoutNulls(@SuppressWarnings("unchecked") T... aArray) {
         if (aArray == null) return new ArrayList<T>();
         ArrayList<T> rList = new ArrayList<T>(Arrays.asList(aArray));
         for (int i = 0; i < rList.size(); i++) if (rList.get(i) == null) rList.remove(i--);
         return rList;
     }
 
-    public static <T> ArrayList<T> getArrayListWithoutTrailingNulls(T... aArray) {
+    public static <T> ArrayList<T> getArrayListWithoutTrailingNulls(@SuppressWarnings("unchecked") T... aArray) {
         if (aArray == null) return new ArrayList<T>();
         ArrayList<T> rList = new ArrayList<T>(Arrays.asList(aArray));
         for (int i = rList.size() - 1; i >= 0 && rList.get(i) == null;) rList.remove(i--);
@@ -1952,7 +1954,7 @@ public class GT_Utility {
         return aList.get(aIndex);
     }
 
-    public static <E> E selectItemInList(int aIndex, E aReplacement, E... aList) {
+    public static <E> E selectItemInList(int aIndex, E aReplacement, @SuppressWarnings("unchecked") E... aList) {
         if (aList == null || aList.length == 0) return aReplacement;
         if (aList.length <= aIndex) return aList[aList.length - 1];
         if (aIndex < 0) return aList[0];
@@ -1985,7 +1987,7 @@ public class GT_Utility {
     /**
      * Why the fuck do neither Java nor Guava have a Function to do this?
      */
-    public static <X, Y extends Comparable> LinkedHashMap<X, Y> sortMapByValuesAcending(Map<X, Y> aMap) {
+    public static <X, Y extends Comparable<Y>> LinkedHashMap<X, Y> sortMapByValuesAcending(Map<X, Y> aMap) {
         List<Map.Entry<X, Y>> tEntrySet = new LinkedList<Map.Entry<X, Y>>(aMap.entrySet());
         Collections.sort(tEntrySet, new Comparator<Map.Entry<X, Y>>() {
 
@@ -2003,7 +2005,7 @@ public class GT_Utility {
     /**
      * Why the fuck do neither Java nor Guava have a Function to do this?
      */
-    public static <X, Y extends Comparable> LinkedHashMap<X, Y> sortMapByValuesDescending(Map<X, Y> aMap) {
+    public static <X, Y extends Comparable<Y>> LinkedHashMap<X, Y> sortMapByValuesDescending(Map<X, Y> aMap) {
         List<Map.Entry<X, Y>> tEntrySet = new LinkedList<Map.Entry<X, Y>>(aMap.entrySet());
         Collections.sort(tEntrySet, new Comparator<Map.Entry<X, Y>>() {
 
@@ -2201,6 +2203,7 @@ public class GT_Utility {
     // return null;
     // }
 
+    @SuppressWarnings("deprecation")
     public static int getCoordinateScan(ArrayList<String> aList, EntityPlayer aPlayer, World aWorld, int aScanLevel,
         int aX, int aY, int aZ, int aSide, float aClickX, float aClickY, float aClickZ) {
         if (aList == null) return 0;

@@ -37,12 +37,12 @@ import gregtech.common.render.GT_Renderer_Block;
 
 public abstract class GT_Block_Ores_Abstract extends GT_Generic_Block implements ITileEntityProvider {
 
-    public static ThreadLocal<GT_TileEntity_Ores> mTemporaryTileEntity = new ThreadLocal();
+    public static ThreadLocal<GT_TileEntity_Ores> mTemporaryTileEntity = new ThreadLocal<GT_TileEntity_Ores>();
     public static boolean FUCKING_LOCK = false;
     public static boolean tHideOres;
     private final String aTextName = ".name";
     private final String aTextSmall = "Small ";
-    public static Set aBlockedOres = new HashSet<Materials>();
+    public static Set<Materials> aBlockedOres = new HashSet<Materials>();
 
     protected GT_Block_Ores_Abstract(String aUnlocalizedName, int aOreMetaCount, boolean aHideFirstMeta,
         Material aMaterial) {
@@ -258,7 +258,7 @@ public abstract class GT_Block_Ores_Abstract extends GT_Generic_Block implements
         if ((tTileEntity instanceof GT_TileEntity_Ores)) {
             return ((GT_TileEntity_Ores) tTileEntity).getDrops(getDroppedBlock(), aFortune);
         }
-        return mTemporaryTileEntity.get() == null ? new ArrayList()
+        return mTemporaryTileEntity.get() == null ? new ArrayList<ItemStack>()
             : ((GT_TileEntity_Ores) mTemporaryTileEntity.get()).getDrops(getDroppedBlock(), aFortune);
     }
 
@@ -269,7 +269,7 @@ public abstract class GT_Block_Ores_Abstract extends GT_Generic_Block implements
     public abstract ITexture[] getTextureSet(); // Must have 16 entries.
 
     @Override
-    public void getSubBlocks(Item aItem, CreativeTabs aTab, List aList) {
+    public void getSubBlocks(Item aItem, CreativeTabs aTab, List<ItemStack> aList) {
         for (int i = 0; i < GregTech_API.sGeneratedMaterials.length; i++) {
             Materials tMaterial = GregTech_API.sGeneratedMaterials[i];
             if ((tMaterial != null) && ((tMaterial.mTypes & 0x8) != 0) && !aBlockedOres.contains(tMaterial)) {

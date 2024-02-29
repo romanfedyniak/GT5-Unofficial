@@ -70,6 +70,7 @@ public class GT_MetaTileEntity_LargeTurbine_HPSteam extends GT_MetaTileEntity_La
         return 0;
     }
 
+    @SuppressWarnings("static-access")
     @Override
     int fluidIntoPower(ArrayList<FluidStack> aFluids, int aOptFlow, int aBaseEff) {
         int tEU = 0;

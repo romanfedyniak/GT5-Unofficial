@@ -64,6 +64,7 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.internal.IGT_Mod;
+import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.ItemData;
 import gregtech.api.objects.MaterialStack;
 import gregtech.api.objects.XSTR;
@@ -278,7 +279,7 @@ public class GT_Mod implements IGT_Mod {
             GT_Log.ore.println("* issue at https://github.com/Blood-Asp/GT5-Unofficial.                      *");
             GT_Log.ore.println("******************************************************************************");
             String tString;
-            for (Iterator i$ = tList.iterator(); i$.hasNext(); GT_Log.ore.println(tString)) {
+            for (Iterator<String> i$ = tList.iterator(); i$.hasNext(); GT_Log.ore.println(tString)) {
                 tString = (String) i$.next();
             }
         } catch (Throwable e) {}
@@ -587,7 +588,7 @@ public class GT_Mod implements IGT_Mod {
         try {
             GT_Utility.getField("ic2.core.item.ItemScrapbox$Drop", "topChance", true, true)
                 .set(null, Integer.valueOf(0));
-            ((List) GT_Utility.getFieldContent(
+            ((List<?>) GT_Utility.getFieldContent(
                 GT_Utility.getFieldContent("ic2.api.recipe.Recipes", "scrapboxDrops", true, true),
                 "drops",
                 true,
@@ -915,7 +916,7 @@ public class GT_Mod implements IGT_Mod {
                 LoadController tLoadController = (LoadController) GT_Utility
                     .getFieldContent(Loader.instance(), "modController", true, true);
                 List<ModContainer> tModList = tLoadController.getActiveModList();
-                List<ModContainer> tNewModsList = new ArrayList();
+                List<ModContainer> tNewModsList = new ArrayList<ModContainer>();
                 ModContainer tGregTech = null;
                 short tModList_sS = (short) tModList.size();
                 for (short i = 0; i < tModList_sS; i = (short) (i + 1)) {
@@ -1091,11 +1092,11 @@ public class GT_Mod implements IGT_Mod {
 
         if (GT_Values.D1) {
             IRecipe tRecipe;
-            for (Iterator i$ = GT_ModHandler.sSingleNonBlockDamagableRecipeList.iterator(); i$.hasNext(); GT_Log.out
-                .println(
+            for (Iterator<IRecipe> i$ = GT_ModHandler.sSingleNonBlockDamagableRecipeList.iterator(); i$
+                .hasNext(); GT_Log.out.println(
                     "=> " + tRecipe.getRecipeOutput()
                         .getDisplayName())) {
-                tRecipe = (IRecipe) i$.next();
+                tRecipe = i$.next();
             }
         }
         new GT_CraftingRecipeLoader().run();
@@ -1679,76 +1680,76 @@ public class GT_Mod implements IGT_Mod {
             true,
             true);
         GT_Log.out.println("GT_Mod: Unificating outputs of all known Recipe Types.");
-        ArrayList<ItemStack> tStacks = new ArrayList(10000);
+        ArrayList<ItemStack> tStacks = new ArrayList<ItemStack>(10000);
         GT_Log.out.println("GT_Mod: IC2 Machines");
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.cannerBottle.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.centrifuge.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.compressor.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.extractor.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.macerator.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.metalformerCutting.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.metalformerExtruding.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.metalformerRolling.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.matterAmplifier.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         for (RecipeOutput tRecipe : ic2.api.recipe.Recipes.oreWashing.getRecipes()
             .values()) {
             ItemStack tStack;
-            for (Iterator i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
-                tStack = (ItemStack) i$.next();
+            for (Iterator<ItemStack> i$ = tRecipe.items.iterator(); i$.hasNext(); tStacks.add(tStack)) {
+                tStack = i$.next();
             }
         }
         GT_Log.out.println("GT_Mod: Dungeon Loot");
@@ -1794,7 +1795,7 @@ public class GT_Mod implements IGT_Mod {
         }
         GT_Log.out.println("GT_Mod: Smelting");
         Object tStack;
-        for (Iterator i$ = FurnaceRecipes.smelting()
+        for (Iterator<?> i$ = FurnaceRecipes.smelting()
             .getSmeltingList()
             .values()
             .iterator(); i$.hasNext(); tStacks.add((ItemStack) tStack)) {
@@ -1879,8 +1880,8 @@ public class GT_Mod implements IGT_Mod {
         GT_Utility.reInit();
         GT_Recipe.reInit();
         try {
-            for (Iterator i$ = GregTech_API.sItemStackMappings.iterator(); i$.hasNext();) {
-                Map tMap = (Map) i$.next();
+            for (Iterator<Map<GT_ItemStack, ?>> i$ = GregTech_API.sItemStackMappings.iterator(); i$.hasNext();) {
+                Map<GT_ItemStack, ?> tMap = i$.next();
                 GT_Utility.reMap(tMap);
             }
         } catch (Throwable e) {

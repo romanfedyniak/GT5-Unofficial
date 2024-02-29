@@ -147,7 +147,7 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
         return tmp;
     }
 
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List info, boolean b) {
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List<String> info, boolean b) {
         if (data == null) {
             data = fillArmorData(player, itemStack);
         }
@@ -193,8 +193,6 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
         if (FMLCommonHandler.instance()
             .getEffectiveSide()
             .isServer() && event.entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.entity;
-            ItemStack armor = player.inventory.armorInventory[0];
             if (data != null && event != null
                 && data.type == 3
                 && data.charge >= data.mStat.get(StatType.PISTONEUUSAGE)
@@ -247,6 +245,7 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
                     data.fluid.amount -= air;
                     ItemStack stack = aPlayer.getEquipmentInSlot(4);
                     if (stack != null && stack.getItem() instanceof ModularArmor_Item) {
+                        @SuppressWarnings("unused")
                         ModularArmor_Item tmp = (ModularArmor_Item) stack.getItem();
                         ContainerModularArmor tmp2 = new ContainerBasicArmor(
                             aPlayer,
@@ -267,6 +266,7 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
                 data.charge -= data.mStat.get(StatType.ELECTROLYZEREUUSAGE);
                 ItemStack stack = aPlayer.getEquipmentInSlot(4);
                 if (stack != null && stack.getItem() instanceof ModularArmor_Item) {
+                    @SuppressWarnings("unused")
                     ModularArmor_Item tmp = (ModularArmor_Item) stack.getItem();
                     ContainerModularArmor tmp2 = new ContainerBasicArmor(
                         aPlayer,
@@ -412,7 +412,7 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
                 }
 
                 // immune effect removal
-                List<PotionEffect> effects = new LinkedList(aPlayer.getActivePotionEffects());
+                List<PotionEffect> effects = new LinkedList<PotionEffect>(aPlayer.getActivePotionEffects());
                 for (PotionEffect effect : effects) {
                     int id = effect.getPotionID();
                     if (id == 24 && data.mBStat.get(StatType.FULLRADIATIONARMOR)) {

@@ -406,6 +406,7 @@ public abstract class GT_MetaTileEntity_FusionComputer extends GT_MetaTileEntity
         return true;
     }
 
+    @SuppressWarnings("static-access")
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         if (aBaseMetaTileEntity.isServerSide()) {

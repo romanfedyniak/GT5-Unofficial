@@ -152,6 +152,7 @@ public abstract class GT_MetaTileEntity_LargeTurbine extends GT_MetaTileEntity_M
         super.loadNBTData(aNBT);
     }
 
+    @SuppressWarnings("static-access")
     @Override
     public boolean checkRecipe(ItemStack aStack) {
         if (aStack == null || !(aStack.getItem() instanceof GT_MetaGenerated_Tool)

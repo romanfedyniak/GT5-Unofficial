@@ -124,6 +124,7 @@ public class GT_Tool_UniversalSpade extends GT_Tool {
         aItem.addItemBehavior(aID, new Behaviour_Crowbar(2, 2000));
     }
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         aPlayer.triggerAchievement(AchievementList.buildSword);

@@ -72,7 +72,7 @@ public class GT_RadioactiveCellIC_Item extends GT_RadioactiveCell_Item implement
 
                 heat = getFinalHeat(reactor, yourStack, x, y, heat);
 
-                ArrayList<ItemStackCoord> heatAcceptors = new ArrayList();
+                ArrayList<ItemStackCoord> heatAcceptors = new ArrayList<ItemStackCoord>();
                 checkHeatAcceptor(reactor, x - 1, y, heatAcceptors);
                 checkHeatAcceptor(reactor, x + 1, y, heatAcceptors);
                 checkHeatAcceptor(reactor, x, y - 1, heatAcceptors);

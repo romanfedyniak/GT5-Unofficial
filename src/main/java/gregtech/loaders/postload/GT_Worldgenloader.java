@@ -19,11 +19,11 @@ import gregtech.common.GT_Worldgenerator;
 
 public class GT_Worldgenloader implements Runnable {
 
-    public static final Class mSupportIE;
+    public static final Class<?> mSupportIE;
 
     // We should use reflection here, since it won't amount to any performance loss.
     static {
-        Class aTemp;
+        Class<?> aTemp;
         if (GregTech_API.mImmersiveEngineering) {
             try {
                 aTemp = Class.forName("blusunrize.immersiveengineering.api.tool.ExcavatorHandler");
@@ -1037,6 +1037,7 @@ public class GT_Worldgenloader implements Runnable {
                 Field aMineralCache = mSupportIE.getDeclaredField("mineralCache");
                 aMineralList.setAccessible(true);
                 aMineralCache.setAccessible(true);
+                @SuppressWarnings("rawtypes")
                 Map aEmpty = new HashMap();
                 aMineralList.set(null, aEmpty);
                 aMineralCache.set(null, aEmpty);

@@ -408,7 +408,7 @@ public class GT_MetaPipeEntity_Fluid extends MetaPipeEntity {
         }
 
         // How much of this fluid is available for distribution?
-        double tAmount = Math.max(1, Math.min(mCapacity * 10, tFluid.amount)), tNumTanks = tTanks.size();
+        double tAmount = Math.max(1, Math.min(mCapacity * 10, tFluid.amount));
         FluidStack maxFluid = tFluid.copy();
         maxFluid.amount = Integer.MAX_VALUE;
 
@@ -483,16 +483,13 @@ public class GT_MetaPipeEntity_Fluid extends MetaPipeEntity {
         if (baseMetaTile == null) return false;
 
         final GT_CoverBehavior coverBehavior = baseMetaTile.getCoverBehaviorAtSide(aSide);
-        final IGregTechTileEntity gTileEntity = (tTileEntity instanceof IGregTechTileEntity)
-            ? (IGregTechTileEntity) tTileEntity
-            : null;
 
         if (coverBehavior instanceof GT_Cover_Drain) return true;
 
         // Tinker Construct Faucets return a null tank info, so check the class
         if (GregTech_API.mTConstruct) {
             try {
-                Class aTinkerFaucet = Class.forName("tconstruct.smeltery.logic.FaucetLogic");
+                Class<?> aTinkerFaucet = Class.forName("tconstruct.smeltery.logic.FaucetLogic");
                 if (aTinkerFaucet != null) {
                     if (aTinkerFaucet.isInstance(tTileEntity)) {
                         return true;
@@ -513,7 +510,7 @@ public class GT_MetaPipeEntity_Fluid extends MetaPipeEntity {
                 // Translocators return a TankInfo, but it's of 0 length - so check the class if we see this pattern
                 if (GregTech_API.mTranslocator) {
                     try {
-                        Class aCodeChickenTranslocator = Class
+                        Class<?> aCodeChickenTranslocator = Class
                             .forName("codechicken.translocator.TileLiquidTranslocator");
                         if (aCodeChickenTranslocator != null) {
                             if (aCodeChickenTranslocator.isInstance(tTileEntity)) {

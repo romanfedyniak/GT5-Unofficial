@@ -85,6 +85,7 @@ public class GT_Tool_Chainsaw_LV extends GT_Tool_Saw {
         return true;
     }
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         try {
@@ -100,6 +101,7 @@ public class GT_Tool_Chainsaw_LV extends GT_Tool_Saw {
         if ((aBlock.getMaterial() == Material.leaves) && ((aBlock instanceof IShearable))) {
             aPlayer.worldObj.setBlock(aX, aY, aZ, aBlock, aMetaData, 0);
             if (((IShearable) aBlock).isShearable(aStack, aPlayer.worldObj, aX, aY, aZ)) {
+                @SuppressWarnings("unused")
                 ArrayList<ItemStack> tDrops = ((IShearable) aBlock)
                     .onSheared(aStack, aPlayer.worldObj, aX, aY, aZ, aFortune);
                 aDrops.clear();

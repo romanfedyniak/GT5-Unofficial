@@ -2,7 +2,6 @@ package gregtech.common.tileentities.machines.basic;
 
 import static gregtech.api.enums.GT_Values.D1;
 import static gregtech.api.enums.GT_Values.V;
-import static gregtech.api.util.GT_Utility.getFakePlayer;
 
 import java.util.ArrayDeque;
 import java.util.HashSet;

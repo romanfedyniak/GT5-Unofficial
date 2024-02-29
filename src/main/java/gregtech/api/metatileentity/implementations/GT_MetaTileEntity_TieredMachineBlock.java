@@ -12,7 +12,6 @@ public abstract class GT_MetaTileEntity_TieredMachineBlock extends MetaTileEntit
      */
     public final byte mTier;
 
-    @Deprecated
     public final String mDescription;
 
     /**

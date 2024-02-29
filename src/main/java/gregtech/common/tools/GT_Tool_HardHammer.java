@@ -172,6 +172,7 @@ public class GT_Tool_HardHammer extends GT_Tool {
                 + EnumChatFormatting.WHITE);
     }
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         try {

@@ -27,7 +27,7 @@ public class GT_FluidDisplayItem extends GT_Generic_Item {
         ItemList.Display_Fluid.set(this);
     }
 
-    protected void addAdditionalToolTips(List aList, ItemStack aStack, EntityPlayer aPlayer) {
+    protected void addAdditionalToolTips(List<String> aList, ItemStack aStack, EntityPlayer aPlayer) {
         NBTTagCompound aNBT = aStack.getTagCompound();
         if (GT_Values.D1) {
             Fluid tFluid = FluidRegistry.getFluid(aStack.getItemDamage());
@@ -86,7 +86,7 @@ public class GT_FluidDisplayItem extends GT_Generic_Item {
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item aItem, CreativeTabs aTab, List aList) {
+    public void getSubItems(Item aItem, CreativeTabs aTab, List<ItemStack> aList) {
         if (GT_Values.D1) {
             int i = 0;
             for (int j = FluidRegistry.getMaxID(); i < j; i++) {

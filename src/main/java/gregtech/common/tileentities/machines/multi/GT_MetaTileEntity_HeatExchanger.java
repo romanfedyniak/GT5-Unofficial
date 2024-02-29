@@ -183,7 +183,6 @@ public class GT_MetaTileEntity_HeatExchanger extends GT_MetaTileEntity_MultiBloc
         int zDir = ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()).offsetZ;
 
         int tCasingAmount = 0;
-        int tFireboxAmount = 0;
         controller = false;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {

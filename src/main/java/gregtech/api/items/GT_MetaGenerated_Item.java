@@ -106,6 +106,7 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
      * @param aRandomData   The OreDict Names you want to give the Item. Also used for some other things.
      * @return An ItemStack containing the newly created Item.
      */
+    @SuppressWarnings("unchecked")
     public final ItemStack addItem(int aID, String aEnglish, String aToolTip, Object... aRandomData) {
         if (aToolTip == null) aToolTip = "";
         if (aID >= 0 && aID < mItemAmount) {
@@ -318,7 +319,7 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item var1, CreativeTabs aCreativeTab, List aList) {
+    public void getSubItems(Item var1, CreativeTabs aCreativeTab, List<ItemStack> aList) {
         int j = mEnabledItems.length();
         for (int i = 0; i < j; i++) if (mVisibleItems.get(i) || (D1 && mEnabledItems.get(i))) {
             Long[] tStats = mElectricStats.get((short) (mOffset + i));

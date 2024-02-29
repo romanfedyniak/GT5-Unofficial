@@ -98,8 +98,8 @@ public class GT_MetaTileEntity_Charcoal_Pit extends GT_MetaTileEntity_MultiBlock
     }
 
     private boolean checkRecursiveBlocks() {
-        ArrayList<ChunkPosition> tList1 = new ArrayList();
-        ArrayList<ChunkPosition> tList2 = new ArrayList();
+        ArrayList<ChunkPosition> tList1 = new ArrayList<ChunkPosition>();
+        ArrayList<ChunkPosition> tList2 = new ArrayList<ChunkPosition>();
 
         Block tBlock = this.getBaseMetaTileEntity()
             .getBlockOffset(0, -1, 0);

@@ -23,7 +23,7 @@ public class Behaviour_Scanner extends Behaviour_None {
     public boolean onItemUseFirst(GT_MetaBase_Item aItem, ItemStack aStack, EntityPlayer aPlayer, World aWorld, int aX,
         int aY, int aZ, int aSide, float hitX, float hitY, float hitZ) {
         if (((aPlayer instanceof EntityPlayerMP)) && (aItem.canUse(aStack, 20000.0D))) {
-            ArrayList<String> tList = new ArrayList();
+            ArrayList<String> tList = new ArrayList<String>();
             if (aItem.use(
                 aStack,
                 GT_Utility.getCoordinateScan(tList, aPlayer, aWorld, 1, aX, aY, aZ, aSide, hitX, hitY, hitZ),

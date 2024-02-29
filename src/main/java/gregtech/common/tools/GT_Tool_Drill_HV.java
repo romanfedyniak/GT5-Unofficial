@@ -41,6 +41,7 @@ public class GT_Tool_Drill_HV extends GT_Tool_Drill_LV {
         return 4.0F;
     }
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         try {

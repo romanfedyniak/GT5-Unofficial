@@ -14,7 +14,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
@@ -31,12 +30,12 @@ public class GT_Pollution {
     /**
      * Pollution dispersion until effects start:
      * Calculation: ((Limit * 0.01) + 2000) * (4 <- spreading rate)
-     * 
+     *
      * SMOG(500k) 466.7 pollution/sec
      * Poison(750k) 633,3 pollution/sec
      * Dying Plants(1mio) 800 pollution/sec
      * Sour Rain(1.5mio) 1133.3 pollution/sec
-     * 
+     *
      * Pollution producers (pollution/sec)
      * Bronze Boiler(20)
      * Lava Boiler(20)
@@ -45,7 +44,7 @@ public class GT_Pollution {
      * Diesel Generator(40/80/160)
      * Gas Turbine(20/40/80)
      * Charcoal Pile(100)
-     * 
+     *
      * Large Diesel Engine(320)
      * Electric Blast Furnace(100)
      * Implosion Compressor(2000)
@@ -53,9 +52,9 @@ public class GT_Pollution {
      * Large Gas Turbine(160)
      * Multi Smelter(100)
      * Pyrolyse Oven(200)
-     * 
+     *
      * Machine Explosion(100,000)
-     * 
+     *
      * Muffler Hatch Pollution reduction:
      * LV (0%), MV (30%), HV (52%), EV (66%), IV (76%), LuV (84%), ZPM (89%), UV (92%), MAX (95%)
      */
@@ -313,13 +312,5 @@ public class GT_Pollution {
         HashMap<ChunkCoordIntPair, int[]> dataMap = dimensionWiseChunkData.get(aDim);
         if (dataMap == null || dataMap.get(aCh) == null) return 0;
         return dataMap.get(aCh)[GTPOLLUTION];
-    }
-
-    // Add compatibility with old code
-    @Deprecated /* Don't use it... too weird way of passing position */
-    public static void addPollution(World aWorld, ChunkPosition aPos, int aPollution) {
-        // The abuse of ChunkPosition to store block position and dim...
-        // is just bad expacially when that is both used to store ChunkPos and BlockPos depeending on context
-        addPollution(aWorld.getChunkFromBlockCoords(aPos.chunkPosX, aPos.chunkPosZ), aPollution);
     }
 }

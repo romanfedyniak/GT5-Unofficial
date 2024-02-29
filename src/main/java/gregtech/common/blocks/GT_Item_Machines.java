@@ -33,7 +33,7 @@ public class GT_Item_Machines extends ItemBlock {
         setCreativeTab(GregTech_API.TAB_GREGTECH);
     }
 
-    public void addInformation(ItemStack aStack, EntityPlayer aPlayer, List aList, boolean par4) {
+    public void addInformation(ItemStack aStack, EntityPlayer aPlayer, List<String> aList, boolean par4) {
         try {
             int tDamage = getDamage(aStack);
             if ((tDamage <= 0) || (tDamage >= GregTech_API.METATILEENTITIES.length)) {

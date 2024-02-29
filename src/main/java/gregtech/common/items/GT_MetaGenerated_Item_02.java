@@ -39,6 +39,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
     private final static String aTextCover = "Usable as Cover";
     private final static String aTextForestry = "Forestry";
 
+    @SuppressWarnings("deprecation")
     public GT_MetaGenerated_Item_02() {
         super(
             "metaitem.02",

@@ -19,8 +19,6 @@ import gregtech.api.util.GT_Utility;
 
 public abstract class GT_MetaTileEntity_OilDrillBase extends GT_MetaTileEntity_DrillerBase {
 
-    private boolean completedCycle = false;
-
     private ArrayList<Chunk> mOilFieldChunks = new ArrayList<Chunk>();
     private int mOilId = 0;
 

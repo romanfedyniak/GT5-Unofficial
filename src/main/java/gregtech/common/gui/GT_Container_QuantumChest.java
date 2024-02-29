@@ -40,7 +40,7 @@ public class GT_Container_QuantumChest extends GT_ContainerMetaTile_Machine {
             mContent = 0;
         }
 
-        Iterator var2 = this.crafters.iterator();
+        Iterator<ICrafting> var2 = this.crafters.iterator();
         while (var2.hasNext()) {
             ICrafting var1 = (ICrafting) var2.next();
             var1.sendProgressBarUpdate(this, 100, mContent & 65535);

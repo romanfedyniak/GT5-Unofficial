@@ -16,6 +16,7 @@ public class GT_MetaGenerated_Item_03 extends GT_MetaGenerated_Item_X32 {
             new OrePrefixes[] { OrePrefixes.crateGtDust, OrePrefixes.crateGtIngot, OrePrefixes.crateGtGem,
                 OrePrefixes.crateGtPlate });
         INSTANCE = this;
+        @SuppressWarnings("unused")
         int tLastID = 0;
         Object[] o = new Object[0];
 
@@ -81,9 +82,9 @@ public class GT_MetaGenerated_Item_03 extends GT_MetaGenerated_Item_X32 {
          * CPU (4 sizes)
          * SoCs(2 sizes, high tier cheap low tech component)
          * Power IC/High Power IC
-         * 
+         *
          * nanotube interconnected circuit (H-IC + nanotubes)
-         * 
+         *
          * quantum chips
          */
         ItemList.Circuit_Silicon_Ingot.set(addItem(tLastID = 30, "Monocrystalline Silicon Boule", "Raw Circuit", o));

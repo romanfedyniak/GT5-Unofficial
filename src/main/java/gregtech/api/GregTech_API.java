@@ -188,7 +188,6 @@ public class GregTech_API {
      * For the API Version check
      */
     public static volatile int VERSION = 509;
-    @Deprecated
     public static IGT_RecipeAdder sRecipeAdder;
     /**
      * These Lists are getting executed at their respective timings. Useful if you have to do things right before/after

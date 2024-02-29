@@ -20,7 +20,7 @@ import gregtech.api.items.GT_MetaGenerated_Tool;
 
 public class GT_Tool_Plow extends GT_Tool {
 
-    private ThreadLocal<Object> sIsHarvestingRightNow = new ThreadLocal();
+    private ThreadLocal<Object> sIsHarvestingRightNow = new ThreadLocal<Object>();
 
     public float getNormalDamageAgainstEntity(float aOriginalDamage, Entity aEntity, ItemStack aStack,
         EntityPlayer aPlayer) {

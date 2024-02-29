@@ -23,6 +23,7 @@ public class ArmorCalculation {
         return decharged;
     }
 
+    @SuppressWarnings("deprecation")
     public static FluidStack getFluid(ItemStack[] parts, int tankCap) {
         int fluidAmount;
         if (parts.length > 12 && parts[12] != null) {
