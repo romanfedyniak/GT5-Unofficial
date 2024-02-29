@@ -42,9 +42,6 @@ public class GT_MetaTileEntity_AdvSeismicProspector extends GT_MetaTileEntity_Ba
     int middle;
     int step;
 
-    private int mOilId = 0;
-    private ArrayList<Chunk> mOilFieldChunks = new ArrayList<Chunk>();
-
     public GT_MetaTileEntity_AdvSeismicProspector(int aID, String aName, String aNameRegional, int aTier, int aRadius,
         int aStep) {
         super(

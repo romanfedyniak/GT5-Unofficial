@@ -93,7 +93,7 @@ public class GT_Block_Storage extends GT_Generic_Block {
     public void registerBlockIcons(IIconRegister aIconRegister) {}
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List aList) {
+    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List<ItemStack> aList) {
         for (int i = 0; i < 16; i++) {
             if (!(new ItemStack(aItem, 1, i).getDisplayName()
                 .contains(".name"))) aList.add(new ItemStack(aItem, 1, i));

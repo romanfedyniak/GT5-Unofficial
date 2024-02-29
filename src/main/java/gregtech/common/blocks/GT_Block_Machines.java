@@ -46,7 +46,7 @@ import gregtech.common.render.GT_Renderer_Block;
 
 public class GT_Block_Machines extends GT_Generic_Block implements IDebugableBlock, ITileEntityProvider {
 
-    public static ThreadLocal<IGregTechTileEntity> mTemporaryTileEntity = new ThreadLocal();
+    public static ThreadLocal<IGregTechTileEntity> mTemporaryTileEntity = new ThreadLocal<IGregTechTileEntity>();
 
     public GT_Block_Machines() {
         super(GT_Item_Machines.class, "gt.blockmachines", new GT_Material_Machines());
@@ -186,8 +186,8 @@ public class GT_Block_Machines extends GT_Generic_Block implements IDebugableBlo
         return tTileEntity != null ? tTileEntity.receiveClientEvent(aData1, aData2) : false;
     }
 
-    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB, List outputAABB,
-        Entity collider) {
+    public void addCollisionBoxesToList(World aWorld, int aX, int aY, int aZ, AxisAlignedBB inputAABB,
+        List<AxisAlignedBB> outputAABB, Entity collider) {
         TileEntity tTileEntity = aWorld.getTileEntity(aX, aY, aZ);
         if (((tTileEntity instanceof IGregTechTileEntity))
             && (((IGregTechTileEntity) tTileEntity).getMetaTileEntity() != null)) {
@@ -396,7 +396,7 @@ public class GT_Block_Machines extends GT_Generic_Block implements IDebugableBlo
         if ((tTileEntity instanceof IGregTechTileEntity)) {
             return ((IGregTechTileEntity) tTileEntity).getDrops();
         }
-        return mTemporaryTileEntity.get() == null ? new ArrayList()
+        return mTemporaryTileEntity.get() == null ? new ArrayList<ItemStack>()
             : ((IGregTechTileEntity) mTemporaryTileEntity.get()).getDrops();
     }
 
@@ -515,7 +515,7 @@ public class GT_Block_Machines extends GT_Generic_Block implements IDebugableBlo
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List par3List) {
+    public void getSubBlocks(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
         for (int i = 1; i < GregTech_API.METATILEENTITIES.length; i++) {
             if (GregTech_API.METATILEENTITIES[i] != null) {
                 par3List.add(new ItemStack(par1, 1, i));

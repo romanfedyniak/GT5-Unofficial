@@ -15,7 +15,7 @@ import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_MonsterRepe
 
 public class GT_SpawnEventHandler {
 
-    public static volatile List<int[]> mobReps = new ArrayList();
+    public static volatile List<int[]> mobReps = new ArrayList<int[]>();
 
     public GT_SpawnEventHandler() {
         MinecraftForge.EVENT_BUS.register(this);

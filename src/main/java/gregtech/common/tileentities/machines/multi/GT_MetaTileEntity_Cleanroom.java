@@ -18,8 +18,6 @@ import gregtech.api.util.GT_Recipe;
 
 public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBase {
 
-    private int mHeatingCapacity = 0;
-
     public GT_MetaTileEntity_Cleanroom(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
     }
@@ -54,7 +52,7 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
         int y = 1;
         int mDoorCount = 0;
         int mHullCount = 0;
-        int mPlascreteCount = 0;
+        // int mPlascreteCount = 0;
         boolean doorState = false;
         mUpdate = 100;
         for (int i = 1; i < 8; i++) {
@@ -98,7 +96,7 @@ public class GT_MetaTileEntity_Cleanroom extends GT_MetaTileEntity_MultiBlockBas
                                 }
                             }
                         } else if (tBlock == GregTech_API.sBlockReinforced && tMeta == 2) {
-                            mPlascreteCount++;
+                            // mPlascreteCount++;
                         } else {
                             IGregTechTileEntity tTileEntity = aBaseMetaTileEntity
                                 .getIGregTechTileEntityOffset(dX, dY, dZ);

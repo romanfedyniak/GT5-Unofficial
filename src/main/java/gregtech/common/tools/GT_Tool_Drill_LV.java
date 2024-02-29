@@ -106,6 +106,7 @@ public class GT_Tool_Drill_LV extends GT_Tool {
 
     public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {}
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         aPlayer.triggerAchievement(AchievementList.buildPickaxe);

@@ -205,7 +205,6 @@ public class GT_MetaTileEntity_MicrowaveEnergyTransmitter extends GT_MetaTileEnt
                         }
                     }
                     int tDistance = distanceCalculation();
-                    long tEnergyTrans = Math.min(V[mTier], getBaseMetaTileEntity().getStoredEU());
                     if (tTile != null && tTile instanceof IEnergyConnected) {
                         if (((IEnergyConnected) tTile).injectEnergyUnits((byte) 6, V[mTier], 1) > 0) {
                             int tLoss = 1;

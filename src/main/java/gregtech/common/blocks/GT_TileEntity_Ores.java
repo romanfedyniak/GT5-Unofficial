@@ -264,7 +264,7 @@ public class GT_TileEntity_Ores extends TileEntity implements ITexturedTileEntit
     }
 
     public ArrayList<ItemStack> getDrops(Block aDroppedOre, int aFortune) {
-        ArrayList<ItemStack> rList = new ArrayList();
+        ArrayList<ItemStack> rList = new ArrayList<ItemStack>();
         if (this.mMetaData <= 0) {
             rList.add(new ItemStack(Blocks.cobblestone, 1, 0));
             return rList;
@@ -279,7 +279,7 @@ public class GT_TileEntity_Ores extends TileEntity implements ITexturedTileEntit
         }
         if (aMaterial != null) {
             Random tRandom = new XSTR(this.xCoord ^ this.yCoord ^ this.zCoord);
-            ArrayList<ItemStack> tSelector = new ArrayList();
+            ArrayList<ItemStack> tSelector = new ArrayList<ItemStack>();
 
             ItemStack tStack = GT_OreDictUnificator
                 .get(OrePrefixes.gemExquisite, aMaterial, GT_OreDictUnificator.get(OrePrefixes.gem, aMaterial, 1L), 1L);

@@ -96,54 +96,7 @@ public class GT_ModHandler {
     private static Map<IRecipeInput, RecipeOutput> sMassfabRecipes = new /* Concurrent */HashMap<IRecipeInput, RecipeOutput>();
     private static boolean sBufferCraftingRecipes = true;
     public static List<Integer> sSingleNonBlockDamagableRecipeList_list = new ArrayList<Integer>(100);
-    private static boolean sSingleNonBlockDamagableRecipeList_create = true;
-    private static final ItemStack sMt1 = new ItemStack(Blocks.dirt, 1, 0), sMt2 = new ItemStack(Blocks.dirt, 1, 0);
-    private static final String s_H = "h", s_F = "f", s_I = "I", s_P = "P", s_R = "R";
-    private static final ItemStack[][] sShapes1 = new ItemStack[][] {
-        { sMt1, null, sMt1, sMt1, sMt1, sMt1, null, sMt1, null },
-        { sMt1, null, sMt1, sMt1, null, sMt1, sMt1, sMt1, sMt1 },
-        { null, sMt1, null, sMt1, sMt1, sMt1, sMt1, null, sMt1 },
-        { sMt1, sMt1, sMt1, sMt1, null, sMt1, null, null, null },
-        { sMt1, null, sMt1, sMt1, sMt1, sMt1, sMt1, sMt1, sMt1 },
-        { sMt1, sMt1, sMt1, sMt1, null, sMt1, sMt1, null, sMt1 },
-        { null, null, null, sMt1, null, sMt1, sMt1, null, sMt1 },
-        { null, sMt1, null, null, sMt1, null, null, sMt2, null },
-        { sMt1, sMt1, sMt1, null, sMt2, null, null, sMt2, null },
-        { null, sMt1, null, null, sMt2, null, null, sMt2, null },
-        { sMt1, sMt1, null, sMt1, sMt2, null, null, sMt2, null },
-        { null, sMt1, sMt1, null, sMt2, sMt1, null, sMt2, null },
-        { sMt1, sMt1, null, null, sMt2, null, null, sMt2, null },
-        { null, sMt1, sMt1, null, sMt2, null, null, sMt2, null },
-        { null, sMt1, null, sMt1, null, null, null, sMt1, sMt2 },
-        { null, sMt1, null, null, null, sMt1, sMt2, sMt1, null },
-        { null, sMt1, null, sMt1, null, sMt1, null, null, sMt2 },
-        { null, sMt1, null, sMt1, null, sMt1, sMt2, null, null },
-        { null, sMt2, null, null, sMt1, null, null, sMt1, null },
-        { null, sMt2, null, null, sMt2, null, sMt1, sMt1, sMt1 },
-        { null, sMt2, null, null, sMt2, null, null, sMt1, null },
-        { null, sMt2, null, sMt1, sMt2, null, sMt1, sMt1, null },
-        { null, sMt2, null, null, sMt2, sMt1, null, sMt1, sMt1 },
-        { null, sMt2, null, null, sMt2, null, sMt1, sMt1, null },
-        { sMt1, null, null, null, sMt2, null, null, null, sMt2 },
-        { null, null, sMt1, null, sMt2, null, sMt2, null, null },
-        { sMt1, null, null, null, sMt2, null, null, null, null },
-        { null, null, sMt1, null, sMt2, null, null, null, null },
-        { sMt1, sMt2, null, null, null, null, null, null, null },
-        { sMt2, sMt1, null, null, null, null, null, null, null },
-        { sMt1, null, null, sMt2, null, null, null, null, null },
-        { sMt2, null, null, sMt1, null, null, null, null, null },
-        { sMt1, sMt1, sMt1, sMt1, sMt1, sMt1, null, sMt2, null },
-        { sMt1, sMt1, null, sMt1, sMt1, sMt2, sMt1, sMt1, null },
-        { null, sMt1, sMt1, sMt2, sMt1, sMt1, null, sMt1, sMt1 },
-        { null, sMt2, null, sMt1, sMt1, sMt1, sMt1, sMt1, sMt1 },
-        { sMt1, sMt1, sMt1, sMt1, sMt2, sMt1, null, sMt2, null },
-        { sMt1, sMt1, null, sMt1, sMt2, sMt2, sMt1, sMt1, null },
-        { null, sMt1, sMt1, sMt2, sMt2, sMt1, null, sMt1, sMt1 },
-        { null, sMt2, null, sMt1, sMt2, sMt1, sMt1, sMt1, sMt1 },
-        { sMt1, null, null, null, sMt1, null, null, null, null },
-        { null, sMt1, null, sMt1, null, null, null, null, null },
-        { sMt1, sMt1, null, sMt2, null, sMt1, sMt2, null, null },
-        { null, sMt1, sMt1, sMt1, null, sMt2, null, null, sMt2 } };
+
     public static List<Integer> sSingleNonBlockDamagableRecipeList_validsShapes1 = new ArrayList<Integer>(44);
     public static boolean sSingleNonBlockDamagableRecipeList_validsShapes1_update = false;
     public static List<Integer> sSingleNonBlockDamagableRecipeList_warntOutput = new ArrayList<Integer>(50);
@@ -723,7 +676,7 @@ public class GT_ModHandler {
     /**
      * A static instance of the Magneticraft recipe handler to improve reflective access
      */
-    private static Class mRecipeMag;
+    private static Class<?> mRecipeMag;
 
     private static Method mRecipeMagSifter;
     private static Method mRecipeMagCrusher;
@@ -913,9 +866,10 @@ public class GT_ModHandler {
         GT_Recipe.GT_Recipe_Map aGTRecipeMap, boolean aAddGTRecipe, boolean aRemoveIC2Recipe,
         boolean aExcludeGTIC2Items) {
         Map<ItemStack, ItemStack> aRecipesToRemove = new HashMap<>();
-        for (Iterator i$ = aIC2RecipeList.entrySet()
+        for (Iterator<?> i$ = aIC2RecipeList.entrySet()
             .iterator(); i$.hasNext();) {
-            Entry tRecipe = (Map.Entry) i$.next();
+            @SuppressWarnings("unchecked")
+            Entry<?, ?> tRecipe = (Map.Entry<IRecipeInput, RecipeOutput>) i$.next();
             if (((RecipeOutput) tRecipe.getValue()).items.size() > 0) {
                 for (ItemStack tStack : ((IRecipeInput) tRecipe.getKey()).getInputs()) {
                     if (GT_Utility.isStackValid(tStack)) {
@@ -1267,7 +1221,7 @@ public class GT_ModHandler {
 
         for (byte i = 0; i < aRecipe.length; i++) {
             if (aRecipe[i] instanceof IItemContainer) aRecipe[i] = ((IItemContainer) aRecipe[i]).get(1);
-            else if (aRecipe[i] instanceof Enum) aRecipe[i] = ((Enum) aRecipe[i]).name();
+            else if (aRecipe[i] instanceof Enum) aRecipe[i] = ((Enum<?>) aRecipe[i]).name();
             else if (!(aRecipe[i] == null || aRecipe[i] instanceof ItemStack
                 || aRecipe[i] instanceof ItemData
                 || aRecipe[i] instanceof String
@@ -1545,7 +1499,7 @@ public class GT_ModHandler {
         if (aRecipe == null || aRecipe.length <= 0) return false;
         for (byte i = 0; i < aRecipe.length; i++) {
             if (aRecipe[i] instanceof IItemContainer) aRecipe[i] = ((IItemContainer) aRecipe[i]).get(1);
-            else if (aRecipe[i] instanceof Enum) aRecipe[i] = ((Enum) aRecipe[i]).name();
+            else if (aRecipe[i] instanceof Enum) aRecipe[i] = ((Enum<?>) aRecipe[i]).name();
             else if (!(aRecipe[i] == null || aRecipe[i] instanceof ItemStack
                 || aRecipe[i] instanceof String
                 || aRecipe[i] instanceof Character)) aRecipe[i] = aRecipe[i].toString();
@@ -1876,7 +1830,7 @@ public class GT_ModHandler {
                                     temp = false;
                                     break;
                                 }
-                                if (tObject instanceof List && ((List) tObject).isEmpty()) {
+                                if (tObject instanceof List && ((List<?>) tObject).isEmpty()) {
                                     temp = false;
                                     break;
                                 }

@@ -44,7 +44,7 @@ public class ProcessingCell implements IOreRecipeRegistrator {
                     if ((aMaterial.mMaterialList.size() > 0) && ((aMaterial.mExtraData & 0x3) != 0)) {
                         int tAllAmount = 0;
                         MaterialStack tMat2;
-                        for (Iterator i$ = aMaterial.mMaterialList.iterator(); i$
+                        for (Iterator<?> i$ = aMaterial.mMaterialList.iterator(); i$
                             .hasNext(); tAllAmount = (int) (tAllAmount + tMat2.mAmount)) {
                             tMat2 = (MaterialStack) i$.next();
                         }
@@ -53,7 +53,7 @@ public class ProcessingCell implements IOreRecipeRegistrator {
                             new ItemStack[] { aStack }) * -tAllAmount;
                         long tDensityMultiplier = aMaterial.getDensity() > 3628800L ? aMaterial.getDensity() / 3628800L
                             : 1L;
-                        ArrayList<ItemStack> tList = new ArrayList();
+                        ArrayList<ItemStack> tList = new ArrayList<ItemStack>();
                         for (MaterialStack tMat : aMaterial.mMaterialList) {
                             if (tMat.mAmount > 0L) {
                                 ItemStack tStack;
@@ -166,6 +166,8 @@ public class ProcessingCell implements IOreRecipeRegistrator {
                         gregtech.api.util.GT_OreDictUnificator.get(OrePrefixes.cell, aMaterial, 1L),
                         (int) Math.max(aMaterial.getMass() * 2L, 1L));
                 }
+                break;
+            default:
                 break;
         }
     }

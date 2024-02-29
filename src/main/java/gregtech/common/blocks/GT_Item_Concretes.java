@@ -17,7 +17,7 @@ public class GT_Item_Concretes extends GT_Item_Stones_Abstract {
         super(par1);
     }
 
-    public void addInformation(ItemStack aStack, EntityPlayer aPlayer, List aList, boolean aF3_H) {
+    public void addInformation(ItemStack aStack, EntityPlayer aPlayer, List<String> aList, boolean aF3_H) {
         super.addInformation(aStack, aPlayer, aList, aF3_H);
         aList.add(this.mRunFasterToolTip);
     }

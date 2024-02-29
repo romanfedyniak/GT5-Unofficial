@@ -63,7 +63,7 @@ public class GT_Container_Boiler extends GT_ContainerMetaTile_Machine {
         this.mProcessingEnergy = Math
             .min(14, Math.max(this.mProcessingEnergy > 0 ? 1 : 0, this.mProcessingEnergy * 14 / 1000));
 
-        Iterator var2 = this.crafters.iterator();
+        Iterator<ICrafting> var2 = this.crafters.iterator();
         while (var2.hasNext()) {
             ICrafting var1 = (ICrafting) var2.next();
             var1.sendProgressBarUpdate(this, 100, this.mTemperature);

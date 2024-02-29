@@ -78,6 +78,7 @@ public class GT_MetaTileEntity_LargeTurbine_Steam extends GT_MetaTileEntity_Larg
         return usage;
     }
 
+    @SuppressWarnings("static-access")
     @Override
     int fluidIntoPower(ArrayList<FluidStack> aFluids, int aOptFlow, int aBaseEff) {
         int tEU = 0;

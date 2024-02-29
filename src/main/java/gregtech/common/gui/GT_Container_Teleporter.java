@@ -156,7 +156,7 @@ public class GT_Container_Teleporter extends GT_ContainerMetaTile_Machine {
         this.mEgg = (((GT_MetaTileEntity_Teleporter) this.mTileEntity.getMetaTileEntity())
             .hasDimensionalTeleportCapability() ? 1 : 0);
 
-        Iterator var2 = this.crafters.iterator();
+        Iterator<ICrafting> var2 = this.crafters.iterator();
         while (var2.hasNext()) {
             ICrafting var1 = (ICrafting) var2.next();
             var1.sendProgressBarUpdate(this, 100, this.mTargetX & 0xFFFF);

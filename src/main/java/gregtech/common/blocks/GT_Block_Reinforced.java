@@ -285,7 +285,7 @@ public class GT_Block_Reinforced extends GT_Generic_Block {
             world.setBlockToAir(x, y, z);
             return false;
         }
-        return super.removedByPlayer(world, player, x, y, z);
+        return world.setBlockToAir(x, y, z);
     }
 
     public void onBlockAdded(World world, int x, int y, int z) {
@@ -330,7 +330,7 @@ public class GT_Block_Reinforced extends GT_Generic_Block {
     public void registerBlockIcons(IIconRegister aIconRegister) {}
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List aList) {
+    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List<ItemStack> aList) {
         for (int i = 0; i < 16; i++) {
             ItemStack aStack = new ItemStack(aItem, 1, i);
             if (!aStack.getDisplayName()

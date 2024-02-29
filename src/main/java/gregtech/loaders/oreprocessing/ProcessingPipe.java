@@ -101,6 +101,8 @@ public class ProcessingPipe implements gregtech.api.interfaces.IOreRecipeRegistr
                     60,
                     8);
                 break;
+            default:
+                break;
 
         }
     }

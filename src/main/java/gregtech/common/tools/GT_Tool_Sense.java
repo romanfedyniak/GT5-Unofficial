@@ -19,7 +19,7 @@ import gregtech.common.items.behaviors.Behaviour_Sense;
 
 public class GT_Tool_Sense extends GT_Tool {
 
-    private ThreadLocal<Object> sIsHarvestingRightNow = new ThreadLocal();
+    private ThreadLocal<Object> sIsHarvestingRightNow = new ThreadLocal<Object>();
 
     public float getBaseDamage() {
         return 3.0F;

@@ -23,7 +23,7 @@ import gregtech.common.GT_Proxy;
 public class ProcessingWire implements gregtech.api.interfaces.IOreRecipeRegistrator {
 
     private Materials[] dielectrics = { Materials.PolyvinylChloride, Materials.Polydimethylsiloxane };
-    private Materials[] rubbers = { Materials.Rubber, Materials.StyreneButadieneRubber, Materials.Silicone };
+    // private Materials[] rubbers = { Materials.Rubber, Materials.StyreneButadieneRubber, Materials.Silicone };
     private Materials[] syntheticRubbers = { Materials.StyreneButadieneRubber, Materials.Silicone };
 
     public ProcessingWire() {

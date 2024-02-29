@@ -16,15 +16,16 @@ import gregtech.api.enums.Materials;
 
 public class GT_Assemblyline_Server {
 
-    public static LinkedHashMap<String, String> lServerNames = new LinkedHashMap();
-    private static LinkedHashMap<String, String> internal2 = new LinkedHashMap();
-    private static LinkedHashMap<String, String> internal3 = new LinkedHashMap();
-    private static LinkedHashMap<String, String> internal4 = new LinkedHashMap();
-    private static LinkedHashMap<String, String> internal_meta = new LinkedHashMap();
-    private static HashMap<String, Property> internal = new HashMap();
+    public static LinkedHashMap<String, String> lServerNames = new LinkedHashMap<String, String>();
+    private static LinkedHashMap<String, String> internal2 = new LinkedHashMap<String, String>();
+    private static LinkedHashMap<String, String> internal3 = new LinkedHashMap<String, String>();
+    private static LinkedHashMap<String, String> internal4 = new LinkedHashMap<String, String>();
+    private static LinkedHashMap<String, String> internal_meta = new LinkedHashMap<String, String>();
+    private static HashMap<String, Property> internal = new HashMap<String, Property>();
 
     public GT_Assemblyline_Server() {}
 
+    @SuppressWarnings("unchecked")
     public static void fillMap(FMLPreInitializationEvent aEvent) {
         System.out.println("SONCE FIX ENABLED");
         String s = new String(
@@ -41,13 +42,13 @@ public class GT_Assemblyline_Server {
         Configuration conf = new Configuration(f);
         ConfigCategory cat = conf.getCategory("languagefile");
         internal.putAll(cat.getValues());
-        Iterator var5 = internal.entrySet()
+        Iterator<?> var5 = internal.entrySet()
             .iterator();
 
         while (true) {
-            Entry entry;
+            Entry<?, ?> entry;
             while (var5.hasNext()) {
-                entry = (Entry) var5.next();
+                entry = (Entry<String, Property>) var5.next();
                 s = ((Property) entry.getValue()).getString()
                     .replaceAll("%", "");
                 if (((String) entry.getKey()).contains("metaitem") && s.contains("material")) {
@@ -70,7 +71,7 @@ public class GT_Assemblyline_Server {
 
             int i;
             while (var5.hasNext()) {
-                entry = (Entry) var5.next();
+                entry = (Entry<String, String>) var5.next();
                 if (((String) entry.getKey()).contains("name")) {
                     try {
                         i = Integer.parseInt(
@@ -88,7 +89,7 @@ public class GT_Assemblyline_Server {
                 .iterator();
 
             while (var5.hasNext()) {
-                entry = (Entry) var5.next();
+                entry = (Entry<String, String>) var5.next();
                 if (((String) entry.getKey()).contains("name")) {
                     i = Integer.parseInt(
                         ((String) entry.getKey()).substring(
@@ -112,7 +113,7 @@ public class GT_Assemblyline_Server {
 
             while (true) {
                 while (var5.hasNext()) {
-                    entry = (Entry) var5.next();
+                    entry = (Entry<String, String>) var5.next();
                     if (((String) entry.getKey()).contains("cable")) {
                         lServerNames.put(
                             (String) entry.getKey(),
@@ -199,7 +200,7 @@ public class GT_Assemblyline_Server {
                     .iterator();
 
                 while (var5.hasNext()) {
-                    entry = (Entry) var5.next();
+                    entry = (Entry<String, String>) var5.next();
                     if (((String) entry.getKey()).contains("blockores")) {
                         try {
                             i = Integer.parseInt(

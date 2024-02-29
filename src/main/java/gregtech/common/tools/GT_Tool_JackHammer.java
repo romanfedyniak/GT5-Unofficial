@@ -91,6 +91,7 @@ public class GT_Tool_JackHammer extends GT_Tool_Drill_LV {
         return rConversions;
     }
 
+    @SuppressWarnings("static-access")
     public void onToolCrafted(ItemStack aStack, EntityPlayer aPlayer) {
         super.onToolCrafted(aStack, aPlayer);
         try {

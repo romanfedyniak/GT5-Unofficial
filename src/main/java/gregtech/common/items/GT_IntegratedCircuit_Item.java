@@ -178,7 +178,7 @@ public class GT_IntegratedCircuit_Item extends GT_Generic_Item {
         return getModeString(aMetaData) + " " + (byte) (aMetaData & 0xFF);
     }
 
-    public void addAdditionalToolTips(List aList, ItemStack aStack, EntityPlayer aPlayer) {
+    public void addAdditionalToolTips(List<String> aList, ItemStack aStack, EntityPlayer aPlayer) {
         super.addAdditionalToolTips(aList, aStack, aPlayer);
         aList.add(
             GT_LanguageManager.addStringLocalization(
@@ -193,7 +193,7 @@ public class GT_IntegratedCircuit_Item extends GT_Generic_Item {
     }
 
     @SideOnly(Side.CLIENT)
-    public final void getSubItems(Item var1, CreativeTabs aCreativeTab, List aList) {
+    public final void getSubItems(Item var1, CreativeTabs aCreativeTab, List<ItemStack> aList) {
         aList.add(new ItemStack(this, 1, 0));
     }
 

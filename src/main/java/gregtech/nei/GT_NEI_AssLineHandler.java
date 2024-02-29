@@ -2,7 +2,6 @@ package gregtech.nei;
 
 import static gregtech.api.util.GT_Utility.trans;
 
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,7 +29,6 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 import gregtech.GT_Mod;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.OrePrefixes;
-import gregtech.api.gui.GT_GUIContainer_BasicMachine;
 import gregtech.api.objects.ItemData;
 import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.GT_OreDictUnificator;
@@ -313,18 +311,18 @@ public class GT_NEI_AssLineHandler extends TemplateRecipeHandler {
             return currenttip;
         }
 
-        private boolean transferRect(GuiContainer gui, boolean usage) {
-            return (canHandle(gui))
-                && (new Rectangle(138, 18, 18, 18).contains(
-                    new Point(
-                        GuiDraw.getMousePosition().x - ((GT_GUIContainer_BasicMachine) gui).getLeft()
-                            - codechicken.nei.recipe.RecipeInfo.getGuiOffset(gui)[0],
-                        GuiDraw.getMousePosition().y - ((GT_GUIContainer_BasicMachine) gui).getTop()
-                            - codechicken.nei.recipe.RecipeInfo.getGuiOffset(gui)[1])))
-                && (usage ? GuiUsageRecipe.openRecipeGui(((GT_GUIContainer_BasicMachine) gui).mNEI, new Object[0])
-                    : GuiCraftingRecipe.openRecipeGui(((GT_GUIContainer_BasicMachine) gui).mNEI, new Object[0]));
+        // private boolean transferRect(GuiContainer gui, boolean usage) {
+        // return (canHandle(gui))
+        // && (new Rectangle(138, 18, 18, 18).contains(
+        // new Point(
+        // GuiDraw.getMousePosition().x - ((GT_GUIContainer_BasicMachine) gui).getLeft()
+        // - codechicken.nei.recipe.RecipeInfo.getGuiOffset(gui)[0],
+        // GuiDraw.getMousePosition().y - ((GT_GUIContainer_BasicMachine) gui).getTop()
+        // - codechicken.nei.recipe.RecipeInfo.getGuiOffset(gui)[1])))
+        // && (usage ? GuiUsageRecipe.openRecipeGui(((GT_GUIContainer_BasicMachine) gui).mNEI, new Object[0])
+        // : GuiCraftingRecipe.openRecipeGui(((GT_GUIContainer_BasicMachine) gui).mNEI, new Object[0]));
 
-        }
+        // }
 
         public List<String> handleItemDisplayName(GuiContainer gui, ItemStack itemstack, List<String> currenttip) {
             return currenttip;

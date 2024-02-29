@@ -16,7 +16,7 @@ public class GT_ArrayList<E> extends ArrayList<E> {
         mAllowNulls = aAllowNulls;
     }
 
-    public GT_ArrayList(boolean aAllowNulls, E... aArray) {
+    public GT_ArrayList(boolean aAllowNulls, @SuppressWarnings("unchecked") E... aArray) {
         super(Arrays.asList(aArray));
         mAllowNulls = aAllowNulls;
         if (!mAllowNulls) {

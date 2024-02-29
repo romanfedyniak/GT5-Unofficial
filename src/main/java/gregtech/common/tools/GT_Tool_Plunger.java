@@ -56,6 +56,7 @@ public class GT_Tool_Plunger extends GT_Tool {
             : GT_MetaGenerated_Tool.getSecondaryMaterial(aStack).mRGBa;
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void onStatsAddedToTool(GT_MetaGenerated_Tool aItem, int aID) {
         aItem.addItemBehavior(aID, new Behaviour_Plunger_Item(getToolDamagePerDropConversion()));
         aItem.addItemBehavior(aID, new Behaviour_Plunger_Fluid(getToolDamagePerDropConversion()));

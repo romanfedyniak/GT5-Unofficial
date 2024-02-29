@@ -315,6 +315,7 @@ public class GT_MetaTileEntity_Scanner extends GT_MetaTileEntity_BasicMachine {
         return 0;
     }
 
+    @SuppressWarnings("static-access")
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         if (mProgresstime >= (mMaxProgresstime - 1)) {

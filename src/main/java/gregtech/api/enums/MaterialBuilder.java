@@ -34,7 +34,7 @@ public class MaterialBuilder {
     private boolean hasCorrespondingFluid = false;
     private boolean hasCorrespondingGas = false;
     private boolean canBeCracked = false;
-    private boolean canBeSteamCracked = false;
+    // private boolean canBeSteamCracked = false;
     private int liquidTemperature = 300;
     private int gasTemperature = 300;
 

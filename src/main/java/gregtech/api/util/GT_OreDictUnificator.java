@@ -197,7 +197,7 @@ public class GT_OreDictUnificator {
         ItemStack[] aStacks = {};
         if (obj instanceof ItemStack) aStacks = new ItemStack[] { (ItemStack) obj };
         else if (obj instanceof ItemStack[]) aStacks = (ItemStack[]) obj;
-        else if (obj instanceof List) aStacks = (ItemStack[]) ((List) obj).toArray(new ItemStack[0]);
+        else if (obj instanceof List) aStacks = (ItemStack[]) ((List<?>) obj).toArray(new ItemStack[0]);
         List<ItemStack> rList = new ArrayList<ItemStack>();
         for (ItemStack aStack : aStacks) {
             rList.add(aStack);

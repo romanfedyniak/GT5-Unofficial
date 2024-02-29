@@ -408,7 +408,7 @@ public class GT_Container extends Container {
     }
 
     @Override
-    public List getInventory() {
+    public List<ItemStack> getInventory() {
         try {
             return super.getInventory();
         } catch (Throwable e) {

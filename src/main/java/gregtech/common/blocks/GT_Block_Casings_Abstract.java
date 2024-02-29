@@ -113,7 +113,7 @@ public abstract class GT_Block_Casings_Abstract extends GT_Generic_Block {
     public void registerBlockIcons(IIconRegister aIconRegister) {}
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List aList) {
+    public void getSubBlocks(Item aItem, CreativeTabs par2CreativeTabs, List<ItemStack> aList) {
         for (int i = 0; i < 16; i++) {
             ItemStack aStack = new ItemStack(aItem, 1, i);
             if (!aStack.getDisplayName()

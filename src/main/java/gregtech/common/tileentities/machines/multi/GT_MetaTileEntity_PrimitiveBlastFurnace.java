@@ -6,7 +6,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.ChunkPosition;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import gregtech.GT_Mod;
@@ -216,17 +215,7 @@ public abstract class GT_MetaTileEntity_PrimitiveBlastFurnace extends MetaTileEn
                 }
             }
             if (this.mMaxProgresstime > 0 && (aTimer % 20L == 0L)) {
-                GT_Pollution.addPollution(
-                    this.getBaseMetaTileEntity()
-                        .getWorld(),
-                    new ChunkPosition(
-                        this.getBaseMetaTileEntity()
-                            .getXCoord(),
-                        this.getBaseMetaTileEntity()
-                            .getYCoord(),
-                        this.getBaseMetaTileEntity()
-                            .getZCoord()),
-                    50);
+                GT_Pollution.addPollution(this.getBaseMetaTileEntity(), 50);
             }
 
             aBaseMetaTileEntity.setActive((this.mMaxProgresstime > 0) && (this.mMachine));
