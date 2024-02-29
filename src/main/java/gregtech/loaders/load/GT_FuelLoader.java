@@ -78,7 +78,6 @@ public class GT_FuelLoader implements Runnable {
             0,
             1400000);
 
-        GT_Values.RA.addFuel(GT_ModHandler.getModItem("Thaumcraft", "ItemResource", 1L, 4), null, 4, 5);
         GT_Values.RA.addFuel(new ItemStack(Items.experience_bottle, 1), null, 10, 5);
         GT_Values.RA.addFuel(new ItemStack(Items.ghast_tear, 1), null, 50, 5);
         GT_Values.RA.addFuel(

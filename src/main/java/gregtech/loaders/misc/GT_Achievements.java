@@ -17,7 +17,6 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fluids.FluidStack;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemSmeltedEvent;
@@ -35,7 +34,6 @@ import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Recipe;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import ic2.core.Ic2Items;
-import thaumcraft.api.ThaumcraftApiHelper;
 
 public class GT_Achievements {
 
@@ -1318,10 +1316,7 @@ public class GT_Achievements {
                 } else if (data.mMaterial.mMaterial == Materials.Steel) {
                     if (data.mPrefix == OrePrefixes.ingot && stack.stackSize == stack.getMaxStackSize()) {
                         issueAchievement(player, "steel");
-                    } else if (data.mPrefix == OrePrefixes.nugget && Loader.isModLoaded("Thaumcraft")
-                        && ThaumcraftApiHelper.isResearchComplete(player.getDisplayName(), "GT_IRON_TO_STEEL")) {
-                            issueAchievement(player, "steel");
-                        }
+                    }
                     // } else if (data.mPrefix == OrePrefixes.circuit && data.mMaterial.mMaterial == Materials.Advanced)
                     // {
                     // issueAchievement(player, "stepforward");

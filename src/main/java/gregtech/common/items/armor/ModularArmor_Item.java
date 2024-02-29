@@ -25,7 +25,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -37,13 +36,8 @@ import gregtech.common.items.armor.gui.ContainerBasicArmor;
 import gregtech.common.items.armor.gui.ContainerModularArmor;
 import gregtech.common.items.armor.gui.InventoryArmor;
 import ic2.core.IC2;
-import thaumcraft.api.IGoggles;
-import thaumcraft.api.nodes.IRevealer;
 
-@Optional.InterfaceList(
-    value = { @Optional.Interface(iface = "thaumcraft.api.IGoggles", modid = "Thaumcraft", striprefs = true),
-        @Optional.Interface(iface = "thaumcraft.api.nodes.IRevealer", modid = "Thaumcraft", striprefs = true) })
-public class ModularArmor_Item extends ItemArmor implements ISpecialArmor, IGoggles, IRevealer {
+public class ModularArmor_Item extends ItemArmor implements ISpecialArmor {
 
     public String mName;
     public int timer = 160;
@@ -487,22 +481,6 @@ public class ModularArmor_Item extends ItemArmor implements ISpecialArmor, IGogg
             System.err.println(e);
         }
         return armor;
-    }
-
-    @Override
-    public boolean showNodes(ItemStack aStack, EntityLivingBase aPlayer) {
-        if (data == null) {
-            data = fillArmorData((EntityPlayer) aPlayer, aStack);
-        }
-        return data.mBStat.get(StatType.THAUMICGOGGLES) && data.armorTier > 0 && data.charge > 0;
-    }
-
-    @Override
-    public boolean showIngamePopups(ItemStack aStack, EntityLivingBase aPlayer) {
-        if (data == null) {
-            data = fillArmorData((EntityPlayer) aPlayer, aStack);
-        }
-        return data.mBStat.get(StatType.THAUMICGOGGLES) && data.armorTier > 0 && data.charge > 0;
     }
 
     public ArmorData fillArmorData(EntityPlayer player, ItemStack stack) {

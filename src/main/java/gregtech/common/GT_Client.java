@@ -100,45 +100,36 @@ public class GT_Client extends GT_Proxy implements Runnable {
         mPosR = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Vinteum, Materials.Uranium235, Materials.InfusedGold,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria, Materials.InfusedOrder,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone, Materials.Thaumium,
-                Materials.InfusedVis, Materials.InfusedAir, Materials.InfusedFire, Materials.FierySteel,
-                Materials.Firestone });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
+                Materials.FierySteel, Materials.Firestone });
         mPosG = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Vinteum, Materials.Uranium235, Materials.InfusedGold,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria, Materials.InfusedOrder,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone, Materials.InfusedAir,
-                Materials.InfusedEarth });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone });
         mPosB = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Vinteum, Materials.Uranium235, Materials.InfusedGold,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria, Materials.InfusedOrder,
-                Materials.InfusedVis, Materials.InfusedWater, Materials.Thaumium });
-        mNegR = Arrays.asList(new Materials[] { Materials.InfusedEntropy, Materials.NetherStar });
-        mNegG = Arrays.asList(new Materials[] { Materials.InfusedEntropy, Materials.NetherStar });
-        mNegB = Arrays.asList(new Materials[] { Materials.InfusedEntropy, Materials.NetherStar });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria });
+        mNegR = Arrays.asList(new Materials[] { Materials.NetherStar });
+        mNegG = Arrays.asList(new Materials[] { Materials.NetherStar });
+        mNegB = Arrays.asList(new Materials[] { Materials.NetherStar });
         mMoltenPosR = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Vinteum, Materials.Uranium235,
-                Materials.InfusedGold, Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.InfusedOrder, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
-                Materials.Thaumium, Materials.InfusedVis, Materials.InfusedAir, Materials.InfusedFire,
-                Materials.FierySteel, Materials.Firestone });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
+                Materials.Sunnarium, Materials.Glowstone, Materials.FierySteel, Materials.Firestone });
         mMoltenPosG = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Vinteum, Materials.Uranium235,
-                Materials.InfusedGold, Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.InfusedOrder, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
-                Materials.InfusedAir, Materials.InfusedEarth });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
+                Materials.Sunnarium, Materials.Glowstone });
         mMoltenPosB = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Vinteum, Materials.Uranium235,
-                Materials.InfusedGold, Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.InfusedOrder, Materials.InfusedVis, Materials.InfusedWater, Materials.Thaumium });
-        mMoltenNegR = Arrays.asList(new Materials[] { Materials.InfusedEntropy });
-        mMoltenNegG = Arrays.asList(new Materials[] { Materials.InfusedEntropy });
-        mMoltenNegB = Arrays.asList(new Materials[] { Materials.InfusedEntropy });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria });
+        mMoltenNegR = Arrays.asList(new Materials[] {});
+        mMoltenNegG = Arrays.asList(new Materials[] {});
+        mMoltenNegB = Arrays.asList(new Materials[] {});
     }
 
     private static void drawGrid(DrawBlockHighlightEvent aEvent) {
@@ -357,14 +348,15 @@ public class GT_Client extends GT_Proxy implements Runnable {
     public void run() {
         try {
             GT_Log.out.println("Skip: GT_Mod: Downloading Cape List.");
-            Scanner tScanner = new Scanner(
+            Scanner scanner = new Scanner(
                 new URL("http://gregtech.overminddl1.com/com/gregoriust/gregtech/supporterlist.txt").openStream());
-            while (tScanner.hasNextLine()) {
-                String tName = tScanner.nextLine();
+            while (scanner.hasNextLine()) {
+                String tName = scanner.nextLine();
                 if (!this.mCapeList.contains(tName.toLowerCase())) {
                     this.mCapeList.add(tName.toLowerCase());
                 }
             }
+            scanner.close();
         } catch (Throwable e) {}
         /**
          * try {

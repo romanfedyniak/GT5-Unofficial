@@ -61,7 +61,6 @@ public class ArmorData {
     // public int partsCharge;
     public int maxCharge;
     public int charge;
-    // public boolean thaumicGoggles;
     // public boolean nightVision;
     // public boolean potionInjector;
     // public boolean autoFeeder;
@@ -156,9 +155,6 @@ public class ArmorData {
             DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
             symbols.setGroupingSeparator(' ');
             if (type == 0) {
-                if (mBStat.get(StatType.THAUMICGOGGLES)) {
-                    tagList.add(GT_LanguageManager.getTranslation("Thaumic Goggles installed"));
-                }
                 if (mBStat.get(StatType.NIGHTVISION)) {
                     tagList.add(GT_LanguageManager.getTranslation("Nightvision installed"));
                 }

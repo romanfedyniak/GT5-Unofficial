@@ -22,7 +22,6 @@ import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.SubTag;
-import gregtech.api.enums.TC_Aspects;
 import gregtech.api.items.GT_MetaGenerated_Item_X32;
 import gregtech.api.objects.GT_CopiedBlockTexture;
 import gregtech.api.objects.ItemData;
@@ -61,20 +60,15 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 0,
                 "Dark Coffee",
                 "Coffee, dark, without anything else",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSpeed.id, 400, 1, 70, Potion.digSpeed.id, 400, 1, 70 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSpeed.id, 400, 1, 70, Potion.digSpeed.id, 400, 1, 70 }) }));
         ItemList.ThermosCan_Dark_Cafe_au_lait.set(
             addItem(
                 tLastID = 1,
@@ -89,49 +83,35 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.moveSpeed.id, 400, 2, 90, Potion.digSpeed.id, 400, 2, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 3L) }));
+                        new int[] { Potion.moveSpeed.id, 400, 2, 90, Potion.digSpeed.id, 400, 2, 90 }) }));
         ItemList.ThermosCan_Coffee.set(
             addItem(
                 tLastID = 2,
                 "Coffee",
                 "Just the regular morning Coffee",
-                new Object[] {
-                    new GT_FoodStat(
-                        3,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSpeed.id, 400, 0, 50, Potion.digSpeed.id, 400, 0, 50 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    3,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSpeed.id, 400, 0, 50, Potion.digSpeed.id, 400, 0, 50 }) }));
         ItemList.ThermosCan_Cafe_au_lait.set(
             addItem(
                 tLastID = 3,
                 "Cafe au lait",
                 "Sweet Coffee",
-                new Object[] {
-                    new GT_FoodStat(
-                        3,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSpeed.id, 400, 1, 70, Potion.digSpeed.id, 400, 1, 70 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    3,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSpeed.id, 400, 1, 70, Potion.digSpeed.id, 400, 1, 70 }) }));
         ItemList.ThermosCan_Lait_au_cafe.set(
             addItem(
                 tLastID = 4,
@@ -146,67 +126,49 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.moveSpeed.id, 400, 2, 90, Potion.digSpeed.id, 400, 2, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 3L) }));
+                        new int[] { Potion.moveSpeed.id, 400, 2, 90, Potion.digSpeed.id, 400, 2, 90 }) }));
         ItemList.ThermosCan_Dark_Chocolate_Milk.set(
             addItem(
                 tLastID = 5,
                 "Dark Chocolate Milk",
                 "A bit bitter, better add a bit Sugar",
-                new Object[] {
-                    new GT_FoodStat(
-                        3,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.regeneration.id, 50, 1, 60 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    3,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.regeneration.id, 50, 1, 60 }) }));
         ItemList.ThermosCan_Chocolate_Milk.set(
             addItem(
                 tLastID = 6,
                 "Chocolate Milk",
                 "Sweet Goodness",
-                new Object[] {
-                    new GT_FoodStat(
-                        3,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.regeneration.id, 50, 1, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    3,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.regeneration.id, 50, 1, 90 }) }));
         ItemList.ThermosCan_Tea.set(
             addItem(
                 tLastID = 7,
                 "Tea",
                 "Keep calm and carry on",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSlowdown.id, 300, 0, 50 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSlowdown.id, 300, 0, 50 }) }));
         ItemList.ThermosCan_Sweet_Tea.set(
             addItem(
                 tLastID = 8,
@@ -221,28 +183,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                        new int[0]) }));
         ItemList.ThermosCan_Ice_Tea.set(
             addItem(
                 tLastID = 9,
                 "Ice Tea",
                 "Better than this purple Junk Drink from failed Potions",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.ThermosCan_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSlowdown.id, 300, 0, 50 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.ThermosCan_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSlowdown.id, 300, 0, 50 }) }));
 
         ItemList.GelledToluene.set(addItem(tLastID = 10, "Gelled Toluene", "Raw Explosive", new Object[] {}));
 
@@ -251,75 +206,59 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 100,
                 "Purple Drink",
                 "How about Lemonade. Or some Ice Tea? I got Purple Drink!",
-                new Object[] {
-                    new GT_FoodStat(
-                        8,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.moveSlowdown.id, 400, 1, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VINCULUM, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    8,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.moveSlowdown.id, 400, 1, 90 }) }));
         ItemList.Bottle_Grape_Juice.set(
             addItem(
                 tLastID = 101,
                 "Grape Juice",
                 "This has a cleaning effect on your internals.",
-                new Object[] {
-                    new GT_FoodStat(
-                        4,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.hunger.id, 400, 1, 60 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    4,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.hunger.id, 400, 1, 60 }) }));
         ItemList.Bottle_Wine.set(
             addItem(
                 tLastID = 102,
                 "Wine",
                 "Ordinary",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 400, 1, 60, Potion.heal.id, 0, 0, 60, Potion.poison.id, 200, 1,
-                            5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 400, 1, 60, Potion.heal.id, 0, 0, 60, Potion.poison.id, 200, 1,
+                        5 }) }));
         ItemList.Bottle_Vinegar.set(
             addItem(
                 tLastID = 103,
                 "Vinegar",
                 "Exquisite",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 400, 1, 90, Potion.heal.id, 0, 1, 90, Potion.poison.id, 200, 2,
-                            10, Potion.harm.id, 0, 2, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 400, 1, 90, Potion.heal.id, 0, 1, 90, Potion.poison.id, 200, 2, 10,
+                        Potion.harm.id, 0, 2, 5 }) }));
         ItemList.Bottle_Potato_Juice.set(
             addItem(
                 tLastID = 104,
@@ -334,10 +273,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L) }));
+                        new int[0]) }));
         ItemList.Bottle_Vodka.set(
             addItem(
                 tLastID = 105,
@@ -353,10 +289,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 500, 0, 60, Potion.damageBoost.id, 500, 1, 60,
-                            Potion.poison.id, 200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L) }));
+                            Potion.poison.id, 200, 1, 5 }) }));
         ItemList.Bottle_Leninade.set(
             addItem(
                 tLastID = 106,
@@ -372,28 +305,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 500, 1, 90, Potion.damageBoost.id, 500, 2, 90,
-                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 2L) }));
+                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }) }));
         ItemList.Bottle_Mineral_Water.set(
             addItem(
                 tLastID = 107,
                 "Mineral Water",
                 "The best Stuff you can drink to stay healthy",
-                new Object[] {
-                    new GT_FoodStat(
-                        1,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.regeneration.id, 100, 1, 10 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    1,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.regeneration.id, 100, 1, 10 }) }));
         ItemList.Bottle_Salty_Water.set(
             addItem(
                 tLastID = 108,
@@ -408,28 +334,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.hunger.id, 400, 2, 95 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TEMPESTAS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                        new int[] { Potion.hunger.id, 400, 2, 95 }) }));
         ItemList.Bottle_Reed_Water.set(
             addItem(
                 tLastID = 109,
                 "Reed Water",
                 "I guess this tastes better when fermented",
-                new Object[] {
-                    new GT_FoodStat(
-                        1,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    1,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[0]) }));
         ItemList.Bottle_Rum.set(
             addItem(
                 tLastID = 110,
@@ -445,10 +364,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 300, 0, 60, Potion.damageBoost.id, 300, 1, 60,
-                            Potion.poison.id, 200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
+                            Potion.poison.id, 200, 1, 5 }) }));
         ItemList.Bottle_Pirate_Brew.set(
             addItem(
                 tLastID = 111,
@@ -464,47 +380,36 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 300, 1, 90, Potion.damageBoost.id, 300, 2, 90,
-                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 2L) }));
+                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }) }));
         ItemList.Bottle_Hops_Juice.set(
             addItem(
                 tLastID = 112,
                 "Hops Juice",
                 "Every Beer has a start",
-                new Object[] {
-                    new GT_FoodStat(
-                        1,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    1,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[0]) }));
         ItemList.Bottle_Dark_Beer.set(
             addItem(
                 tLastID = 113,
                 "Dark Beer",
                 "Dark Beer, for the real Men",
-                new Object[] {
-                    new GT_FoodStat(
-                        4,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 300, 1, 60, Potion.damageBoost.id, 300, 1, 60,
-                            Potion.poison.id, 200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    4,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 300, 1, 60, Potion.damageBoost.id, 300, 1, 60, Potion.poison.id,
+                        200, 1, 5 }) }));
         ItemList.Bottle_Dragon_Blood.set(
             addItem(
                 tLastID = 114,
@@ -520,28 +425,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 300, 2, 90, Potion.damageBoost.id, 300, 2, 90,
-                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                            Potion.poison.id, 200, 2, 10, Potion.harm.id, 0, 2, 5 }) }));
         ItemList.Bottle_Wheaty_Juice.set(
             addItem(
                 tLastID = 115,
                 "Wheaty Juice",
                 "Is this liquefied Bread or what?",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[0]) }));
         ItemList.Bottle_Scotch.set(
             addItem(
                 tLastID = 116,
@@ -557,10 +455,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 400, 0, 60, Potion.resistance.id, 400, 1, 60, Potion.poison.id,
-                            200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 1L) }));
+                            200, 1, 5 }) }));
         ItemList.Bottle_Glen_McKenner.set(
             addItem(
                 tLastID = 117,
@@ -576,83 +471,64 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 400, 1, 90, Potion.resistance.id, 400, 2, 90, Potion.poison.id,
-                            200, 2, 10, Potion.harm.id, 0, 2, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 2L) }));
+                            200, 2, 10, Potion.harm.id, 0, 2, 5 }) }));
         ItemList.Bottle_Wheaty_Hops_Juice.set(
             addItem(
                 tLastID = 118,
                 "Wheaty Hops Juice",
                 "Also known as 'Duff-Lite'",
-                new Object[] {
-                    new GT_FoodStat(
-                        1,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    1,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[0]) }));
         ItemList.Bottle_Beer.set(
             addItem(
                 tLastID = 119,
                 "Beer",
                 "Good old Beer",
-                new Object[] {
-                    new GT_FoodStat(
-                        6,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 400, 0, 60, Potion.digSpeed.id, 400, 2, 60, Potion.poison.id,
-                            100, 0, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERFODIO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    6,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 400, 0, 60, Potion.digSpeed.id, 400, 2, 60, Potion.poison.id, 100,
+                        0, 5 }) }));
         ItemList.Bottle_Chilly_Sauce.set(
             addItem(
                 tLastID = 120,
                 "Chilly Sauce",
                 "Spicy",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 1000, 0, 10, Potion.fireResistance.id, 1000, 0, 60 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 1000, 0, 10, Potion.fireResistance.id, 1000, 0, 60 }) }));
         ItemList.Bottle_Hot_Sauce.set(
             addItem(
                 tLastID = 121,
                 "Hot Sauce",
                 "Very Spicy, I guess?",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.1F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 2000, 0, 30, Potion.fireResistance.id, 2000, 0, 70 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 2L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.1F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 2000, 0, 30, Potion.fireResistance.id, 2000, 0, 70 }) }));
         ItemList.Bottle_Diabolo_Sauce.set(
             addItem(
                 tLastID = 122,
@@ -667,10 +543,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.confusion.id, 3000, 1, 50, Potion.fireResistance.id, 3000, 0, 80 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 3L) }));
+                        new int[] { Potion.confusion.id, 3000, 1, 50, Potion.fireResistance.id, 3000, 0, 80 }) }));
         ItemList.Bottle_Diablo_Sauce.set(
             addItem(
                 tLastID = 123,
@@ -685,17 +558,14 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.confusion.id, 4000, 1, 70, Potion.fireResistance.id, 4000, 0, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 4L) }));
-        ItemList.Bottle_Snitches_Glitch_Sauce.set(
-            addItem(
-                tLastID = 124,
-                "Old Man Snitches glitched Diablo Sauce",
-                "[Missing No]",
-                new Object[] { SubTag.INVISIBLE,
-                    new GT_FoodStat(
+                        new int[] { Potion.confusion.id, 4000, 1, 70, Potion.fireResistance.id, 4000, 0, 90 }) }));
+        ItemList.Bottle_Snitches_Glitch_Sauce
+            .set(
+                addItem(
+                    tLastID = 124,
+                    "Old Man Snitches glitched Diablo Sauce",
+                    "[Missing No]",
+                    new Object[] { SubTag.INVISIBLE, new GT_FoodStat(
                         2,
                         0.1F,
                         EnumAction.drink,
@@ -703,47 +573,36 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.confusion.id, 9999, 2, 999, Potion.fireResistance.id, 9999, 9, 999 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 3L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 5L) }));
+                        new int[] { Potion.confusion.id, 9999, 2, 999, Potion.fireResistance.id, 9999, 9, 999 }) }));
         ItemList.Bottle_Apple_Juice.set(
             addItem(
                 tLastID = 125,
                 "Apple Juice",
                 "Made of the Apples from our best Oak Farms",
-                new Object[] {
-                    new GT_FoodStat(
-                        4,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.hunger.id, 400, 0, 20 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    4,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.hunger.id, 400, 0, 20 }) }));
         ItemList.Bottle_Cider.set(
             addItem(
                 tLastID = 126,
                 "Cider",
                 "If you have nothing better to do with your Apples",
-                new Object[] {
-                    new GT_FoodStat(
-                        4,
-                        0.2F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.confusion.id, 400, 0, 60, Potion.resistance.id, 400, 1, 60, Potion.poison.id,
-                            200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    4,
+                    0.2F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.confusion.id, 400, 0, 60, Potion.resistance.id, 400, 1, 60, Potion.poison.id,
+                        200, 1, 5 }) }));
         ItemList.Bottle_Golden_Apple_Juice.set(
             addItem(
                 tLastID = 127,
@@ -759,10 +618,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.hunger.id, 400, 0, 20, Potion.field_76444_x.id, 2400, 0, 100,
-                            Potion.regeneration.id, 100, 1, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                            Potion.regeneration.id, 100, 1, 100 }) }));
         ItemList.Bottle_Golden_Cider.set(
             addItem(
                 tLastID = 128,
@@ -778,10 +634,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.confusion.id, 400, 0, 60, Potion.field_76444_x.id, 2400, 1, 95,
-                            Potion.poison.id, 200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 1L) }));
+                            Potion.poison.id, 200, 1, 5 }) }));
         ItemList.Bottle_Iduns_Apple_Juice.set(
             addItem(
                 tLastID = 129,
@@ -797,10 +650,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         false,
                         new int[] { Potion.regeneration.id, 600, 4, 100, Potion.field_76444_x.id, 2400, 0, 100,
-                            Potion.resistance.id, 6000, 0, 100, Potion.fireResistance.id, 6000, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 9L) }));
+                            Potion.resistance.id, 6000, 0, 100, Potion.fireResistance.id, 6000, 0, 100 }) }));
         ItemList.Bottle_Notches_Brew.set(
             addItem(
                 tLastID = 130,
@@ -817,28 +667,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         new int[] { Potion.regeneration.id, 700, 4, 95, Potion.field_76444_x.id, 3000, 1, 95,
                             Potion.resistance.id, 7000, 1, 95, Potion.fireResistance.id, 7000, 0, 95, Potion.harm.id, 0,
-                            2, 20 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 9L) }));
+                            2, 20 }) }));
         ItemList.Bottle_Lemon_Juice.set(
             addItem(
                 tLastID = 131,
                 "Lemon Juice",
                 "Maybe adding Sugar will make it less sour",
-                new Object[] {
-                    new GT_FoodStat(
-                        2,
-                        0.4F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.digSpeed.id, 1200, 0, 60 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERFODIO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    2,
+                    0.4F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.digSpeed.id, 1200, 0, 60 }) }));
         ItemList.Bottle_Limoncello.set(
             addItem(
                 tLastID = 132,
@@ -853,28 +696,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.digSpeed.id, 1200, 0, 90, Potion.poison.id, 200, 1, 5 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERFODIO, 1L) }));
+                        new int[] { Potion.digSpeed.id, 1200, 0, 90, Potion.poison.id, 200, 1, 5 }) }));
         ItemList.Bottle_Lemonade.set(
             addItem(
                 tLastID = 133,
                 "Lemonade",
                 "Cold and refreshing Lemonade",
-                new Object[] {
-                    new GT_FoodStat(
-                        4,
-                        0.3F,
-                        EnumAction.drink,
-                        ItemList.Bottle_Empty.get(1L, new Object[0]),
-                        GregTech_API.sDrinksAlwaysDrinkable,
-                        false,
-                        false,
-                        new int[] { Potion.digSpeed.id, 900, 1, 90 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERFODIO, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    4,
+                    0.3F,
+                    EnumAction.drink,
+                    ItemList.Bottle_Empty.get(1L, new Object[0]),
+                    GregTech_API.sDrinksAlwaysDrinkable,
+                    false,
+                    false,
+                    new int[] { Potion.digSpeed.id, 900, 1, 90 }) }));
         ItemList.Bottle_Alcopops.set(
             addItem(
                 tLastID = 134,
@@ -889,10 +725,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.digSpeed.id, 900, 1, 90, Potion.poison.id, 300, 2, 20 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VINCULUM, 1L) }));
+                        new int[] { Potion.digSpeed.id, 900, 1, 90, Potion.poison.id, 300, 2, 20 }) }));
         ItemList.Bottle_Cave_Johnsons_Grenade_Juice.set(
             addItem(
                 tLastID = 135,
@@ -907,10 +740,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[0]).setExplosive(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MORTUUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 1L) }));
+                        new int[0]).setExplosive() }));
         ItemList.Bottle_Milk.set(
             addItem(
                 tLastID = 136,
@@ -925,10 +755,7 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[0]).setMilk(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+                        new int[0]).setMilk() }));
         ItemList.Bottle_Holy_Water.set(
             addItem(
                 tLastID = 137,
@@ -943,323 +770,233 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         GregTech_API.sDrinksAlwaysDrinkable,
                         false,
                         false,
-                        new int[] { Potion.poison.id, 100, 1, 100 }).setMilk(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AURAM, 1L) }));
+                        new int[] { Potion.poison.id, 100, 1, 100 }).setMilk() }));
 
         ItemList.Food_Potato_On_Stick.set(
             addItem(
                 tLastID = 200,
                 "Potato on a Stick",
                 "Totally looks like a Crab Claw",
-                new Object[] {
-                    new GT_FoodStat(
-                        1,
-                        0.3F,
-                        EnumAction.eat,
-                        new ItemStack(Items.stick, 1),
-                        false,
-                        true,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    1,
+                    0.3F,
+                    EnumAction.eat,
+                    new ItemStack(Items.stick, 1),
+                    false,
+                    true,
+                    false,
+                    new int[0]) }));
         ItemList.Food_Potato_On_Stick_Roasted.set(
             addItem(
                 tLastID = 201,
                 "Roasted Potato on a Stick",
                 "Still looks like a Crab Claw",
-                new Object[] {
-                    new GT_FoodStat(
-                        6,
-                        0.6F,
-                        EnumAction.eat,
-                        new ItemStack(Items.stick, 1),
-                        false,
-                        true,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    6,
+                    0.6F,
+                    EnumAction.eat,
+                    new ItemStack(Items.stick, 1),
+                    false,
+                    true,
+                    false,
+                    new int[0]) }));
         ItemList.Food_Raw_Fries.set(
             addItem(
                 tLastID = 202,
                 "Potato Strips",
                 "It's Potato in Stripe Form",
-                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Fries.set(
             addItem(
                 tLastID = 203,
                 "Fries",
                 "Not to confuse with Fry the Delivery Boy",
-                new Object[] { new GT_FoodStat(7, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(7, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Packaged_Fries.set(
             addItem(
                 tLastID = 204,
                 "Fries",
                 "Ketchup not included",
-                new Object[] {
-                    new GT_FoodStat(
-                        7,
-                        0.5F,
-                        EnumAction.eat,
-                        GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Paper, 1L),
-                        false,
-                        true,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    7,
+                    0.5F,
+                    EnumAction.eat,
+                    GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Paper, 1L),
+                    false,
+                    true,
+                    false,
+                    new int[0]) }));
         ItemList.Food_Raw_PotatoChips.set(
             addItem(
                 tLastID = 205,
                 "Potato Chips (Raw)",
                 "Just like a Potato",
-                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_PotatoChips.set(
             addItem(
                 tLastID = 206,
                 "Potato Chips",
                 "Crunchy",
-                new Object[] { new GT_FoodStat(7, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(7, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_ChiliChips.set(
             addItem(
                 tLastID = 207,
                 "Chili Chips",
                 "Spicy",
-                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]), }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Packaged_PotatoChips.set(
             addItem(
                 tLastID = 208,
                 "Bag of Potato Chips",
                 "Full of delicious Air",
-                new Object[] {
-                    new GT_FoodStat(
-                        7,
-                        0.5F,
-                        EnumAction.eat,
-                        GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Aluminium, 1L),
-                        false,
-                        true,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    7,
+                    0.5F,
+                    EnumAction.eat,
+                    GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Aluminium, 1L),
+                    false,
+                    true,
+                    false,
+                    new int[0]) }));
         ItemList.Food_Packaged_ChiliChips.set(
             addItem(
                 tLastID = 209,
                 "Bag of Chili Chips",
                 "Stop making noises Baj!",
-                new Object[] {
-                    new GT_FoodStat(
-                        7,
-                        0.6F,
-                        EnumAction.eat,
-                        GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Aluminium, 1L),
-                        false,
-                        true,
-                        false,
-                        new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    7,
+                    0.6F,
+                    EnumAction.eat,
+                    GT_OreDictUnificator.get(OrePrefixes.foil, Materials.Aluminium, 1L),
+                    false,
+                    true,
+                    false,
+                    new int[0]) }));
         ItemList.Food_Chum.set(
             addItem(
                 tLastID = 210,
                 "Chum",
                 "Chum is Fum!",
-                new Object[] {
-                    new GT_FoodStat(
-                        5,
-                        0.2F,
-                        EnumAction.eat,
-                        null,
-                        true,
-                        false,
-                        true,
-                        new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    5,
+                    0.2F,
+                    EnumAction.eat,
+                    null,
+                    true,
+                    false,
+                    true,
+                    new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }) }));
         ItemList.Food_Chum_On_Stick.set(
             addItem(
                 tLastID = 211,
                 "Chum on a Stick",
                 "Don't forget to try our Chum-balaya",
-                new Object[] {
-                    new GT_FoodStat(
-                        5,
-                        0.2F,
-                        EnumAction.eat,
-                        new ItemStack(Items.stick, 1),
-                        true,
-                        false,
-                        true,
-                        new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    5,
+                    0.2F,
+                    EnumAction.eat,
+                    new ItemStack(Items.stick, 1),
+                    true,
+                    false,
+                    true,
+                    new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }) }));
         ItemList.Food_Dough_Sugar.set(
             addItem(
                 tLastID = 212,
                 "Sugary Dough",
                 "Don't eat the Dough before it is baken",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Dough_Chocolate.set(
             addItem(
                 tLastID = 213,
                 "Chocolate Dough",
                 "I said don't eat the Dough!",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Cookie.set(
             addItem(
                 tLastID = 214,
                 "Cookie shaped Dough",
                 "For baking Cookies",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
 
         ItemList.Food_Sliced_Buns.set(
             addItem(
                 tLastID = 220,
                 "Buns",
                 "Pre Sliced",
-                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Burger_Veggie.set(
             addItem(
                 tLastID = 221,
                 "Veggieburger",
                 "No matter how you call this, this is NOT a Burger!",
-                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Burger_Cheese.set(
             addItem(
                 tLastID = 222,
                 "Cheeseburger",
                 "Cheesy!",
                 new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
                     new ItemData(Materials.Cheese, 907200L, new MaterialStack[0]) }));
         ItemList.Food_Burger_Meat.set(
             addItem(
                 tLastID = 223,
                 "Hamburger",
                 "The Mc Burger Queen Burger",
-                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Burger_Chum.set(
             addItem(
                 tLastID = 224,
                 "Chumburger",
                 "Fum is Chum!",
-                new Object[] {
-                    new GT_FoodStat(
-                        5,
-                        0.2F,
-                        EnumAction.eat,
-                        null,
-                        true,
-                        false,
-                        true,
-                        new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(
+                    5,
+                    0.2F,
+                    EnumAction.eat,
+                    null,
+                    true,
+                    false,
+                    true,
+                    new int[] { Potion.hunger.id, 1000, 4, 100, Potion.confusion.id, 300, 1, 80 }) }));
 
         ItemList.Food_Sliced_Breads.set(
             addItem(
                 tLastID = 230,
                 "Breads",
                 "Pre Sliced",
-                new Object[] { new GT_FoodStat(5, 0.6F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(5, 0.6F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sandwich_Veggie.set(
             addItem(
                 tLastID = 231,
                 "Veggie Sandwich",
                 "Meatless",
-                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 32L);
         ItemList.Food_Sandwich_Cheese.set(
             addItem(
                 tLastID = 232,
                 "Cheese Sandwich",
                 "Say Cheese!",
-                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(7, 0.6F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 32L);
         ItemList.Food_Sandwich_Bacon.set(
             addItem(
                 tLastID = 233,
                 "Bacon Sandwich",
                 "The best Sandwich ever!",
-                new Object[] { new GT_FoodStat(10, 0.8F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(10, 0.8F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 32L);
         ItemList.Food_Sandwich_Steak.set(
             addItem(
                 tLastID = 234,
                 "Steak Sandwich",
                 "Not a 'Steam Sandwich'",
-                new Object[] { new GT_FoodStat(10, 0.8F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(10, 0.8F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 32L);
 
         ItemList.Food_Sliced_Baguettes.set(
@@ -1267,49 +1004,34 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 240,
                 "Baguettes",
                 "Pre Sliced",
-                new Object[] { new GT_FoodStat(8, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(8, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Large_Sandwich_Veggie.set(
             addItem(
                 tLastID = 241,
                 "Large Veggie Sandwich",
                 "Just not worth it",
-                new Object[] { new GT_FoodStat(15, 0.8F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 3L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(15, 0.8F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Large_Sandwich_Cheese.set(
             addItem(
                 tLastID = 242,
                 "Large Cheese Sandwich",
                 "I need another cheesy tooltip for this",
-                new Object[] { new GT_FoodStat(15, 0.8F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 3L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(15, 0.8F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Large_Sandwich_Bacon.set(
             addItem(
                 tLastID = 243,
                 "Large Bacon Sandwich",
                 "For Men! (and manly Women)",
-                new Object[] { new GT_FoodStat(20, 1.0F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(20, 1.0F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
         ItemList.Food_Large_Sandwich_Steak.set(
             addItem(
                 tLastID = 244,
                 "Large Steak Sandwich",
                 "Yes, I once accidentially called it 'Steam Sandwich'",
-                new Object[] { new GT_FoodStat(20, 1.0F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(20, 1.0F, EnumAction.eat, null, false, true, false, new int[0]) }));
         setFluidContainerStats(32000 + tLastID, 0L, 16L);
 
         ItemList.Food_Raw_Pizza_Veggie.set(
@@ -1317,63 +1039,40 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 250,
                 "Raw Veggie Pizza",
                 "Into the Oven with it!",
-                new Object[] { new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Pizza_Cheese.set(
             addItem(
                 tLastID = 251,
                 "Raw Cheese Pizza",
                 "Into the Oven with it!",
-                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Pizza_Meat.set(
             addItem(
                 tLastID = 252,
                 "Raw Mince Meat Pizza",
                 "Into the Oven with it!",
-                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
 
         ItemList.Food_Baked_Pizza_Veggie.set(
             addItem(
                 tLastID = 260,
                 "Veggie Pizza",
                 "The next they want is Gluten Free Pizzas...",
-                new Object[] { new GT_FoodStat(3, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.3F, EnumAction.eat, null, false, true, false, new int[0]), }));
         ItemList.Food_Baked_Pizza_Cheese.set(
             addItem(
                 tLastID = 261,
                 "Cheese Pizza",
                 "Pizza Magarita",
-                new Object[] { new GT_FoodStat(4, 0.4F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(4, 0.4F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Baked_Pizza_Meat.set(
             addItem(
                 tLastID = 262,
                 "Mince Meat Pizza",
                 "Emo Pizza, it cuts itself!",
-                new Object[] { new GT_FoodStat(5, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(5, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
 
-        ItemList.Dye_Indigo.set(
-            addItem(
-                tLastID = 410,
-                "Indigo Dye",
-                "Blue Dye",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 1L), Dyes.dyeBlue }));
+        ItemList.Dye_Indigo.set(addItem(tLastID = 410, "Indigo Dye", "Blue Dye", new Object[] { Dyes.dyeBlue }));
         for (byte i = 0; i < 16; i = (byte) (i + 1)) {
             ItemList.DYE_ONLY_ITEMS[i].set(
                 addItem(
@@ -1381,217 +1080,67 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                     Dyes.get(i).mName + " Dye",
                     "",
                     new Object[] { Dyes.get(i)
-                        .name(), new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 1L) }));
+                        .name() }));
         }
-        ItemList.Plank_Oak.set(
-            addItem(
-                tLastID = 470,
-                "Oak Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Oak.set(addItem(tLastID = 470, "Oak Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Spruce.set(
-            addItem(
-                tLastID = 471,
-                "Spruce Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Spruce.set(addItem(tLastID = 471, "Spruce Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Birch.set(
-            addItem(
-                tLastID = 472,
-                "Birch Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Birch.set(addItem(tLastID = 472, "Birch Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Jungle.set(
-            addItem(
-                tLastID = 473,
-                "Jungle Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Jungle.set(addItem(tLastID = 473, "Jungle Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Acacia.set(
-            addItem(
-                tLastID = 474,
-                "Acacia Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Acacia.set(addItem(tLastID = 474, "Acacia Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_DarkOak.set(
-            addItem(
-                tLastID = 475,
-                "Dark Oak Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_DarkOak.set(addItem(tLastID = 475, "Dark Oak Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Larch.set(
-            addItem(
-                tLastID = 476,
-                "Larch Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Larch.set(addItem(tLastID = 476, "Larch Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Teak.set(
-            addItem(
-                tLastID = 477,
-                "Teak Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Teak.set(addItem(tLastID = 477, "Teak Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Acacia_Green.set(
-            addItem(
-                tLastID = 478,
-                "Green Acacia Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Acacia_Green.set(addItem(tLastID = 478, "Green Acacia Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Lime.set(
-            addItem(
-                tLastID = 479,
-                "Lime Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Lime.set(addItem(tLastID = 479, "Lime Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Chestnut.set(
-            addItem(
-                tLastID = 480,
-                "Chestnut Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Chestnut.set(addItem(tLastID = 480, "Chestnut Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Wenge.set(
-            addItem(
-                tLastID = 481,
-                "Wenge Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Wenge.set(addItem(tLastID = 481, "Wenge Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Baobab.set(
-            addItem(
-                tLastID = 482,
-                "Baobab Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Baobab.set(addItem(tLastID = 482, "Baobab Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Sequoia.set(
-            addItem(
-                tLastID = 483,
-                "Sequoia Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Sequoia.set(addItem(tLastID = 483, "Sequoia Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Kapok.set(
-            addItem(
-                tLastID = 484,
-                "Kapok Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Kapok.set(addItem(tLastID = 484, "Kapok Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Ebony.set(
-            addItem(
-                tLastID = 485,
-                "Ebony Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Ebony.set(addItem(tLastID = 485, "Ebony Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Mahagony.set(
-            addItem(
-                tLastID = 486,
-                "Mahagony Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Mahagony.set(addItem(tLastID = 486, "Mahagony Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Balsa.set(
-            addItem(
-                tLastID = 487,
-                "Balsa Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Balsa.set(addItem(tLastID = 487, "Balsa Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Willow.set(
-            addItem(
-                tLastID = 488,
-                "Willow Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Willow.set(addItem(tLastID = 488, "Willow Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Walnut.set(
-            addItem(
-                tLastID = 489,
-                "Walnut Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Walnut.set(addItem(tLastID = 489, "Walnut Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Greenheart.set(
-            addItem(
-                tLastID = 490,
-                "Greenheart Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Greenheart.set(addItem(tLastID = 490, "Greenheart Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Cherry.set(
-            addItem(
-                tLastID = 491,
-                "Cherry Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Cherry.set(addItem(tLastID = 491, "Cherry Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Mahoe.set(
-            addItem(
-                tLastID = 492,
-                "Mahoe Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Mahoe.set(addItem(tLastID = 492, "Mahoe Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Poplar.set(
-            addItem(
-                tLastID = 493,
-                "Poplar Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Poplar.set(addItem(tLastID = 493, "Poplar Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Palm.set(
-            addItem(
-                tLastID = 494,
-                "Palm Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Palm.set(addItem(tLastID = 494, "Palm Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Papaya.set(
-            addItem(
-                tLastID = 495,
-                "Papaya Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Papaya.set(addItem(tLastID = 495, "Papaya Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Pine.set(
-            addItem(
-                tLastID = 496,
-                "Pine Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Pine.set(addItem(tLastID = 496, "Pine Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Plum.set(
-            addItem(
-                tLastID = 497,
-                "Plum Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Plum.set(addItem(tLastID = 497, "Plum Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Maple.set(
-            addItem(
-                tLastID = 498,
-                "Maple Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Maple.set(addItem(tLastID = 498, "Maple Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
-        ItemList.Plank_Citrus.set(
-            addItem(
-                tLastID = 499,
-                "Citrus Plank",
-                aTextCover,
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Plank_Citrus.set(addItem(tLastID = 499, "Citrus Plank", aTextCover));
         setBurnValue(32000 + tLastID, 75);
 
         ItemList.SFMixture.set(addItem(tLastID = 270, "Super Fuel Binder", "Raw Material", new Object[] {}));
@@ -1839,111 +1388,23 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 7),
             null);
 
-        ItemList.Crop_Drop_Plumbilia.set(
-            addItem(
-                tLastID = 500,
-                "Plumbilia Leaf",
-                "Source of Lead",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 1L) }));
-        ItemList.Crop_Drop_Argentia.set(
-            addItem(
-                tLastID = 501,
-                "Argentia Leaf",
-                "Source of Silver",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
-        ItemList.Crop_Drop_Indigo.set(
-            addItem(
-                tLastID = 502,
-                "Indigo Blossom",
-                "Used for making Blue Dye",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 1L) }));
-        ItemList.Crop_Drop_Ferru.set(
-            addItem(
-                tLastID = 503,
-                "Ferru Leaf",
-                "Source of Iron",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L) }));
-        ItemList.Crop_Drop_Aurelia.set(
-            addItem(
-                tLastID = 504,
-                "Aurelia Leaf",
-                "Source of Gold",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
-        ItemList.Crop_Drop_TeaLeaf.set(
-            addItem(
-                tLastID = 505,
-                "Tea Leaf",
-                "Source of Tea",
-                new Object[] { "cropTea", new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+        ItemList.Crop_Drop_Plumbilia.set(addItem(tLastID = 500, "Plumbilia Leaf", "Source of Lead"));
+        ItemList.Crop_Drop_Argentia.set(addItem(tLastID = 501, "Argentia Leaf", "Source of Silver"));
+        ItemList.Crop_Drop_Indigo.set(addItem(tLastID = 502, "Indigo Blossom", "Used for making Blue Dye"));
+        ItemList.Crop_Drop_Ferru.set(addItem(tLastID = 503, "Ferru Leaf", "Source of Iron"));
+        ItemList.Crop_Drop_Aurelia.set(addItem(tLastID = 504, "Aurelia Leaf", "Source of Gold"));
+        ItemList.Crop_Drop_TeaLeaf.set(addItem(tLastID = 505, "Tea Leaf", "Source of Tea", new Object[] { "cropTea" }));
 
-        ItemList.Crop_Drop_OilBerry.set(
-            addItem(
-                tLastID = 510,
-                "Oil Berry",
-                "Oil in Berry form",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
-        ItemList.Crop_Drop_BobsYerUncleRanks.set(
-            addItem(
-                tLastID = 511,
-                "Bobs-Yer-Uncle-Berry",
-                "Source of Emeralds",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
-        ItemList.Crop_Drop_UUMBerry.set(
-            addItem(
-                tLastID = 512,
-                "UUM Berry",
-                "UUM in Berry form",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
-        ItemList.Crop_Drop_UUABerry.set(
-            addItem(
-                tLastID = 513,
-                "UUA Berry",
-                "UUA in Berry form",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
+        ItemList.Crop_Drop_OilBerry.set(addItem(tLastID = 510, "Oil Berry", "Oil in Berry form"));
+        ItemList.Crop_Drop_BobsYerUncleRanks.set(addItem(tLastID = 511, "Bobs-Yer-Uncle-Berry", "Source of Emeralds"));
+        ItemList.Crop_Drop_UUMBerry.set(addItem(tLastID = 512, "UUM Berry", "UUM in Berry form"));
+        ItemList.Crop_Drop_UUABerry.set(addItem(tLastID = 513, "UUA Berry", "UUA in Berry form"));
 
-        ItemList.Crop_Drop_MilkWart.set(
-            addItem(
-                tLastID = 520,
-                "Milk Wart",
-                "Source of Milk",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1L) }));
+        ItemList.Crop_Drop_MilkWart.set(addItem(tLastID = 520, "Milk Wart", "Source of Milk"));
 
-        ItemList.Crop_Drop_Coppon.set(
-            addItem(
-                tLastID = 530,
-                "Coppon Fiber",
-                "ORANGE WOOOOOOOL!!!",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERMUTATIO, 1L) }));
+        ItemList.Crop_Drop_Coppon.set(addItem(tLastID = 530, "Coppon Fiber", "ORANGE WOOOOOOOL!!!"));
 
-        ItemList.Crop_Drop_Tine.set(
-            addItem(
-                tLastID = 540,
-                "Tine Twig",
-                "Source of Tin",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ARBOR, 1L) }));
+        ItemList.Crop_Drop_Tine.set(addItem(tLastID = 540, "Tine Twig", "Source of Tin"));
         setBurnValue(32000 + tLastID, 100);
 
         ItemList.Crop_Drop_Bauxite.set(addItem(tLastID = 521, "Bauxia Leaf", "Source of Aluminium", new Object[] {}));
@@ -1978,30 +1439,21 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         true,
                         false,
-                        new int[] { Potion.confusion.id, 200, 1, 40 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                        new int[] { Potion.confusion.id, 200, 1, 40 }) }));
         ItemList.Crop_Drop_Lemon.set(
             addItem(
                 tLastID = 551,
                 "Lemon",
                 "Don't make Lemonade",
                 new Object[] { "cropLemon",
-                    new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                    new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Crop_Drop_Tomato.set(
             addItem(
                 tLastID = 552,
                 "Tomato",
                 "Solid Ketchup",
                 new Object[] { "cropTomato",
-                    new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                    new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Crop_Drop_MTomato.set(
             addItem(
                 tLastID = 553,
@@ -2016,48 +1468,29 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                         false,
                         true,
                         false,
-                        new int[] { Potion.regeneration.id, 100, 100, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 3L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                        new int[] { Potion.regeneration.id, 100, 100, 100 }) }));
         ItemList.Crop_Drop_Grapes.set(
             addItem(
                 tLastID = 554,
                 "Grapes",
                 "Source of Wine",
                 new Object[] { "cropGrape",
-                    new GT_FoodStat(2, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                    new GT_FoodStat(2, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Crop_Drop_Onion.set(
             addItem(
                 tLastID = 555,
                 "Onion",
                 "Taking over the whole Taste",
                 new Object[] { "cropOnion",
-                    new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                    new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Crop_Drop_Cucumber.set(
             addItem(
                 tLastID = 556,
                 "Cucumber",
                 "Not a Sea Cucumber!",
                 new Object[] { "cropCucumber",
-                    new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
-        ItemList.Crop_Drop_Rape.set(
-            addItem(
-                tLastID = 557,
-                "Rape",
-                "Time to oil up!",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
+                    new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
+        ItemList.Crop_Drop_Rape.set(addItem(tLastID = 557, "Rape", "Time to oil up!"));
 
         ItemList.Food_Cheese.set(
             addItem(
@@ -2065,146 +1498,111 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 "Cheese",
                 "Click the Cheese",
                 new Object[] { "foodCheese",
-                    new GT_FoodStat(3, 0.6F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 2L) }));
+                    new GT_FoodStat(3, 0.6F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Dough.set(
             addItem(
                 tLastID = 559,
                 "Dough",
                 "For making Breads",
                 new Object[] { "foodDough",
-                    new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                    new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Flat_Dough.set(
             addItem(
                 tLastID = 560,
                 "Flattened Dough",
                 "For making Pizza",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Bread.set(
             addItem(
                 tLastID = 561,
                 "Dough",
                 "In Bread Shape",
-                new Object[] { new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Bun.set(
             addItem(
                 tLastID = 562,
                 "Dough",
                 "In Bun Shape",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Baguette.set(
             addItem(
                 tLastID = 563,
                 "Dough",
                 "In Baguette Shape",
-                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Baked_Bun.set(
             addItem(
                 tLastID = 564,
                 "Bun",
                 "Do not teleport Bread!",
-                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Baked_Baguette.set(
             addItem(
                 tLastID = 565,
                 "Baguette",
                 "I teleported nothing BUT Bread!!!",
-                new Object[] { new GT_FoodStat(8, 0.5F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(8, 0.5F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Bread.set(
             addItem(
                 tLastID = 566,
                 "Sliced Bread",
                 "Just half a Bread",
-                new Object[] { new GT_FoodStat(2, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(2, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Bun.set(
             addItem(
                 tLastID = 567,
                 "Sliced Bun",
                 "Just half a Bun",
-                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Baguette.set(
             addItem(
                 tLastID = 568,
                 "Sliced Baguette",
                 "Just half a Baguette",
-                new Object[] { new GT_FoodStat(4, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L) }));
+                new Object[] { new GT_FoodStat(4, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Raw_Cake.set(
             addItem(
                 tLastID = 569,
                 "Cake Bottom",
                 "For making Cake",
-                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(2, 0.2F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Baked_Cake.set(
             addItem(
                 tLastID = 570,
                 "Baked Cake Bottom",
                 "I know I promised you an actual Cake, but well...",
-                new Object[] { new GT_FoodStat(3, 0.3F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(3, 0.3F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Lemon.set(
             addItem(
                 tLastID = 571,
                 "Lemon Slice",
                 "Ideal to put on your Drink",
-                new Object[] { new GT_FoodStat(1, 0.075F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.075F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Tomato.set(
             addItem(
                 tLastID = 572,
                 "Tomato Slice",
                 "Solid Ketchup",
-                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Onion.set(
             addItem(
                 tLastID = 573,
                 "Onion Slice",
                 "ONIONS, UNITE!",
-                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]) }));
         ItemList.Food_Sliced_Cucumber.set(
             addItem(
                 tLastID = 574,
                 "Cucumber Slice",
                 "QUEWWW-CUMMM-BERRR!!!",
-                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.HERBA, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.05F, EnumAction.eat, null, false, true, false, new int[0]) }));
 
         ItemList.Food_Sliced_Cheese.set(
             addItem(
                 tLastID = 576,
                 "Cheese Slice",
                 "ALIEN ATTACK!!!, throw the CHEEEEESE!!!",
-                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FAMES, 1L) }));
+                new Object[] { new GT_FoodStat(1, 0.1F, EnumAction.eat, null, false, true, false, new int[0]) }));
 
         GT_ModHandler.addExtractionRecipe(new ItemStack(Blocks.red_flower, 1, 0), new ItemStack(Items.dye, 2, 1));
         GT_ModHandler.addExtractionRecipe(new ItemStack(Blocks.red_flower, 1, 1), new ItemStack(Items.dye, 2, 12));
@@ -2339,12 +1737,8 @@ public class GT_MetaGenerated_Item_02 extends GT_MetaGenerated_Item_X32 {
                 e.printStackTrace(GT_Log.err);
             }
         }
-        ItemList.Display_ITS_FREE.set(
-            addItem(
-                tLastID = 766,
-                "ITS FREE",
-                "(or at least almost free)",
-                new Object[] { SubTag.INVISIBLE, new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
+        ItemList.Display_ITS_FREE
+            .set(addItem(tLastID = 766, "ITS FREE", "(or at least almost free)", new Object[] { SubTag.INVISIBLE }));
     }
 
     public boolean onLeftClickEntity(ItemStack aStack, EntityPlayer aPlayer, Entity aEntity) {

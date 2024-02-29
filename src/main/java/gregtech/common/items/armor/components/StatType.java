@@ -23,7 +23,6 @@ public enum StatType {
     MAGNET,
     MAGNETSINGLE,
 
-    THAUMICGOGGLES,
     NIGHTVISION,
     POTIONINJECTOR,
     AUTOFEEDER,

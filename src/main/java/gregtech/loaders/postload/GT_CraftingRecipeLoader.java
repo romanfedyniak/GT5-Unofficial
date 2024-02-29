@@ -1749,12 +1749,6 @@ public class GT_CraftingRecipeLoader implements Runnable {
                 OrePrefixes.dust.get(Materials.Osmium) });
 
         GT_ModHandler.addShapelessCraftingRecipe(
-            GT_OreDictUnificator.get(OrePrefixes.dust, Materials.IronWood, 2L),
-            GT_ModHandler.RecipeBits.NOT_REMOVABLE,
-            new Object[] { OrePrefixes.dust.get(Materials.Iron), OrePrefixes.dust.get(Materials.LiveRoot),
-                OrePrefixes.dustTiny.get(Materials.Gold) });
-
-        GT_ModHandler.addShapelessCraftingRecipe(
             new ItemStack(Items.gunpowder, 6),
             GT_ModHandler.RecipeBits.NOT_REMOVABLE,
             new Object[] { OrePrefixes.dust.get(Materials.Coal), OrePrefixes.dust.get(Materials.Coal),

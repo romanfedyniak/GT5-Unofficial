@@ -15,10 +15,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
-import cpw.mods.fml.common.Loader;
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
-import gregtech.api.enums.TC_Aspects.TC_AspectStack;
 import gregtech.api.interfaces.IColorModulationContainer;
 import gregtech.api.interfaces.IMaterialHandler;
 import gregtech.api.interfaces.ISubTagContainer;
@@ -71,8 +69,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element._NULL,
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VACUOS, 1)));
+        Element._NULL);
 
     /**
      * Direct Elements
@@ -100,9 +97,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Al,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.VOLATUS, 1)));
+        Element.Al);
     public static Materials Americium = new Materials(
         103,
         TextureSet.SET_METALLIC,
@@ -126,8 +121,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Am,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Am);
     public static Materials Antimony = new Materials(
         58,
         TextureSet.SET_SHINY,
@@ -151,8 +145,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Sb,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.AQUA, 1)));
+        Element.Sb);
     public static Materials Argon = new Materials(
         24,
         TextureSet.SET_FLUID,
@@ -176,8 +169,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.Ar,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 2)));
+        Element.Ar);
     public static Materials Arsenic = new Materials(
         39,
         TextureSet.SET_DULL,
@@ -201,8 +193,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.As,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 3)));
+        Element.As);
     public static Materials Barium = new Materials(
         63,
         TextureSet.SET_METALLIC,
@@ -226,8 +217,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ba,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VINCULUM, 3)));
+        Element.Ba);
     public static Materials Beryllium = new Materials(
         8,
         TextureSet.SET_METALLIC,
@@ -251,8 +241,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.Be,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.LUCRUM, 1)));
+        Element.Be);
     public static Materials Bismuth = new Materials(
         90,
         TextureSet.SET_METALLIC,
@@ -276,10 +265,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.Bi,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Element.Bi);
     public static Materials Boron = new Materials(
         9,
         TextureSet.SET_DULL,
@@ -303,8 +289,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.B,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Element.B);
     public static Materials Caesium = new Materials(
         62,
         TextureSet.SET_METALLIC,
@@ -328,8 +313,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Cs,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Cs);
     public static Materials Calcium = new Materials(
         26,
         TextureSet.SET_METALLIC,
@@ -353,8 +337,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Ca,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 1), new TC_AspectStack(TC_Aspects.TUTAMEN, 1)));
+        Element.Ca);
     public static Materials Carbon = new Materials(
         10,
         TextureSet.SET_DULL,
@@ -378,8 +361,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.C,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Element.C);
     public static Materials Cadmium = new Materials(
         55,
         TextureSet.SET_SHINY,
@@ -403,11 +385,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Cd,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1),
-            new TC_AspectStack(TC_Aspects.POTENTIA, 1),
-            new TC_AspectStack(TC_Aspects.VENENUM, 1)));
+        Element.Cd);
     public static Materials Cerium = new Materials(
         65,
         TextureSet.SET_METALLIC,
@@ -431,8 +409,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ce,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Ce);
     public static Materials Chlorine = new Materials(
         23,
         TextureSet.SET_FLUID,
@@ -456,8 +433,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.Cl,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2), new TC_AspectStack(TC_Aspects.PANNUS, 1)));
+        Element.Cl);
     public static Materials Chrome = new Materials(
         30,
         TextureSet.SET_SHINY,
@@ -481,9 +457,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Cr,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MACHINA, 1)));
+        Element.Cr);
     public static Materials Cobalt = new Materials(
         33,
         TextureSet.SET_METALLIC,
@@ -507,10 +481,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Co,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Element.Co);
     public static Materials Copper = new Materials(
         35,
         TextureSet.SET_SHINY,
@@ -534,10 +505,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.Cu,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.PERMUTATIO, 1)));
+        Element.Cu);
     public static Materials Deuterium = new Materials(
         2,
         TextureSet.SET_FLUID,
@@ -561,8 +529,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.D,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 3)));
+        Element.D);
     public static Materials Dysprosium = new Materials(
         73,
         TextureSet.SET_METALLIC,
@@ -586,8 +553,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Dy,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3)));
+        Element.Dy);
     public static Materials Empty = new Materials(
         0,
         TextureSet.SET_NONE,
@@ -611,8 +577,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element._NULL,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 2)));
+        Element._NULL);
     public static Materials Erbium = new Materials(
         75,
         TextureSet.SET_METALLIC,
@@ -636,8 +601,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Er,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Er);
     public static Materials Europium = new Materials(
         70,
         TextureSet.SET_METALLIC,
@@ -661,8 +625,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Eu,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Eu);
     public static Materials Fluorine = new Materials(
         14,
         TextureSet.SET_FLUID,
@@ -686,8 +649,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.F,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 2)));
+        Element.F);
     public static Materials Gadolinium = new Materials(
         71,
         TextureSet.SET_METALLIC,
@@ -711,8 +673,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Gd,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Gd);
     public static Materials Gallium = new Materials(
         37,
         TextureSet.SET_SHINY,
@@ -736,9 +697,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Ga,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ELECTRUM, 1)));
+        Element.Ga);
     public static Materials Gold = new Materials(
         86,
         TextureSet.SET_SHINY,
@@ -762,8 +721,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.Au,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.LUCRUM, 2)));
+        Element.Au);
     public static Materials Holmium = new Materials(
         74,
         TextureSet.SET_METALLIC,
@@ -787,8 +745,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ho,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Ho);
     public static Materials Hydrogen = new Materials(
         1,
         TextureSet.SET_FLUID,
@@ -812,8 +769,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.H,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1)));
+        Element.H);
     public static Materials Helium = new Materials(
         4,
         TextureSet.SET_FLUID,
@@ -837,8 +793,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.He,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 2)));
+        Element.He);
     public static Materials Helium_3 = new Materials(
         5,
         TextureSet.SET_FLUID,
@@ -862,8 +817,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.He_3,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 3)));
+        Element.He_3);
     public static Materials Indium = new Materials(
         56,
         TextureSet.SET_METALLIC,
@@ -887,8 +841,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.In,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.In);
     public static Materials Iridium = new Materials(
         84,
         TextureSet.SET_DULL,
@@ -912,9 +865,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Ir,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MACHINA, 1)));
+        Element.Ir);
     public static Materials Iron = new Materials(
         32,
         TextureSet.SET_METALLIC,
@@ -938,8 +889,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Fe,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3)));
+        Element.Fe);
     public static Materials Lanthanum = new Materials(
         64,
         TextureSet.SET_METALLIC,
@@ -963,8 +913,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.La,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.La);
     public static Materials Lead = new Materials(
         89,
         TextureSet.SET_DULL,
@@ -988,8 +937,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Pb,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ORDO, 1)));
+        Element.Pb);
     public static Materials Lithium = new Materials(
         6,
         TextureSet.SET_DULL,
@@ -1013,9 +961,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Li,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.POTENTIA, 2)));
+        Element.Li);
     public static Materials Lutetium = new Materials(
         78,
         TextureSet.SET_METALLIC,
@@ -1039,33 +985,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Lu,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
-    public static Materials Magic = new Materials(
-        -128,
-        TextureSet.SET_SHINY,
-        8.0F,
-        5120,
-        5,
-        1 | 2 | 4 | 16 | 32 | 64 | 128,
-        100,
-        0,
-        200,
-        0,
-        "Magic",
-        "Magic",
-        5,
-        32,
-        5000,
-        0,
-        false,
-        false,
-        7,
-        1,
-        1,
-        Dyes.dyePurple,
-        Element.Ma,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 4)));
+        Element.Lu);
     public static Materials Magnesium = new Materials(
         18,
         TextureSet.SET_METALLIC,
@@ -1089,8 +1009,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Mg,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.SANO, 1)));
+        Element.Mg);
     public static Materials Manganese = new Materials(
         31,
         TextureSet.SET_DULL,
@@ -1114,8 +1033,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Mn,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3)));
+        Element.Mn);
     public static Materials Mercury = new Materials(
         87,
         TextureSet.SET_SHINY,
@@ -1139,11 +1057,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Hg,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1),
-            new TC_AspectStack(TC_Aspects.AQUA, 1),
-            new TC_AspectStack(TC_Aspects.VENENUM, 1)));
+        Element.Hg);
     public static Materials Molybdenum = new Materials(
         48,
         TextureSet.SET_SHINY,
@@ -1167,10 +1081,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Mo,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Element.Mo);
     public static Materials Neodymium = new Materials(
         67,
         TextureSet.SET_METALLIC,
@@ -1194,9 +1105,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Nd,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 2)));
+        Element.Nd);
     public static Materials Neutronium = new Materials(
         129,
         TextureSet.SET_DULL,
@@ -1220,11 +1129,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Nt,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4),
-            new TC_AspectStack(TC_Aspects.VITREUS, 3),
-            new TC_AspectStack(TC_Aspects.ALIENIS, 2)));
+        Element.Nt);
     public static Materials Nickel = new Materials(
         34,
         TextureSet.SET_METALLIC,
@@ -1248,8 +1153,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Ni,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Element.Ni);
     public static Materials Niobium = new Materials(
         47,
         TextureSet.SET_METALLIC,
@@ -1273,9 +1177,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Nb,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ELECTRUM, 1)));
+        Element.Nb);
     public static Materials Nitrogen = new Materials(
         12,
         TextureSet.SET_FLUID,
@@ -1299,8 +1201,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.N,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 2)));
+        Element.N);
     public static Materials Osmium = new Materials(
         83,
         TextureSet.SET_METALLIC,
@@ -1324,11 +1225,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Os,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.MACHINA, 1),
-            new TC_AspectStack(TC_Aspects.NEBRISUM, 1)));
+        Element.Os);
     public static Materials Oxygen = new Materials(
         13,
         TextureSet.SET_FLUID,
@@ -1352,8 +1249,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.O,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 1)));
+        Element.O);
     public static Materials Palladium = new Materials(
         52,
         TextureSet.SET_SHINY,
@@ -1377,8 +1273,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Pd,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3)));
+        Element.Pd);
     public static Materials Phosphorus = new Materials(
         21,
         TextureSet.SET_DULL,
@@ -1402,8 +1297,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.P,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 2), new TC_AspectStack(TC_Aspects.POTENTIA, 1)));
+        Element.P);
     public static Materials Platinum = new Materials(
         85,
         TextureSet.SET_SHINY,
@@ -1427,9 +1321,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.Pt,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.NEBRISUM, 1)));
+        Element.Pt);
     public static Materials Plutonium = new Materials(
         100,
         TextureSet.SET_METALLIC,
@@ -1453,8 +1345,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLime,
-        Element.Pu,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 2)));
+        Element.Pu);
     public static Materials Plutonium241 = new Materials(
         101,
         TextureSet.SET_SHINY,
@@ -1478,8 +1369,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLime,
-        Element.Pu_241,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 3)));
+        Element.Pu_241);
     public static Materials Potassium = new Materials(
         25,
         TextureSet.SET_METALLIC,
@@ -1503,9 +1393,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.K,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.POTENTIA, 1)));
+        Element.K);
     public static Materials Praseodymium = new Materials(
         66,
         TextureSet.SET_METALLIC,
@@ -1529,8 +1417,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Pr,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Pr);
     public static Materials Promethium = new Materials(
         68,
         TextureSet.SET_METALLIC,
@@ -1554,8 +1441,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Pm,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Pm);
     public static Materials Radon = new Materials(
         93,
         TextureSet.SET_FLUID,
@@ -1579,8 +1465,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Rn,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AER, 1), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Rn);
     public static Materials Rubidium = new Materials(
         43,
         TextureSet.SET_METALLIC,
@@ -1604,9 +1489,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeRed,
-        Element.Rb,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.VITREUS, 1)));
+        Element.Rb);
     public static Materials Samarium = new Materials(
         69,
         TextureSet.SET_METALLIC,
@@ -1630,8 +1513,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Sm,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Sm);
     public static Materials Scandium = new Materials(
         27,
         TextureSet.SET_METALLIC,
@@ -1655,8 +1537,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.Sc,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Sc);
     public static Materials Silicon = new Materials(
         20,
         TextureSet.SET_METALLIC,
@@ -1680,9 +1561,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.Si,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.TENEBRAE, 1)));
+        Element.Si);
     public static Materials Silver = new Materials(
         54,
         TextureSet.SET_SHINY,
@@ -1706,8 +1585,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Ag,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.LUCRUM, 1)));
+        Element.Ag);
     public static Materials Sodium = new Materials(
         17,
         TextureSet.SET_METALLIC,
@@ -1731,8 +1609,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Na,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 2), new TC_AspectStack(TC_Aspects.LUX, 1)));
+        Element.Na);
     public static Materials Strontium = new Materials(
         44,
         TextureSet.SET_METALLIC,
@@ -1756,9 +1633,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Sr,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.STRONTIO, 1)));
+        Element.Sr);
     public static Materials Sulfur = new Materials(
         22,
         TextureSet.SET_DULL,
@@ -1782,8 +1657,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.S,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Element.S);
     public static Materials Tantalum = new Materials(
         80,
         TextureSet.SET_METALLIC,
@@ -1807,9 +1681,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ta,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.VINCULUM, 1)));
+        Element.Ta);
     public static Materials Tellurium = new Materials(
         59,
         TextureSet.SET_METALLIC,
@@ -1833,8 +1705,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Te,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Te);
     public static Materials Terbium = new Materials(
         72,
         TextureSet.SET_METALLIC,
@@ -1858,8 +1729,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Tb,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Tb);
     public static Materials Thorium = new Materials(
         96,
         TextureSet.SET_SHINY,
@@ -1883,8 +1753,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.Th,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Th);
     public static Materials Thulium = new Materials(
         76,
         TextureSet.SET_METALLIC,
@@ -1908,8 +1777,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Tm,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Tm);
     public static Materials Tin = new Materials(
         57,
         TextureSet.SET_DULL,
@@ -1933,9 +1801,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Sn,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.VITREUS, 1)));
+        Element.Sn);
     public static Materials Titanium = new Materials(
         28,
         TextureSet.SET_METALLIC,
@@ -1959,9 +1825,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Ti,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.TUTAMEN, 1)));
+        Element.Ti);
     public static Materials Tritium = new Materials(
         3,
         TextureSet.SET_METALLIC,
@@ -1985,8 +1849,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeRed,
-        Element.T,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 4)));
+        Element.T);
     public static Materials Tungsten = new Materials(
         81,
         TextureSet.SET_METALLIC,
@@ -2010,9 +1873,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.W,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3), new TC_AspectStack(TC_Aspects.TUTAMEN, 1)));
+        Element.W);
     public static Materials Uranium = new Materials(
         98,
         TextureSet.SET_METALLIC,
@@ -2036,8 +1897,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.U,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.U);
     public static Materials Uranium235 = new Materials(
         97,
         TextureSet.SET_SHINY,
@@ -2061,8 +1921,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.U_235,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 2)));
+        Element.U_235);
     public static Materials Vanadium = new Materials(
         29,
         TextureSet.SET_METALLIC,
@@ -2086,8 +1945,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.V,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.V);
     public static Materials Ytterbium = new Materials(
         77,
         TextureSet.SET_METALLIC,
@@ -2111,8 +1969,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Yb,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Yb);
     public static Materials Yttrium = new Materials(
         45,
         TextureSet.SET_METALLIC,
@@ -2136,8 +1993,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Y,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.RADIO, 1)));
+        Element.Y);
     public static Materials Zinc = new Materials(
         36,
         TextureSet.SET_METALLIC,
@@ -2161,8 +2017,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Zn,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.SANO, 1)));
+        Element.Zn);
 
     /**
      * The "Random Material" ones.
@@ -2831,29 +2686,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL);
-    public static Materials Manasteel = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1 | 2,
-        255,
-        255,
-        255,
-        0,
-        "Manasteel",
-        "Manasteel",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
     public static Materials Tennantite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2867,52 +2699,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         "Tennantite",
         "Tennantite",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
-    public static Materials DarkThaumium = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1 | 2,
-        255,
-        255,
-        255,
-        0,
-        "DarkThaumium",
-        "Dark Thaumium",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
-    public static Materials Alfium = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1,
-        255,
-        255,
-        255,
-        0,
-        "Alfium",
-        "Alfium",
         0,
         0,
         -1,
@@ -3005,29 +2791,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         "Ender",
         "Ender",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
-    public static Materials ElvenElementium = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1 | 2,
-        255,
-        255,
-        255,
-        0,
-        "ElvenElementium",
-        "Elven Elementium",
         0,
         0,
         -1,
@@ -3212,52 +2975,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         "Pokefennium",
         "Pokefennium",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
-    public static Materials Draconium = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1 | 2,
-        255,
-        255,
-        255,
-        0,
-        "Draconium",
-        "Draconium",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes._NULL);
-    public static Materials DraconiumAwakened = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1 | 2,
-        255,
-        255,
-        255,
-        0,
-        "DraconiumAwakened",
-        "Awakened Draconium",
         0,
         0,
         -1,
@@ -3455,9 +3172,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VINCULUM, 2), new TC_AspectStack(TC_Aspects.VITREUS, 1)));
+        Dyes.dyeOrange);
     public static Materials Ammonium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3734,29 +3449,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue);
-    public static Materials Bloodstone = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1,
-        255,
-        255,
-        255,
-        0,
-        "Bloodstone",
-        "Bloodstone",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes.dyeRed);
     public static Materials Blutonium = new Materials(
         -1,
         TextureSet.SET_SHINY,
@@ -3848,9 +3540,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1), new TC_AspectStack(TC_Aspects.VITREUS, 1)));
+        Dyes.dyeLightGray);
     public static Materials Ceruclase = new Materials(
         952,
         TextureSet.SET_METALLIC,
@@ -4173,29 +3863,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack);
-    public static Materials Demonite = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1,
-        255,
-        255,
-        255,
-        0,
-        "Demonite",
-        "Demonite",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes.dyeRed);
     public static Materials Desh = new Materials(
         884,
         TextureSet.SET_DULL,
@@ -4265,29 +3932,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite);
-    public static Materials Draconic = new Materials(
-        -1,
-        TextureSet.SET_NONE,
-        1.0F,
-        0,
-        2,
-        1,
-        255,
-        255,
-        255,
-        0,
-        "Draconic",
-        "Draconic",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        1,
-        1,
-        1,
-        Dyes.dyeRed);
     public static Materials Drulloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4425,9 +4069,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ALIENIS, 1)));
+        Dyes.dyeGreen);
     public static Materials EnderiumBase = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -4450,9 +4092,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ALIENIS, 1)));
+        Dyes.dyeGreen);
     public static Materials Energized = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4544,11 +4184,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 3),
-            new TC_AspectStack(TC_Aspects.IGNIS, 3),
-            new TC_AspectStack(TC_Aspects.CORPUS, 3)));
+        Dyes.dyeRed);
     public static Materials Firestone = new Materials(
         347,
         TextureSet.SET_QUARTZ,
@@ -4617,8 +4253,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeRed,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 2), new TC_AspectStack(TC_Aspects.VITREUS, 2)));
+        Dyes.dyeRed);
     public static Materials Force = new Materials(
         521,
         TextureSet.SET_DIAMOND,
@@ -4641,8 +4276,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 5)));
+        Dyes.dyeYellow);
     public static Materials Forcicium = new Materials(
         -1/* 518 */,
         TextureSet.SET_DIAMOND,
@@ -4665,8 +4299,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2)));
+        Dyes.dyeGreen);
     public static Materials Forcillium = new Materials(
         -1/* 519 */,
         TextureSet.SET_DIAMOND,
@@ -4689,8 +4322,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2)));
+        Dyes.dyeGreen);
     public static Materials Gabbro = new Materials(
         863,
         TextureSet.SET_DULL,
@@ -4736,8 +4368,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 2), new TC_AspectStack(TC_Aspects.SENSUS, 1)));
+        Dyes.dyeYellow);
     public static Materials Gneiss = new Materials(
         864,
         TextureSet.SET_DULL,
@@ -4783,8 +4414,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 2), new TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Dyes.dyeGray);
     public static Materials Graphene = new Materials(
         819,
         TextureSet.SET_DULL,
@@ -4807,9 +4437,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 2), new TC_AspectStack(TC_Aspects.ELECTRUM, 1)));
+        Dyes.dyeGray);
     public static Materials Greenschist = new Materials(
         866,
         TextureSet.SET_DULL,
@@ -4970,8 +4598,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1), new TC_AspectStack(TC_Aspects.ORDO, 1)));
+        Dyes._NULL);
     public static Materials Ignatius = new Materials(
         950,
         TextureSet.SET_METALLIC,
@@ -5041,234 +4668,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL);
-    public static Materials InfusedGold = new Materials(
-        -1/* 323 */,
-        TextureSet.SET_SHINY,
-        12.0F,
-        64,
-        3,
-        1 | 2 | 8 | 64 | 128,
-        255,
-        200,
-        60,
-        0,
-        "InfusedGold",
-        "Infused Gold",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        1,
-        1,
-        Dyes.dyeYellow);
-    public static Materials InfusedAir = new Materials(
-        540,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        255,
-        255,
-        0,
-        0,
-        "InfusedAir",
-        "Aer",
-        5,
-        160,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeYellow,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1), new TC_AspectStack(TC_Aspects.AER, 2)));
-    public static Materials InfusedFire = new Materials(
-        541,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        255,
-        0,
-        0,
-        0,
-        "InfusedFire",
-        "Ignis",
-        5,
-        320,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeRed,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1),
-            new TC_AspectStack(TC_Aspects.IGNIS, 2)));
-    public static Materials InfusedEarth = new Materials(
-        542,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        256,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        0,
-        255,
-        0,
-        0,
-        "InfusedEarth",
-        "Terra",
-        5,
-        160,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeGreen,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1),
-            new TC_AspectStack(TC_Aspects.TERRA, 2)));
-    public static Materials InfusedWater = new Materials(
-        543,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        0,
-        0,
-        255,
-        0,
-        "InfusedWater",
-        "Aqua",
-        5,
-        160,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeBlue,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1), new TC_AspectStack(TC_Aspects.AQUA, 2)));
-    public static Materials InfusedEntropy = new Materials(
-        544,
-        TextureSet.SET_SHARDS,
-        32.0F,
-        64,
-        4,
-        1 | 4 | 8 | 64 | 128,
-        62,
-        62,
-        62,
-        0,
-        "InfusedEntropy",
-        "Perditio",
-        5,
-        320,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeBlack,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1),
-            new TC_AspectStack(TC_Aspects.PERDITIO, 2)));
-    public static Materials InfusedOrder = new Materials(
-        545,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        252,
-        252,
-        252,
-        0,
-        "InfusedOrder",
-        "Ordo",
-        5,
-        240,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeWhite,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1), new TC_AspectStack(TC_Aspects.ORDO, 2)));
-    public static Materials InfusedVis = new Materials(
-        -1,
-        TextureSet.SET_SHARDS,
-        8.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        255,
-        0,
-        255,
-        0,
-        "InfusedVis",
-        "Auram",
-        5,
-        240,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyePurple,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1),
-            new TC_AspectStack(TC_Aspects.AURAM, 2)));
-    public static Materials InfusedDull = new Materials(
-        -1,
-        TextureSet.SET_SHARDS,
-        32.0F,
-        64,
-        3,
-        1 | 4 | 8 | 64 | 128,
-        100,
-        100,
-        100,
-        0,
-        "InfusedDull",
-        "Vacuus",
-        5,
-        160,
-        -1,
-        0,
-        false,
-        true,
-        3,
-        1,
-        1,
-        Dyes.dyeLightGray,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1),
-            new TC_AspectStack(TC_Aspects.VACUOS, 2)));
     public static Materials Inolashite = new Materials(
         954,
         TextureSet.SET_NONE,
@@ -5337,8 +4736,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         5,
         1,
         1,
-        Dyes.dyeGreen,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 6), new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Dyes.dyeGreen);
     public static Materials Jasper = new Materials(
         511,
         TextureSet.SET_EMERALD,
@@ -5361,8 +4759,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeRed,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 4), new TC_AspectStack(TC_Aspects.VITREUS, 2)));
+        Dyes.dyeRed);
     public static Materials Kalendrite = new Materials(
         953,
         TextureSet.SET_METALLIC,
@@ -5615,9 +5012,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Dyes.dyeGray);
     public static Materials MeteoricSteel = new Materials(
         341,
         TextureSet.SET_METALLIC,
@@ -5640,11 +5035,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.MAGNETO, 1),
-            new TC_AspectStack(TC_Aspects.ORDO, 1)));
+        Dyes.dyeGray);
     public static Materials Meteorite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5759,8 +5150,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.ALIENIS, 1)));
+        Dyes.dyeWhite);
     public static Materials Naquadah = new Materials(
         324,
         TextureSet.SET_METALLIC,
@@ -5783,11 +5173,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyeBlack,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3),
-            new TC_AspectStack(TC_Aspects.RADIO, 1),
-            new TC_AspectStack(TC_Aspects.NEBRISUM, 1)));
+        Dyes.dyeBlack);
     public static Materials NaquadahAlloy = new Materials(
         325,
         TextureSet.SET_METALLIC,
@@ -5810,9 +5196,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyeBlack,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4), new TC_AspectStack(TC_Aspects.NEBRISUM, 1)));
+        Dyes.dyeBlack);
     public static Materials NaquadahEnriched = new Materials(
         326,
         TextureSet.SET_METALLIC,
@@ -5835,11 +5219,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         15,
         1,
         1,
-        Dyes.dyeBlack,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 3),
-            new TC_AspectStack(TC_Aspects.RADIO, 2),
-            new TC_AspectStack(TC_Aspects.NEBRISUM, 2)));
+        Dyes.dyeBlack);
     public static Materials Naquadria = new Materials(
         327,
         TextureSet.SET_SHINY,
@@ -5862,11 +5242,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         20,
         1,
         1,
-        Dyes.dyeBlack,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4),
-            new TC_AspectStack(TC_Aspects.RADIO, 3),
-            new TC_AspectStack(TC_Aspects.NEBRISUM, 3)));
+        Dyes.dyeBlack);
     public static Materials Nether = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5912,8 +5288,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Dyes.dyeRed);
     public static Materials NetherQuartz = new Materials(
         522,
         TextureSet.SET_QUARTZ,
@@ -5936,9 +5311,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         2,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1), new TC_AspectStack(TC_Aspects.VITREUS, 1)));
+        Dyes.dyeWhite);
     public static Materials NetherStar = new Materials(
         506,
         TextureSet.SET_NETHERSTAR,
@@ -5984,8 +5357,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeCyan,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2)));
+        Dyes.dyeCyan);
     public static Materials ObsidianFlux = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -6516,8 +5888,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.ALIENIS, 1)));
+        Dyes.dyeYellow);
     public static Materials Tar = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6655,8 +6026,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ORDO, 2)));
+        Dyes.dyeWhite);
     public static Materials Turquoise = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6748,8 +6118,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1)));
+        Dyes._NULL);
     public static Materials Voidstone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6772,8 +6141,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.VACUOS, 1)));
+        Dyes._NULL);
     public static Materials Vulcanite = new Materials(
         489,
         TextureSet.SET_METALLIC,
@@ -6938,8 +6306,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1)));
+        Dyes.dyeLightGray);
     public static Materials Basic = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6962,8 +6329,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2)));
+        Dyes.dyeLightGray);
     public static Materials Good = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6986,8 +6352,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 3)));
+        Dyes.dyeLightGray);
     public static Materials Advanced = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7010,8 +6375,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4)));
+        Dyes.dyeLightGray);
     public static Materials Data = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7034,8 +6398,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 5)));
+        Dyes.dyeLightGray);
     public static Materials Elite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7058,8 +6421,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 6)));
+        Dyes.dyeLightGray);
     public static Materials Master = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7082,8 +6444,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 7)));
+        Dyes.dyeLightGray);
     public static Materials Ultimate = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7106,8 +6467,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8)));
+        Dyes.dyeLightGray);
     public static Materials Superconductor = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7130,8 +6490,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8)));
+        Dyes.dyeLightGray);
     public static Materials Infinite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7181,9 +6540,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePink,
-        Arrays
-            .asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 9), new TC_AspectStack(TC_Aspects.PERFODIO, 8)));
+        Dyes.dyePink);
     public static Materials BioFuel = new Materials(
         705,
         TextureSet.SET_FLUID,
@@ -7443,8 +6800,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 6), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VENENUM, 1), new TC_AspectStack(TC_Aspects.AQUA, 1)));
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 6), new MaterialStack(Oxygen, 1)));
     public static Materials FermentedBiomass = new MaterialBuilder(691, TextureSet.SET_FLUID, "Fermented Biomass")
         .addCell()
         .addFluid()
@@ -7473,8 +6829,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.CORPUS, 2)));
+        Dyes.dyeYellow);
     public static Materials Fuel = new Materials(
         708,
         TextureSet.SET_FLUID,
@@ -7520,8 +6875,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.LIMUS, 2)));
+        Dyes.dyeOrange);
     public static Materials Gunpowder = new Materials(
         800,
         TextureSet.SET_DULL,
@@ -7544,8 +6898,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 3), new TC_AspectStack(TC_Aspects.IGNIS, 4)));
+        Dyes.dyeGray);
     public static Materials FryingOilHot = new Materials(
         727,
         TextureSet.SET_FLUID,
@@ -7568,8 +6921,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1), new TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Dyes.dyeOrange);
     public static Materials Honey = new Materials(
         725,
         TextureSet.SET_FLUID,
@@ -7661,42 +7013,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2), new TC_AspectStack(TC_Aspects.MACHINA, 1)));
-    public static Materials McGuffium239 = new Materials(
-        999,
-        TextureSet.SET_FLUID,
-        1.0F,
-        0,
-        0,
-        16,
-        200,
-        50,
-        150,
-        0,
-        "McGuffium239",
-        "Mc Guffium 239",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        1,
-        1,
-        1,
-        Dyes.dyePink,
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.ALIENIS, 8),
-            new TC_AspectStack(TC_Aspects.PERMUTATIO, 8),
-            new TC_AspectStack(TC_Aspects.SPIRITUS, 8),
-            new TC_AspectStack(TC_Aspects.AURAM, 8),
-            new TC_AspectStack(TC_Aspects.VITIUM, 8),
-            new TC_AspectStack(TC_Aspects.RADIO, 8),
-            new TC_AspectStack(TC_Aspects.MAGNETO, 8),
-            new TC_AspectStack(TC_Aspects.ELECTRUM, 8),
-            new TC_AspectStack(TC_Aspects.NEBRISUM, 8),
-            new TC_AspectStack(TC_Aspects.STRONTIO, 8)));
+        Dyes.dyeOrange);
     public static Materials MeatRaw = new Materials(
         892,
         TextureSet.SET_FINE,
@@ -7765,8 +7082,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.SANO, 2)));
+        Dyes.dyeWhite);
     public static Materials Mud = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7835,8 +7151,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1)));
+        Dyes.dyeWhite);
     public static Materials Peat = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7859,8 +7174,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2), new TC_AspectStack(TC_Aspects.IGNIS, 2)));
+        Dyes.dyeBrown);
     public static Materials Quantum = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7906,8 +7220,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1), new TC_AspectStack(TC_Aspects.LUCRUM, 1)));
+        Dyes.dyeGray);
     public static Materials Red = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7976,8 +7289,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.GRANUM, 2)));
+        Dyes.dyeLime);
     public static Materials SeedOilHemp = new Materials(
         722,
         TextureSet.SET_FLUID,
@@ -8000,8 +7312,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.GRANUM, 2)));
+        Dyes.dyeLime);
     public static Materials SeedOilLin = new Materials(
         723,
         TextureSet.SET_FLUID,
@@ -8024,8 +7335,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.GRANUM, 2)));
+        Dyes.dyeLime);
     public static Materials Stone = new Materials(
         299,
         TextureSet.SET_ROUGH,
@@ -8048,8 +7358,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.TERRA, 1)));
+        Dyes.dyeLightGray);
     public static Materials TNT = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -8072,8 +7381,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 7), new TC_AspectStack(TC_Aspects.IGNIS, 4)));
+        Dyes.dyeRed);
     public static Materials Unstable = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -8096,8 +7404,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 4)));
+        Dyes.dyeWhite);
     public static Materials Unstableingot = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -8120,8 +7427,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 4)));
+        Dyes.dyeWhite);
     public static Materials Vinegar = new MaterialBuilder(690, TextureSet.SET_FLUID, "Vinegar").setColor(Dyes.dyeBrown)
         .constructMaterial();
     public static Materials Wheat = new Materials(
@@ -8146,8 +7452,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow,
-        Arrays.asList(new TC_Aspects.TC_AspectStack(TC_Aspects.MESSIS, 2)));
+        Dyes.dyeYellow);
     public static Materials WoodGas = new MaterialBuilder(660, TextureSet.SET_FLUID, "Wood Gas").addCell()
         .addGas()
         .setRGB(222, 205, 135)
@@ -8563,7 +7868,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 3),
             new MaterialStack(Silicon, 2),
             new MaterialStack(Hydrogen, 4),
-            new MaterialStack(Oxygen, 9))); // Mg3Si2O5(OH)4
+            new MaterialStack(Oxygen, 9)) // Mg3Si2O5(OH)4
+    );
     public static Materials Ash = new Materials(
         815,
         TextureSet.SET_DULL,
@@ -8586,8 +7892,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray,
-        Arrays.asList(new TC_AspectStack(TC_Aspects.PERDITIO, 1)));
+        Dyes.dyeLightGray);
     public static Materials BandedIron = new Materials(
         917,
         TextureSet.SET_DULL,
@@ -8667,8 +7972,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Fluorine, 2),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 6)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 6), new TC_AspectStack(TC_Aspects.VITREUS, 4)));
+            new MaterialStack(Oxygen, 6)));
     public static Materials Bone = new Materials(
         806,
         TextureSet.SET_DULL,
@@ -8693,8 +7997,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Calcium, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MORTUUS, 2), new TC_AspectStack(TC_Aspects.CORPUS, 1)));
+        Arrays.asList(new MaterialStack(Calcium, 1)));
     public static Materials Brass = new Materials(
         301,
         TextureSet.SET_METALLIC,
@@ -8719,8 +8022,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3)));
     public static Materials Bronze = new Materials(
         300,
         TextureSet.SET_METALLIC,
@@ -8745,8 +8047,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Copper, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Copper, 3)));
     public static Materials BrownLimonite = new Materials(
         930,
         TextureSet.SET_METALLIC,
@@ -8899,8 +8200,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.POTENTIA, 2), new TC_AspectStack(TC_Aspects.IGNIS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Chromite = new Materials(
         825,
         TextureSet.SET_METALLIC,
@@ -8950,8 +8250,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Oxygen, 2)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MACHINA, 1)));
+        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Cinnabar = new Materials(
         826,
         TextureSet.SET_ROUGH,
@@ -9001,8 +8300,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.AQUA, 2)));
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Clay = new Materials(
         805,
         TextureSet.SET_ROUGH,
@@ -9057,8 +8355,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.POTENTIA, 2), new TC_AspectStack(TC_Aspects.IGNIS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Cobaltite = new Materials(
         827,
         TextureSet.SET_METALLIC,
@@ -9160,8 +8457,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         2,
         1,
-        Dyes.dyeGray,
-        Arrays.asList(new TC_AspectStack(TC_Aspects.IGNIS, 1), new TC_AspectStack(TC_Aspects.PERDITIO, 1)));
+        Dyes.dyeGray);
     public static Materials DeepIron = new Materials(
         829,
         TextureSet.SET_METALLIC,
@@ -9186,10 +8482,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         2,
-        Arrays.asList(new MaterialStack(Materials.Iron, 1)),
-        Arrays.asList(
-            new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_Aspects.TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Materials.Iron, 1)));
     public static Materials Diamond = new Materials(
         500,
         TextureSet.SET_DIAMOND,
@@ -9214,8 +8507,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 3), new TC_AspectStack(TC_Aspects.LUCRUM, 4)));
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Electrum = new Materials(
         303,
         TextureSet.SET_SHINY,
@@ -9269,8 +8561,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Beryllium, 3),
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 6),
-            new MaterialStack(Oxygen, 18)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 3), new TC_AspectStack(TC_Aspects.LUCRUM, 5)));
+            new MaterialStack(Oxygen, 18)));
     public static Materials FreshWater = new Materials(
         -1,
         TextureSet.SET_FLUID,
@@ -9295,8 +8586,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.AQUA, 2)));
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Galena = new Materials(
         830,
         TextureSet.SET_DULL,
@@ -9400,8 +8690,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 5), new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Grossular = new Materials(
         831,
         TextureSet.SET_ROUGH,
@@ -9455,8 +8744,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.AQUA, 2), new TC_AspectStack(TC_Aspects.AURAM, 1)));
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Ice = new Materials(
         702,
         TextureSet.SET_SHINY,
@@ -9481,8 +8769,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.GELUM, 2)));
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Ilmenite = new Materials(
         918,
         TextureSet.SET_METALLIC,
@@ -9636,8 +8923,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Nickel, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.GELUM, 1)));
+        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Nickel, 1)));
     public static Materials IronCompressed = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -9791,8 +9077,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4)));
     public static Materials Molybdenite = new Materials(
         942,
         TextureSet.SET_METALLIC,
@@ -10046,8 +9331,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 2)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 2)));
     public static Materials Epoxid = new Materials(
         470,
         TextureSet.SET_DULL,
@@ -10072,8 +9356,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 4), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 4), new MaterialStack(Oxygen, 1)));
     public static Materials Polydimethylsiloxane = new MaterialBuilder(
         633,
         TextureSet.SET_FLUID,
@@ -10115,8 +9398,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 2),
             new MaterialStack(Hydrogen, 6),
             new MaterialStack(Oxygen, 1),
-            new MaterialStack(Silicon, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+            new MaterialStack(Silicon, 1)));
     public static Materials Polycaprolactam = new Materials(
         472,
         TextureSet.SET_DULL,
@@ -10145,8 +9427,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 6),
             new MaterialStack(Hydrogen, 11),
             new MaterialStack(Nitrogen, 1),
-            new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+            new MaterialStack(Oxygen, 1)));
     public static Materials Polytetrafluoroethylene = new Materials(
         473,
         TextureSet.SET_DULL,
@@ -10171,8 +9452,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Fluorine, 4)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Fluorine, 4)));
     public static Materials Powellite = new Materials(
         883,
         TextureSet.SET_DULL,
@@ -10351,8 +9631,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)));
     public static Materials RawRubber = new Materials(
         896,
         TextureSet.SET_DULL,
@@ -10377,8 +9656,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)));
     public static Materials Ruby = new Materials(
         502,
         TextureSet.SET_RUBY,
@@ -10403,8 +9681,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         1,
-        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 6), new TC_AspectStack(TC_Aspects.VITREUS, 4)));
+        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Salt = new Materials(
         817,
         TextureSet.SET_FINE,
@@ -10484,8 +9761,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 5), new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Scheelite = new Materials(
         910,
         TextureSet.SET_DULL,
@@ -10560,8 +9836,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.GELUM, 1)));
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Sodalite = new Materials(
         525,
         TextureSet.SET_LAPIS,
@@ -10666,7 +9941,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Dyes.dyeOrange,
         0,
         Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Sulfur, 1)));
-
     public static Materials OilHeavy = new Materials(
         730,
         TextureSet.SET_FLUID,
@@ -10736,7 +10010,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack);
-
     public static Materials NatruralGas = new Materials(
         733,
         TextureSet.SET_FLUID,
@@ -10967,7 +10240,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow);
-
     public static Materials Chlorobenzene = new MaterialBuilder(605, TextureSet.SET_FLUID, "Chlorobenzene").addCell()
         .addFluid()
         .setRGB(0, 50, 65)
@@ -11760,8 +11032,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 50), new MaterialStack(Carbon, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.ORDO, 1)));
+        Arrays.asList(new MaterialStack(Iron, 50), new MaterialStack(Carbon, 1)));
     public static Materials Stibnite = new Materials(
         945,
         TextureSet.SET_METALLIC,
@@ -11841,8 +11112,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Silicon, 3),
             new MaterialStack(Hydrogen, 1),
-            new MaterialStack(Oxygen, 13)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 5), new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+            new MaterialStack(Oxygen, 13)));
     public static Materials Tetrahedrite = new Materials(
         840,
         TextureSet.SET_DULL,
@@ -11871,7 +11141,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Copper, 3),
             new MaterialStack(Antimony, 1),
             new MaterialStack(Sulfur, 3),
-            new MaterialStack(Iron, 1))); // Cu3SbS3 + x(Fe, Zn)6Sb2S9
+            new MaterialStack(Iron, 1)) // Cu3SbS3 + x(Fe, Zn)6Sb2S9
+    );
     public static Materials TinAlloy = new Materials(
         363,
         TextureSet.SET_METALLIC,
@@ -11896,8 +11167,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Iron, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Iron, 1)));
     public static Materials Topaz = new Materials(
         507,
         TextureSet.SET_GEM_HORIZONTAL,
@@ -11927,8 +11197,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Fluorine, 2),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 6)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 6), new TC_AspectStack(TC_Aspects.VITREUS, 4)));
+            new MaterialStack(Oxygen, 6)));
     public static Materials Tungstate = new Materials(
         841,
         TextureSet.SET_DULL,
@@ -11980,11 +11249,10 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Arrays.asList(
             new MaterialStack(Cobalt, 5),
-            new MaterialStack(Chrome, 2),
-            new MaterialStack(Nickel, 1),
-            new MaterialStack(Molybdenum, 1))); // 54% Cobalt, 26% Chromium, 9% Nickel, 5% Molybdenum, 3% Iron, 2%
-                                                // Tungsten, 0.8% Manganese, 0.3% Silicon, 0.08% Nitrogen and 0.06%
-                                                // Carbon
+            new MaterialStack(Chrome, 2), // 54% Cobalt, 26% Chromium, 9% Nickel, 5% Molybdenum, 3% Iron, 2%
+            new MaterialStack(Nickel, 1), // Tungsten, 0.8% Manganese, 0.3% Silicon, 0.08% Nitrogen and 0.06%
+            new MaterialStack(Molybdenum, 1)) // Carbon
+    );
     public static Materials Uraninite = new Materials(
         922,
         TextureSet.SET_METALLIC,
@@ -12088,8 +11356,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 1), new MaterialStack(Hydrogen, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.ARBOR, 2)));
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 1), new MaterialStack(Hydrogen, 1)));
     public static Materials WroughtIron = new Materials(
         304,
         TextureSet.SET_METALLIC,
@@ -12227,62 +11494,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         0,
-        Arrays.asList(new MaterialStack(Wood, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.ARBOR, 2), new TC_AspectStack(TC_Aspects.FABRICO, 1)));
-    public static Materials LiveRoot = new Materials(
-        832,
-        TextureSet.SET_WOOD,
-        1.0F,
-        0,
-        1,
-        1,
-        220,
-        200,
-        0,
-        0,
-        "LiveRoot",
-        "Liveroot",
-        5,
-        16,
-        -1,
-        0,
-        false,
-        false,
-        2,
-        4,
-        3,
-        Dyes.dyeBrown,
-        2,
-        Arrays.asList(new MaterialStack(Wood, 3), new MaterialStack(Magic, 1)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.ARBOR, 2),
-            new TC_AspectStack(TC_Aspects.VICTUS, 2),
-            new TC_AspectStack(TC_Aspects.PRAECANTATIO, 1)));
-    public static Materials IronWood = new Materials(
-        338,
-        TextureSet.SET_WOOD,
-        6.0F,
-        384,
-        2,
-        1 | 2 | 64 | 128,
-        150,
-        140,
-        110,
-        0,
-        "IronWood",
-        "Ironwood",
-        5,
-        8,
-        -1,
-        0,
-        false,
-        false,
-        2,
-        19,
-        18,
-        Dyes.dyeBrown,
-        2,
-        Arrays.asList(new MaterialStack(Iron, 9), new MaterialStack(LiveRoot, 9), new MaterialStack(Gold, 1)));
+        Arrays.asList(new MaterialStack(Wood, 1)));
     public static Materials Glass = new Materials(
         890,
         TextureSet.SET_GLASS,
@@ -12307,8 +11519,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 2)));
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials BorosilicateGlass = new MaterialBuilder(611, TextureSet.SET_GLASS, "Borosilicate Glass")
         .addDustItems()
         .addMetalItems()
@@ -12421,8 +11632,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Dyes.dyeLime,
         1,
         Arrays
-            .asList(new MaterialStack(Magnesium, 2), new MaterialStack(Iron, 1), new MaterialStack(SiliconDioxide, 2)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 4), new TC_AspectStack(TC_Aspects.VITREUS, 2)));
+            .asList(new MaterialStack(Magnesium, 2), new MaterialStack(Iron, 1), new MaterialStack(SiliconDioxide, 2)));
     public static Materials Opal = new Materials(
         510,
         TextureSet.SET_OPAL,
@@ -12447,8 +11657,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 5), new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials Amethyst = new Materials(
         509,
         TextureSet.SET_FLINT,
@@ -12473,8 +11682,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Iron, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 6), new TC_AspectStack(TC_Aspects.VITREUS, 4)));
+        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Iron, 1)));
     public static Materials Redstone = new Materials(
         810,
         TextureSet.SET_ROUGH,
@@ -12503,8 +11711,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Pyrite, 5),
             new MaterialStack(Ruby, 1),
-            new MaterialStack(Mercury, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MACHINA, 1), new TC_AspectStack(TC_Aspects.POTENTIA, 2)));
+            new MaterialStack(Mercury, 3)));
     public static Materials Lapis = new Materials(
         526,
         TextureSet.SET_LAPIS,
@@ -12533,8 +11740,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Lazurite, 12),
             new MaterialStack(Sodalite, 2),
             new MaterialStack(Pyrite, 1),
-            new MaterialStack(Calcite, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.SENSUS, 1)));
+            new MaterialStack(Calcite, 1)));
     public static Materials Blaze = new Materials(
         801,
         TextureSet.SET_POWDER,
@@ -12559,8 +11765,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         2,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1), new MaterialStack(Magic, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.PRAECANTATIO, 2), new TC_AspectStack(TC_Aspects.IGNIS, 4)));
+        Arrays.asList(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1)));
     public static Materials EnderPearl = new Materials(
         532,
         TextureSet.SET_SHINY,
@@ -12585,15 +11790,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         Dyes.dyeGreen,
         1,
-        Arrays.asList(
-            new MaterialStack(Beryllium, 1),
-            new MaterialStack(Potassium, 4),
-            new MaterialStack(Nitrogen, 5),
-            new MaterialStack(Magic, 6)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.ALIENIS, 4),
-            new TC_AspectStack(TC_Aspects.ITER, 4),
-            new TC_AspectStack(TC_Aspects.PRAECANTATIO, 2)));
+        Arrays
+            .asList(new MaterialStack(Beryllium, 1), new MaterialStack(Potassium, 4), new MaterialStack(Nitrogen, 5)));
     public static Materials EnderEye = new Materials(
         533,
         TextureSet.SET_SHINY,
@@ -12618,13 +11816,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGreen,
         2,
-        Arrays.asList(new MaterialStack(EnderPearl, 1), new MaterialStack(Blaze, 1)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.SENSUS, 4),
-            new TC_AspectStack(TC_Aspects.ALIENIS, 4),
-            new TC_AspectStack(TC_Aspects.ITER, 4),
-            new TC_AspectStack(TC_Aspects.PRAECANTATIO, 3),
-            new TC_AspectStack(TC_Aspects.IGNIS, 2)));
+        Arrays.asList(new MaterialStack(EnderPearl, 1), new MaterialStack(Blaze, 1)));
     public static Materials Flint = new Materials(
         802,
         TextureSet.SET_FLINT,
@@ -12649,8 +11841,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.TERRA, 1), new TC_AspectStack(TC_Aspects.INSTRUMENTUM, 1)));
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials Diatomite = new Materials(
         948,
         TextureSet.SET_DULL,
@@ -12750,8 +11941,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Coal, 1), new MaterialStack(Redstone, 1), new MaterialStack(Blaze, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.PRAECANTATIO, 2), new TC_AspectStack(TC_Aspects.IGNIS, 1)));
+        Arrays.asList(new MaterialStack(Coal, 1), new MaterialStack(Redstone, 1), new MaterialStack(Blaze, 1)));
     public static Materials HydratedCoal = new Materials(
         818,
         TextureSet.SET_ROUGH,
@@ -12801,8 +11991,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Calcium, 5), new MaterialStack(Phosphate, 3), new MaterialStack(Chlorine, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MESSIS, 2)));
+        Arrays.asList(new MaterialStack(Calcium, 5), new MaterialStack(Phosphate, 3), new MaterialStack(Chlorine, 1)));
     public static Materials Alumite = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -12827,8 +12016,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         2,
-        Arrays.asList(new MaterialStack(Aluminium, 5), new MaterialStack(Iron, 2), new MaterialStack(Obsidian, 2)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.STRONTIO, 2)));
+        Arrays.asList(new MaterialStack(Aluminium, 5), new MaterialStack(Iron, 2), new MaterialStack(Obsidian, 2)));
     public static Materials Manyullyn = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -12853,113 +12041,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         2,
-        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Aredrite, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.STRONTIO, 2)));
-    public static Materials ShadowIron = new Materials(
-        336,
-        TextureSet.SET_METALLIC,
-        6.0F,
-        384,
-        2,
-        1 | 2 | 8 | 64,
-        120,
-        120,
-        120,
-        0,
-        "ShadowIron",
-        "Shadowiron",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        3,
-        4,
-        3,
-        Dyes.dyeBlack,
-        2,
-        Arrays.asList(new MaterialStack(Materials.Iron, 3), new MaterialStack(Materials.Magic, 1)));
-    public static Materials ShadowSteel = new Materials(
-        337,
-        TextureSet.SET_METALLIC,
-        6.0F,
-        768,
-        2,
-        1 | 2 | 64,
-        90,
-        90,
-        90,
-        0,
-        "ShadowSteel",
-        "Shadowsteel",
-        0,
-        0,
-        -1,
-        1700,
-        true,
-        false,
-        4,
-        4,
-        3,
-        Dyes.dyeBlack,
-        2,
-        Arrays.asList(new MaterialStack(Materials.Steel, 3), new MaterialStack(Materials.Magic, 1)));
-    public static Materials Steeleaf = new Materials(
-        339,
-        TextureSet.SET_LEAF,
-        8.0F,
-        768,
-        3,
-        1 | 2 | 64 | 128,
-        50,
-        127,
-        50,
-        0,
-        "Steeleaf",
-        "Steeleaf",
-        5,
-        24,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        1,
-        1,
-        Dyes.dyeGreen,
-        2,
-        Arrays.asList(new MaterialStack(Steel, 1), new MaterialStack(Magic, 1)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.HERBA, 2),
-            new TC_AspectStack(TC_Aspects.METALLUM, 2),
-            new TC_AspectStack(TC_Aspects.PRAECANTATIO, 1)));
-    public static Materials Knightmetal = new Materials(
-        362,
-        TextureSet.SET_METALLIC,
-        8.0F,
-        1024,
-        3,
-        1 | 2 | 64 | 128,
-        210,
-        240,
-        200,
-        0,
-        "Knightmetal",
-        "Knightmetal",
-        5,
-        24,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        1,
-        1,
-        Dyes.dyeLime,
-        2,
-        Arrays.asList(new MaterialStack(Steel, 2), new MaterialStack(Magic, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.LUCRUM, 1), new TC_AspectStack(TC_Aspects.METALLUM, 2)));
+        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Aredrite, 1)));
     public static Materials SterlingSilver = new Materials(
         350,
         TextureSet.SET_SHINY,
@@ -13241,81 +12323,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLime);
-    public static Materials AstralSilver = new Materials(
-        333,
-        TextureSet.SET_SHINY,
-        10.0F,
-        64,
-        2,
-        1 | 2 | 8 | 64,
-        230,
-        230,
-        255,
-        0,
-        "AstralSilver",
-        "Astral Silver",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        3,
-        2,
-        Dyes.dyeWhite,
-        2,
-        Arrays.asList(new MaterialStack(Materials.Silver, 2), new MaterialStack(Materials.Magic, 1)));
-    public static Materials Midasium = new Materials(
-        332,
-        TextureSet.SET_SHINY,
-        12.0F,
-        64,
-        2,
-        1 | 2 | 8 | 64,
-        255,
-        200,
-        40,
-        0,
-        "Midasium",
-        "Midasium",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        3,
-        2,
-        Dyes.dyeOrange,
-        2,
-        Arrays.asList(new MaterialStack(Materials.Gold, 2), new MaterialStack(Materials.Magic, 1)));
-    public static Materials Mithril = new Materials(
-        331,
-        TextureSet.SET_SHINY,
-        14.0F,
-        64,
-        3,
-        1 | 2 | 64,
-        255,
-        255,
-        210,
-        0,
-        "Mithril",
-        "Mithril",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        3,
-        2,
-        Dyes.dyeLightBlue,
-        2,
-        Arrays.asList(new MaterialStack(Materials.Platinum, 2), new MaterialStack(Materials.Magic, 1)));
     public static Materials BlueAlloy = new Materials(
         309,
         TextureSet.SET_DULL,
@@ -13340,8 +12347,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         2,
-        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Nikolite, 4)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.ELECTRUM, 3)));
+        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Nikolite, 4)));
     public static Materials RedAlloy = new Materials(
         308,
         TextureSet.SET_DULL,
@@ -13366,8 +12372,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Redstone, 4)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MACHINA, 3)));
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Redstone, 4)));
     public static Materials CobaltBrass = new Materials(
         343,
         TextureSet.SET_METALLIC,
@@ -13446,8 +12451,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Olivine, 1),
             new MaterialStack(Calcite, 3),
             new MaterialStack(Flint, 8),
-            new MaterialStack(DarkAsh, 4)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.TENEBRAE, 1)));
+            new MaterialStack(DarkAsh, 4)));
     public static Materials GarnetRed = new Materials(
         527,
         TextureSet.SET_RUBY,
@@ -13472,8 +12476,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Pyrope, 3), new MaterialStack(Almandine, 5), new MaterialStack(Spessartine, 8)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+        Arrays
+            .asList(new MaterialStack(Pyrope, 3), new MaterialStack(Almandine, 5), new MaterialStack(Spessartine, 8)));
     public static Materials GarnetYellow = new Materials(
         528,
         TextureSet.SET_RUBY,
@@ -13499,8 +12503,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Dyes.dyeYellow,
         2,
         Arrays
-            .asList(new MaterialStack(Andradite, 5), new MaterialStack(Grossular, 8), new MaterialStack(Uvarovite, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 3)));
+            .asList(new MaterialStack(Andradite, 5), new MaterialStack(Grossular, 8), new MaterialStack(Uvarovite, 3)));
     public static Materials Marble = new Materials(
         845,
         TextureSet.SET_FINE,
@@ -13525,8 +12528,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Calcite, 7)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.PERFODIO, 1)));
+        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Calcite, 7)));
     public static Materials Sugar = new Materials(
         803,
         TextureSet.SET_FINE,
@@ -13551,89 +12553,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 12), new MaterialStack(Water, 11)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.HERBA, 1),
-            new TC_AspectStack(TC_Aspects.AQUA, 1),
-            new TC_AspectStack(TC_Aspects.AER, 1)));
-    public static Materials Thaumium = new Materials(
-        330,
-        TextureSet.SET_METALLIC,
-        12.0F,
-        256,
-        3,
-        1 | 2 | 64 | 128,
-        150,
-        100,
-        200,
-        0,
-        "Thaumium",
-        "Thaumium",
-        0,
-        0,
-        -1,
-        0,
-        false,
-        false,
-        5,
-        2,
-        1,
-        Dyes.dyePurple,
-        0,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Magic, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.PRAECANTATIO, 1)));
-    public static Materials Vinteum = new Materials(
-        529,
-        TextureSet.SET_EMERALD,
-        10.0F,
-        128,
-        3,
-        1 | 4 | 8 | 64,
-        100,
-        200,
-        255,
-        0,
-        "Vinteum",
-        "Vinteum",
-        5,
-        32,
-        -1,
-        0,
-        false,
-        false,
-        4,
-        1,
-        1,
-        Dyes.dyeLightBlue,
-        2,
-        Arrays.asList(new MaterialStack(Magic, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.VITREUS, 2), new TC_AspectStack(TC_Aspects.PRAECANTATIO, 1)));
-    public static Materials Vis = new Materials(
-        -1,
-        TextureSet.SET_SHINY,
-        1.0F,
-        0,
-        3,
-        0,
-        128,
-        0,
-        255,
-        0,
-        "Vis",
-        "Vis",
-        5,
-        32,
-        -1,
-        0,
-        false,
-        false,
-        1,
-        1,
-        1,
-        Dyes.dyePurple,
-        2,
-        Arrays.asList(new MaterialStack(Magic, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.AURAM, 2), new TC_AspectStack(TC_Aspects.PRAECANTATIO, 1)));
+        Arrays.asList(new MaterialStack(Carbon, 12), new MaterialStack(Water, 11)));
     public static Materials Redrock = new Materials(
         846,
         TextureSet.SET_ROUGH,
@@ -13743,8 +12663,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Biotite, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.TUTAMEN, 1)));
+        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Biotite, 1)));
     public static Materials GraniteRed = new Materials(
         850,
         TextureSet.SET_ROUGH,
@@ -13772,8 +12691,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Arrays.asList(
             new MaterialStack(Aluminium, 2),
             new MaterialStack(PotassiumFeldspar, 1),
-            new MaterialStack(Oxygen, 3)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.TUTAMEN, 1)));
+            new MaterialStack(Oxygen, 3)));
     public static Materials Chrysotile = new Materials(
         912,
         TextureSet.SET_DULL,
@@ -13848,12 +12766,11 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Vanadium, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1))); // Mixture
-                                                                                                               // of
-                                                                                                               // Fe3O4
-                                                                                                               // and
-                                                                                                               // V2O5
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Vanadium, 1))); // Mixture
+                                                                                         // of
+                                                                                         // Fe3O4
+                                                                                         // and
+                                                                                         // V2O5
     public static Materials BasalticMineralSand = new Materials(
         935,
         TextureSet.SET_SAND,
@@ -13878,8 +12795,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Basalt, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Basalt, 1)));
     public static Materials GraniticMineralSand = new Materials(
         936,
         TextureSet.SET_SAND,
@@ -13904,8 +12820,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(GraniteBlack, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(GraniteBlack, 1)));
     public static Materials GarnetSand = new Materials(
         938,
         TextureSet.SET_SAND,
@@ -14774,8 +13689,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         0,
-        Arrays.asList(new MaterialStack(Stone, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.TERRA, 1)));
+        Arrays.asList(new MaterialStack(Stone, 1)));
     public static Materials IronMagnetic = new Materials(
         354,
         TextureSet.SET_MAGNETIC,
@@ -14800,8 +13714,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 2), new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Iron, 1)));
     public static Materials SteelMagnetic = new Materials(
         355,
         TextureSet.SET_MAGNETIC,
@@ -14826,11 +13739,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Steel, 1)),
-        Arrays.asList(
-            new TC_AspectStack(TC_Aspects.METALLUM, 1),
-            new TC_AspectStack(TC_Aspects.ORDO, 1),
-            new TC_AspectStack(TC_Aspects.MAGNETO, 1)));
+        Arrays.asList(new MaterialStack(Steel, 1)));
     public static Materials NeodymiumMagnetic = new Materials(
         356,
         TextureSet.SET_MAGNETIC,
@@ -14855,8 +13764,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Neodymium, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.METALLUM, 1), new TC_AspectStack(TC_Aspects.MAGNETO, 3)));
+        Arrays.asList(new MaterialStack(Neodymium, 1)));
     public static Materials TungstenCarbide = new Materials(
         370,
         TextureSet.SET_METALLIC,
@@ -15023,8 +13931,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Epoxid, 1)),
-        Arrays.asList(new TC_AspectStack(TC_Aspects.MOTUS, 2)));
+        Arrays.asList(new MaterialStack(Epoxid, 1)));
     public static Materials NitrousOxide = new MaterialBuilder(993, TextureSet.SET_FLUID, "Nitrous Oxide").addCell()
         .addGas()
         .setRGB(125, 200, 255)
@@ -15126,8 +14033,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
     @Deprecated
     public static Materials Natrium = new Materials(Sodium, false);
     @Deprecated
-    public static Materials Mythril = new Materials(Mithril, false);
-    @Deprecated
     public static Materials NitroDiesel = new Materials(NitroFuel, false);
     @Deprecated
     public static Materials Naquadriah = new Materials(Naquadria, false);
@@ -15174,7 +14079,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
     public List<MaterialStack> mMaterialList = new ArrayList<MaterialStack>();
     public List<Materials> mOreByProducts = new ArrayList<Materials>(),
         mOreReRegistrations = new ArrayList<Materials>();
-    public List<TC_Aspects.TC_AspectStack> mAspects = new ArrayList<TC_Aspects.TC_AspectStack>();
     public ArrayList<ItemStack> mMaterialItems = new ArrayList<ItemStack>();
     public Collection<SubTag> mSubTags = new LinkedHashSet<SubTag>();
     public Enchantment mEnchantmentTools = null, mEnchantmentArmors = null;
@@ -15293,24 +14197,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Galena.setDirectSmelting(Lead)
             .add(SubTag.DONT_ADD_DEFAULT_BBF_RECIPE);
 
-        Amber.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedAir.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedFire.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedEarth.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedWater.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedEntropy.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedOrder.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedVis.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
-        InfusedDull.setOreMultiplier(2)
-            .setSmeltingMultiplier(2);
         Salt.setOreMultiplier(2)
             .setSmeltingMultiplier(2);
         RockSalt.setOreMultiplier(2)
@@ -15360,15 +14246,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Polystyrene.setEnchantmentForTools(Enchantment.knockback, 1);
         Rubber.setEnchantmentForTools(Enchantment.knockback, 2);
         StyreneButadieneRubber.setEnchantmentForTools(Enchantment.knockback, 2);
-        InfusedAir.setEnchantmentForTools(Enchantment.knockback, 2);
-
-        IronWood.setEnchantmentForTools(Enchantment.fortune, 1);
-        Steeleaf.setEnchantmentForTools(Enchantment.fortune, 2);
-        Midasium.setEnchantmentForTools(Enchantment.fortune, 2);
-        Mithril.setEnchantmentForTools(Enchantment.fortune, 3);
-        Vinteum.setEnchantmentForTools(Enchantment.fortune, 1);
-        Thaumium.setEnchantmentForTools(Enchantment.fortune, 2);
-        InfusedWater.setEnchantmentForTools(Enchantment.fortune, 3);
 
         Flint.setEnchantmentForTools(Enchantment.fireAspect, 1);
         DarkIron.setEnchantmentForTools(Enchantment.fireAspect, 2);
@@ -15376,20 +14253,16 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         FierySteel.setEnchantmentForTools(Enchantment.fireAspect, 3);
         Pyrotheum.setEnchantmentForTools(Enchantment.fireAspect, 3);
         Blaze.setEnchantmentForTools(Enchantment.fireAspect, 3);
-        InfusedFire.setEnchantmentForTools(Enchantment.fireAspect, 3);
 
         Force.setEnchantmentForTools(Enchantment.silkTouch, 1);
-        Amber.setEnchantmentForTools(Enchantment.silkTouch, 1);
         EnderPearl.setEnchantmentForTools(Enchantment.silkTouch, 1);
         Enderium.setEnchantmentForTools(Enchantment.silkTouch, 1);
         NetherStar.setEnchantmentForTools(Enchantment.silkTouch, 1);
-        InfusedOrder.setEnchantmentForTools(Enchantment.silkTouch, 1);
 
         BlackBronze.setEnchantmentForTools(Enchantment.smite, 2);
         Gold.setEnchantmentForTools(Enchantment.smite, 3);
         RoseGold.setEnchantmentForTools(Enchantment.smite, 4);
         Platinum.setEnchantmentForTools(Enchantment.smite, 5);
-        InfusedVis.setEnchantmentForTools(Enchantment.smite, 5);
 
         Lead.setEnchantmentForTools(Enchantment.baneOfArthropods, 2);
         Nickel.setEnchantmentForTools(Enchantment.baneOfArthropods, 2);
@@ -15398,7 +14271,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         BatteryAlloy.setEnchantmentForTools(Enchantment.baneOfArthropods, 4);
         Bismuth.setEnchantmentForTools(Enchantment.baneOfArthropods, 4);
         BismuthBronze.setEnchantmentForTools(Enchantment.baneOfArthropods, 5);
-        InfusedEarth.setEnchantmentForTools(Enchantment.baneOfArthropods, 5);
 
         Iron.setEnchantmentForTools(Enchantment.sharpness, 1);
         Bronze.setEnchantmentForTools(Enchantment.sharpness, 1);
@@ -15407,37 +14279,14 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Steel.setEnchantmentForTools(Enchantment.sharpness, 2);
         WroughtIron.setEnchantmentForTools(Enchantment.sharpness, 2);
         StainlessSteel.setEnchantmentForTools(Enchantment.sharpness, 3);
-        Knightmetal.setEnchantmentForTools(Enchantment.sharpness, 3);
-        ShadowIron.setEnchantmentForTools(Enchantment.sharpness, 3);
-        ShadowSteel.setEnchantmentForTools(Enchantment.sharpness, 4);
         BlackSteel.setEnchantmentForTools(Enchantment.sharpness, 4);
         RedSteel.setEnchantmentForTools(Enchantment.sharpness, 4);
         BlueSteel.setEnchantmentForTools(Enchantment.sharpness, 5);
         DamascusSteel.setEnchantmentForTools(Enchantment.sharpness, 5);
-        InfusedEntropy.setEnchantmentForTools(Enchantment.sharpness, 5);
         TungstenCarbide.setEnchantmentForTools(Enchantment.sharpness, 5);
         HSSE.setEnchantmentForTools(Enchantment.sharpness, 5);
         HSSG.setEnchantmentForTools(Enchantment.sharpness, 4);
         HSSS.setEnchantmentForTools(Enchantment.sharpness, 5);
-
-        InfusedAir.setEnchantmentForArmors(Enchantment.respiration, 3);
-
-        InfusedFire.setEnchantmentForArmors(Enchantment.featherFalling, 4);
-
-        Steeleaf.setEnchantmentForArmors(Enchantment.protection, 2);
-        Knightmetal.setEnchantmentForArmors(Enchantment.protection, 1);
-        InfusedEarth.setEnchantmentForArmors(Enchantment.protection, 4);
-
-        InfusedEntropy.setEnchantmentForArmors(Enchantment.thorns, 3);
-
-        InfusedWater.setEnchantmentForArmors(Enchantment.aquaAffinity, 1);
-        IronWood.setEnchantmentForArmors(Enchantment.aquaAffinity, 1);
-
-        InfusedOrder.setEnchantmentForArmors(Enchantment.projectileProtection, 4);
-
-        InfusedDull.setEnchantmentForArmors(Enchantment.blastProtection, 4);
-
-        InfusedVis.setEnchantmentForArmors(Enchantment.protection, 4);
 
         FryingOilHot.setHeatDamage(1.0F);
         Lava.setHeatDamage(3.0F);
@@ -15549,14 +14398,10 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         NetherQuartz.addOreByProducts(Netherrack);
         PigIron.addOreByProducts(Iron);
         DeepIron.addOreByProducts(Iron);
-        ShadowIron.addOreByProducts(Iron);
         DarkIron.addOreByProducts(Iron);
         MeteoricIron.addOreByProducts(Iron);
         Steel.addOreByProducts(Iron);
         HSLA.addOreByProducts(Iron);
-        Mithril.addOreByProducts(Platinum);
-        Midasium.addOreByProducts(Gold);
-        AstralSilver.addOreByProducts(Silver);
         Graphite.addOreByProducts(Carbon);
         Netherrack.addOreByProducts(Sulfur);
         Flint.addOreByProducts(Obsidian);
@@ -15585,11 +14430,9 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Opal.addOreByProducts(Tanzanite);
         Amethyst.addOreByProducts(Amethyst);
         FoolsRuby.addOreByProducts(Jasper);
-        Amber.addOreByProducts(Amber);
         Topaz.addOreByProducts(BlueTopaz);
         BlueTopaz.addOreByProducts(Topaz);
         Niter.addOreByProducts(Saltpeter);
-        Vinteum.addOreByProducts(Vinteum);
         Force.addOreByProducts(Force);
         Dilithium.addOreByProducts(Dilithium);
         Neutronium.addOreByProducts(Neutronium);
@@ -15598,7 +14441,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
 
         Glue.mChemicalFormula = "No Horses were harmed for the Production";
         UUAmplifier.mChemicalFormula = "Accelerates the Mass Fabricator";
-        LiveRoot.mChemicalFormula = "";
         WoodSealed.mChemicalFormula = "";
         Wood.mChemicalFormula = "";
         FoolsRuby.mChemicalFormula = Ruby.mChemicalFormula;
@@ -15644,8 +14486,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             Andradite);
         SubTag.BLASTFURNACE_CALCITE_DOUBLE
             .addTo(Pyrite, BrownLimonite, YellowLimonite, BasalticMineralSand, GraniticMineralSand, Magnetite);
-        SubTag.BLASTFURNACE_CALCITE_TRIPLE.addTo(Iron, PigIron, DeepIron, ShadowIron, WroughtIron, MeteoricIron);
-        SubTag.WASHING_MERCURY.addTo(Gold, Silver, Osmium, Mithril, Platinum, Midasium, Cooperite, AstralSilver);
+        SubTag.BLASTFURNACE_CALCITE_TRIPLE.addTo(Iron, PigIron, DeepIron, WroughtIron, MeteoricIron);
+        SubTag.WASHING_MERCURY.addTo(Gold, Silver, Osmium, Platinum, Cooperite);
         SubTag.WASHING_SODIUMPERSULFATE.addTo(Zinc, Nickel, Copper, Cobalt, Cobaltite, Tetrahedrite);
         SubTag.METAL.addTo(
             AnyIron,
@@ -15722,9 +14564,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             EnergeticAlloy,
             VibrantAlloy,
             PulsatingIron,
-            Manasteel,
-            DarkThaumium,
-            ElvenElementium,
             EnrichedCopper,
             DiamondCopper,
             Adamantium,
@@ -15752,7 +14591,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             Hepatizon,
             HSLA,
             Infuscolium,
-            InfusedGold,
             Inolashite,
             Mercassium,
             MeteoricIron,
@@ -15802,12 +14640,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             VanadiumGallium,
             WroughtIron,
             YttriumBariumCuprate,
-            IronWood,
             Alumite,
             Manyullyn,
-            ShadowIron,
-            ShadowSteel,
-            Steeleaf,
             SterlingSilver,
             RoseGold,
             BlackBronze,
@@ -15817,17 +14651,12 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             BlueSteel,
             DamascusSteel,
             TungstenSteel,
-            AstralSilver,
-            Midasium,
-            Mithril,
             BlueAlloy,
             RedAlloy,
             CobaltBrass,
-            Thaumium,
             IronMagnetic,
             SteelMagnetic,
             NeodymiumMagnetic,
-            Knightmetal,
             HSSG,
             HSSE,
             HSSS,
@@ -15862,15 +14691,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Wood.add(SubTag.WOOD, SubTag.FLAMMABLE, SubTag.NO_SMELTING, SubTag.NO_SMASHING);
         WoodSealed.add(SubTag.WOOD, SubTag.FLAMMABLE, SubTag.NO_SMELTING, SubTag.NO_SMASHING, SubTag.NO_WORKING);
         Peanutwood.add(SubTag.WOOD, SubTag.FLAMMABLE, SubTag.NO_SMELTING, SubTag.NO_SMASHING);
-        LiveRoot.add(
-            SubTag.WOOD,
-            SubTag.FLAMMABLE,
-            SubTag.NO_SMELTING,
-            SubTag.NO_SMASHING,
-            SubTag.MAGICAL,
-            SubTag.MORTAR_GRINDABLE);
-        IronWood.add(SubTag.WOOD, SubTag.FLAMMABLE, SubTag.MAGICAL, SubTag.MORTAR_GRINDABLE);
-        Steeleaf.add(SubTag.WOOD, SubTag.FLAMMABLE, SubTag.MAGICAL, SubTag.MORTAR_GRINDABLE, SubTag.NO_SMELTING);
 
         MeatRaw.add(SubTag.NO_SMASHING);
         MeatCooked.add(SubTag.NO_SMASHING, SubTag.NO_SMELTING);
@@ -15962,7 +14782,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Tanzanite.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         Topaz.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         BlueTopaz.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
-        Amber.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         GreenSapphire.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         Sapphire.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         Ruby.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING);
@@ -15992,15 +14811,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         TricalciumPhosphate
             .add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.FLAMMABLE, SubTag.EXPLOSIVE);
         Phosphate.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.FLAMMABLE, SubTag.EXPLOSIVE);
-        InfusedAir.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedFire.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedEarth.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedWater.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedEntropy.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedOrder.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedVis.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        InfusedDull.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        Vinteum.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
         NetherStar.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.UNBURNABLE);
         EnderPearl.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.PEARL);
         EnderEye.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.MAGICAL, SubTag.PEARL);
@@ -16016,7 +14826,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Forcicium.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.CRYSTALLISABLE, SubTag.MAGICAL);
         Forcillium.add(SubTag.CRYSTAL, SubTag.NO_SMASHING, SubTag.NO_SMELTING, SubTag.CRYSTALLISABLE, SubTag.MAGICAL);
         Force.add(SubTag.CRYSTAL, SubTag.MAGICAL, SubTag.UNBURNABLE);
-        Magic.add(SubTag.CRYSTAL, SubTag.MAGICAL, SubTag.UNBURNABLE);
 
         Primitive.add(SubTag.NO_SMASHING, SubTag.NO_SMELTING);
         Basic.add(SubTag.NO_SMASHING, SubTag.NO_SMELTING);
@@ -16037,13 +14846,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             SubTag.UNBURNABLE,
             SubTag.BURNING);
         FierySteel.add(SubTag.MAGICAL, SubTag.UNBURNABLE, SubTag.BURNING);
-        ElvenElementium.add(SubTag.MAGICAL);
-        DarkThaumium.add(SubTag.MAGICAL);
-        Thaumium.add(SubTag.MAGICAL);
         Enderium.add(SubTag.MAGICAL);
-        AstralSilver.add(SubTag.MAGICAL);
-        Midasium.add(SubTag.MAGICAL);
-        Mithril.add(SubTag.MAGICAL);
     }
 
     public static void init() {
@@ -16310,40 +15113,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
                         }
                     }
                 }
-                /** Same principal as SubTags but with two values **/
-                List<String> aAspects = new ArrayList<>();
-                ArrayList<String> aAspectAmounts = new ArrayList<>();
-                for (TC_Aspects.TC_AspectStack aAspectStack : aMaterial.mAspects) {
-                    aAspects.add(aAspectStack.mAspect.toString());
-                    aAspectAmounts.add(String.valueOf(aAspectStack.mAmount));
-                }
-                String aDefaultAspectString = "," + aAspects.toString()
-                    .replace(" ", "")
-                    .replace("[", "")
-                    .replace("]", "");
-                String aDefaultAspectAmountString = "," + aAspectAmounts.toString()
-                    .replace(" ", "")
-                    .replace("[", "")
-                    .replace("]", "");
-                String aConfigAspectString = GregTech_API.sMaterialProperties
-                    .get(aConfigPath, "ListTCAspects", aDefaultAspectString);
-                String aConfigAspectAmountString = GregTech_API.sMaterialProperties
-                    .get(aConfigPath, "ListTCAspectAmounts", aDefaultAspectAmountString);
-                if (!aConfigAspectString.equals(aDefaultAspectString)
-                    || !aConfigAspectAmountString.equals(aDefaultAspectAmountString)) {
-                    aMaterial.mAspects.clear();
-                    if (aConfigAspectString.length() > 0) {
-                        aAspects = new ArrayList<>(Arrays.asList(aConfigAspectString.split(",")));
-                        for (int i = 0; i < aAspects.size(); i++) {
-                            String aAspectString = aAspects.get(i);
-                            long aAspectAmount = Long.parseLong(aAspectAmounts.get(i));
-                            TC_Aspects.TC_AspectStack aAspectStack = new TC_Aspects.TC_AspectStack(
-                                TC_Aspects.valueOf(aAspectString),
-                                aAspectAmount);
-                            if (aAspectStack != null) aMaterial.mAspects.add(aAspectStack);
-                        }
-                    }
-                }
                 /** Moved the harvest level changes from GT_Mod to have less things iterating over MATERIALS_ARRAY **/
                 if (GT_Mod.gregtechproxy.mChangeHarvestLevels && aMaterial.mToolQuality > 0
                     && aMaterial.mMetaItemSubID < GT_Mod.gregtechproxy.mHarvestLevel.length
@@ -16353,12 +15122,11 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
                 }
                 /** Moved from GT_Proxy? (Not sure) **/
                 aMaterial.mHandleMaterial = (aMaterial == Desh ? aMaterial.mHandleMaterial
-                    : aMaterial == Diamond || aMaterial == Thaumium ? Wood
+                    : aMaterial == Diamond ? Wood
                         : aMaterial.contains(SubTag.BURNING) ? Blaze
-                            : aMaterial.contains(SubTag.MAGICAL) && aMaterial.contains(SubTag.CRYSTAL)
-                                && Loader.isModLoaded(GT_Values.MOD_ID_TC) ? Thaumium
-                                    : aMaterial.getMass() > Element.Tc.getMass() * 2 ? TungstenSteel
-                                        : aMaterial.getMass() > Element.Tc.getMass() ? Steel : Wood);
+                            : aMaterial.contains(SubTag.MAGICAL) && aMaterial.contains(SubTag.CRYSTAL) ? Steel
+                                : aMaterial.getMass() > Element.Tc.getMass() * 2 ? TungstenSteel
+                                    : aMaterial.getMass() > Element.Tc.getMass() ? Steel : Wood);
             }
             aConfigPathSB.setLength(0);
         }
@@ -16538,39 +15306,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
     public Materials(int aMetaItemSubID, TextureSet aIconSet, float aToolSpeed, int aDurability, int aToolQuality,
         int aTypes, int aR, int aG, int aB, int aA, String aName, String aDefaultLocalName, int aFuelType,
         int aFuelPower, int aMeltingPoint, int aBlastFurnaceTemp, boolean aBlastFurnaceRequired, boolean aTransparent,
-        int aOreValue, int aDensityMultiplier, int aDensityDivider, Dyes aColor,
-        List<TC_Aspects.TC_AspectStack> aAspects) {
-        this(
-            aMetaItemSubID,
-            aIconSet,
-            aToolSpeed,
-            aDurability,
-            aToolQuality,
-            aTypes,
-            aR,
-            aG,
-            aB,
-            aA,
-            aName,
-            aDefaultLocalName,
-            aFuelType,
-            aFuelPower,
-            aMeltingPoint,
-            aBlastFurnaceTemp,
-            aBlastFurnaceRequired,
-            aTransparent,
-            aOreValue,
-            aDensityMultiplier,
-            aDensityDivider,
-            aColor);
-        mAspects.addAll(aAspects);
-    }
-
-    public Materials(int aMetaItemSubID, TextureSet aIconSet, float aToolSpeed, int aDurability, int aToolQuality,
-        int aTypes, int aR, int aG, int aB, int aA, String aName, String aDefaultLocalName, int aFuelType,
-        int aFuelPower, int aMeltingPoint, int aBlastFurnaceTemp, boolean aBlastFurnaceRequired, boolean aTransparent,
-        int aOreValue, int aDensityMultiplier, int aDensityDivider, Dyes aColor, Element aElement,
-        List<TC_Aspects.TC_AspectStack> aAspects) {
+        int aOreValue, int aDensityMultiplier, int aDensityDivider, Dyes aColor, Element aElement) {
         this(
             aMetaItemSubID,
             aIconSet,
@@ -16602,7 +15338,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             mChemicalFormula = aElement.toString();
             mChemicalFormula = mChemicalFormula.replaceAll("_", "-");
         }
-        mAspects.addAll(aAspects);
     }
 
     public Materials(int aMetaItemSubID, TextureSet aIconSet, float aToolSpeed, int aDurability, int aToolQuality,
@@ -16610,39 +15345,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         int aFuelPower, int aMeltingPoint, int aBlastFurnaceTemp, boolean aBlastFurnaceRequired, boolean aTransparent,
         int aOreValue, int aDensityMultiplier, int aDensityDivider, Dyes aColor, int aExtraData,
         List<MaterialStack> aMaterialList) {
-        this(
-            aMetaItemSubID,
-            aIconSet,
-            aToolSpeed,
-            aDurability,
-            aToolQuality,
-            aTypes,
-            aR,
-            aG,
-            aB,
-            aA,
-            aName,
-            aDefaultLocalName,
-            aFuelType,
-            aFuelPower,
-            aMeltingPoint,
-            aBlastFurnaceTemp,
-            aBlastFurnaceRequired,
-            aTransparent,
-            aOreValue,
-            aDensityMultiplier,
-            aDensityDivider,
-            aColor,
-            aExtraData,
-            aMaterialList,
-            null);
-    }
-
-    public Materials(int aMetaItemSubID, TextureSet aIconSet, float aToolSpeed, int aDurability, int aToolQuality,
-        int aTypes, int aR, int aG, int aB, int aA, String aName, String aDefaultLocalName, int aFuelType,
-        int aFuelPower, int aMeltingPoint, int aBlastFurnaceTemp, boolean aBlastFurnaceRequired, boolean aTransparent,
-        int aOreValue, int aDensityMultiplier, int aDensityDivider, Dyes aColor, int aExtraData,
-        List<MaterialStack> aMaterialList, List<TC_Aspects.TC_AspectStack> aAspects) {
         this(
             aMetaItemSubID,
             aIconSet,
@@ -16677,17 +15379,12 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             tAmountOfComponents += tMaterial.mAmount;
             if (tMaterial.mMaterial.mMeltingPoint > 0)
                 tMeltingPoint += tMaterial.mMaterial.mMeltingPoint * tMaterial.mAmount;
-            if (aAspects == null) for (TC_Aspects.TC_AspectStack tAspect : tMaterial.mMaterial.mAspects)
-                tAspect.addToAspectList(mAspects);
         }
 
         if (mMeltingPoint < 0) mMeltingPoint = (short) (tMeltingPoint / tAmountOfComponents);
 
         tAmountOfComponents *= aDensityMultiplier;
         tAmountOfComponents /= aDensityDivider;
-        if (aAspects == null) for (TC_Aspects.TC_AspectStack tAspect : mAspects)
-            tAspect.mAmount = Math.max(1, tAspect.mAmount / Math.max(1, tAmountOfComponents));
-        else mAspects.addAll(aAspects);
     }
 
     /**

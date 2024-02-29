@@ -99,7 +99,7 @@ public class GT_Values {
      * MOD ID Strings, since they are very common Parameters.
      */
     public static final String MOD_ID = "gregtech", MOD_ID_IC2 = "IC2", MOD_ID_NC = "IC2NuclearControl",
-        MOD_ID_TC = "Thaumcraft", MOD_ID_TF = "TwilightForest", MOD_ID_RC = "Railcraft", MOD_ID_TE = "ThermalExpansion",
+        MOD_ID_TF = "TwilightForest", MOD_ID_RC = "Railcraft", MOD_ID_TE = "ThermalExpansion",
         MOD_ID_AE = "appliedenergistics2", MOD_ID_TFC = "terrafirmacraft", MOD_ID_PFAA = "PFAAGeologica",
         MOD_ID_FR = "Forestry", MOD_ID_HaC = "harvestcraft", MOD_ID_APC = "AppleCore", MOD_ID_MaCr = "magicalcrops",
         MOD_ID_GaEn = "ganysend", MOD_ID_GaSu = "ganyssurface", MOD_ID_GaNe = "ganysnether",
@@ -112,11 +112,9 @@ public class GT_Values {
      * File Paths and Resource Paths
      */
     public static final String TEX_DIR = "textures/", TEX_DIR_GUI = TEX_DIR + "gui/", TEX_DIR_ITEM = TEX_DIR + "items/",
-        TEX_DIR_BLOCK = TEX_DIR + "blocks/", TEX_DIR_ENTITY = TEX_DIR + "entity/",
-        TEX_DIR_ASPECTS = TEX_DIR + "aspects/", RES_PATH = MOD_ID + ":" + TEX_DIR,
+        TEX_DIR_BLOCK = TEX_DIR + "blocks/", TEX_DIR_ENTITY = TEX_DIR + "entity/", RES_PATH = MOD_ID + ":" + TEX_DIR,
         RES_PATH_GUI = MOD_ID + ":" + TEX_DIR_GUI, RES_PATH_ITEM = MOD_ID + ":", RES_PATH_BLOCK = MOD_ID + ":",
-        RES_PATH_ENTITY = MOD_ID + ":" + TEX_DIR_ENTITY, RES_PATH_ASPECTS = MOD_ID + ":" + TEX_DIR_ASPECTS,
-        RES_PATH_IC2 = MOD_ID_IC2.toLowerCase(Locale.ENGLISH) + ":",
+        RES_PATH_ENTITY = MOD_ID + ":" + TEX_DIR_ENTITY, RES_PATH_IC2 = MOD_ID_IC2.toLowerCase(Locale.ENGLISH) + ":",
         RES_PATH_MODEL = MOD_ID + ":" + TEX_DIR + "models/";
     /**
      * The Mod Object itself. That is the GT_Mod-Object. It's needed to open GUI's and similar.
