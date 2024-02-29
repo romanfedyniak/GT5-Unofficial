@@ -502,8 +502,7 @@ public class GT_Mod implements IGT_Mod {
 
         Materials[] tDisableOres = new Materials[] { Materials.Chrome, Materials.Naquadria, Materials.Silicon,
             Materials.Cobalt, Materials.Cadmium, Materials.Indium, Materials.Tungsten, Materials.Adamantium,
-            Materials.DarkIron, Materials.Rutile, Materials.Alduorite, Materials.Magnesium,
-            Materials.Nikolite };
+            Materials.DarkIron, Materials.Rutile, Materials.Alduorite, Materials.Magnesium, Materials.Nikolite };
         for (Materials tMat : tDisableOres) {
             if (!GregTech_API.sMaterialComponents.get("disableLaserDrillOres", tMat.mName, false))
                 GT_Block_Ores_Abstract.aBlockedOres.add(tMat);
@@ -1499,8 +1498,7 @@ public class GT_Mod implements IGT_Mod {
             32,
             0);
         for (Materials tMaterial : Materials.values()) {
-            if ((tMaterial.mElement != null) && (!tMaterial.mElement.mIsIsotope)
-                && (tMaterial.getMass() > 0L)) {
+            if ((tMaterial.mElement != null) && (!tMaterial.mElement.mIsIsotope) && (tMaterial.getMass() > 0L)) {
                 ItemStack tOutput = ItemList.Tool_DataOrb.get(1L, new Object[0]);
                 Behaviour_DataOrb.setDataTitle(tOutput, "Elemental-Scan");
                 Behaviour_DataOrb.setDataName(tOutput, tMaterial.mElement.name());

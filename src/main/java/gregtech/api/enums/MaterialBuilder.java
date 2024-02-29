@@ -71,10 +71,9 @@ public class MaterialBuilder {
             densityDivider,
             color,
             extraData,
-            materialList
-        ).setHasCorrespondingFluid(hasCorrespondingFluid)
-            .setHasCorrespondingGas(hasCorrespondingGas)
-            .setCanBeCracked(canBeCracked);
+            materialList).setHasCorrespondingFluid(hasCorrespondingFluid)
+                .setHasCorrespondingGas(hasCorrespondingGas)
+                .setCanBeCracked(canBeCracked);
     }
 
     public MaterialBuilder setName(String name) {

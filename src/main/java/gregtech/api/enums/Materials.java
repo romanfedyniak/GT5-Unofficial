@@ -69,8 +69,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element._NULL
-    );
+        Element._NULL);
 
     /**
      * Direct Elements
@@ -98,8 +97,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Al
-    );
+        Element.Al);
     public static Materials Americium = new Materials(
         103,
         TextureSet.SET_METALLIC,
@@ -123,8 +121,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Am
-    );
+        Element.Am);
     public static Materials Antimony = new Materials(
         58,
         TextureSet.SET_SHINY,
@@ -148,8 +145,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Sb
-    );
+        Element.Sb);
     public static Materials Argon = new Materials(
         24,
         TextureSet.SET_FLUID,
@@ -173,8 +169,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.Ar
-    );
+        Element.Ar);
     public static Materials Arsenic = new Materials(
         39,
         TextureSet.SET_DULL,
@@ -198,8 +193,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.As
-    );
+        Element.As);
     public static Materials Barium = new Materials(
         63,
         TextureSet.SET_METALLIC,
@@ -223,8 +217,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ba
-    );
+        Element.Ba);
     public static Materials Beryllium = new Materials(
         8,
         TextureSet.SET_METALLIC,
@@ -248,8 +241,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.Be
-    );
+        Element.Be);
     public static Materials Bismuth = new Materials(
         90,
         TextureSet.SET_METALLIC,
@@ -273,8 +265,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.Bi
-    );
+        Element.Bi);
     public static Materials Boron = new Materials(
         9,
         TextureSet.SET_DULL,
@@ -298,8 +289,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.B
-    );
+        Element.B);
     public static Materials Caesium = new Materials(
         62,
         TextureSet.SET_METALLIC,
@@ -323,8 +313,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Cs
-    );
+        Element.Cs);
     public static Materials Calcium = new Materials(
         26,
         TextureSet.SET_METALLIC,
@@ -348,8 +337,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Ca
-    );
+        Element.Ca);
     public static Materials Carbon = new Materials(
         10,
         TextureSet.SET_DULL,
@@ -373,8 +361,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.C
-    );
+        Element.C);
     public static Materials Cadmium = new Materials(
         55,
         TextureSet.SET_SHINY,
@@ -398,8 +385,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Cd
-    );
+        Element.Cd);
     public static Materials Cerium = new Materials(
         65,
         TextureSet.SET_METALLIC,
@@ -423,8 +409,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ce
-    );
+        Element.Ce);
     public static Materials Chlorine = new Materials(
         23,
         TextureSet.SET_FLUID,
@@ -448,8 +433,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.Cl
-    );
+        Element.Cl);
     public static Materials Chrome = new Materials(
         30,
         TextureSet.SET_SHINY,
@@ -473,8 +457,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Cr
-    );
+        Element.Cr);
     public static Materials Cobalt = new Materials(
         33,
         TextureSet.SET_METALLIC,
@@ -498,8 +481,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Co
-    );
+        Element.Co);
     public static Materials Copper = new Materials(
         35,
         TextureSet.SET_SHINY,
@@ -523,8 +505,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.Cu
-    );
+        Element.Cu);
     public static Materials Deuterium = new Materials(
         2,
         TextureSet.SET_FLUID,
@@ -548,8 +529,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.D
-    );
+        Element.D);
     public static Materials Dysprosium = new Materials(
         73,
         TextureSet.SET_METALLIC,
@@ -573,8 +553,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Dy
-    );
+        Element.Dy);
     public static Materials Empty = new Materials(
         0,
         TextureSet.SET_NONE,
@@ -598,8 +577,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element._NULL
-    );
+        Element._NULL);
     public static Materials Erbium = new Materials(
         75,
         TextureSet.SET_METALLIC,
@@ -623,8 +601,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Er
-    );
+        Element.Er);
     public static Materials Europium = new Materials(
         70,
         TextureSet.SET_METALLIC,
@@ -648,8 +625,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Eu
-    );
+        Element.Eu);
     public static Materials Fluorine = new Materials(
         14,
         TextureSet.SET_FLUID,
@@ -673,8 +649,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.F
-    );
+        Element.F);
     public static Materials Gadolinium = new Materials(
         71,
         TextureSet.SET_METALLIC,
@@ -698,8 +673,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Gd
-    );
+        Element.Gd);
     public static Materials Gallium = new Materials(
         37,
         TextureSet.SET_SHINY,
@@ -723,8 +697,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Ga
-    );
+        Element.Ga);
     public static Materials Gold = new Materials(
         86,
         TextureSet.SET_SHINY,
@@ -748,8 +721,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.Au
-    );
+        Element.Au);
     public static Materials Holmium = new Materials(
         74,
         TextureSet.SET_METALLIC,
@@ -773,8 +745,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ho
-    );
+        Element.Ho);
     public static Materials Hydrogen = new Materials(
         1,
         TextureSet.SET_FLUID,
@@ -798,8 +769,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.H
-    );
+        Element.H);
     public static Materials Helium = new Materials(
         4,
         TextureSet.SET_FLUID,
@@ -823,8 +793,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.He
-    );
+        Element.He);
     public static Materials Helium_3 = new Materials(
         5,
         TextureSet.SET_FLUID,
@@ -848,8 +817,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.He_3
-    );
+        Element.He_3);
     public static Materials Indium = new Materials(
         56,
         TextureSet.SET_METALLIC,
@@ -873,8 +841,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.In
-    );
+        Element.In);
     public static Materials Iridium = new Materials(
         84,
         TextureSet.SET_DULL,
@@ -898,8 +865,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Ir
-    );
+        Element.Ir);
     public static Materials Iron = new Materials(
         32,
         TextureSet.SET_METALLIC,
@@ -923,8 +889,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Fe
-    );
+        Element.Fe);
     public static Materials Lanthanum = new Materials(
         64,
         TextureSet.SET_METALLIC,
@@ -948,8 +913,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.La
-    );
+        Element.La);
     public static Materials Lead = new Materials(
         89,
         TextureSet.SET_DULL,
@@ -973,8 +937,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Pb
-    );
+        Element.Pb);
     public static Materials Lithium = new Materials(
         6,
         TextureSet.SET_DULL,
@@ -998,8 +961,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Li
-    );
+        Element.Li);
     public static Materials Lutetium = new Materials(
         78,
         TextureSet.SET_METALLIC,
@@ -1023,8 +985,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Lu
-    );
+        Element.Lu);
     public static Materials Magnesium = new Materials(
         18,
         TextureSet.SET_METALLIC,
@@ -1048,8 +1009,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePink,
-        Element.Mg
-    );
+        Element.Mg);
     public static Materials Manganese = new Materials(
         31,
         TextureSet.SET_DULL,
@@ -1073,8 +1033,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Mn
-    );
+        Element.Mn);
     public static Materials Mercury = new Materials(
         87,
         TextureSet.SET_SHINY,
@@ -1098,8 +1057,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Hg
-    );
+        Element.Hg);
     public static Materials Molybdenum = new Materials(
         48,
         TextureSet.SET_SHINY,
@@ -1123,8 +1081,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Mo
-    );
+        Element.Mo);
     public static Materials Neodymium = new Materials(
         67,
         TextureSet.SET_METALLIC,
@@ -1148,8 +1105,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Nd
-    );
+        Element.Nd);
     public static Materials Neutronium = new Materials(
         129,
         TextureSet.SET_DULL,
@@ -1173,8 +1129,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Nt
-    );
+        Element.Nt);
     public static Materials Nickel = new Materials(
         34,
         TextureSet.SET_METALLIC,
@@ -1198,8 +1153,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightBlue,
-        Element.Ni
-    );
+        Element.Ni);
     public static Materials Niobium = new Materials(
         47,
         TextureSet.SET_METALLIC,
@@ -1223,8 +1177,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Nb
-    );
+        Element.Nb);
     public static Materials Nitrogen = new Materials(
         12,
         TextureSet.SET_FLUID,
@@ -1248,8 +1201,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeCyan,
-        Element.N
-    );
+        Element.N);
     public static Materials Osmium = new Materials(
         83,
         TextureSet.SET_METALLIC,
@@ -1273,8 +1225,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Os
-    );
+        Element.Os);
     public static Materials Oxygen = new Materials(
         13,
         TextureSet.SET_FLUID,
@@ -1298,8 +1249,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.O
-    );
+        Element.O);
     public static Materials Palladium = new Materials(
         52,
         TextureSet.SET_SHINY,
@@ -1323,8 +1273,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Pd
-    );
+        Element.Pd);
     public static Materials Phosphorus = new Materials(
         21,
         TextureSet.SET_DULL,
@@ -1348,8 +1297,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.P
-    );
+        Element.P);
     public static Materials Platinum = new Materials(
         85,
         TextureSet.SET_SHINY,
@@ -1373,8 +1321,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeOrange,
-        Element.Pt
-    );
+        Element.Pt);
     public static Materials Plutonium = new Materials(
         100,
         TextureSet.SET_METALLIC,
@@ -1398,8 +1345,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLime,
-        Element.Pu
-    );
+        Element.Pu);
     public static Materials Plutonium241 = new Materials(
         101,
         TextureSet.SET_SHINY,
@@ -1423,8 +1369,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLime,
-        Element.Pu_241
-    );
+        Element.Pu_241);
     public static Materials Potassium = new Materials(
         25,
         TextureSet.SET_METALLIC,
@@ -1448,8 +1393,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.K
-    );
+        Element.K);
     public static Materials Praseodymium = new Materials(
         66,
         TextureSet.SET_METALLIC,
@@ -1473,8 +1417,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Pr
-    );
+        Element.Pr);
     public static Materials Promethium = new Materials(
         68,
         TextureSet.SET_METALLIC,
@@ -1498,8 +1441,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Pm
-    );
+        Element.Pm);
     public static Materials Radon = new Materials(
         93,
         TextureSet.SET_FLUID,
@@ -1523,8 +1465,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Rn
-    );
+        Element.Rn);
     public static Materials Rubidium = new Materials(
         43,
         TextureSet.SET_METALLIC,
@@ -1548,8 +1489,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeRed,
-        Element.Rb
-    );
+        Element.Rb);
     public static Materials Samarium = new Materials(
         69,
         TextureSet.SET_METALLIC,
@@ -1573,8 +1513,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Sm
-    );
+        Element.Sm);
     public static Materials Scandium = new Materials(
         27,
         TextureSet.SET_METALLIC,
@@ -1598,8 +1537,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.Sc
-    );
+        Element.Sc);
     public static Materials Silicon = new Materials(
         20,
         TextureSet.SET_METALLIC,
@@ -1623,8 +1561,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.Si
-    );
+        Element.Si);
     public static Materials Silver = new Materials(
         54,
         TextureSet.SET_SHINY,
@@ -1648,8 +1585,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Ag
-    );
+        Element.Ag);
     public static Materials Sodium = new Materials(
         17,
         TextureSet.SET_METALLIC,
@@ -1673,8 +1609,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlue,
-        Element.Na
-    );
+        Element.Na);
     public static Materials Strontium = new Materials(
         44,
         TextureSet.SET_METALLIC,
@@ -1698,8 +1633,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeLightGray,
-        Element.Sr
-    );
+        Element.Sr);
     public static Materials Sulfur = new Materials(
         22,
         TextureSet.SET_DULL,
@@ -1723,8 +1657,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeYellow,
-        Element.S
-    );
+        Element.S);
     public static Materials Tantalum = new Materials(
         80,
         TextureSet.SET_METALLIC,
@@ -1748,8 +1681,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Ta
-    );
+        Element.Ta);
     public static Materials Tellurium = new Materials(
         59,
         TextureSet.SET_METALLIC,
@@ -1773,8 +1705,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGray,
-        Element.Te
-    );
+        Element.Te);
     public static Materials Terbium = new Materials(
         72,
         TextureSet.SET_METALLIC,
@@ -1798,8 +1729,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Tb
-    );
+        Element.Tb);
     public static Materials Thorium = new Materials(
         96,
         TextureSet.SET_SHINY,
@@ -1823,8 +1753,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.Th
-    );
+        Element.Th);
     public static Materials Thulium = new Materials(
         76,
         TextureSet.SET_METALLIC,
@@ -1848,8 +1777,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Tm
-    );
+        Element.Tm);
     public static Materials Tin = new Materials(
         57,
         TextureSet.SET_DULL,
@@ -1873,8 +1801,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Sn
-    );
+        Element.Sn);
     public static Materials Titanium = new Materials(
         28,
         TextureSet.SET_METALLIC,
@@ -1898,8 +1825,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyePurple,
-        Element.Ti
-    );
+        Element.Ti);
     public static Materials Tritium = new Materials(
         3,
         TextureSet.SET_METALLIC,
@@ -1923,8 +1849,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeRed,
-        Element.T
-    );
+        Element.T);
     public static Materials Tungsten = new Materials(
         81,
         TextureSet.SET_METALLIC,
@@ -1948,8 +1873,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.W
-    );
+        Element.W);
     public static Materials Uranium = new Materials(
         98,
         TextureSet.SET_METALLIC,
@@ -1973,8 +1897,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.U
-    );
+        Element.U);
     public static Materials Uranium235 = new Materials(
         97,
         TextureSet.SET_SHINY,
@@ -1998,8 +1921,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeGreen,
-        Element.U_235
-    );
+        Element.U_235);
     public static Materials Vanadium = new Materials(
         29,
         TextureSet.SET_METALLIC,
@@ -2023,8 +1945,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeBlack,
-        Element.V
-    );
+        Element.V);
     public static Materials Ytterbium = new Materials(
         77,
         TextureSet.SET_METALLIC,
@@ -2048,8 +1969,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Yb
-    );
+        Element.Yb);
     public static Materials Yttrium = new Materials(
         45,
         TextureSet.SET_METALLIC,
@@ -2073,8 +1993,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL,
-        Element.Y
-    );
+        Element.Y);
     public static Materials Zinc = new Materials(
         36,
         TextureSet.SET_METALLIC,
@@ -2098,8 +2017,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes.dyeWhite,
-        Element.Zn
-    );
+        Element.Zn);
 
     /**
      * The "Random Material" ones.
@@ -2113,8 +2031,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         false,
         "AnyBronze",
-        "AnyBronze"
-    );
+        "AnyBronze");
     public static Materials AnyCopper = new Materials(
         -1,
         TextureSet.SET_SHINY,
@@ -2123,8 +2040,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         false,
         "AnyCopper",
-        "AnyCopper"
-    );
+        "AnyCopper");
     public static Materials AnyIron = new Materials(-1, TextureSet.SET_SHINY, 1.0F, 0, 3, false, "AnyIron", "AnyIron");
     public static Materials AnyRubber = new Materials(
         -1,
@@ -2134,8 +2050,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         false,
         "AnyRubber",
-        "AnyRubber"
-    );
+        "AnyRubber");
     public static Materials AnySyntheticRubber = new Materials(
         -1,
         TextureSet.SET_SHINY,
@@ -2144,8 +2059,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         false,
         "AnySyntheticRubber",
-        "AnySyntheticRubber"
-    );
+        "AnySyntheticRubber");
     public static Materials Crystal = new Materials(-1, TextureSet.SET_SHINY, 1.0F, 0, 3, false, "Crystal", "Crystal");
     public static Materials Quartz = new Materials(-1, TextureSet.SET_QUARTZ, 1.0F, 0, 2, false, "Quartz", "Quartz");
     public static Materials Metal = new Materials(-1, TextureSet.SET_METALLIC, 1.0F, 0, 2, false, "Metal", "Metal");
@@ -2158,8 +2072,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         false,
         "Cobblestone",
-        "Cobblestone"
-    );
+        "Cobblestone");
     public static Materials BrickNether = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -2168,8 +2081,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         false,
         "BrickNether",
-        "BrickNether"
-    );
+        "BrickNether");
 
     /**
      * The "I don't care" Section, everything I don't want to do anything with right now, is right here. Just to make
@@ -2198,8 +2110,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Serpentine = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2222,8 +2133,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Flux = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2246,8 +2156,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials RedstoneAlloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2270,8 +2179,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials OsmiumTetroxide = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2294,8 +2202,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials RubberTreeSap = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2318,8 +2225,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials AquaRegia = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2342,8 +2248,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials SolutionBlueVitriol = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2366,8 +2271,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials SolutionNickelSulfate = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2390,8 +2294,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Signalum = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2414,8 +2317,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Lumium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2438,8 +2340,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials PhasedIron = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2462,8 +2363,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials PhasedGold = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2486,8 +2386,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Soularium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2510,8 +2409,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Endium = new Materials(
         770,
         TextureSet.SET_DULL,
@@ -2534,8 +2432,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Prismarine = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2558,8 +2455,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials GraveyardDirt = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2582,8 +2478,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials DarkSteel = new Materials(
         364,
         TextureSet.SET_DULL,
@@ -2606,8 +2501,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         5,
         1,
         1,
-        Dyes.dyePurple
-    );
+        Dyes.dyePurple);
     public static Materials Terrasteel = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2630,8 +2524,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials ConductiveIron = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2654,8 +2547,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials ElectricalSteel = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2678,8 +2570,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials EnergeticAlloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2702,8 +2593,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials VibrantAlloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2726,8 +2616,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials PulsatingIron = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2750,8 +2639,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Teslatite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2774,8 +2662,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Fluix = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2798,8 +2685,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Tennantite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2822,8 +2708,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Ryu = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2846,8 +2731,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Mutation = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2870,8 +2754,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Aquamarine = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2894,8 +2777,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Ender = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2918,8 +2800,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials EnrichedCopper = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2942,8 +2823,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials DiamondCopper = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2966,8 +2846,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials SodiumPeroxide = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -2990,8 +2869,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials IridiumSodiumOxide = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3014,8 +2892,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials PlatinumGroupSludge = new Materials(
         241,
         TextureSet.SET_POWDER,
@@ -3038,8 +2915,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Fairy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3062,8 +2938,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Ludicrite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3086,8 +2961,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Pokefennium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3110,8 +2984,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials PurpleAlloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3134,8 +3007,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials InfusedTeslatite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3158,8 +3030,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
 
     /**
      * Unknown Material Components. Dead End Section.
@@ -3186,8 +3057,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Adamite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3210,8 +3080,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Adluorite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3234,8 +3103,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Agate = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3258,8 +3126,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Alduorite = new Materials(
         485,
         TextureSet.SET_SHINY,
@@ -3282,8 +3149,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Amber = new Materials(
         514,
         TextureSet.SET_RUBY,
@@ -3306,8 +3172,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Ammonium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3330,8 +3195,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Amordrine = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3354,8 +3218,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Andesite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3378,8 +3241,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Angmallen = new Materials(
         958,
         TextureSet.SET_METALLIC,
@@ -3402,8 +3264,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Ardite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3426,8 +3287,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Aredrite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3450,8 +3310,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Atlarus = new Materials(
         965,
         TextureSet.SET_METALLIC,
@@ -3474,8 +3333,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Bitumen = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3498,8 +3356,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Black = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3522,8 +3379,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Blizz = new Materials(
         851,
         TextureSet.SET_SHINY,
@@ -3546,8 +3402,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Blueschist = new Materials(
         852,
         TextureSet.SET_DULL,
@@ -3570,8 +3425,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes.dyeLightBlue
-    );
+        Dyes.dyeLightBlue);
     public static Materials Bluestone = new Materials(
         -1/* 813 */,
         TextureSet.SET_DULL,
@@ -3594,8 +3448,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlue
-    );
+        Dyes.dyeBlue);
     public static Materials Blutonium = new Materials(
         -1,
         TextureSet.SET_SHINY,
@@ -3618,8 +3471,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeBlue
-    );
+        Dyes.dyeBlue);
     public static Materials Carmot = new Materials(
         962,
         TextureSet.SET_METALLIC,
@@ -3642,8 +3494,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Celenegil = new Materials(
         964,
         TextureSet.SET_METALLIC,
@@ -3666,8 +3517,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials CertusQuartz = new Materials(
         516,
         TextureSet.SET_QUARTZ,
@@ -3690,8 +3540,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Ceruclase = new Materials(
         952,
         TextureSet.SET_METALLIC,
@@ -3714,8 +3563,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Citrine = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3738,8 +3586,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials CobaltHexahydrate = new Materials(
         -1/* 853 */,
         TextureSet.SET_METALLIC,
@@ -3762,8 +3609,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlue
-    );
+        Dyes.dyeBlue);
     public static Materials ConstructionFoam = new Materials(
         854,
         TextureSet.SET_DULL,
@@ -3786,8 +3632,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Chert = new Materials(
         857,
         TextureSet.SET_DULL,
@@ -3810,8 +3655,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Chimerite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3834,8 +3678,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Coral = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3858,8 +3701,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials CrudeOil = new Materials(
         -1/* 858 */,
         TextureSet.SET_DULL,
@@ -3882,8 +3724,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Chrysocolla = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3906,8 +3747,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials CrystalFlux = new Materials(
         -1,
         TextureSet.SET_QUARTZ,
@@ -3930,8 +3770,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Cyanite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -3954,8 +3793,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeCyan
-    );
+        Dyes.dyeCyan);
     public static Materials Dacite = new Materials(
         859,
         TextureSet.SET_DULL,
@@ -3978,8 +3816,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials DarkIron = new Materials(
         342,
         TextureSet.SET_DULL,
@@ -4002,8 +3839,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         5,
         1,
         1,
-        Dyes.dyePurple
-    );
+        Dyes.dyePurple);
     public static Materials DarkStone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4026,8 +3862,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Desh = new Materials(
         884,
         TextureSet.SET_DULL,
@@ -4050,8 +3885,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Desichalkos = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4074,8 +3908,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Dilithium = new Materials(
         515,
         TextureSet.SET_DIAMOND,
@@ -4098,8 +3931,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Drulloy = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4122,8 +3954,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Duranium = new Materials(
         328,
         TextureSet.SET_METALLIC,
@@ -4146,8 +3977,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Eclogite = new Materials(
         860,
         TextureSet.SET_DULL,
@@ -4170,8 +4000,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials ElectrumFlux = new Materials(
         320,
         TextureSet.SET_SHINY,
@@ -4194,8 +4023,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Emery = new Materials(
         -1/* 861 */,
         TextureSet.SET_DULL,
@@ -4218,8 +4046,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Enderium = new Materials(
         321,
         TextureSet.SET_DULL,
@@ -4242,8 +4069,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials EnderiumBase = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -4266,8 +4092,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Energized = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4290,8 +4115,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Epidote = new Materials(
         862,
         TextureSet.SET_DULL,
@@ -4314,8 +4138,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Eximite = new Materials(
         959,
         TextureSet.SET_METALLIC,
@@ -4338,8 +4161,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials FierySteel = new Materials(
         346,
         TextureSet.SET_FIERY,
@@ -4362,8 +4184,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Firestone = new Materials(
         347,
         TextureSet.SET_QUARTZ,
@@ -4386,8 +4207,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Fluorite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4410,8 +4230,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials FoolsRuby = new Materials(
         512,
         TextureSet.SET_RUBY,
@@ -4434,8 +4253,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Force = new Materials(
         521,
         TextureSet.SET_DIAMOND,
@@ -4458,8 +4276,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Forcicium = new Materials(
         -1/* 518 */,
         TextureSet.SET_DIAMOND,
@@ -4482,8 +4299,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Forcillium = new Materials(
         -1/* 519 */,
         TextureSet.SET_DIAMOND,
@@ -4506,8 +4322,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Gabbro = new Materials(
         863,
         TextureSet.SET_DULL,
@@ -4530,8 +4345,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Glowstone = new Materials(
         811,
         TextureSet.SET_SHINY,
@@ -4554,8 +4368,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Gneiss = new Materials(
         864,
         TextureSet.SET_DULL,
@@ -4578,8 +4391,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Graphite = new Materials(
         865,
         TextureSet.SET_DULL,
@@ -4602,8 +4414,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Graphene = new Materials(
         819,
         TextureSet.SET_DULL,
@@ -4626,8 +4437,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Greenschist = new Materials(
         866,
         TextureSet.SET_DULL,
@@ -4650,8 +4460,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Greenstone = new Materials(
         -1/* 867 */,
         TextureSet.SET_DULL,
@@ -4674,8 +4483,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Greywacke = new Materials(
         868,
         TextureSet.SET_DULL,
@@ -4698,8 +4506,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Haderoth = new Materials(
         963,
         TextureSet.SET_METALLIC,
@@ -4722,8 +4529,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Hematite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4746,8 +4552,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Hepatizon = new Materials(
         957,
         TextureSet.SET_METALLIC,
@@ -4770,8 +4575,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials HSLA = new Materials(
         322,
         TextureSet.SET_METALLIC,
@@ -4794,8 +4598,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Ignatius = new Materials(
         950,
         TextureSet.SET_METALLIC,
@@ -4818,8 +4621,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Infernal = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4842,8 +4644,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Infuscolium = new Materials(
         490,
         TextureSet.SET_METALLIC,
@@ -4866,8 +4667,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Inolashite = new Materials(
         954,
         TextureSet.SET_NONE,
@@ -4890,8 +4690,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Invisium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -4914,8 +4713,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Jade = new Materials(
         -1/* 537 */,
         TextureSet.SET_SHINY,
@@ -4938,8 +4736,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         5,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Jasper = new Materials(
         511,
         TextureSet.SET_EMERALD,
@@ -4962,8 +4759,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Kalendrite = new Materials(
         953,
         TextureSet.SET_METALLIC,
@@ -4986,8 +4782,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Komatiite = new Materials(
         869,
         TextureSet.SET_DULL,
@@ -5010,8 +4805,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Lava = new Materials(
         700,
         TextureSet.SET_FLUID,
@@ -5034,8 +4828,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Lemurite = new Materials(
         486,
         TextureSet.SET_METALLIC,
@@ -5058,8 +4851,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Limestone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5082,8 +4874,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Lodestone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5106,8 +4897,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Luminite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5130,8 +4920,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Magma = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5154,8 +4943,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Mawsitsit = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5178,8 +4966,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Mercassium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5202,8 +4989,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials MeteoricIron = new Materials(
         340,
         TextureSet.SET_METALLIC,
@@ -5226,8 +5012,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials MeteoricSteel = new Materials(
         341,
         TextureSet.SET_METALLIC,
@@ -5250,8 +5035,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Meteorite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5274,8 +5058,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePurple
-    );
+        Dyes.dyePurple);
     public static Materials Meutoite = new Materials(
         487,
         TextureSet.SET_METALLIC,
@@ -5298,8 +5081,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Migmatite = new Materials(
         872,
         TextureSet.SET_DULL,
@@ -5322,8 +5104,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Mimichite = new Materials(
         -1,
         TextureSet.SET_GEM_VERTICAL,
@@ -5346,8 +5127,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Moonstone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5370,8 +5150,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Naquadah = new Materials(
         324,
         TextureSet.SET_METALLIC,
@@ -5394,8 +5173,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials NaquadahAlloy = new Materials(
         325,
         TextureSet.SET_METALLIC,
@@ -5418,8 +5196,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials NaquadahEnriched = new Materials(
         326,
         TextureSet.SET_METALLIC,
@@ -5442,8 +5219,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         15,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Naquadria = new Materials(
         327,
         TextureSet.SET_SHINY,
@@ -5466,8 +5242,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         20,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Nether = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5490,8 +5265,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials NetherBrick = new Materials(
         814,
         TextureSet.SET_DULL,
@@ -5514,8 +5288,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials NetherQuartz = new Materials(
         522,
         TextureSet.SET_QUARTZ,
@@ -5538,8 +5311,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         2,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials NetherStar = new Materials(
         506,
         TextureSet.SET_NETHERSTAR,
@@ -5562,8 +5334,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         15,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Nikolite = new Materials(
         812,
         TextureSet.SET_SHINY,
@@ -5586,8 +5357,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeCyan
-    );
+        Dyes.dyeCyan);
     public static Materials ObsidianFlux = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -5610,8 +5380,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePurple
-    );
+        Dyes.dyePurple);
     public static Materials Oilsands = new Materials(
         878,
         TextureSet.SET_NONE,
@@ -5634,8 +5403,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Onyx = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5658,8 +5426,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Orichalcum = new Materials(
         966,
         TextureSet.SET_METALLIC,
@@ -5682,8 +5449,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Osmonium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5706,8 +5472,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeBlue
-    );
+        Dyes.dyeBlue);
     public static Materials Oureclase = new Materials(
         961,
         TextureSet.SET_METALLIC,
@@ -5730,8 +5495,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Painite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5754,8 +5518,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Peanutwood = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5778,8 +5541,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Petroleum = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5802,8 +5564,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Pewter = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5826,8 +5587,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Phoenixite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5850,8 +5610,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Prometheum = new Materials(
         960,
         TextureSet.SET_METALLIC,
@@ -5874,8 +5633,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Quartzite = new Materials(
         523,
         TextureSet.SET_QUARTZ,
@@ -5900,8 +5658,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Randomite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5924,8 +5681,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Rhyolite = new Materials(
         875,
         TextureSet.SET_DULL,
@@ -5948,8 +5704,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Rubracium = new Materials(
         488,
         TextureSet.SET_METALLIC,
@@ -5972,8 +5727,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Sand = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -5996,8 +5750,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Sanguinite = new Materials(
         955,
         TextureSet.SET_METALLIC,
@@ -6020,8 +5773,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Siltstone = new Materials(
         876,
         TextureSet.SET_DULL,
@@ -6044,8 +5796,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Spinel = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6068,8 +5819,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Starconium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6092,8 +5842,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Sugilite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6116,8 +5865,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Sunstone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6140,8 +5888,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Tar = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6164,8 +5911,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Tartarite = new Materials(
         956,
         TextureSet.SET_METALLIC,
@@ -6188,8 +5934,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Tapazite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6212,8 +5957,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials Thyrium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6236,8 +5980,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Tourmaline = new Materials(
         -1,
         TextureSet.SET_RUBY,
@@ -6260,8 +6003,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Tritanium = new Materials(
         329,
         TextureSet.SET_METALLIC,
@@ -6284,8 +6026,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Turquoise = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6308,8 +6049,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials UUAmplifier = new Materials(
         721,
         TextureSet.SET_FLUID,
@@ -6332,8 +6072,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyePink
-    );
+        Dyes.dyePink);
     public static Materials UUMatter = new Materials(
         703,
         TextureSet.SET_FLUID,
@@ -6356,8 +6095,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         1,
         1,
-        Dyes.dyePink
-    );
+        Dyes.dyePink);
     public static Materials Void = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6380,8 +6118,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Voidstone = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6404,8 +6141,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Vulcanite = new Materials(
         489,
         TextureSet.SET_METALLIC,
@@ -6428,8 +6164,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Vyroxeres = new Materials(
         951,
         TextureSet.SET_METALLIC,
@@ -6452,8 +6187,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes._NULL
-    );
+        Dyes._NULL);
     public static Materials Wimalite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6476,8 +6210,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Yellorite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6500,8 +6233,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Yellorium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6524,8 +6256,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Zectium = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6548,8 +6279,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
 
     /**
      * Circuitry, Batteries and other Technical things
@@ -6576,8 +6306,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Basic = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6600,8 +6329,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Good = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6624,8 +6352,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Advanced = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6648,8 +6375,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Data = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6672,8 +6398,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Elite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6696,8 +6421,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Master = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6720,8 +6444,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Ultimate = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6744,8 +6467,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Superconductor = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6768,8 +6490,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials Infinite = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6792,8 +6513,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
 
     /**
      * Not possible to determine exact Components
@@ -6820,8 +6540,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePink
-    );
+        Dyes.dyePink);
     public static Materials BioFuel = new Materials(
         705,
         TextureSet.SET_FLUID,
@@ -6844,8 +6563,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Biomass = new Materials(
         704,
         TextureSet.SET_FLUID,
@@ -6868,8 +6586,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGreen
-    );
+        Dyes.dyeGreen);
     public static Materials CharcoalByproducts = new MaterialBuilder(675, TextureSet.SET_FLUID, "Charcoal Byproducts")
         .addCell()
         .setRGB(120, 68, 33)
@@ -6897,8 +6614,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Chili = new Materials(
         895,
         TextureSet.SET_FINE,
@@ -6921,8 +6637,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Chocolate = new Materials(
         886,
         TextureSet.SET_FINE,
@@ -6945,8 +6660,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Cluster = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -6969,8 +6683,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials CoalFuel = new Materials(
         710,
         TextureSet.SET_FLUID,
@@ -6993,8 +6706,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Cocoa = new Materials(
         887,
         TextureSet.SET_FINE,
@@ -7017,8 +6729,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Coffee = new Materials(
         888,
         TextureSet.SET_FINE,
@@ -7041,8 +6752,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Creosote = new Materials(
         712,
         TextureSet.SET_FLUID,
@@ -7065,8 +6775,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Ethanol = new Materials(
         706,
         TextureSet.SET_FLUID,
@@ -7091,8 +6800,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 6), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 6), new MaterialStack(Oxygen, 1)));
     public static Materials FermentedBiomass = new MaterialBuilder(691, TextureSet.SET_FLUID, "Fermented Biomass")
         .addCell()
         .addFluid()
@@ -7121,8 +6829,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Fuel = new Materials(
         708,
         TextureSet.SET_FLUID,
@@ -7145,8 +6852,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Glue = new Materials(
         726,
         TextureSet.SET_FLUID,
@@ -7169,8 +6875,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Gunpowder = new Materials(
         800,
         TextureSet.SET_DULL,
@@ -7193,8 +6898,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials FryingOilHot = new Materials(
         727,
         TextureSet.SET_FLUID,
@@ -7217,8 +6921,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials Honey = new Materials(
         725,
         TextureSet.SET_FLUID,
@@ -7241,8 +6944,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Leather = new Materials(
         -1,
         TextureSet.SET_ROUGH,
@@ -7265,8 +6967,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials LimePure = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7289,8 +6990,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime
-    );
+        Dyes.dyeLime);
     public static Materials Lubricant = new Materials(
         724,
         TextureSet.SET_FLUID,
@@ -7313,8 +7013,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeOrange
-    );
+        Dyes.dyeOrange);
     public static Materials MeatRaw = new Materials(
         892,
         TextureSet.SET_FINE,
@@ -7337,8 +7036,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePink
-    );
+        Dyes.dyePink);
     public static Materials MeatCooked = new Materials(
         893,
         TextureSet.SET_FINE,
@@ -7361,8 +7059,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyePink
-    );
+        Dyes.dyePink);
     public static Materials Milk = new Materials(
         885,
         TextureSet.SET_FINE,
@@ -7385,8 +7082,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Mud = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7409,8 +7105,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Oil = new Materials(
         707,
         TextureSet.SET_FLUID,
@@ -7433,8 +7128,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Paper = new Materials(
         879,
         TextureSet.SET_PAPER,
@@ -7457,8 +7151,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Peat = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7481,8 +7174,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
     public static Materials Quantum = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7505,8 +7197,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials RareEarth = new Materials(
         891,
         TextureSet.SET_FINE,
@@ -7529,8 +7220,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials Red = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7553,8 +7243,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Reinforced = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7577,8 +7266,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials SeedOil = new Materials(
         713,
         TextureSet.SET_FLUID,
@@ -7601,8 +7289,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime
-    );
+        Dyes.dyeLime);
     public static Materials SeedOilHemp = new Materials(
         722,
         TextureSet.SET_FLUID,
@@ -7625,8 +7312,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime
-    );
+        Dyes.dyeLime);
     public static Materials SeedOilLin = new Materials(
         723,
         TextureSet.SET_FLUID,
@@ -7649,8 +7335,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime
-    );
+        Dyes.dyeLime);
     public static Materials Stone = new Materials(
         299,
         TextureSet.SET_ROUGH,
@@ -7673,8 +7358,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials TNT = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7697,8 +7381,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials Unstable = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7721,8 +7404,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Unstableingot = new Materials(
         -1,
         TextureSet.SET_NONE,
@@ -7745,8 +7427,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Vinegar = new MaterialBuilder(690, TextureSet.SET_FLUID, "Vinegar").setColor(Dyes.dyeBrown)
         .constructMaterial();
     public static Materials Wheat = new Materials(
@@ -7771,8 +7452,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials WoodGas = new MaterialBuilder(660, TextureSet.SET_FLUID, "Wood Gas").addCell()
         .addGas()
         .setRGB(222, 205, 135)
@@ -7816,8 +7496,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Osmiridium = new Materials(
         317,
         TextureSet.SET_METALLIC,
@@ -7842,8 +7521,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         1,
-        Arrays.asList(new MaterialStack(Iridium, 3), new MaterialStack(Osmium, 1))
-    );
+        Arrays.asList(new MaterialStack(Iridium, 3), new MaterialStack(Osmium, 1)));
     public static Materials Sunnarium = new Materials(
         318,
         TextureSet.SET_SHINY,
@@ -7866,8 +7544,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Endstone = new Materials(
         808,
         TextureSet.SET_DULL,
@@ -7890,8 +7567,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Netherrack = new Materials(
         807,
         TextureSet.SET_DULL,
@@ -7914,8 +7590,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes.dyeRed
-    );
+        Dyes.dyeRed);
     public static Materials SoulSand = new Materials(
         -1,
         TextureSet.SET_DULL,
@@ -7938,8 +7613,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         0,
         1,
         1,
-        Dyes.dyeBrown
-    );
+        Dyes.dyeBrown);
 
     /**
      * First Degree Compounds
@@ -7968,8 +7642,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeMagenta,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 4))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 4)));
     public static Materials CarbonDioxide = new Materials(
         497,
         TextureSet.SET_FLUID,
@@ -7994,8 +7667,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 2))
-    ).setHasCorrespondingGas(true);
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 2))).setHasCorrespondingGas(true);
     public static Materials NobleGases = new Materials(
         496,
         TextureSet.SET_FLUID,
@@ -8024,9 +7696,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(CarbonDioxide, 21),
             new MaterialStack(Helium, 9),
             new MaterialStack(Methane, 3),
-            new MaterialStack(Deuterium, 1))
-    ).setHasCorrespondingFluid(true)
-        .setLiquidTemperature(79);
+            new MaterialStack(Deuterium, 1))).setHasCorrespondingFluid(true)
+                .setLiquidTemperature(79);
     public static Materials Air = new Materials(
         -1,
         TextureSet.SET_FLUID,
@@ -8055,8 +7726,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Nitrogen, 40),
             new MaterialStack(Oxygen, 11),
             new MaterialStack(Argon, 1),
-            new MaterialStack(NobleGases, 1))
-    );
+            new MaterialStack(NobleGases, 1)));
     public static Materials LiquidAir = new Materials(
         495,
         TextureSet.SET_FLUID,
@@ -8085,9 +7755,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Nitrogen, 40),
             new MaterialStack(Oxygen, 11),
             new MaterialStack(Argon, 1),
-            new MaterialStack(NobleGases, 1))
-    ).setHasCorrespondingFluid(true)
-        .setLiquidTemperature(79);
+            new MaterialStack(NobleGases, 1))).setHasCorrespondingFluid(true)
+                .setLiquidTemperature(79);
     public static Materials Almandine = new Materials(
         820,
         TextureSet.SET_ROUGH,
@@ -8116,8 +7785,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Iron, 3),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials Andradite = new Materials(
         821,
         TextureSet.SET_ROUGH,
@@ -8146,8 +7814,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Calcium, 3),
             new MaterialStack(Iron, 2),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials AnnealedCopper = new Materials(
         345,
         TextureSet.SET_SHINY,
@@ -8172,8 +7839,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1)));
     public static Materials Asbestos = new Materials(
         946,
         TextureSet.SET_DULL,
@@ -8202,7 +7868,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 3),
             new MaterialStack(Silicon, 2),
             new MaterialStack(Hydrogen, 4),
-            new MaterialStack(Oxygen, 9))  // Mg3Si2O5(OH)4
+            new MaterialStack(Oxygen, 9)) // Mg3Si2O5(OH)4
     );
     public static Materials Ash = new Materials(
         815,
@@ -8226,8 +7892,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLightGray
-    );
+        Dyes.dyeLightGray);
     public static Materials BandedIron = new Materials(
         917,
         TextureSet.SET_DULL,
@@ -8252,8 +7917,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         1,
-        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Oxygen, 3)));
     public static Materials BatteryAlloy = new Materials(
         315,
         TextureSet.SET_DULL,
@@ -8278,8 +7942,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         2,
-        Arrays.asList(new MaterialStack(Lead, 4), new MaterialStack(Antimony, 1))
-    );
+        Arrays.asList(new MaterialStack(Lead, 4), new MaterialStack(Antimony, 1)));
     public static Materials BlueTopaz = new Materials(
         513,
         TextureSet.SET_GEM_HORIZONTAL,
@@ -8309,8 +7972,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Fluorine, 2),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 6))
-    );
+            new MaterialStack(Oxygen, 6)));
     public static Materials Bone = new Materials(
         806,
         TextureSet.SET_DULL,
@@ -8335,8 +7997,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Calcium, 1))
-    );
+        Arrays.asList(new MaterialStack(Calcium, 1)));
     public static Materials Brass = new Materials(
         301,
         TextureSet.SET_METALLIC,
@@ -8361,8 +8022,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3))
-    );
+        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3)));
     public static Materials Bronze = new Materials(
         300,
         TextureSet.SET_METALLIC,
@@ -8387,8 +8047,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Copper, 3))
-    );
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Copper, 3)));
     public static Materials BrownLimonite = new Materials(
         930,
         TextureSet.SET_METALLIC,
@@ -8413,8 +8072,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Hydrogen, 1), new MaterialStack(Oxygen, 2))
-    ); // FeO(OH)
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Hydrogen, 1), new MaterialStack(Oxygen, 2))); // FeO(OH)
     public static Materials Calcite = new Materials(
         823,
         TextureSet.SET_DULL,
@@ -8439,8 +8097,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 3)));
     public static Materials Cassiterite = new Materials(
         824,
         TextureSet.SET_METALLIC,
@@ -8465,8 +8122,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Oxygen, 2)));
     public static Materials CassiteriteSand = new Materials(
         937,
         TextureSet.SET_SAND,
@@ -8491,8 +8147,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Chalcopyrite = new Materials(
         855,
         TextureSet.SET_DULL,
@@ -8517,8 +8172,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         1,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Iron, 1), new MaterialStack(Sulfur, 2))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Iron, 1), new MaterialStack(Sulfur, 2)));
     // public static Materials Chalk = new Materials(856, TextureSet.SET_FINE, 1.0F, 0, 2, 1, 250, 250, 250, 0, "Chalk",
     // 0, 0, -1, 0, false, false, 0, 1, 1, Dyes.dyeWhite, 1, Arrays.asList(new MaterialStack(Calcium, 1), new
     // MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 3)));
@@ -8546,8 +8200,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Chromite = new Materials(
         825,
         TextureSet.SET_METALLIC,
@@ -8572,8 +8225,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Chrome, 2), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Chrome, 2), new MaterialStack(Oxygen, 4)));
     public static Materials ChromiumDioxide = new Materials(
         361,
         TextureSet.SET_DULL,
@@ -8598,8 +8250,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Cinnabar = new Materials(
         826,
         TextureSet.SET_ROUGH,
@@ -8624,8 +8275,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Mercury, 1), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(Mercury, 1), new MaterialStack(Sulfur, 1)));
     public static Materials Water = new Materials(
         701,
         TextureSet.SET_FLUID,
@@ -8650,8 +8300,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Clay = new Materials(
         805,
         TextureSet.SET_ROUGH,
@@ -8681,8 +8330,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Lithium, 1),
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 2),
-            new MaterialStack(Water, 6))
-    );
+            new MaterialStack(Water, 6)));
     public static Materials Coal = new Materials(
         535,
         TextureSet.SET_ROUGH,
@@ -8707,8 +8355,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Cobaltite = new Materials(
         827,
         TextureSet.SET_METALLIC,
@@ -8733,8 +8380,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Arsenic, 1), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Arsenic, 1), new MaterialStack(Sulfur, 1)));
     public static Materials Cooperite = new Materials(
         828,
         TextureSet.SET_METALLIC,
@@ -8763,8 +8409,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Platinum, 3),
             new MaterialStack(Nickel, 1),
             new MaterialStack(Sulfur, 1),
-            new MaterialStack(Palladium, 1))
-    );
+            new MaterialStack(Palladium, 1)));
     public static Materials Cupronickel = new Materials(
         310,
         TextureSet.SET_METALLIC,
@@ -8789,8 +8434,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Nickel, 1))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Nickel, 1)));
     public static Materials DarkAsh = new Materials(
         816,
         TextureSet.SET_DULL,
@@ -8813,8 +8457,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         2,
         1,
-        Dyes.dyeGray
-    );
+        Dyes.dyeGray);
     public static Materials DeepIron = new Materials(
         829,
         TextureSet.SET_METALLIC,
@@ -8839,8 +8482,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         2,
-        Arrays.asList(new MaterialStack(Materials.Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Materials.Iron, 1)));
     public static Materials Diamond = new Materials(
         500,
         TextureSet.SET_DIAMOND,
@@ -8865,8 +8507,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1)));
     public static Materials Electrum = new Materials(
         303,
         TextureSet.SET_SHINY,
@@ -8891,8 +8532,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Gold, 1))
-    );
+        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Gold, 1)));
     public static Materials Emerald = new Materials(
         501,
         TextureSet.SET_EMERALD,
@@ -8921,8 +8561,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Beryllium, 3),
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 6),
-            new MaterialStack(Oxygen, 18))
-    );
+            new MaterialStack(Oxygen, 18)));
     public static Materials FreshWater = new Materials(
         -1,
         TextureSet.SET_FLUID,
@@ -8947,8 +8586,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Galena = new Materials(
         830,
         TextureSet.SET_DULL,
@@ -8973,8 +8611,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         1,
-        Arrays.asList(new MaterialStack(Lead, 3), new MaterialStack(Silver, 3), new MaterialStack(Sulfur, 2))
-    );
+        Arrays.asList(new MaterialStack(Lead, 3), new MaterialStack(Silver, 3), new MaterialStack(Sulfur, 2)));
     public static Materials Garnierite = new Materials(
         906,
         TextureSet.SET_METALLIC,
@@ -8999,8 +8636,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         1,
-        Arrays.asList(new MaterialStack(Nickel, 1), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Nickel, 1), new MaterialStack(Oxygen, 1)));
     public static Materials Glyceryl = new Materials(
         714,
         TextureSet.SET_FLUID,
@@ -9029,8 +8665,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 3),
             new MaterialStack(Hydrogen, 5),
             new MaterialStack(Nitrogen, 3),
-            new MaterialStack(Oxygen, 9))
-    );
+            new MaterialStack(Oxygen, 9)));
     public static Materials GreenSapphire = new Materials(
         504,
         TextureSet.SET_GEM_HORIZONTAL,
@@ -9055,8 +8690,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Grossular = new Materials(
         831,
         TextureSet.SET_ROUGH,
@@ -9085,8 +8719,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Calcium, 3),
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials HolyWater = new Materials(
         729,
         TextureSet.SET_FLUID,
@@ -9111,8 +8744,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Ice = new Materials(
         702,
         TextureSet.SET_SHINY,
@@ -9137,8 +8769,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Ilmenite = new Materials(
         918,
         TextureSet.SET_METALLIC,
@@ -9163,8 +8794,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         0,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Titanium, 1), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Titanium, 1), new MaterialStack(Oxygen, 3)));
     public static Materials Rutile = new Materials(
         375,
         TextureSet.SET_GEM_HORIZONTAL,
@@ -9189,8 +8819,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         0,
-        Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Bauxite = new Materials(
         822,
         TextureSet.SET_DULL,
@@ -9219,8 +8848,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Rutile, 2),
             new MaterialStack(Aluminium, 16),
             new MaterialStack(Hydrogen, 10),
-            new MaterialStack(Oxygen, 11))
-    );
+            new MaterialStack(Oxygen, 11)));
     public static Materials Titaniumtetrachloride = new Materials(
         376,
         TextureSet.SET_FLUID,
@@ -9245,8 +8873,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         0,
-        Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Chlorine, 4))
-    );
+        Arrays.asList(new MaterialStack(Titanium, 1), new MaterialStack(Chlorine, 4)));
     public static Materials Magnesiumchloride = new Materials(
         377,
         TextureSet.SET_DULL,
@@ -9271,8 +8898,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         0,
-        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Chlorine, 2))
-    );
+        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Chlorine, 2)));
     public static Materials Invar = new Materials(
         302,
         TextureSet.SET_METALLIC,
@@ -9297,8 +8923,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Nickel, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 2), new MaterialStack(Nickel, 1)));
     public static Materials IronCompressed = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -9323,8 +8948,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1)));
     public static Materials Kanthal = new Materials(
         312,
         TextureSet.SET_METALLIC,
@@ -9349,8 +8973,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Aluminium, 1), new MaterialStack(Chrome, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Aluminium, 1), new MaterialStack(Chrome, 1)));
     public static Materials Lazurite = new Materials(
         524,
         TextureSet.SET_LAPIS,
@@ -9379,8 +9002,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 6),
             new MaterialStack(Silicon, 6),
             new MaterialStack(Calcium, 8),
-            new MaterialStack(Sodium, 8))
-    );
+            new MaterialStack(Sodium, 8)));
     public static Materials Magnalium = new Materials(
         313,
         TextureSet.SET_DULL,
@@ -9405,8 +9027,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         2,
-        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Aluminium, 2))
-    );
+        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Aluminium, 2)));
     public static Materials Magnesite = new Materials(
         908,
         TextureSet.SET_METALLIC,
@@ -9431,8 +9052,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 3)));
     public static Materials Magnetite = new Materials(
         870,
         TextureSet.SET_METALLIC,
@@ -9457,8 +9077,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4)));
     public static Materials Molybdenite = new Materials(
         942,
         TextureSet.SET_METALLIC,
@@ -9483,8 +9102,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(Molybdenum, 1), new MaterialStack(Sulfur, 2))
-    ); // MoS2 (also source of Re)
+        Arrays.asList(new MaterialStack(Molybdenum, 1), new MaterialStack(Sulfur, 2))); // MoS2 (also source of Re)
     public static Materials Nichrome = new Materials(
         311,
         TextureSet.SET_METALLIC,
@@ -9509,8 +9127,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Nickel, 4), new MaterialStack(Chrome, 1))
-    );
+        Arrays.asList(new MaterialStack(Nickel, 4), new MaterialStack(Chrome, 1)));
     public static Materials NiobiumNitride = new Materials(
         359,
         TextureSet.SET_DULL,
@@ -9535,8 +9152,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1))
-    ); // Anti-Reflective Material
+        Arrays.asList(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1))); // Anti-Reflective Material
     public static Materials NiobiumTitanium = new Materials(
         360,
         TextureSet.SET_DULL,
@@ -9561,8 +9177,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Niobium, 1), new MaterialStack(Titanium, 1))
-    );
+        Arrays.asList(new MaterialStack(Niobium, 1), new MaterialStack(Titanium, 1)));
     public static Materials NitroCarbon = new Materials(
         716,
         TextureSet.SET_FLUID,
@@ -9587,8 +9202,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Nitrogen, 1), new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Nitrogen, 1), new MaterialStack(Carbon, 1)));
     public static Materials NitrogenDioxide = new Materials(
         717,
         TextureSet.SET_FLUID,
@@ -9613,8 +9227,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Obsidian = new Materials(
         804,
         TextureSet.SET_DULL,
@@ -9643,8 +9256,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 1),
             new MaterialStack(Iron, 1),
             new MaterialStack(Silicon, 2),
-            new MaterialStack(Oxygen, 8))
-    );
+            new MaterialStack(Oxygen, 8)));
     public static Materials Phosphate = new Materials(
         833,
         TextureSet.SET_DULL,
@@ -9669,8 +9281,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         1,
-        Arrays.asList(new MaterialStack(Phosphorus, 1), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Phosphorus, 1), new MaterialStack(Oxygen, 4)));
     public static Materials PigIron = new Materials(
         307,
         TextureSet.SET_METALLIC,
@@ -9695,8 +9306,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1)));
     public static Materials Plastic = new Materials(
         874,
         TextureSet.SET_DULL,
@@ -9721,8 +9331,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 2))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Hydrogen, 2)));
     public static Materials Epoxid = new Materials(
         470,
         TextureSet.SET_DULL,
@@ -9747,8 +9356,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 4), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Hydrogen, 4), new MaterialStack(Oxygen, 1)));
     public static Materials Polydimethylsiloxane = new MaterialBuilder(
         633,
         TextureSet.SET_FLUID,
@@ -9790,8 +9398,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 2),
             new MaterialStack(Hydrogen, 6),
             new MaterialStack(Oxygen, 1),
-            new MaterialStack(Silicon, 1))
-    );
+            new MaterialStack(Silicon, 1)));
     public static Materials Polycaprolactam = new Materials(
         472,
         TextureSet.SET_DULL,
@@ -9820,8 +9427,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 6),
             new MaterialStack(Hydrogen, 11),
             new MaterialStack(Nitrogen, 1),
-            new MaterialStack(Oxygen, 1))
-    );
+            new MaterialStack(Oxygen, 1)));
     public static Materials Polytetrafluoroethylene = new Materials(
         473,
         TextureSet.SET_DULL,
@@ -9846,8 +9452,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Fluorine, 4))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 2), new MaterialStack(Fluorine, 4)));
     public static Materials Powellite = new Materials(
         883,
         TextureSet.SET_DULL,
@@ -9872,8 +9477,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Molybdenum, 1), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Molybdenum, 1), new MaterialStack(Oxygen, 4)));
     public static Materials Pumice = new Materials(
         926,
         TextureSet.SET_DULL,
@@ -9898,8 +9502,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(Stone, 1))
-    );
+        Arrays.asList(new MaterialStack(Stone, 1)));
     public static Materials Pyrite = new Materials(
         834,
         TextureSet.SET_ROUGH,
@@ -9924,8 +9527,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Sulfur, 2))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Sulfur, 2)));
     public static Materials Pyrolusite = new Materials(
         943,
         TextureSet.SET_DULL,
@@ -9950,8 +9552,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightGray,
         1,
-        Arrays.asList(new MaterialStack(Manganese, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Manganese, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Pyrope = new Materials(
         835,
         TextureSet.SET_METALLIC,
@@ -9980,8 +9581,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Magnesium, 3),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials RockSalt = new Materials(
         944,
         TextureSet.SET_FINE,
@@ -10006,8 +9606,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Potassium, 1), new MaterialStack(Chlorine, 1))
-    );
+        Arrays.asList(new MaterialStack(Potassium, 1), new MaterialStack(Chlorine, 1)));
     public static Materials Rubber = new Materials(
         880,
         TextureSet.SET_SHINY,
@@ -10032,8 +9631,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)));
     public static Materials RawRubber = new Materials(
         896,
         TextureSet.SET_DULL,
@@ -10058,8 +9656,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 5), new MaterialStack(Hydrogen, 8)));
     public static Materials Ruby = new Materials(
         502,
         TextureSet.SET_RUBY,
@@ -10084,8 +9681,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         1,
-        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Chrome, 1), new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Salt = new Materials(
         817,
         TextureSet.SET_FINE,
@@ -10110,8 +9706,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Sodium, 1), new MaterialStack(Chlorine, 1))
-    );
+        Arrays.asList(new MaterialStack(Sodium, 1), new MaterialStack(Chlorine, 1)));
     public static Materials Saltpeter = new Materials(
         836,
         TextureSet.SET_FINE,
@@ -10136,8 +9731,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Potassium, 1), new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Potassium, 1), new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 3)));
     public static Materials SaltWater = new MaterialBuilder(692, TextureSet.SET_FLUID, "Salt Water").addCell()
         .addFluid()
         .setRGB(0, 0, 200)
@@ -10167,8 +9761,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3))
-    );
+        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)));
     public static Materials Scheelite = new Materials(
         910,
         TextureSet.SET_DULL,
@@ -10193,8 +9786,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         0,
-        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Calcium, 2), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Calcium, 2), new MaterialStack(Oxygen, 4)));
     public static Materials SiliconDioxide = new Materials(
         837,
         TextureSet.SET_QUARTZ,
@@ -10219,8 +9811,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightGray,
         1,
-        Arrays.asList(new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Snow = new Materials(
         728,
         TextureSet.SET_FINE,
@@ -10245,8 +9836,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)));
     public static Materials Sodalite = new Materials(
         525,
         TextureSet.SET_LAPIS,
@@ -10275,8 +9865,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Silicon, 3),
             new MaterialStack(Sodium, 4),
-            new MaterialStack(Chlorine, 1))
-    );
+            new MaterialStack(Chlorine, 1)));
     public static Materials SodiumPersulfate = new Materials(
         718,
         TextureSet.SET_FLUID,
@@ -10301,8 +9890,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Sodium, 2), new MaterialStack(Sulfur, 2), new MaterialStack(Oxygen, 8))
-    );
+        Arrays.asList(new MaterialStack(Sodium, 2), new MaterialStack(Sulfur, 2), new MaterialStack(Oxygen, 8)));
     public static Materials SodiumSulfide = new Materials(
         719,
         TextureSet.SET_FLUID,
@@ -10327,8 +9915,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Sodium, 2), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(Sodium, 2), new MaterialStack(Sulfur, 1)));
     public static Materials HydricSulfide = new Materials(
         460,
         TextureSet.SET_FLUID,
@@ -10353,8 +9940,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         0,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Sulfur, 1)));
     public static Materials OilHeavy = new Materials(
         730,
         TextureSet.SET_FLUID,
@@ -10377,8 +9963,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials OilMedium = new Materials(
         731,
         TextureSet.SET_FLUID,
@@ -10401,8 +9986,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials OilLight = new Materials(
         732,
         TextureSet.SET_FLUID,
@@ -10425,8 +10009,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials NatruralGas = new Materials(
         733,
         TextureSet.SET_FLUID,
@@ -10449,8 +10032,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials SulfuricGas = new Materials(
         734,
         TextureSet.SET_FLUID,
@@ -10473,8 +10055,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite
-    );
+        Dyes.dyeWhite);
     public static Materials Gas = new Materials(
         735,
         TextureSet.SET_FLUID,
@@ -10497,8 +10078,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         3,
         1,
         1,
-        Dyes.dyeWhite
-    ).setCanBeCracked(true);
+        Dyes.dyeWhite).setCanBeCracked(true);
     public static Materials SulfuricNaphtha = new Materials(
         736,
         TextureSet.SET_FLUID,
@@ -10521,8 +10101,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials SulfuricLightFuel = new Materials(
         737,
         TextureSet.SET_FLUID,
@@ -10545,8 +10124,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials SulfuricHeavyFuel = new Materials(
         738,
         TextureSet.SET_FLUID,
@@ -10569,8 +10147,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    );
+        Dyes.dyeBlack);
     public static Materials Naphtha = new Materials(
         739,
         TextureSet.SET_FLUID,
@@ -10593,8 +10170,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    ).setCanBeCracked(true);
+        Dyes.dyeYellow).setCanBeCracked(true);
     public static Materials LightFuel = new Materials(
         740,
         TextureSet.SET_FLUID,
@@ -10617,8 +10193,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    ).setCanBeCracked(true);
+        Dyes.dyeYellow).setCanBeCracked(true);
     public static Materials HeavyFuel = new Materials(
         741,
         TextureSet.SET_FLUID,
@@ -10641,8 +10216,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeBlack
-    ).setCanBeCracked(true);
+        Dyes.dyeBlack).setCanBeCracked(true);
     public static Materials LPG = new Materials(
         742,
         TextureSet.SET_FLUID,
@@ -10665,8 +10239,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeYellow
-    );
+        Dyes.dyeYellow);
     public static Materials Chlorobenzene = new MaterialBuilder(605, TextureSet.SET_FLUID, "Chlorobenzene").addCell()
         .addFluid()
         .setRGB(0, 50, 65)
@@ -11301,8 +10874,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Tin, 9), new MaterialStack(Antimony, 1))
-    );
+        Arrays.asList(new MaterialStack(Tin, 9), new MaterialStack(Antimony, 1)));
     public static Materials GalliumArsenide = new Materials(
         980,
         TextureSet.SET_DULL,
@@ -11327,8 +10899,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(Arsenic, 1), new MaterialStack(Gallium, 1))
-    );
+        Arrays.asList(new MaterialStack(Arsenic, 1), new MaterialStack(Gallium, 1)));
     public static Materials IndiumGalliumPhosphide = new Materials(
         981,
         TextureSet.SET_DULL,
@@ -11353,8 +10924,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightGray,
         2,
-        Arrays.asList(new MaterialStack(Indium, 1), new MaterialStack(Gallium, 1), new MaterialStack(Phosphorus, 1))
-    );
+        Arrays.asList(new MaterialStack(Indium, 1), new MaterialStack(Gallium, 1), new MaterialStack(Phosphorus, 1)));
     public static Materials Spessartine = new Materials(
         838,
         TextureSet.SET_DULL,
@@ -11383,8 +10953,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Manganese, 3),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials Sphalerite = new Materials(
         839,
         TextureSet.SET_DULL,
@@ -11409,8 +10978,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         1,
-        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(Zinc, 1), new MaterialStack(Sulfur, 1)));
     public static Materials StainlessSteel = new Materials(
         306,
         TextureSet.SET_SHINY,
@@ -11439,8 +11007,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Iron, 6),
             new MaterialStack(Chrome, 1),
             new MaterialStack(Manganese, 1),
-            new MaterialStack(Nickel, 1))
-    );
+            new MaterialStack(Nickel, 1)));
     public static Materials Steel = new Materials(
         305,
         TextureSet.SET_METALLIC,
@@ -11465,8 +11032,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 50), new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 50), new MaterialStack(Carbon, 1)));
     public static Materials Stibnite = new Materials(
         945,
         TextureSet.SET_METALLIC,
@@ -11491,8 +11057,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Antimony, 2), new MaterialStack(Sulfur, 3))
-    );
+        Arrays.asList(new MaterialStack(Antimony, 2), new MaterialStack(Sulfur, 3)));
     public static Materials SulfuricAcid = new Materials(
         720,
         TextureSet.SET_FLUID,
@@ -11517,8 +11082,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         1,
-        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Sulfur, 1), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Hydrogen, 2), new MaterialStack(Sulfur, 1), new MaterialStack(Oxygen, 4)));
     public static Materials Tanzanite = new Materials(
         508,
         TextureSet.SET_GEM_VERTICAL,
@@ -11548,8 +11112,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Silicon, 3),
             new MaterialStack(Hydrogen, 1),
-            new MaterialStack(Oxygen, 13))
-    );
+            new MaterialStack(Oxygen, 13)));
     public static Materials Tetrahedrite = new Materials(
         840,
         TextureSet.SET_DULL,
@@ -11578,7 +11141,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Copper, 3),
             new MaterialStack(Antimony, 1),
             new MaterialStack(Sulfur, 3),
-            new MaterialStack(Iron, 1))  // Cu3SbS3 + x(Fe, Zn)6Sb2S9
+            new MaterialStack(Iron, 1)) // Cu3SbS3 + x(Fe, Zn)6Sb2S9
     );
     public static Materials TinAlloy = new Materials(
         363,
@@ -11604,8 +11167,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Tin, 1), new MaterialStack(Iron, 1)));
     public static Materials Topaz = new Materials(
         507,
         TextureSet.SET_GEM_HORIZONTAL,
@@ -11635,8 +11197,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Fluorine, 2),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 6))
-    );
+            new MaterialStack(Oxygen, 6)));
     public static Materials Tungstate = new Materials(
         841,
         TextureSet.SET_DULL,
@@ -11661,8 +11222,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         0,
-        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Lithium, 2), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Lithium, 2), new MaterialStack(Oxygen, 4)));
     public static Materials Ultimet = new Materials(
         344,
         TextureSet.SET_SHINY,
@@ -11689,9 +11249,9 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Arrays.asList(
             new MaterialStack(Cobalt, 5),
-            new MaterialStack(Chrome, 2),      // 54% Cobalt, 26% Chromium, 9% Nickel, 5% Molybdenum, 3% Iron, 2%
-            new MaterialStack(Nickel, 1),      // Tungsten, 0.8% Manganese, 0.3% Silicon, 0.08% Nitrogen and 0.06%
-            new MaterialStack(Molybdenum, 1))  // Carbon
+            new MaterialStack(Chrome, 2), // 54% Cobalt, 26% Chromium, 9% Nickel, 5% Molybdenum, 3% Iron, 2%
+            new MaterialStack(Nickel, 1), // Tungsten, 0.8% Manganese, 0.3% Silicon, 0.08% Nitrogen and 0.06%
+            new MaterialStack(Molybdenum, 1)) // Carbon
     );
     public static Materials Uraninite = new Materials(
         922,
@@ -11717,8 +11277,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLime,
         2,
-        Arrays.asList(new MaterialStack(Uranium, 1), new MaterialStack(Oxygen, 2))
-    );
+        Arrays.asList(new MaterialStack(Uranium, 1), new MaterialStack(Oxygen, 2)));
     public static Materials Uvarovite = new Materials(
         842,
         TextureSet.SET_DIAMOND,
@@ -11747,8 +11306,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Calcium, 3),
             new MaterialStack(Chrome, 2),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 12))
-    );
+            new MaterialStack(Oxygen, 12)));
     public static Materials VanadiumGallium = new Materials(
         357,
         TextureSet.SET_SHINY,
@@ -11773,8 +11331,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(Vanadium, 3), new MaterialStack(Gallium, 1))
-    );
+        Arrays.asList(new MaterialStack(Vanadium, 3), new MaterialStack(Gallium, 1)));
     public static Materials Wood = new Materials(
         809,
         TextureSet.SET_WOOD,
@@ -11799,8 +11356,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         0,
-        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 1), new MaterialStack(Hydrogen, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 1), new MaterialStack(Oxygen, 1), new MaterialStack(Hydrogen, 1)));
     public static Materials WroughtIron = new Materials(
         304,
         TextureSet.SET_METALLIC,
@@ -11825,8 +11381,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightGray,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1)));
     public static Materials Wulfenite = new Materials(
         882,
         TextureSet.SET_DULL,
@@ -11851,8 +11406,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Lead, 1), new MaterialStack(Molybdenum, 1), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Lead, 1), new MaterialStack(Molybdenum, 1), new MaterialStack(Oxygen, 4)));
     public static Materials YellowLimonite = new Materials(
         931,
         TextureSet.SET_METALLIC,
@@ -11877,13 +11431,12 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Hydrogen, 1), new MaterialStack(Oxygen, 2))
-    ); // FeO(OH)
-       // + a
-       // bit
-       // Ni
-       // and
-       // Co
+        Arrays.asList(new MaterialStack(Iron, 1), new MaterialStack(Hydrogen, 1), new MaterialStack(Oxygen, 2))); // FeO(OH)
+                                                                                                                  // + a
+                                                                                                                  // bit
+                                                                                                                  // Ni
+                                                                                                                  // and
+                                                                                                                  // Co
     public static Materials YttriumBariumCuprate = new Materials(
         358,
         TextureSet.SET_METALLIC,
@@ -11912,8 +11465,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Yttrium, 1),
             new MaterialStack(Barium, 2),
             new MaterialStack(Copper, 3),
-            new MaterialStack(Oxygen, 7))
-    );
+            new MaterialStack(Oxygen, 7)));
 
     /**
      * Second Degree Compounds
@@ -11942,8 +11494,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         0,
-        Arrays.asList(new MaterialStack(Wood, 1))
-    );
+        Arrays.asList(new MaterialStack(Wood, 1)));
     public static Materials Glass = new Materials(
         890,
         TextureSet.SET_GLASS,
@@ -11968,8 +11519,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1))
-    );
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials BorosilicateGlass = new MaterialBuilder(611, TextureSet.SET_GLASS, "Borosilicate Glass")
         .addDustItems()
         .addMetalItems()
@@ -12002,8 +11552,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Obsidian, 2), new MaterialStack(Water, 1))
-    );
+        Arrays.asList(new MaterialStack(Obsidian, 2), new MaterialStack(Water, 1)));
     public static Materials Borax = new Materials(
         941,
         TextureSet.SET_FINE,
@@ -12032,8 +11581,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Sodium, 2),
             new MaterialStack(Boron, 4),
             new MaterialStack(Oxygen, 7),
-            new MaterialStack(Water, 10))
-    );
+            new MaterialStack(Water, 10)));
     public static Materials Lignite = new Materials(
         538,
         TextureSet.SET_LIGNITE,
@@ -12058,8 +11606,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 3), new MaterialStack(Water, 1))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 3), new MaterialStack(Water, 1)));
     public static Materials Olivine = new Materials(
         505,
         TextureSet.SET_RUBY,
@@ -12084,8 +11631,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLime,
         1,
-        Arrays.asList(new MaterialStack(Magnesium, 2), new MaterialStack(Iron, 1), new MaterialStack(SiliconDioxide, 2))
-    );
+        Arrays
+            .asList(new MaterialStack(Magnesium, 2), new MaterialStack(Iron, 1), new MaterialStack(SiliconDioxide, 2)));
     public static Materials Opal = new Materials(
         510,
         TextureSet.SET_OPAL,
@@ -12110,8 +11657,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         1,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1))
-    );
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials Amethyst = new Materials(
         509,
         TextureSet.SET_FLINT,
@@ -12136,8 +11682,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         1,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Iron, 1)));
     public static Materials Redstone = new Materials(
         810,
         TextureSet.SET_ROUGH,
@@ -12166,8 +11711,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 1),
             new MaterialStack(Pyrite, 5),
             new MaterialStack(Ruby, 1),
-            new MaterialStack(Mercury, 3))
-    );
+            new MaterialStack(Mercury, 3)));
     public static Materials Lapis = new Materials(
         526,
         TextureSet.SET_LAPIS,
@@ -12196,8 +11740,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Lazurite, 12),
             new MaterialStack(Sodalite, 2),
             new MaterialStack(Pyrite, 1),
-            new MaterialStack(Calcite, 1))
-    );
+            new MaterialStack(Calcite, 1)));
     public static Materials Blaze = new Materials(
         801,
         TextureSet.SET_POWDER,
@@ -12222,8 +11765,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         2,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1))
-    );
+        Arrays.asList(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1)));
     public static Materials EnderPearl = new Materials(
         532,
         TextureSet.SET_SHINY,
@@ -12248,11 +11790,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         10,
         Dyes.dyeGreen,
         1,
-        Arrays.asList(
-            new MaterialStack(Beryllium, 1),
-            new MaterialStack(Potassium, 4),
-            new MaterialStack(Nitrogen, 5))
-    );
+        Arrays
+            .asList(new MaterialStack(Beryllium, 1), new MaterialStack(Potassium, 4), new MaterialStack(Nitrogen, 5)));
     public static Materials EnderEye = new Materials(
         533,
         TextureSet.SET_SHINY,
@@ -12277,8 +11816,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGreen,
         2,
-        Arrays.asList(new MaterialStack(EnderPearl, 1), new MaterialStack(Blaze, 1))
-    );
+        Arrays.asList(new MaterialStack(EnderPearl, 1), new MaterialStack(Blaze, 1)));
     public static Materials Flint = new Materials(
         802,
         TextureSet.SET_FLINT,
@@ -12303,8 +11841,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 1))
-    );
+        Arrays.asList(new MaterialStack(SiliconDioxide, 1)));
     public static Materials Diatomite = new Materials(
         948,
         TextureSet.SET_DULL,
@@ -12404,8 +11941,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Coal, 1), new MaterialStack(Redstone, 1), new MaterialStack(Blaze, 1))
-    );
+        Arrays.asList(new MaterialStack(Coal, 1), new MaterialStack(Redstone, 1), new MaterialStack(Blaze, 1)));
     public static Materials HydratedCoal = new Materials(
         818,
         TextureSet.SET_ROUGH,
@@ -12430,8 +11966,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         8,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Coal, 8), new MaterialStack(Water, 1))
-    );
+        Arrays.asList(new MaterialStack(Coal, 8), new MaterialStack(Water, 1)));
     public static Materials Apatite = new Materials(
         530,
         TextureSet.SET_DIAMOND,
@@ -12456,8 +11991,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         1,
-        Arrays.asList(new MaterialStack(Calcium, 5), new MaterialStack(Phosphate, 3), new MaterialStack(Chlorine, 1))
-    );
+        Arrays.asList(new MaterialStack(Calcium, 5), new MaterialStack(Phosphate, 3), new MaterialStack(Chlorine, 1)));
     public static Materials Alumite = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -12482,8 +12016,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePink,
         2,
-        Arrays.asList(new MaterialStack(Aluminium, 5), new MaterialStack(Iron, 2), new MaterialStack(Obsidian, 2))
-    );
+        Arrays.asList(new MaterialStack(Aluminium, 5), new MaterialStack(Iron, 2), new MaterialStack(Obsidian, 2)));
     public static Materials Manyullyn = new Materials(
         -1,
         TextureSet.SET_METALLIC,
@@ -12508,8 +12041,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         2,
-        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Aredrite, 1))
-    );
+        Arrays.asList(new MaterialStack(Cobalt, 1), new MaterialStack(Aredrite, 1)));
     public static Materials SterlingSilver = new Materials(
         350,
         TextureSet.SET_SHINY,
@@ -12534,8 +12066,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Silver, 4))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Silver, 4)));
     public static Materials RoseGold = new Materials(
         351,
         TextureSet.SET_SHINY,
@@ -12560,8 +12091,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Gold, 4))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Gold, 4)));
     public static Materials BlackBronze = new Materials(
         352,
         TextureSet.SET_DULL,
@@ -12586,8 +12116,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyePurple,
         2,
-        Arrays.asList(new MaterialStack(Gold, 1), new MaterialStack(Silver, 1), new MaterialStack(Copper, 3))
-    );
+        Arrays.asList(new MaterialStack(Gold, 1), new MaterialStack(Silver, 1), new MaterialStack(Copper, 3)));
     public static Materials BismuthBronze = new Materials(
         353,
         TextureSet.SET_DULL,
@@ -12612,8 +12141,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeCyan,
         2,
-        Arrays.asList(new MaterialStack(Bismuth, 1), new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3))
-    );
+        Arrays.asList(new MaterialStack(Bismuth, 1), new MaterialStack(Zinc, 1), new MaterialStack(Copper, 3)));
     public static Materials BlackSteel = new Materials(
         334,
         TextureSet.SET_METALLIC,
@@ -12638,8 +12166,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Nickel, 1), new MaterialStack(BlackBronze, 1), new MaterialStack(Steel, 3))
-    );
+        Arrays.asList(new MaterialStack(Nickel, 1), new MaterialStack(BlackBronze, 1), new MaterialStack(Steel, 3)));
     public static Materials RedSteel = new Materials(
         348,
         TextureSet.SET_METALLIC,
@@ -12668,8 +12195,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(SterlingSilver, 1),
             new MaterialStack(BismuthBronze, 1),
             new MaterialStack(Steel, 2),
-            new MaterialStack(BlackSteel, 4))
-    );
+            new MaterialStack(BlackSteel, 4)));
     public static Materials BlueSteel = new Materials(
         349,
         TextureSet.SET_METALLIC,
@@ -12698,8 +12224,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(RoseGold, 1),
             new MaterialStack(Brass, 1),
             new MaterialStack(Steel, 2),
-            new MaterialStack(BlackSteel, 4))
-    );
+            new MaterialStack(BlackSteel, 4)));
     public static Materials DamascusSteel = new Materials(
         335,
         TextureSet.SET_METALLIC,
@@ -12724,8 +12249,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         2,
-        Arrays.asList(new MaterialStack(Steel, 1))
-    );
+        Arrays.asList(new MaterialStack(Steel, 1)));
     public static Materials TungstenSteel = new Materials(
         316,
         TextureSet.SET_METALLIC,
@@ -12750,8 +12274,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlue,
         2,
-        Arrays.asList(new MaterialStack(Steel, 1), new MaterialStack(Tungsten, 1))
-    );
+        Arrays.asList(new MaterialStack(Steel, 1), new MaterialStack(Tungsten, 1)));
     public static Materials NitroCoalFuel = new Materials(
         -1,
         TextureSet.SET_FLUID,
@@ -12776,8 +12299,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         0,
-        Arrays.asList(new MaterialStack(Glyceryl, 1), new MaterialStack(CoalFuel, 4))
-    );
+        Arrays.asList(new MaterialStack(Glyceryl, 1), new MaterialStack(CoalFuel, 4)));
     public static Materials NitroFuel = new Materials(
         709,
         TextureSet.SET_FLUID,
@@ -12800,8 +12322,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         1,
-        Dyes.dyeLime
-    );
+        Dyes.dyeLime);
     public static Materials BlueAlloy = new Materials(
         309,
         TextureSet.SET_DULL,
@@ -12826,8 +12347,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeLightBlue,
         2,
-        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Nikolite, 4))
-    );
+        Arrays.asList(new MaterialStack(Silver, 1), new MaterialStack(Nikolite, 4)));
     public static Materials RedAlloy = new Materials(
         308,
         TextureSet.SET_DULL,
@@ -12852,8 +12372,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Redstone, 4))
-    );
+        Arrays.asList(new MaterialStack(Copper, 1), new MaterialStack(Redstone, 4)));
     public static Materials CobaltBrass = new Materials(
         343,
         TextureSet.SET_METALLIC,
@@ -12878,8 +12397,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(Brass, 7), new MaterialStack(Aluminium, 1), new MaterialStack(Cobalt, 1))
-    );
+        Arrays.asList(new MaterialStack(Brass, 7), new MaterialStack(Aluminium, 1), new MaterialStack(Cobalt, 1)));
     public static Materials TricalciumPhosphate = new Materials(
         534,
         TextureSet.SET_FLINT,
@@ -12904,8 +12422,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Calcium, 3), new MaterialStack(Phosphate, 2))
-    );
+        Arrays.asList(new MaterialStack(Calcium, 3), new MaterialStack(Phosphate, 2)));
     public static Materials Basalt = new Materials(
         844,
         TextureSet.SET_ROUGH,
@@ -12934,8 +12451,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Olivine, 1),
             new MaterialStack(Calcite, 3),
             new MaterialStack(Flint, 8),
-            new MaterialStack(DarkAsh, 4))
-    );
+            new MaterialStack(DarkAsh, 4)));
     public static Materials GarnetRed = new Materials(
         527,
         TextureSet.SET_RUBY,
@@ -12960,8 +12476,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Pyrope, 3), new MaterialStack(Almandine, 5), new MaterialStack(Spessartine, 8))
-    );
+        Arrays
+            .asList(new MaterialStack(Pyrope, 3), new MaterialStack(Almandine, 5), new MaterialStack(Spessartine, 8)));
     public static Materials GarnetYellow = new Materials(
         528,
         TextureSet.SET_RUBY,
@@ -12986,8 +12502,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Andradite, 5), new MaterialStack(Grossular, 8), new MaterialStack(Uvarovite, 3))
-    );
+        Arrays
+            .asList(new MaterialStack(Andradite, 5), new MaterialStack(Grossular, 8), new MaterialStack(Uvarovite, 3)));
     public static Materials Marble = new Materials(
         845,
         TextureSet.SET_FINE,
@@ -13012,8 +12528,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Calcite, 7))
-    );
+        Arrays.asList(new MaterialStack(Magnesium, 1), new MaterialStack(Calcite, 7)));
     public static Materials Sugar = new Materials(
         803,
         TextureSet.SET_FINE,
@@ -13038,8 +12553,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         1,
-        Arrays.asList(new MaterialStack(Carbon, 12), new MaterialStack(Water, 11))
-    );
+        Arrays.asList(new MaterialStack(Carbon, 12), new MaterialStack(Water, 11)));
     public static Materials Redrock = new Materials(
         846,
         TextureSet.SET_ROUGH,
@@ -13064,8 +12578,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(Calcite, 2), new MaterialStack(Flint, 1), new MaterialStack(Clay, 1))
-    );
+        Arrays.asList(new MaterialStack(Calcite, 2), new MaterialStack(Flint, 1), new MaterialStack(Clay, 1)));
     public static Materials PotassiumFeldspar = new Materials(
         847,
         TextureSet.SET_FINE,
@@ -13094,8 +12607,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Potassium, 1),
             new MaterialStack(Aluminium, 1),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 8))
-    );
+            new MaterialStack(Oxygen, 8)));
     public static Materials Biotite = new Materials(
         848,
         TextureSet.SET_METALLIC,
@@ -13126,8 +12638,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Fluorine, 2),
             new MaterialStack(Silicon, 3),
-            new MaterialStack(Oxygen, 10))
-    );
+            new MaterialStack(Oxygen, 10)));
     public static Materials GraniteBlack = new Materials(
         849,
         TextureSet.SET_ROUGH,
@@ -13152,8 +12663,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Biotite, 1))
-    );
+        Arrays.asList(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Biotite, 1)));
     public static Materials GraniteRed = new Materials(
         850,
         TextureSet.SET_ROUGH,
@@ -13181,8 +12691,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Arrays.asList(
             new MaterialStack(Aluminium, 2),
             new MaterialStack(PotassiumFeldspar, 1),
-            new MaterialStack(Oxygen, 3))
-    );
+            new MaterialStack(Oxygen, 3)));
     public static Materials Chrysotile = new Materials(
         912,
         TextureSet.SET_DULL,
@@ -13207,8 +12716,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Asbestos, 1))
-    );
+        Arrays.asList(new MaterialStack(Asbestos, 1)));
     public static Materials Realgar = new Materials(
         913,
         TextureSet.SET_DULL,
@@ -13233,8 +12741,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Arsenic, 4), new MaterialStack(Sulfur, 4))
-    );
+        Arrays.asList(new MaterialStack(Arsenic, 4), new MaterialStack(Sulfur, 4)));
     public static Materials VanadiumMagnetite = new Materials(
         923,
         TextureSet.SET_METALLIC,
@@ -13259,12 +12766,11 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Vanadium, 1))
-    ); // Mixture
-       // of
-       // Fe3O4
-       // and
-       // V2O5
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Vanadium, 1))); // Mixture
+                                                                                         // of
+                                                                                         // Fe3O4
+                                                                                         // and
+                                                                                         // V2O5
     public static Materials BasalticMineralSand = new Materials(
         935,
         TextureSet.SET_SAND,
@@ -13289,8 +12795,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Basalt, 1))
-    );
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(Basalt, 1)));
     public static Materials GraniticMineralSand = new Materials(
         936,
         TextureSet.SET_SAND,
@@ -13315,8 +12820,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(GraniteBlack, 1))
-    );
+        Arrays.asList(new MaterialStack(Magnetite, 1), new MaterialStack(GraniteBlack, 1)));
     public static Materials GarnetSand = new Materials(
         938,
         TextureSet.SET_SAND,
@@ -13341,8 +12845,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeOrange,
         2,
-        Arrays.asList(new MaterialStack(GarnetRed, 1), new MaterialStack(GarnetYellow, 1))
-    );
+        Arrays.asList(new MaterialStack(GarnetRed, 1), new MaterialStack(GarnetYellow, 1)));
     public static Materials QuartzSand = new Materials(
         939,
         TextureSet.SET_SAND,
@@ -13367,8 +12870,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(CertusQuartz, 1), new MaterialStack(Quartzite, 1))
-    );
+        Arrays.asList(new MaterialStack(CertusQuartz, 1), new MaterialStack(Quartzite, 1)));
     public static Materials Bastnasite = new Materials(
         905,
         TextureSet.SET_FINE,
@@ -13397,8 +12899,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Cerium, 1),
             new MaterialStack(Carbon, 1),
             new MaterialStack(Fluorine, 1),
-            new MaterialStack(Oxygen, 3))
-    ); // (Ce, La, Y)CO3F
+            new MaterialStack(Oxygen, 3))); // (Ce, La, Y)CO3F
     public static Materials Pentlandite = new Materials(
         909,
         TextureSet.SET_DULL,
@@ -13423,8 +12924,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes._NULL,
         1,
-        Arrays.asList(new MaterialStack(Nickel, 9), new MaterialStack(Sulfur, 8))
-    ); // (Fe, Ni)9S8
+        Arrays.asList(new MaterialStack(Nickel, 9), new MaterialStack(Sulfur, 8))); // (Fe, Ni)9S8
     public static Materials Spodumene = new Materials(
         920,
         TextureSet.SET_DULL,
@@ -13453,8 +12953,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Lithium, 1),
             new MaterialStack(Aluminium, 1),
             new MaterialStack(Silicon, 2),
-            new MaterialStack(Oxygen, 6))
-    ); // LiAl(SiO3)2
+            new MaterialStack(Oxygen, 6))); // LiAl(SiO3)2
     public static Materials Pollucite = new Materials(
         919,
         TextureSet.SET_DULL,
@@ -13484,8 +12983,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 4),
             new MaterialStack(Water, 2),
-            new MaterialStack(Oxygen, 12))
-    ); // (Cs, Na)2Al2Si4O12 2H2O (also a source of Rb)
+            new MaterialStack(Oxygen, 12))); // (Cs, Na)2Al2Si4O12 2H2O (also a source of Rb)
     public static Materials Tantalite = new Materials(
         921,
         TextureSet.SET_METALLIC,
@@ -13510,13 +13008,12 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes._NULL,
         1,
-        Arrays.asList(new MaterialStack(Manganese, 1), new MaterialStack(Tantalum, 2), new MaterialStack(Oxygen, 6))
-    ); // (Fe,
-       // Mn)Ta2O6
-       // (also
-       // source
-       // of
-       // Nb)
+        Arrays.asList(new MaterialStack(Manganese, 1), new MaterialStack(Tantalum, 2), new MaterialStack(Oxygen, 6))); // (Fe,
+                                                                                                                       // Mn)Ta2O6
+                                                                                                                       // (also
+                                                                                                                       // source
+                                                                                                                       // of
+                                                                                                                       // Nb)
     public static Materials Lepidolite = new Materials(
         907,
         TextureSet.SET_FINE,
@@ -13546,8 +13043,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Lithium, 3),
             new MaterialStack(Aluminium, 4),
             new MaterialStack(Fluorine, 2),
-            new MaterialStack(Oxygen, 10))
-    ); // K(Li, Al, Rb)3(Al, Si)4O10(F, OH)2
+            new MaterialStack(Oxygen, 10))); // K(Li, Al, Rb)3(Al, Si)4O10(F, OH)2
     public static Materials Glauconite = new Materials(
         933,
         TextureSet.SET_DULL,
@@ -13577,8 +13073,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 2),
             new MaterialStack(Aluminium, 4),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 12))
-    ); // (K, Na)(Fe3+, Al, Mg)2(Si, Al)4O10(OH)2
+            new MaterialStack(Oxygen, 12))); // (K, Na)(Fe3+, Al, Mg)2(Si, Al)4O10(OH)2
     public static Materials GlauconiteSand = new Materials(
         949,
         TextureSet.SET_DULL,
@@ -13608,8 +13103,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 2),
             new MaterialStack(Aluminium, 4),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 12))
-    ); // (K, Na)(Fe3+, Al, Mg)2(Si, Al)4O10(OH)2
+            new MaterialStack(Oxygen, 12))); // (K, Na)(Fe3+, Al, Mg)2(Si, Al)4O10(OH)2
     public static Materials Vermiculite = new Materials(
         932,
         TextureSet.SET_METALLIC,
@@ -13640,8 +13134,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 4),
             new MaterialStack(Hydrogen, 2),
             new MaterialStack(Water, 4),
-            new MaterialStack(Oxygen, 12))
-    ); // (Mg+2, Fe+2, Fe+3)3 [(AlSi)4O10] (OH)2 4H2O)
+            new MaterialStack(Oxygen, 12))); // (Mg+2, Fe+2, Fe+3)3 [(AlSi)4O10] (OH)2 4H2O)
     public static Materials Bentonite = new Materials(
         927,
         TextureSet.SET_ROUGH,
@@ -13672,8 +13165,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 12),
             new MaterialStack(Hydrogen, 6),
             new MaterialStack(Water, 5),
-            new MaterialStack(Oxygen, 36))
-    ); // (Na, Ca)0.33(Al, Mg)2(Si4O10)(OH)2 nH2O
+            new MaterialStack(Oxygen, 36))); // (Na, Ca)0.33(Al, Mg)2(Si4O10)(OH)2 nH2O
     public static Materials FullersEarth = new Materials(
         928,
         TextureSet.SET_FINE,
@@ -13703,8 +13195,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 4),
             new MaterialStack(Hydrogen, 1),
             new MaterialStack(Water, 4),
-            new MaterialStack(Oxygen, 11))
-    ); // (Mg, Al)2Si4O10(OH) 4(H2O)
+            new MaterialStack(Oxygen, 11))); // (Mg, Al)2Si4O10(OH) 4(H2O)
     public static Materials Pitchblende = new Materials(
         873,
         TextureSet.SET_DULL,
@@ -13729,8 +13220,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeYellow,
         2,
-        Arrays.asList(new MaterialStack(Uraninite, 3), new MaterialStack(Thorium, 1), new MaterialStack(Lead, 1))
-    );
+        Arrays.asList(new MaterialStack(Uraninite, 3), new MaterialStack(Thorium, 1), new MaterialStack(Lead, 1)));
     public static Materials Monazite = new Materials(
         520,
         TextureSet.SET_DIAMOND,
@@ -13755,28 +13245,27 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGreen,
         1,
-        Arrays.asList(new MaterialStack(RareEarth, 1), new MaterialStack(Phosphate, 1))
-    ); // Wikipedia: (Ce, La, Nd, Th,
-       // Sm, Gd)PO4 Monazite also
-       // smelt-extract to Helium, it
-       // is brown like the rare
-       // earth Item Monazite sand
-       // deposits are inevitably of
-       // the monazite-(Ce)
-       // composition. Typically, the
-       // lanthanides in such
-       // monazites contain about
-       // 45ִ8% cerium, about 24%
-       // lanthanum, about 17%
-       // neodymium, about 5%
-       // praseodymium, and minor
-       // quantities of samarium,
-       // gadolinium, and yttrium.
-       // Europium concentrations
-       // tend to be low, about 0.05%
-       // Thorium content of monazite
-       // is variable and sometimes
-       // can be up to 20ֳ0%
+        Arrays.asList(new MaterialStack(RareEarth, 1), new MaterialStack(Phosphate, 1))); // Wikipedia: (Ce, La, Nd, Th,
+                                                                                          // Sm, Gd)PO4 Monazite also
+                                                                                          // smelt-extract to Helium, it
+                                                                                          // is brown like the rare
+                                                                                          // earth Item Monazite sand
+                                                                                          // deposits are inevitably of
+                                                                                          // the monazite-(Ce)
+                                                                                          // composition. Typically, the
+                                                                                          // lanthanides in such
+                                                                                          // monazites contain about
+                                                                                          // 45ִ8% cerium, about 24%
+                                                                                          // lanthanum, about 17%
+                                                                                          // neodymium, about 5%
+                                                                                          // praseodymium, and minor
+                                                                                          // quantities of samarium,
+                                                                                          // gadolinium, and yttrium.
+                                                                                          // Europium concentrations
+                                                                                          // tend to be low, about 0.05%
+                                                                                          // Thorium content of monazite
+                                                                                          // is variable and sometimes
+                                                                                          // can be up to 20ֳ0%
     public static Materials Malachite = new Materials(
         871,
         TextureSet.SET_DULL,
@@ -13805,8 +13294,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Copper, 2),
             new MaterialStack(Carbon, 1),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 5))
-    ); // Cu2CO3(OH)2
+            new MaterialStack(Oxygen, 5))); // Cu2CO3(OH)2
     public static Materials Mirabilite = new Materials(
         900,
         TextureSet.SET_DULL,
@@ -13835,8 +13323,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Sodium, 2),
             new MaterialStack(Sulfur, 1),
             new MaterialStack(Water, 10),
-            new MaterialStack(Oxygen, 4))
-    ); // Na2SO4 10H2O
+            new MaterialStack(Oxygen, 4))); // Na2SO4 10H2O
     public static Materials Mica = new Materials(
         901,
         TextureSet.SET_FINE,
@@ -13866,8 +13353,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Silicon, 3),
             new MaterialStack(Fluorine, 2),
-            new MaterialStack(Oxygen, 10))
-    ); // KAl2(AlSi3O10)(F, OH)2
+            new MaterialStack(Oxygen, 10))); // KAl2(AlSi3O10)(F, OH)2
     public static Materials Trona = new Materials(
         903,
         TextureSet.SET_METALLIC,
@@ -13897,8 +13383,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Carbon, 2),
             new MaterialStack(Hydrogen, 1),
             new MaterialStack(Water, 2),
-            new MaterialStack(Oxygen, 6))
-    ); // Na3(CO3)(HCO3) 2H2O
+            new MaterialStack(Oxygen, 6))); // Na3(CO3)(HCO3) 2H2O
     public static Materials Barite = new Materials(
         904,
         TextureSet.SET_DULL,
@@ -13923,8 +13408,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes._NULL,
         1,
-        Arrays.asList(new MaterialStack(Barium, 1), new MaterialStack(Sulfur, 1), new MaterialStack(Oxygen, 4))
-    );
+        Arrays.asList(new MaterialStack(Barium, 1), new MaterialStack(Sulfur, 1), new MaterialStack(Oxygen, 4)));
     public static Materials Gypsum = new Materials(
         934,
         TextureSet.SET_DULL,
@@ -13953,8 +13437,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Calcium, 1),
             new MaterialStack(Sulfur, 1),
             new MaterialStack(Water, 2),
-            new MaterialStack(Oxygen, 4))
-    ); // CaSO4 2H2O
+            new MaterialStack(Oxygen, 4))); // CaSO4 2H2O
     public static Materials Alunite = new Materials(
         911,
         TextureSet.SET_METALLIC,
@@ -13984,8 +13467,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 3),
             new MaterialStack(Silicon, 2),
             new MaterialStack(Hydrogen, 6),
-            new MaterialStack(Oxygen, 14))
-    ); // KAl3(SO4)2(OH)6
+            new MaterialStack(Oxygen, 14))); // KAl3(SO4)2(OH)6
     public static Materials Dolomite = new Materials(
         914,
         TextureSet.SET_FLINT,
@@ -14014,8 +13496,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Calcium, 1),
             new MaterialStack(Magnesium, 1),
             new MaterialStack(Carbon, 2),
-            new MaterialStack(Oxygen, 6))
-    ); // CaMg(CO3)2
+            new MaterialStack(Oxygen, 6))); // CaMg(CO3)2
     public static Materials Wollastonite = new Materials(
         915,
         TextureSet.SET_DULL,
@@ -14040,8 +13521,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes._NULL,
         1,
-        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 3))
-    ); // CaSiO3
+        Arrays.asList(new MaterialStack(Calcium, 1), new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 3))); // CaSiO3
     public static Materials Zeolite = new Materials(
         916,
         TextureSet.SET_DULL,
@@ -14072,8 +13552,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Silicon, 27),
             new MaterialStack(Aluminium, 9),
             new MaterialStack(Water, 28),
-            new MaterialStack(Oxygen, 72))
-    ); // NaCa4(Si27Al9)O72 28(H2O)
+            new MaterialStack(Oxygen, 72))); // NaCa4(Si27Al9)O72 28(H2O)
     public static Materials Kyanite = new Materials(
         924,
         TextureSet.SET_FLINT,
@@ -14098,8 +13577,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes._NULL,
         1,
-        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 5))
-    ); // Al2SiO5
+        Arrays.asList(new MaterialStack(Aluminium, 2), new MaterialStack(Silicon, 1), new MaterialStack(Oxygen, 5))); // Al2SiO5
     public static Materials Kaolinite = new Materials(
         929,
         TextureSet.SET_DULL,
@@ -14128,8 +13606,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Aluminium, 2),
             new MaterialStack(Silicon, 2),
             new MaterialStack(Hydrogen, 4),
-            new MaterialStack(Oxygen, 9))
-    ); // Al2Si2O5(OH)4
+            new MaterialStack(Oxygen, 9))); // Al2Si2O5(OH)4
     public static Materials Talc = new Materials(
         902,
         TextureSet.SET_DULL,
@@ -14158,8 +13635,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 3),
             new MaterialStack(Silicon, 4),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 12))
-    ); // H2Mg3(SiO3)4
+            new MaterialStack(Oxygen, 12))); // H2Mg3(SiO3)4
     public static Materials Soapstone = new Materials(
         877,
         TextureSet.SET_DULL,
@@ -14188,8 +13664,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(Magnesium, 3),
             new MaterialStack(Silicon, 4),
             new MaterialStack(Hydrogen, 2),
-            new MaterialStack(Oxygen, 12))
-    ); // H2Mg3(SiO3)4
+            new MaterialStack(Oxygen, 12))); // H2Mg3(SiO3)4
     public static Materials Concrete = new Materials(
         947,
         TextureSet.SET_ROUGH,
@@ -14214,8 +13689,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeGray,
         0,
-        Arrays.asList(new MaterialStack(Stone, 1))
-    );
+        Arrays.asList(new MaterialStack(Stone, 1)));
     public static Materials IronMagnetic = new Materials(
         354,
         TextureSet.SET_MAGNETIC,
@@ -14240,8 +13714,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Iron, 1))
-    );
+        Arrays.asList(new MaterialStack(Iron, 1)));
     public static Materials SteelMagnetic = new Materials(
         355,
         TextureSet.SET_MAGNETIC,
@@ -14266,8 +13739,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Steel, 1))
-    );
+        Arrays.asList(new MaterialStack(Steel, 1)));
     public static Materials NeodymiumMagnetic = new Materials(
         356,
         TextureSet.SET_MAGNETIC,
@@ -14292,8 +13764,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         50,
         Dyes.dyeGray,
         1,
-        Arrays.asList(new MaterialStack(Neodymium, 1))
-    );
+        Arrays.asList(new MaterialStack(Neodymium, 1)));
     public static Materials TungstenCarbide = new Materials(
         370,
         TextureSet.SET_METALLIC,
@@ -14318,8 +13789,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBlack,
         2,
-        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Carbon, 1))
-    );
+        Arrays.asList(new MaterialStack(Tungsten, 1), new MaterialStack(Carbon, 1)));
     public static Materials VanadiumSteel = new Materials(
         371,
         TextureSet.SET_METALLIC,
@@ -14344,8 +13814,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeWhite,
         2,
-        Arrays.asList(new MaterialStack(Vanadium, 1), new MaterialStack(Chrome, 1), new MaterialStack(Steel, 7))
-    );
+        Arrays.asList(new MaterialStack(Vanadium, 1), new MaterialStack(Chrome, 1), new MaterialStack(Steel, 7)));
     public static Materials HSSG = new Materials(
         372,
         TextureSet.SET_METALLIC,
@@ -14374,8 +13843,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(TungstenSteel, 5),
             new MaterialStack(Chrome, 1),
             new MaterialStack(Molybdenum, 2),
-            new MaterialStack(Vanadium, 1))
-        );
+            new MaterialStack(Vanadium, 1)));
     public static Materials HSSE = new Materials(
         373,
         TextureSet.SET_METALLIC,
@@ -14404,8 +13872,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             new MaterialStack(HSSG, 6),
             new MaterialStack(Cobalt, 1),
             new MaterialStack(Manganese, 1),
-            new MaterialStack(Silicon, 1))
-    );
+            new MaterialStack(Silicon, 1)));
     public static Materials HSSS = new Materials(
         374,
         TextureSet.SET_METALLIC,
@@ -14430,8 +13897,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeRed,
         2,
-        Arrays.asList(new MaterialStack(HSSG, 6), new MaterialStack(Iridium, 2), new MaterialStack(Osmium, 1))
-    );
+        Arrays.asList(new MaterialStack(HSSG, 6), new MaterialStack(Iridium, 2), new MaterialStack(Osmium, 1)));
     public static Materials DilutedSulfuricAcid = new MaterialBuilder(
         640,
         TextureSet.SET_FLUID,
@@ -14465,8 +13931,7 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         Dyes.dyeBrown,
         2,
-        Arrays.asList(new MaterialStack(Epoxid, 1))
-    );
+        Arrays.asList(new MaterialStack(Epoxid, 1)));
     public static Materials NitrousOxide = new MaterialBuilder(993, TextureSet.SET_FLUID, "Nitrous Oxide").addCell()
         .addGas()
         .setRGB(125, 200, 255)
@@ -15660,8 +15125,8 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
                     : aMaterial == Diamond ? Wood
                         : aMaterial.contains(SubTag.BURNING) ? Blaze
                             : aMaterial.contains(SubTag.MAGICAL) && aMaterial.contains(SubTag.CRYSTAL) ? Steel
-                                    : aMaterial.getMass() > Element.Tc.getMass() * 2 ? TungstenSteel
-                                        : aMaterial.getMass() > Element.Tc.getMass() ? Steel : Wood);
+                                : aMaterial.getMass() > Element.Tc.getMass() * 2 ? TungstenSteel
+                                    : aMaterial.getMass() > Element.Tc.getMass() ? Steel : Wood);
             }
             aConfigPathSB.setLength(0);
         }

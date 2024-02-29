@@ -123,11 +123,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Cupronickel GT Credit",
                 "1 Credit",
                 new Object[] { new ItemData(Materials.Cupronickel, 907200L, new MaterialStack[0]) }));
-        ItemList.Credit_Greg_Silver.set(
-            addItem(
-                tLastID = 2,
-                "Silver GT Credit",
-                "8 Credits"));
+        ItemList.Credit_Greg_Silver.set(addItem(tLastID = 2, "Silver GT Credit", "8 Credits"));
         ItemList.Credit_Greg_Gold.set(addItem(tLastID = 3, "Gold GT Credit", "64 Credits", new Object[0]));
         ItemList.Credit_Greg_Platinum.set(addItem(tLastID = 4, "Platinum GT Credit", "512 Credits", new Object[0]));
         ItemList.Credit_Greg_Osmium.set(addItem(tLastID = 5, "Osmium GT Credit", "4096 Credits", new Object[0]));
@@ -163,11 +159,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                         new int[] { Potion.moveSpeed.id, 200, 1, 100 }) }));
         ItemList.Credit_Copper.set(addItem(tLastID = 11, "Industrial Copper Credit", "0.125 Credits", new Object[0]));
 
-        ItemList.Credit_Silver.set(
-            addItem(
-                tLastID = 13,
-                "Industrial Silver Credit",
-                "8 Credits"));
+        ItemList.Credit_Silver.set(addItem(tLastID = 13, "Industrial Silver Credit", "8 Credits"));
         ItemList.Credit_Gold.set(addItem(tLastID = 14, "Industrial Gold Credit", "64 Credits", new Object[0]));
         ItemList.Credit_Platinum.set(addItem(tLastID = 15, "Industrial Platinum Credit", "512 Credits", new Object[0]));
         ItemList.Credit_Osmium.set(addItem(tLastID = 16, "Industrial Osmium Credit", "4096 Credits", new Object[0]));
@@ -299,16 +291,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 ItemList.Credit_Greg_Naquadah, ItemList.Credit_Greg_Naquadah, ItemList.Credit_Greg_Naquadah,
                 ItemList.Credit_Greg_Naquadah, ItemList.Credit_Greg_Naquadah });
 
-        ItemList.Component_Minecart_Wheels_Iron.set(
-            addItem(
-                tLastID = 100,
-                "Iron Minecart Wheels",
-                "To get things rolling"));
-        ItemList.Component_Minecart_Wheels_Steel.set(
-            addItem(
-                tLastID = 101,
-                "Steel Minecart Wheels",
-                "To get things rolling"));
+        ItemList.Component_Minecart_Wheels_Iron
+            .set(addItem(tLastID = 100, "Iron Minecart Wheels", "To get things rolling"));
+        ItemList.Component_Minecart_Wheels_Steel
+            .set(addItem(tLastID = 101, "Steel Minecart Wheels", "To get things rolling"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Component_Minecart_Wheels_Iron.get(1L, new Object[0]),
@@ -326,51 +312,24 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.CompressedFireclay.set(addItem(tLastID = 110, "Compressed Fireclay", "Brick-shaped"));
         ItemList.Firebrick.set(addItem(tLastID = 111, "Firebrick", "Heat resistant"));
 
-        ItemList.Arrow_Head_Glass_Emtpy.set(
-            addItem(
-                tLastID = 200,
-                "Empty Glass Arrow Head",
-                "Fill with Potions before use"));
-        ItemList.Arrow_Head_Glass_Poison.set(
-            addItem(
-                tLastID = 201,
-                "Poison Glass Arrow Head",
-                "Glass Arrow filled with Poison"));
-        ItemList.Arrow_Head_Glass_Poison_Long.set(
-            addItem(
-                tLastID = 202,
-                "Poison Glass Arrow Head",
-                "Glass Arrow filled with stretched Poison"));
-        ItemList.Arrow_Head_Glass_Poison_Strong.set(
-            addItem(
-                tLastID = 203,
-                "Poison Glass Arrow Head",
-                "Glass Arrow filled with strong Poison"));
-        ItemList.Arrow_Head_Glass_Slowness.set(
-            addItem(
-                tLastID = 204,
-                "Slowness Glass Arrow Head",
-                "Glass Arrow filled with Laming Brew"));
-        ItemList.Arrow_Head_Glass_Slowness_Long.set(
-            addItem(
-                tLastID = 205,
-                "Slowness Glass Arrow Head",
-                "Glass Arrow filled with stretched Laming Brew"));
-        ItemList.Arrow_Head_Glass_Weakness.set(
-            addItem(
-                tLastID = 206,
-                "Weakness Glass Arrow Head",
-                "Glass Arrow filled with Weakening Brew"));
+        ItemList.Arrow_Head_Glass_Emtpy
+            .set(addItem(tLastID = 200, "Empty Glass Arrow Head", "Fill with Potions before use"));
+        ItemList.Arrow_Head_Glass_Poison
+            .set(addItem(tLastID = 201, "Poison Glass Arrow Head", "Glass Arrow filled with Poison"));
+        ItemList.Arrow_Head_Glass_Poison_Long
+            .set(addItem(tLastID = 202, "Poison Glass Arrow Head", "Glass Arrow filled with stretched Poison"));
+        ItemList.Arrow_Head_Glass_Poison_Strong
+            .set(addItem(tLastID = 203, "Poison Glass Arrow Head", "Glass Arrow filled with strong Poison"));
+        ItemList.Arrow_Head_Glass_Slowness
+            .set(addItem(tLastID = 204, "Slowness Glass Arrow Head", "Glass Arrow filled with Laming Brew"));
+        ItemList.Arrow_Head_Glass_Slowness_Long
+            .set(addItem(tLastID = 205, "Slowness Glass Arrow Head", "Glass Arrow filled with stretched Laming Brew"));
+        ItemList.Arrow_Head_Glass_Weakness
+            .set(addItem(tLastID = 206, "Weakness Glass Arrow Head", "Glass Arrow filled with Weakening Brew"));
         ItemList.Arrow_Head_Glass_Weakness_Long.set(
-            addItem(
-                tLastID = 207,
-                "Weakness Glass Arrow Head",
-                "Glass Arrow filled with stretched Weakening Brew"));
-        ItemList.Arrow_Head_Glass_Holy_Water.set(
-            addItem(
-                tLastID = 208,
-                "Holy Water Glass Arrow Head",
-                "Glass Arrow filled with Holy Water"));
+            addItem(tLastID = 207, "Weakness Glass Arrow Head", "Glass Arrow filled with stretched Weakening Brew"));
+        ItemList.Arrow_Head_Glass_Holy_Water
+            .set(addItem(tLastID = 208, "Holy Water Glass Arrow Head", "Glass Arrow filled with Holy Water"));
 
         ItemList.Arrow_Wooden_Glass_Emtpy.set(
             addItem(
@@ -415,13 +374,15 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 231,
                 "Regular Weakness Arrow",
                 "Glass Arrow filled with Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
+                new Object[] {
+                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Weakness_Long.set(
             addItem(
                 tLastID = 232,
                 "Regular Weakness Arrow",
                 "Glass Arrow filled with stretched Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
+                new Object[] {
+                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Holy_Water.set(
             addItem(
                 tLastID = 233,
@@ -472,13 +433,15 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 256,
                 "Light Weakness Arrow",
                 "Glass Arrow filled with Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
+                new Object[] {
+                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Weakness_Long.set(
             addItem(
                 tLastID = 257,
                 "Light Weakness Arrow",
                 "Glass Arrow filled with stretched Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
+                new Object[] {
+                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Holy_Water.set(
             addItem(
                 tLastID = 258,
@@ -596,11 +559,8 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             new Object[] { aTextArrow, aTextStick, aTextFeather, 'A', ItemList.Arrow_Head_Glass_Holy_Water, 'F',
                 OreDictNames.craftingFeather, 'S', OrePrefixes.stick.get(Materials.Plastic) });
 
-        ItemList.Shape_Empty.set(
-            addItem(
-                tLastID = 300,
-                "Empty Shape Plate",
-                "Raw Plate to make Molds and Extruder Shapes"));
+        ItemList.Shape_Empty
+            .set(addItem(tLastID = 300, "Empty Shape Plate", "Raw Plate to make Molds and Extruder Shapes"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Shape_Empty.get(1L, new Object[0]),
@@ -978,12 +938,11 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 402,
                 "Empty Spray Can",
                 "Used for making Sprays",
-                new Object[] {
-                    new ItemData(
-                        Materials.Tin,
-                        OrePrefixes.plate.mMaterialAmount * 2L,
-                        Materials.Redstone,
-                        OrePrefixes.dust.mMaterialAmount) }));
+                new Object[] { new ItemData(
+                    Materials.Tin,
+                    OrePrefixes.plate.mMaterialAmount * 2L,
+                    Materials.Redstone,
+                    OrePrefixes.dust.mMaterialAmount) }));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Redstone, 1L),
@@ -1016,11 +975,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 404,
                 "Empty Thermos Can",
                 "Keeping hot things hot and cold things cold",
-                new Object[] {
-                    new ItemData(
-                        Materials.Aluminium,
-                        OrePrefixes.plate.mMaterialAmount * 1L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.Aluminium,
+                    OrePrefixes.plate.mMaterialAmount * 1L + 2L * OrePrefixes.ring.mMaterialAmount,
+                    new MaterialStack[0]) }));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Aluminium, 1L),
@@ -1034,11 +992,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 405,
                 "Large Steel Fluid Cell",
                 "",
-                new Object[] {
-                    new ItemData(
-                        Materials.Steel,
-                        OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.Steel,
+                    OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
+                    new MaterialStack[0]) }));
         setFluidContainerStats(32000 + tLastID, 16000L, 16L);
 
         GT_Values.RA.addAssemblerRecipe(
@@ -1053,11 +1010,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 406,
                 "Large Tungstensteel Fluid Cell",
                 "",
-                new Object[] {
-                    new ItemData(
-                        Materials.TungstenSteel,
-                        OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.TungstenSteel,
+                    OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
+                    new MaterialStack[0]) }));
         setFluidContainerStats(32000 + tLastID, 64000L, 16L);
 
         GT_Values.RA.addAssemblerRecipe(
@@ -1067,16 +1023,9 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             200,
             256);
         for (byte i = 0; i < 16; i = (byte) (i + 1)) {
-            ItemList.SPRAY_CAN_DYES[i].set(
-                addItem(
-                    tLastID = 430 + 2 * i,
-                    "Spray Can (" + Dyes.get(i).mName + ")",
-                    "Full"));
-            ItemList.SPRAY_CAN_DYES_USED[i].set(
-                addItem(
-                    tLastID + 1,
-                    "Spray Can (" + Dyes.get(i).mName + ")",
-                    "Used"));
+            ItemList.SPRAY_CAN_DYES[i]
+                .set(addItem(tLastID = 430 + 2 * i, "Spray Can (" + Dyes.get(i).mName + ")", "Full"));
+            ItemList.SPRAY_CAN_DYES_USED[i].set(addItem(tLastID + 1, "Spray Can (" + Dyes.get(i).mName + ")", "Used"));
             IItemBehaviour<GT_MetaBase_Item> tBehaviour = new Behaviour_Spray_Color(
                 ItemList.Spray_Empty.get(1L, new Object[0]),
                 ItemList.SPRAY_CAN_DYES_USED[i].get(1L, new Object[0]),
@@ -1086,21 +1035,9 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItemBehavior(32000 + tLastID, tBehaviour);
             addItemBehavior(32001 + tLastID, tBehaviour);
         }
-        ItemList.Tool_Matches.set(
-            addItem(
-                tLastID = 471,
-                "Match",
-                ""));
-        ItemList.Tool_MatchBox_Used.set(
-            addItem(
-                tLastID = 472,
-                "Match Box",
-                "This is not a Car"));
-        ItemList.Tool_MatchBox_Full.set(
-            addItem(
-                tLastID = 473,
-                "Match Box (Full)",
-                "This is not a Car"));
+        ItemList.Tool_Matches.set(addItem(tLastID = 471, "Match", ""));
+        ItemList.Tool_MatchBox_Used.set(addItem(tLastID = 472, "Match Box", "This is not a Car"));
+        ItemList.Tool_MatchBox_Full.set(addItem(tLastID = 473, "Match Box (Full)", "This is not a Car"));
 
         IItemBehaviour<GT_MetaBase_Item> tBehaviour = new Behaviour_Lighter(
             null,
@@ -1244,11 +1181,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     "Used to make Heavy Duty Plates T3",
                     new Object[0]));
         }
-        ItemList.Ingot_IridiumAlloy.set(
-            addItem(
-                tLastID = 480,
-                "Iridium Alloy Ingot",
-                "Used to make Iridium Plates"));
+        ItemList.Ingot_IridiumAlloy.set(addItem(tLastID = 480, "Iridium Alloy Ingot", "Used to make Iridium Plates"));
 
         GT_ModHandler.addRollingMachineRecipe(
             ItemList.Ingot_IridiumAlloy.get(1L, new Object[0]),
@@ -1405,22 +1338,28 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 500,
                 "Small Battery Hull",
                 "An empty LV Battery Hull",
-                new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.BatteryAlloy,
+                    OrePrefixes.plate.mMaterialAmount * 1L,
+                    new MaterialStack[0]) }));
         ItemList.Battery_Hull_MV.set(
             addItem(
                 tLastID = 501,
                 "Medium Battery Hull",
                 "An empty MV Battery Hull",
-                new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 3L, new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.BatteryAlloy,
+                    OrePrefixes.plate.mMaterialAmount * 3L,
+                    new MaterialStack[0]) }));
         ItemList.Battery_Hull_HV.set(
             addItem(
                 tLastID = 502,
                 "Large Battery Hull",
                 "An empty HV Battery Hull",
-                new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 9L, new MaterialStack[0]) }));
+                new Object[] { new ItemData(
+                    Materials.BatteryAlloy,
+                    OrePrefixes.plate.mMaterialAmount * 9L,
+                    new MaterialStack[0]) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Battery_Hull_LV.get(1L, new Object[0]),
@@ -1433,110 +1372,46 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             new Object[] { "C C", "PPP", "PPP", 'P', OrePrefixes.plate.get(Materials.BatteryAlloy), 'C',
                 OreDictNames.craftingWireCopper });
 
-        ItemList.Battery_RE_ULV_Tantalum.set(
-            addItem(
-                tLastID = 499,
-                "Tantalum Capacitor",
-                "Reusable"));
+        ItemList.Battery_RE_ULV_Tantalum.set(addItem(tLastID = 499, "Tantalum Capacitor", "Reusable"));
         setElectricStats(32000 + tLastID, 1000L, GT_Values.V[0], 0L, -3L, false);
 
-        ItemList.Battery_SU_LV_SulfuricAcid.set(
-            addItem(
-                tLastID = 510,
-                "Small Acid Battery",
-                "Single Use"));
+        ItemList.Battery_SU_LV_SulfuricAcid.set(addItem(tLastID = 510, "Small Acid Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 18000L, GT_Values.V[1], 1L, -2L, true);
-        ItemList.Battery_SU_LV_Mercury.set(
-            addItem(
-                tLastID = 511,
-                "Small Mercury Battery",
-                "Single Use"));
+        ItemList.Battery_SU_LV_Mercury.set(addItem(tLastID = 511, "Small Mercury Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 32000L, GT_Values.V[1], 1L, -2L, true);
 
         ItemList.Battery_RE_LV_Cadmium.set(
-            addItem(
-                tLastID = 517,
-                "Small Cadmium Battery",
-                "Reusable",
-                new Object[] { "calclavia:ADVANCED_BATTERY" }));
+            addItem(tLastID = 517, "Small Cadmium Battery", "Reusable", new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 75000L, GT_Values.V[1], 1L, -3L, true);
         ItemList.Battery_RE_LV_Lithium.set(
-            addItem(
-                tLastID = 518,
-                "Small Lithium Battery",
-                "Reusable",
-                new Object[] { "calclavia:ADVANCED_BATTERY" }));
+            addItem(tLastID = 518, "Small Lithium Battery", "Reusable", new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 100000L, GT_Values.V[1], 1L, -3L, true);
         ItemList.Battery_RE_LV_Sodium.set(
-            addItem(
-                tLastID = 519,
-                "Small Sodium Battery",
-                "Reusable",
-                new Object[] { "calclavia:ADVANCED_BATTERY" }));
+            addItem(tLastID = 519, "Small Sodium Battery", "Reusable", new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 50000L, GT_Values.V[1], 1L, -3L, true);
 
-        ItemList.Battery_SU_MV_SulfuricAcid.set(
-            addItem(
-                tLastID = 520,
-                "Medium Acid Battery",
-                "Single Use"));
+        ItemList.Battery_SU_MV_SulfuricAcid.set(addItem(tLastID = 520, "Medium Acid Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 72000L, GT_Values.V[2], 2L, -2L, true);
-        ItemList.Battery_SU_MV_Mercury.set(
-            addItem(
-                tLastID = 521,
-                "Medium Mercury Battery",
-                "Single Use"));
+        ItemList.Battery_SU_MV_Mercury.set(addItem(tLastID = 521, "Medium Mercury Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 128000L, GT_Values.V[2], 2L, -2L, true);
 
-        ItemList.Battery_RE_MV_Cadmium.set(
-            addItem(
-                tLastID = 527,
-                "Medium Cadmium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_MV_Cadmium.set(addItem(tLastID = 527, "Medium Cadmium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 300000L, GT_Values.V[2], 2L, -3L, true);
-        ItemList.Battery_RE_MV_Lithium.set(
-            addItem(
-                tLastID = 528,
-                "Medium Lithium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_MV_Lithium.set(addItem(tLastID = 528, "Medium Lithium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 400000L, GT_Values.V[2], 2L, -3L, true);
-        ItemList.Battery_RE_MV_Sodium.set(
-            addItem(
-                tLastID = 529,
-                "Medium Sodium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_MV_Sodium.set(addItem(tLastID = 529, "Medium Sodium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 200000L, GT_Values.V[2], 2L, -3L, true);
 
-        ItemList.Battery_SU_HV_SulfuricAcid.set(
-            addItem(
-                tLastID = 530,
-                "Large Acid Battery",
-                "Single Use"));
+        ItemList.Battery_SU_HV_SulfuricAcid.set(addItem(tLastID = 530, "Large Acid Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 288000L, GT_Values.V[3], 3L, -2L, true);
-        ItemList.Battery_SU_HV_Mercury.set(
-            addItem(
-                tLastID = 531,
-                "Large Mercury Battery",
-                "Single Use"));
+        ItemList.Battery_SU_HV_Mercury.set(addItem(tLastID = 531, "Large Mercury Battery", "Single Use"));
         setElectricStats(32000 + tLastID, 512000L, GT_Values.V[3], 3L, -2L, true);
 
-        ItemList.Battery_RE_HV_Cadmium.set(
-            addItem(
-                tLastID = 537,
-                "Large Cadmium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_HV_Cadmium.set(addItem(tLastID = 537, "Large Cadmium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 1200000L, GT_Values.V[3], 3L, -3L, true);
-        ItemList.Battery_RE_HV_Lithium.set(
-            addItem(
-                tLastID = 538,
-                "Large Lithium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_HV_Lithium.set(addItem(tLastID = 538, "Large Lithium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 1600000L, GT_Values.V[3], 3L, -3L, true);
-        ItemList.Battery_RE_HV_Sodium.set(
-            addItem(
-                tLastID = 539,
-                "Large Sodium Battery",
-                "Reusable"));
+        ItemList.Battery_RE_HV_Sodium.set(addItem(tLastID = 539, "Large Sodium Battery", "Reusable"));
         setElectricStats(32000 + tLastID, 800000L, GT_Values.V[3], 3L, -3L, true);
 
         GT_ModHandler.addExtractionRecipe(
@@ -1657,11 +1532,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 100000000L, GT_Values.V[5], 5L, -3L, true);
 
-        ItemList.ZPM.set(
-            addItem(
-                tLastID = 598,
-                "Zero Point Module",
-                "Single use battery"));
+        ItemList.ZPM.set(addItem(tLastID = 598, "Zero Point Module", "Single use battery"));
         setElectricStats(32000 + tLastID, 2000000000000L, GT_Values.V[7], 7L, -2L, true);
 
         ItemList.Energy_LapotronicOrb2.set(
@@ -1680,53 +1551,17 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 10000000000L, GT_Values.V[7], 7L, -3L, true);
 
-        ItemList.Energy_Cluster.set(
-            addItem(
-                tLastID = 737,
-                "Energy Cluster",
-                "Reusable battery"));
+        ItemList.Energy_Cluster.set(addItem(tLastID = 737, "Energy Cluster", "Reusable battery"));
         setElectricStats(32000 + tLastID, 100000000000L, GT_Values.V[8], 8L, -3L, true);
 
-        ItemList.Electric_Motor_LV.set(
-            addItem(
-                tLastID = 600,
-                "Electric Motor (LV)",
-                ""));
-        ItemList.Electric_Motor_MV.set(
-            addItem(
-                tLastID = 601,
-                "Electric Motor (MV)",
-                ""));
-        ItemList.Electric_Motor_HV.set(
-            addItem(
-                tLastID = 602,
-                "Electric Motor (HV)",
-                ""));
-        ItemList.Electric_Motor_EV.set(
-            addItem(
-                tLastID = 603,
-                "Electric Motor (EV)",
-                ""));
-        ItemList.Electric_Motor_IV.set(
-            addItem(
-                tLastID = 604,
-                "Electric Motor (IV)",
-                ""));
-        ItemList.Electric_Motor_LuV.set(
-            addItem(
-                tLastID = 606,
-                "Electric Motor (LuV)",
-                ""));
-        ItemList.Electric_Motor_ZPM.set(
-            addItem(
-                tLastID = 607,
-                "Electric Motor (ZPM)",
-                ""));
-        ItemList.Electric_Motor_UV.set(
-            addItem(
-                tLastID = 608,
-                "Electric Motor (UV)",
-                ""));
+        ItemList.Electric_Motor_LV.set(addItem(tLastID = 600, "Electric Motor (LV)", ""));
+        ItemList.Electric_Motor_MV.set(addItem(tLastID = 601, "Electric Motor (MV)", ""));
+        ItemList.Electric_Motor_HV.set(addItem(tLastID = 602, "Electric Motor (HV)", ""));
+        ItemList.Electric_Motor_EV.set(addItem(tLastID = 603, "Electric Motor (EV)", ""));
+        ItemList.Electric_Motor_IV.set(addItem(tLastID = 604, "Electric Motor (IV)", ""));
+        ItemList.Electric_Motor_LuV.set(addItem(tLastID = 606, "Electric Motor (LuV)", ""));
+        ItemList.Electric_Motor_ZPM.set(addItem(tLastID = 607, "Electric Motor (ZPM)", ""));
+        ItemList.Electric_Motor_UV.set(addItem(tLastID = 608, "Electric Motor (UV)", ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Electric_Motor_LV.get(1L, new Object[0]),
@@ -1770,46 +1605,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 OrePrefixes.stick.get(Materials.TungstenSteel), 'W', OrePrefixes.wireGt16.get(Materials.AnnealedCopper),
                 'C', OrePrefixes.cableGt01.get(Materials.Tungsten) });
 
-        ItemList.Electric_Pump_LV.set(
-            addItem(
-                tLastID = 610,
-                "Electric Pump (LV)",
-                "640 L/sec (as Cover)"));
-        ItemList.Electric_Pump_MV.set(
-            addItem(
-                tLastID = 611,
-                "Electric Pump (MV)",
-                "2560 L/sec (as Cover)"));
-        ItemList.Electric_Pump_HV.set(
-            addItem(
-                tLastID = 612,
-                "Electric Pump (HV)",
-                "10240 L/sec (as Cover)"));
-        ItemList.Electric_Pump_EV.set(
-            addItem(
-                tLastID = 613,
-                "Electric Pump (EV)",
-                "40.960 L/sec (as Cover)"));
-        ItemList.Electric_Pump_IV.set(
-            addItem(
-                tLastID = 614,
-                "Electric Pump (IV)",
-                "163.840 L/sec (as Cover)"));
-        ItemList.Electric_Pump_LuV.set(
-            addItem(
-                tLastID = 620,
-                "Electric Pump (LuV)",
-                "655.360 L/sec (as Cover)"));
-        ItemList.Electric_Pump_ZPM.set(
-            addItem(
-                tLastID = 621,
-                "Electric Pump (ZPM)",
-                "2.621.440 L/sec (as Cover)"));
-        ItemList.Electric_Pump_UV.set(
-            addItem(
-                tLastID = 622,
-                "Electric Pump (UV)",
-                "10.485.760 L/sec (as Cover)"));
+        ItemList.Electric_Pump_LV.set(addItem(tLastID = 610, "Electric Pump (LV)", "640 L/sec (as Cover)"));
+        ItemList.Electric_Pump_MV.set(addItem(tLastID = 611, "Electric Pump (MV)", "2560 L/sec (as Cover)"));
+        ItemList.Electric_Pump_HV.set(addItem(tLastID = 612, "Electric Pump (HV)", "10240 L/sec (as Cover)"));
+        ItemList.Electric_Pump_EV.set(addItem(tLastID = 613, "Electric Pump (EV)", "40.960 L/sec (as Cover)"));
+        ItemList.Electric_Pump_IV.set(addItem(tLastID = 614, "Electric Pump (IV)", "163.840 L/sec (as Cover)"));
+        ItemList.Electric_Pump_LuV.set(addItem(tLastID = 620, "Electric Pump (LuV)", "655.360 L/sec (as Cover)"));
+        ItemList.Electric_Pump_ZPM.set(addItem(tLastID = 621, "Electric Pump (ZPM)", "2.621.440 L/sec (as Cover)"));
+        ItemList.Electric_Pump_UV.set(addItem(tLastID = 622, "Electric Pump (UV)", "10.485.760 L/sec (as Cover)"));
 
         GregTech_API.registerCover(
             ItemList.Electric_Pump_LV.get(1L, new Object[0]),
@@ -2074,46 +1877,22 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 OrePrefixes.screw.get(Materials.TungstenSteel), 'W', OrePrefixes.cableGt01.get(Materials.Tungsten), 'P',
                 OrePrefixes.pipeMedium.get(Materials.TungstenSteel) });
 
-        ItemList.Conveyor_Module_LV.set(
-            addItem(
-                tLastID = 630,
-                "Conveyor Module (LV)",
-                "1 Stack every 20 secs (as Cover)"));
-        ItemList.Conveyor_Module_MV.set(
-            addItem(
-                tLastID = 631,
-                "Conveyor Module (MV)",
-                "1 Stack every 5 secs (as Cover)"));
-        ItemList.Conveyor_Module_HV.set(
-            addItem(
-                tLastID = 632,
-                "Conveyor Module (HV)",
-                "1 Stack every 1 sec (as Cover)"));
-        ItemList.Conveyor_Module_EV.set(
-            addItem(
-                tLastID = 633,
-                "Conveyor Module (EV)",
-                "1 Stack every 1/5 sec (as Cover)"));
-        ItemList.Conveyor_Module_IV.set(
-            addItem(
-                tLastID = 634,
-                "Conveyor Module (IV)",
-                "1 Stack every 1/20 sec (as Cover)"));
-        ItemList.Conveyor_Module_LuV.set(
-            addItem(
-                tLastID = 636,
-                "Conveyor Module (LuV)",
-                "2 Stacks every 1/20 sec (as Cover)"));
-        ItemList.Conveyor_Module_ZPM.set(
-            addItem(
-                tLastID = 637,
-                "Conveyor Module (ZPM)",
-                "3 Stacks every 1/20 sec (as Cover)"));
-        ItemList.Conveyor_Module_UV.set(
-            addItem(
-                tLastID = 638,
-                "Conveyor Module (UV)",
-                "4 Stacks every 1/20 sec (as Cover)"));
+        ItemList.Conveyor_Module_LV
+            .set(addItem(tLastID = 630, "Conveyor Module (LV)", "1 Stack every 20 secs (as Cover)"));
+        ItemList.Conveyor_Module_MV
+            .set(addItem(tLastID = 631, "Conveyor Module (MV)", "1 Stack every 5 secs (as Cover)"));
+        ItemList.Conveyor_Module_HV
+            .set(addItem(tLastID = 632, "Conveyor Module (HV)", "1 Stack every 1 sec (as Cover)"));
+        ItemList.Conveyor_Module_EV
+            .set(addItem(tLastID = 633, "Conveyor Module (EV)", "1 Stack every 1/5 sec (as Cover)"));
+        ItemList.Conveyor_Module_IV
+            .set(addItem(tLastID = 634, "Conveyor Module (IV)", "1 Stack every 1/20 sec (as Cover)"));
+        ItemList.Conveyor_Module_LuV
+            .set(addItem(tLastID = 636, "Conveyor Module (LuV)", "2 Stacks every 1/20 sec (as Cover)"));
+        ItemList.Conveyor_Module_ZPM
+            .set(addItem(tLastID = 637, "Conveyor Module (ZPM)", "3 Stacks every 1/20 sec (as Cover)"));
+        ItemList.Conveyor_Module_UV
+            .set(addItem(tLastID = 638, "Conveyor Module (UV)", "4 Stacks every 1/20 sec (as Cover)"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Conveyor_Module_LV.get(1L, new Object[0]),
@@ -2254,46 +2033,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_CONVEYOR) }),
             new GT_Cover_Conveyor(1, (byte) 4));
 
-        ItemList.Electric_Piston_LV.set(
-            addItem(
-                tLastID = 640,
-                "Electric Piston (LV)",
-                ""));
-        ItemList.Electric_Piston_MV.set(
-            addItem(
-                tLastID = 641,
-                "Electric Piston (MV)",
-                ""));
-        ItemList.Electric_Piston_HV.set(
-            addItem(
-                tLastID = 642,
-                "Electric Piston (HV)",
-                ""));
-        ItemList.Electric_Piston_EV.set(
-            addItem(
-                tLastID = 643,
-                "Electric Piston (EV)",
-                ""));
-        ItemList.Electric_Piston_IV.set(
-            addItem(
-                tLastID = 644,
-                "Electric Piston (IV)",
-                ""));
-        ItemList.Electric_Piston_LuV.set(
-            addItem(
-                tLastID = 645,
-                "Electric Piston (LuV)",
-                ""));
-        ItemList.Electric_Piston_ZPM.set(
-            addItem(
-                tLastID = 646,
-                "Electric Piston (ZPM)",
-                ""));
-        ItemList.Electric_Piston_UV.set(
-            addItem(
-                tLastID = 647,
-                "Electric Piston (UV)",
-                ""));
+        ItemList.Electric_Piston_LV.set(addItem(tLastID = 640, "Electric Piston (LV)", ""));
+        ItemList.Electric_Piston_MV.set(addItem(tLastID = 641, "Electric Piston (MV)", ""));
+        ItemList.Electric_Piston_HV.set(addItem(tLastID = 642, "Electric Piston (HV)", ""));
+        ItemList.Electric_Piston_EV.set(addItem(tLastID = 643, "Electric Piston (EV)", ""));
+        ItemList.Electric_Piston_IV.set(addItem(tLastID = 644, "Electric Piston (IV)", ""));
+        ItemList.Electric_Piston_LuV.set(addItem(tLastID = 645, "Electric Piston (LuV)", ""));
+        ItemList.Electric_Piston_ZPM.set(addItem(tLastID = 646, "Electric Piston (ZPM)", ""));
+        ItemList.Electric_Piston_UV.set(addItem(tLastID = 647, "Electric Piston (UV)", ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Electric_Piston_LV.get(1L, new Object[0]),
@@ -2333,46 +2080,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 OrePrefixes.gearGtSmall.get(Materials.TungstenSteel), 'M', ItemList.Electric_Motor_IV, 'C',
                 OrePrefixes.cableGt01.get(Materials.Tungsten) });
 
-        ItemList.Robot_Arm_LV.set(
-            addItem(
-                tLastID = 650,
-                "Robot Arm (LV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_MV.set(
-            addItem(
-                tLastID = 651,
-                "Robot Arm (MV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_HV.set(
-            addItem(
-                tLastID = 652,
-                "Robot Arm (HV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_EV.set(
-            addItem(
-                tLastID = 653,
-                "Robot Arm (EV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_IV.set(
-            addItem(
-                tLastID = 654,
-                "Robot Arm (IV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_LuV.set(
-            addItem(
-                tLastID = 655,
-                "Robot Arm (LuV)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_ZPM.set(
-            addItem(
-                tLastID = 656,
-                "Robot Arm (ZPM)",
-                "Inserts into specific Slots (as Cover)"));
-        ItemList.Robot_Arm_UV.set(
-            addItem(
-                tLastID = 657,
-                "Robot Arm (UV)",
-                "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_LV.set(addItem(tLastID = 650, "Robot Arm (LV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_MV.set(addItem(tLastID = 651, "Robot Arm (MV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_HV.set(addItem(tLastID = 652, "Robot Arm (HV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_EV.set(addItem(tLastID = 653, "Robot Arm (EV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_IV.set(addItem(tLastID = 654, "Robot Arm (IV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_LuV.set(addItem(tLastID = 655, "Robot Arm (LuV)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_ZPM.set(addItem(tLastID = 656, "Robot Arm (ZPM)", "Inserts into specific Slots (as Cover)"));
+        ItemList.Robot_Arm_UV.set(addItem(tLastID = 657, "Robot Arm (UV)", "Inserts into specific Slots (as Cover)"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Robot_Arm_LV.get(1L, new Object[0]),
@@ -2459,46 +2174,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ARM) }),
             new GT_Cover_Arm(1));
 
-        ItemList.Field_Generator_LV.set(
-            addItem(
-                tLastID = 670,
-                "Field Generator (LV)",
-                ""));
-        ItemList.Field_Generator_MV.set(
-            addItem(
-                tLastID = 671,
-                "Field Generator (MV)",
-                ""));
-        ItemList.Field_Generator_HV.set(
-            addItem(
-                tLastID = 672,
-                "Field Generator (HV)",
-                ""));
-        ItemList.Field_Generator_EV.set(
-            addItem(
-                tLastID = 673,
-                "Field Generator (EV)",
-                ""));
-        ItemList.Field_Generator_IV.set(
-            addItem(
-                tLastID = 674,
-                "Field Generator (IV)",
-                ""));
-        ItemList.Field_Generator_LuV.set(
-            addItem(
-                tLastID = 675,
-                "Field Generator (LuV)",
-                ""));
-        ItemList.Field_Generator_ZPM.set(
-            addItem(
-                tLastID = 676,
-                "Field Generator (ZPM)",
-                ""));
-        ItemList.Field_Generator_UV.set(
-            addItem(
-                tLastID = 677,
-                "Field Generator (UV)",
-                ""));
+        ItemList.Field_Generator_LV.set(addItem(tLastID = 670, "Field Generator (LV)", ""));
+        ItemList.Field_Generator_MV.set(addItem(tLastID = 671, "Field Generator (MV)", ""));
+        ItemList.Field_Generator_HV.set(addItem(tLastID = 672, "Field Generator (HV)", ""));
+        ItemList.Field_Generator_EV.set(addItem(tLastID = 673, "Field Generator (EV)", ""));
+        ItemList.Field_Generator_IV.set(addItem(tLastID = 674, "Field Generator (IV)", ""));
+        ItemList.Field_Generator_LuV.set(addItem(tLastID = 675, "Field Generator (LuV)", ""));
+        ItemList.Field_Generator_ZPM.set(addItem(tLastID = 676, "Field Generator (ZPM)", ""));
+        ItemList.Field_Generator_UV.set(addItem(tLastID = 677, "Field Generator (UV)", ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Field_Generator_LV.get(1L, new Object[0]),
@@ -2513,46 +2196,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             new Object[] { "WCW", "CGC", "WCW", 'G', OrePrefixes.gem.get(Materials.EnderEye), 'C',
                 OrePrefixes.circuit.get(Materials.Good), 'W', OrePrefixes.wireGt02.get(Materials.Osmium) });
 
-        ItemList.Emitter_LV.set(
-            addItem(
-                tLastID = 680,
-                "Emitter (LV)",
-                ""));
-        ItemList.Emitter_MV.set(
-            addItem(
-                tLastID = 681,
-                "Emitter (MV)",
-                ""));
-        ItemList.Emitter_HV.set(
-            addItem(
-                tLastID = 682,
-                "Emitter (HV)",
-                ""));
-        ItemList.Emitter_EV.set(
-            addItem(
-                tLastID = 683,
-                "Emitter (EV)",
-                ""));
-        ItemList.Emitter_IV.set(
-            addItem(
-                tLastID = 684,
-                "Emitter (IV)",
-                ""));
-        ItemList.Emitter_LuV.set(
-            addItem(
-                tLastID = 685,
-                "Emitter (LuV)",
-                ""));
-        ItemList.Emitter_ZPM.set(
-            addItem(
-                tLastID = 686,
-                "Emitter (ZPM)",
-                ""));
-        ItemList.Emitter_UV.set(
-            addItem(
-                tLastID = 687,
-                "Emitter (UV)",
-                ""));
+        ItemList.Emitter_LV.set(addItem(tLastID = 680, "Emitter (LV)", ""));
+        ItemList.Emitter_MV.set(addItem(tLastID = 681, "Emitter (MV)", ""));
+        ItemList.Emitter_HV.set(addItem(tLastID = 682, "Emitter (HV)", ""));
+        ItemList.Emitter_EV.set(addItem(tLastID = 683, "Emitter (EV)", ""));
+        ItemList.Emitter_IV.set(addItem(tLastID = 684, "Emitter (IV)", ""));
+        ItemList.Emitter_LuV.set(addItem(tLastID = 685, "Emitter (LuV)", ""));
+        ItemList.Emitter_ZPM.set(addItem(tLastID = 686, "Emitter (ZPM)", ""));
+        ItemList.Emitter_UV.set(addItem(tLastID = 687, "Emitter (UV)", ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Emitter_LV.get(1L, new Object[0]),
@@ -2590,46 +2241,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 OrePrefixes.stick.get(Materials.Osmium), 'C', OrePrefixes.circuit.get(Materials.Elite), 'W',
                 OrePrefixes.cableGt01.get(Materials.Tungsten) });
 
-        ItemList.Sensor_LV.set(
-            addItem(
-                tLastID = 690,
-                "Sensor (LV)",
-                ""));
-        ItemList.Sensor_MV.set(
-            addItem(
-                tLastID = 691,
-                "Sensor (MV)",
-                ""));
-        ItemList.Sensor_HV.set(
-            addItem(
-                tLastID = 692,
-                "Sensor (HV)",
-                ""));
-        ItemList.Sensor_EV.set(
-            addItem(
-                tLastID = 693,
-                "Sensor (EV)",
-                ""));
-        ItemList.Sensor_IV.set(
-            addItem(
-                tLastID = 694,
-                "Sensor (IV)",
-                ""));
-        ItemList.Sensor_LuV.set(
-            addItem(
-                tLastID = 695,
-                "Sensor (LuV)",
-                ""));
-        ItemList.Sensor_ZPM.set(
-            addItem(
-                tLastID = 696,
-                "Sensor (ZPM)",
-                ""));
-        ItemList.Sensor_UV.set(
-            addItem(
-                tLastID = 697,
-                "Sensor (UV)",
-                ""));
+        ItemList.Sensor_LV.set(addItem(tLastID = 690, "Sensor (LV)", ""));
+        ItemList.Sensor_MV.set(addItem(tLastID = 691, "Sensor (MV)", ""));
+        ItemList.Sensor_HV.set(addItem(tLastID = 692, "Sensor (HV)", ""));
+        ItemList.Sensor_EV.set(addItem(tLastID = 693, "Sensor (EV)", ""));
+        ItemList.Sensor_IV.set(addItem(tLastID = 694, "Sensor (IV)", ""));
+        ItemList.Sensor_LuV.set(addItem(tLastID = 695, "Sensor (LuV)", ""));
+        ItemList.Sensor_ZPM.set(addItem(tLastID = 696, "Sensor (ZPM)", ""));
+        ItemList.Sensor_UV.set(addItem(tLastID = 697, "Sensor (UV)", ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Sensor_LV.get(1L, new Object[0]),
@@ -2763,24 +2382,12 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             .set(addItem(tLastID = 720, "Fiber-Reinforced Circuit Board", "An Extreme Board", new Object[0]));
         ItemList.Circuit_Board_Fiberglass.set(ItemList.Empty_Board_Elite.get(1, new Object[0]));
 
-        ItemList.Component_Sawblade_Diamond.set(
-            addItem(
-                tLastID = 721,
-                "Diamond Sawblade",
-                "",
-                new Object[] { OreDictNames.craftingDiamondBlade }));
-        ItemList.Component_Grinder_Diamond.set(
-            addItem(
-                tLastID = 722,
-                "Diamond Grinding Head",
-                "",
-                new Object[] { OreDictNames.craftingGrinder }));
-        ItemList.Component_Grinder_Tungsten.set(
-            addItem(
-                tLastID = 723,
-                "Tungsten Grinding Head",
-                "",
-                new Object[] { OreDictNames.craftingGrinder }));
+        ItemList.Component_Sawblade_Diamond
+            .set(addItem(tLastID = 721, "Diamond Sawblade", "", new Object[] { OreDictNames.craftingDiamondBlade }));
+        ItemList.Component_Grinder_Diamond
+            .set(addItem(tLastID = 722, "Diamond Grinding Head", "", new Object[] { OreDictNames.craftingGrinder }));
+        ItemList.Component_Grinder_Tungsten
+            .set(addItem(tLastID = 723, "Tungsten Grinding Head", "", new Object[] { OreDictNames.craftingGrinder }));
 
         ItemList.QuantumEye.set(addItem(tLastID = 724, "Quantum Eye", "Improved Ender Eye", new Object[0]));
         ItemList.QuantumStar.set(addItem(tLastID = 725, "Quantum Star", "Improved Nether Star", new Object[0]));
@@ -2824,16 +2431,8 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             new Object[] { "TST", "SIS", "TST", 'I', OreDictNames.craftingIndustrialDiamond, 'T',
                 OrePrefixes.plate.get(Materials.Tungsten), 'S', OrePrefixes.plate.get(Materials.Steel) });
 
-        ItemList.Upgrade_Muffler.set(
-            addItem(
-                tLastID = 727,
-                "Muffler Upgrade",
-                "Makes Machines silent"));
-        ItemList.Upgrade_Lock.set(
-            addItem(
-                tLastID = 728,
-                "Lock Upgrade",
-                "Protects your Machines"));
+        ItemList.Upgrade_Muffler.set(addItem(tLastID = 727, "Muffler Upgrade", "Makes Machines silent"));
+        ItemList.Upgrade_Lock.set(addItem(tLastID = 728, "Lock Upgrade", "Protects your Machines"));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Aluminium, 1L),
@@ -2907,36 +2506,16 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             1600,
             32);
 
-        ItemList.Cover_Controller.set(
-            addItem(
-                tLastID = 730,
-                "Machine Controller",
-                "Turns Machines ON/OFF"));
-        ItemList.Cover_ActivityDetector.set(
-            addItem(
-                tLastID = 731,
-                "Activity Detector",
-                "Gives out Activity as Redstone"));
-        ItemList.Cover_FluidDetector.set(
-            addItem(
-                tLastID = 732,
-                "Fluid Detector",
-                "Gives out Fluid Amount as Redstone"));
-        ItemList.Cover_ItemDetector.set(
-            addItem(
-                tLastID = 733,
-                "Item Detector",
-                "Gives out Item Amount as Redstone"));
-        ItemList.Cover_EnergyDetector.set(
-            addItem(
-                tLastID = 734,
-                "Energy Detector",
-                "Gives out Energy Amount as Redstone"));
-        ItemList.Cover_PlayerDetector.set(
-            addItem(
-                tLastID = 735,
-                "Player Detector",
-                "Gives out close Players as Redstone"));
+        ItemList.Cover_Controller.set(addItem(tLastID = 730, "Machine Controller", "Turns Machines ON/OFF"));
+        ItemList.Cover_ActivityDetector
+            .set(addItem(tLastID = 731, "Activity Detector", "Gives out Activity as Redstone"));
+        ItemList.Cover_FluidDetector
+            .set(addItem(tLastID = 732, "Fluid Detector", "Gives out Fluid Amount as Redstone"));
+        ItemList.Cover_ItemDetector.set(addItem(tLastID = 733, "Item Detector", "Gives out Item Amount as Redstone"));
+        ItemList.Cover_EnergyDetector
+            .set(addItem(tLastID = 734, "Energy Detector", "Gives out Energy Amount as Redstone"));
+        ItemList.Cover_PlayerDetector
+            .set(addItem(tLastID = 735, "Player Detector", "Gives out close Players as Redstone"));
         GT_Values.RA.addAssemblerRecipe(
             ItemList.Sensor_EV.get(1L, new Object[0]),
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 1L),
@@ -2981,21 +2560,9 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_ACTIVITYDETECTOR) }),
             new GT_Cover_PlayerDetector());
 
-        ItemList.Cover_Screen.set(
-            addItem(
-                tLastID = 740,
-                "Computer Monitor",
-                "Displays Data"));
-        ItemList.Cover_Crafting.set(
-            addItem(
-                tLastID = 744,
-                "Crafting Table Cover",
-                "Better than a wooden Workbench"));
-        ItemList.Cover_Drain.set(
-            addItem(
-                tLastID = 745,
-                "Drain",
-                "Absorbs Fluids and collects Rain"));
+        ItemList.Cover_Screen.set(addItem(tLastID = 740, "Computer Monitor", "Displays Data"));
+        ItemList.Cover_Crafting.set(addItem(tLastID = 744, "Crafting Table Cover", "Better than a wooden Workbench"));
+        ItemList.Cover_Drain.set(addItem(tLastID = 745, "Drain", "Absorbs Fluids and collects Rain"));
 
         ItemList.Cover_Shutter.set(
             addItem(
@@ -3073,56 +2640,16 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new GT_RenderedTexture(Textures.BlockIcons.OVERLAY_SHUTTER) }),
             new GT_Cover_Shutter());
 
-        ItemList.Cover_SolarPanel.set(
-            addItem(
-                tLastID = 750,
-                "Solar Panel",
-                "May the Sun be with you"));
-        ItemList.Cover_SolarPanel_8V.set(
-            addItem(
-                tLastID = 751,
-                "Solar Panel (8V)",
-                "8 Volt Solar Panel"));
-        ItemList.Cover_SolarPanel_LV.set(
-            addItem(
-                tLastID = 752,
-                "Solar Panel (LV)",
-                "Low Voltage Solar Panel"));
-        ItemList.Cover_SolarPanel_MV.set(
-            addItem(
-                tLastID = 753,
-                "Solar Panel (MV)",
-                "Medium Voltage Solar Panel"));
-        ItemList.Cover_SolarPanel_HV.set(
-            addItem(
-                tLastID = 754,
-                "Solar Panel (HV)",
-                "High Voltage Solar Panel"));
-        ItemList.Cover_SolarPanel_EV.set(
-            addItem(
-                tLastID = 755,
-                "Solar Panel (EV)",
-                "Extreme Solar Panel"));
-        ItemList.Cover_SolarPanel_IV.set(
-            addItem(
-                tLastID = 756,
-                "Solar Panel (IV)",
-                "Insane Solar Panel"));
-        ItemList.Cover_SolarPanel_LuV.set(
-            addItem(
-                tLastID = 757,
-                "Solar Panel (LuV)",
-                "Ludicrous Solar Panel"));
-        ItemList.Cover_SolarPanel_ZPM.set(
-            addItem(
-                tLastID = 758,
-                "Solar Panel (ZPM)",
-                "ZPM Voltage Solar Panel"));
-        ItemList.Cover_SolarPanel_UV.set(
-            addItem(
-                tLastID = 759,
-                "Solar Panel (UV)",
-                "Ultimate Solar Panel"));
+        ItemList.Cover_SolarPanel.set(addItem(tLastID = 750, "Solar Panel", "May the Sun be with you"));
+        ItemList.Cover_SolarPanel_8V.set(addItem(tLastID = 751, "Solar Panel (8V)", "8 Volt Solar Panel"));
+        ItemList.Cover_SolarPanel_LV.set(addItem(tLastID = 752, "Solar Panel (LV)", "Low Voltage Solar Panel"));
+        ItemList.Cover_SolarPanel_MV.set(addItem(tLastID = 753, "Solar Panel (MV)", "Medium Voltage Solar Panel"));
+        ItemList.Cover_SolarPanel_HV.set(addItem(tLastID = 754, "Solar Panel (HV)", "High Voltage Solar Panel"));
+        ItemList.Cover_SolarPanel_EV.set(addItem(tLastID = 755, "Solar Panel (EV)", "Extreme Solar Panel"));
+        ItemList.Cover_SolarPanel_IV.set(addItem(tLastID = 756, "Solar Panel (IV)", "Insane Solar Panel"));
+        ItemList.Cover_SolarPanel_LuV.set(addItem(tLastID = 757, "Solar Panel (LuV)", "Ludicrous Solar Panel"));
+        ItemList.Cover_SolarPanel_ZPM.set(addItem(tLastID = 758, "Solar Panel (ZPM)", "ZPM Voltage Solar Panel"));
+        ItemList.Cover_SolarPanel_UV.set(addItem(tLastID = 759, "Solar Panel (UV)", "Ultimate Solar Panel"));
 
         GregTech_API.registerCover(
             ItemList.Cover_SolarPanel.get(1L, new Object[0]),
@@ -3178,12 +2705,8 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Also an Infinite Energy Source",
                 new Object[] { Behaviour_Scanner.INSTANCE }));
         setElectricStats(32000 + tLastID, -2000000000L, 1000000000L, -1L, -3L, false);
-        ItemList.Tool_Scanner.set(
-            addItem(
-                tLastID = 762,
-                "Portable Scanner",
-                "Tricorder",
-                new Object[] { Behaviour_Scanner.INSTANCE }));
+        ItemList.Tool_Scanner
+            .set(addItem(tLastID = 762, "Portable Scanner", "Tricorder", new Object[] { Behaviour_Scanner.INSTANCE }));
         setElectricStats(32000 + tLastID, 400000L, GT_Values.V[2], 2L, -1L, false);
         GT_ModHandler.addCraftingRecipe(
             ItemList.Tool_Scanner.get(1L, new Object[0]),
@@ -3208,26 +2731,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             1600,
             2);
 
-        ItemList.Cover_RedstoneTransmitterExternal.set(
-            addItem(
-                tLastID = 741,
-                "Redstone Transmitter (Out)",
-                "Transfers Redstonesignals wireless"));
-        ItemList.Cover_RedstoneTransmitterInternal.set(
-            addItem(
-                tLastID = 742,
-                "Redstone Transmitter (In)",
-                "Transfers Redstonesignals wireless"));
-        ItemList.Cover_RedstoneReceiverExternal.set(
-            addItem(
-                tLastID = 746,
-                "Redstone Receiver (Out)",
-                "Transfers Redstonesignals wireless"));
-        ItemList.Cover_RedstoneReceiverInternal.set(
-            addItem(
-                tLastID = 747,
-                "Redstone Receiver (In)",
-                "Transfers Redstonesignals wireless"));
+        ItemList.Cover_RedstoneTransmitterExternal
+            .set(addItem(tLastID = 741, "Redstone Transmitter (Out)", "Transfers Redstonesignals wireless"));
+        ItemList.Cover_RedstoneTransmitterInternal
+            .set(addItem(tLastID = 742, "Redstone Transmitter (In)", "Transfers Redstonesignals wireless"));
+        ItemList.Cover_RedstoneReceiverExternal
+            .set(addItem(tLastID = 746, "Redstone Receiver (Out)", "Transfers Redstonesignals wireless"));
+        ItemList.Cover_RedstoneReceiverInternal
+            .set(addItem(tLastID = 747, "Redstone Receiver (In)", "Transfers Redstonesignals wireless"));
 
         GregTech_API.registerCover(
             ItemList.Cover_RedstoneTransmitterExternal.get(1L, new Object[0]),
@@ -3305,18 +2816,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 10000000000L, GT_Values.V[7], 7L, -3L, true);
 
-        ItemList.Energy_Cluster.set(
-            addItem(
-                tLastID = 737,
-                "Energy Cluster",
-                "Reusable battery"));
+        ItemList.Energy_Cluster.set(addItem(tLastID = 737, "Energy Cluster", "Reusable battery"));
         setElectricStats(32000 + tLastID, 100000000000L, GT_Values.V[8], 8L, -3L, true);
 
-        ItemList.ZPM2.set(
-            addItem(
-                tLastID = 605,
-                "Ultimate Battery",
-                "Fill this to win minecraft"));
+        ItemList.ZPM2.set(addItem(tLastID = 605, "Ultimate Battery", "Fill this to win minecraft"));
         setElectricStats(32000 + tLastID, Long.MAX_VALUE, GT_Values.V[8], 8L, -3L, true);
 
     }
