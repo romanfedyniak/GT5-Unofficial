@@ -309,9 +309,6 @@ public class GT_BookAndLootLoader implements Runnable {
 
         ChestGenHooks.addItem(
             "villageBlacksmith",
-            new WeightedRandomChestContent(ItemList.McGuffium_239.get(1L, new Object[0]), 1, 1, 1));
-        ChestGenHooks.addItem(
-            "villageBlacksmith",
             new WeightedRandomChestContent(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Chrome, 1L), 1, 4, 6));
         ChestGenHooks.addItem(
             "villageBlacksmith",
@@ -359,9 +356,6 @@ public class GT_BookAndLootLoader implements Runnable {
         ChestGenHooks.addItem(
             "strongholdCrossing",
             new WeightedRandomChestContent(ItemList.Bottle_Holy_Water.get(1L, new Object[0]), 4, 8, 6));
-        ChestGenHooks.addItem(
-            "strongholdCrossing",
-            new WeightedRandomChestContent(ItemList.McGuffium_239.get(1L, new Object[0]), 1, 1, 10));
 
         ChestGenHooks.addItem(
             "strongholdCrossing",

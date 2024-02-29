@@ -107,7 +107,6 @@ public class LoadArmorComponents {
         new ArmorPlating("plateInfusedOrder", "plateInfusedOrder", 150, 0.18f, 0.22f, 0.22f, 0.25f, 0.22f);
         new ArmorPlating("plateSteeleaf", "plateSteeleaf", 120, 0.16f, 0.16f, 0.06f, 0.06f, 0.16f);
         new ArmorPlating("plateInfusedEarth", "plateInfusedEarth", 350, 0.30f, 0.30f, 0.30f, 0.30f, 0.30f);
-        new ArmorPlating("plateThaumium", "plateThaumium", 200, 0.18f, 0.19f, 0.20f, 0.30f, 0.18f);
         new ArmorPlating("plateTitanium", "plateTitanium", 140, 0.20f, 0.20f, 0.18f, 0.18f, 0.20f);
         new ArmorPlating("plateTungsten", "plateTungsten", 270, 0.27f, 0.26f, 0.23f, 0.26f, 0.26f);
         new ArmorPlating("plateUltimet", "plateTopaz", 180, 0.10f, 0.10f, 0.14f, 0.14f, 0.10f);
@@ -147,13 +146,6 @@ public class LoadArmorComponents {
             true,
             100,
             StatType.NIGHTVISION,
-            100);
-        if (GT_ModHandler.getModItem("Thaumcraft", "ItemGoggles", 1) != null) new ArmorComponentFunction(
-            "componentthaumicgoggles",
-            GT_ModHandler.getModItem("Thaumcraft", "ItemGoggles", 1),
-            true,
-            100,
-            StatType.THAUMICGOGGLES,
             100);
         new ArmorComponentBattery(
             "batteryLVLI",

@@ -120,7 +120,7 @@ import ic2.api.recipe.RecipeOutput;
     name = "GregTech",
     version = "MC1710",
     useMetadata = false,
-    dependencies = "required-after:IC2; after:Forestry; after:PFAAGeologica; after:Thaumcraft; after:Railcraft; after:appliedenergistics2; after:ThermalExpansion; after:TwilightForest; after:harvestcraft; after:magicalcrops; after:BuildCraft|Transport; after:BuildCraft|Silicon; after:BuildCraft|Factory; after:BuildCraft|Energy; after:BuildCraft|Core; after:BuildCraft|Builders; after:GalacticraftCore; after:GalacticraftMars; after:GalacticraftPlanets; after:ThermalExpansion|Transport; after:ThermalExpansion|Energy; after:ThermalExpansion|Factory; after:RedPowerCore; after:RedPowerBase; after:RedPowerMachine; after:RedPowerCompat; after:RedPowerWiring; after:RedPowerLogic; after:RedPowerLighting; after:RedPowerWorld; after:RedPowerControl; after:UndergroundBiomes; after:TConstruct;  after:Translocator;")
+    dependencies = "required-after:IC2; after:Forestry; after:PFAAGeologica; after:Railcraft; after:appliedenergistics2; after:ThermalExpansion; after:TwilightForest; after:harvestcraft; after:magicalcrops; after:BuildCraft|Transport; after:BuildCraft|Silicon; after:BuildCraft|Factory; after:BuildCraft|Energy; after:BuildCraft|Core; after:BuildCraft|Builders; after:GalacticraftCore; after:GalacticraftMars; after:GalacticraftPlanets; after:ThermalExpansion|Transport; after:ThermalExpansion|Energy; after:ThermalExpansion|Factory; after:RedPowerCore; after:RedPowerBase; after:RedPowerMachine; after:RedPowerCompat; after:RedPowerWiring; after:RedPowerLogic; after:RedPowerLighting; after:RedPowerWorld; after:RedPowerControl; after:UndergroundBiomes; after:TConstruct;  after:Translocator;")
 public class GT_Mod implements IGT_Mod {
 
     public static final int VERSION = 509, SUBVERSION = 31;
@@ -502,7 +502,7 @@ public class GT_Mod implements IGT_Mod {
 
         Materials[] tDisableOres = new Materials[] { Materials.Chrome, Materials.Naquadria, Materials.Silicon,
             Materials.Cobalt, Materials.Cadmium, Materials.Indium, Materials.Tungsten, Materials.Adamantium,
-            Materials.Mithril, Materials.DarkIron, Materials.Rutile, Materials.Alduorite, Materials.Magnesium,
+            Materials.DarkIron, Materials.Rutile, Materials.Alduorite, Materials.Magnesium,
             Materials.Nikolite };
         for (Materials tMat : tDisableOres) {
             if (!GregTech_API.sMaterialComponents.get("disableLaserDrillOres", tMat.mName, false))
@@ -1500,7 +1500,6 @@ public class GT_Mod implements IGT_Mod {
             0);
         for (Materials tMaterial : Materials.values()) {
             if ((tMaterial.mElement != null) && (!tMaterial.mElement.mIsIsotope)
-                && (tMaterial != Materials.Magic)
                 && (tMaterial.getMass() > 0L)) {
                 ItemStack tOutput = ItemList.Tool_DataOrb.get(1L, new Object[0]);
                 Behaviour_DataOrb.setDataTitle(tOutput, "Elemental-Scan");
@@ -2045,10 +2044,6 @@ public class GT_Mod implements IGT_Mod {
             GT_OreDictUnificator.get(ItemList.Block_SSFUEL.get(1, new Object[0])),
             GT_OreDictUnificator.get(ItemList.Block_MSSFUEL.get(1, new Object[0])),
             GT_OreDictUnificator.get(OrePrefixes.rod, Materials.Blaze, 1));
-        if (Loader.isModLoaded("Thaumcraft")) {
-            GT_Recipe.GT_Recipe_Map.sLargeBoilerFakeFuels
-                .addSolidRecipe(GT_ModHandler.getModItem("Thaumcraft", "ItemResource", 1));
-        }
     }
 
     public static int calculateTotalGTVersion(int minorVersion) {

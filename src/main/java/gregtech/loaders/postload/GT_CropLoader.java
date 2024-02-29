@@ -444,42 +444,6 @@ public class GT_CropLoader implements Runnable {
                 Materials.Lead,
                 ItemList.Crop_Drop_Plumbilia.get(1L, new Object[0]),
                 null);
-            new GT_BaseCrop(
-                147,
-                "Steeleafranks",
-                "Benimatic",
-                null,
-                10,
-                4,
-                0,
-                1,
-                4,
-                3,
-                0,
-                7,
-                2,
-                8,
-                new String[] { "Metal", "Vine", "Iron" },
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Steeleaf, 1L),
-                new ItemStack[] { GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Steeleaf, 1L) });
-            new GT_BaseCrop(
-                148,
-                "Liveroots",
-                "Benimatic",
-                null,
-                8,
-                4,
-                0,
-                1,
-                4,
-                2,
-                0,
-                5,
-                2,
-                6,
-                new String[] { "Wood", "Vine" },
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.LiveRoot, 1L),
-                new ItemStack[] { ItemList.TF_LiveRoot.get(1L, new Object[0]) });
 
             new GT_BaseCrop(
                 149,

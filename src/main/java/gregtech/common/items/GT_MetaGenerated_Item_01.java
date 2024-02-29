@@ -24,7 +24,6 @@ import gregtech.api.enums.Materials;
 import gregtech.api.enums.OreDictNames;
 import gregtech.api.enums.OrePrefixes;
 import gregtech.api.enums.SubTag;
-import gregtech.api.enums.TC_Aspects;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.IItemBehaviour;
 import gregtech.api.interfaces.ITexture;
@@ -128,8 +127,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 2,
                 "Silver GT Credit",
-                "8 Credits",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
+                "8 Credits"));
         ItemList.Credit_Greg_Gold.set(addItem(tLastID = 3, "Gold GT Credit", "64 Credits", new Object[0]));
         ItemList.Credit_Greg_Platinum.set(addItem(tLastID = 4, "Platinum GT Credit", "512 Credits", new Object[0]));
         ItemList.Credit_Greg_Osmium.set(addItem(tLastID = 5, "Osmium GT Credit", "4096 Credits", new Object[0]));
@@ -141,15 +139,13 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 8,
                 "Ancient Gold Coin",
                 "Found in ancient Ruins",
-                new Object[] { new ItemData(Materials.Gold, 907200L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 8L) }));
+                new Object[] { new ItemData(Materials.Gold, 907200L, new MaterialStack[0]) }));
         ItemList.Coin_Doge.set(
             addItem(
                 tLastID = 9,
                 "Doge Coin",
                 "wow much coin how money so crypto plz mine v rich very currency wow",
-                new Object[] { new ItemData(Materials.Brass, 907200L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
+                new Object[] { new ItemData(Materials.Brass, 907200L, new MaterialStack[0]) }));
         ItemList.Coin_Chocolate.set(
             addItem(
                 tLastID = 10,
@@ -171,8 +167,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 13,
                 "Industrial Silver Credit",
-                "8 Credits",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.LUCRUM, 1L) }));
+                "8 Credits"));
         ItemList.Credit_Gold.set(addItem(tLastID = 14, "Industrial Gold Credit", "64 Credits", new Object[0]));
         ItemList.Credit_Platinum.set(addItem(tLastID = 15, "Industrial Platinum Credit", "512 Credits", new Object[0]));
         ItemList.Credit_Osmium.set(addItem(tLastID = 16, "Industrial Osmium Credit", "4096 Credits", new Object[0]));
@@ -308,16 +303,12 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 100,
                 "Iron Minecart Wheels",
-                "To get things rolling",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L) }));
+                "To get things rolling"));
         ItemList.Component_Minecart_Wheels_Steel.set(
             addItem(
                 tLastID = 101,
                 "Steel Minecart Wheels",
-                "To get things rolling",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L) }));
+                "To get things rolling"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Component_Minecart_Wheels_Iron.get(1L, new Object[0]),
@@ -339,215 +330,161 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 200,
                 "Empty Glass Arrow Head",
-                "Fill with Potions before use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                "Fill with Potions before use"));
         ItemList.Arrow_Head_Glass_Poison.set(
             addItem(
                 tLastID = 201,
                 "Poison Glass Arrow Head",
-                "Glass Arrow filled with Poison",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with Poison"));
         ItemList.Arrow_Head_Glass_Poison_Long.set(
             addItem(
                 tLastID = 202,
                 "Poison Glass Arrow Head",
-                "Glass Arrow filled with stretched Poison",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with stretched Poison"));
         ItemList.Arrow_Head_Glass_Poison_Strong.set(
             addItem(
                 tLastID = 203,
                 "Poison Glass Arrow Head",
-                "Glass Arrow filled with strong Poison",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with strong Poison"));
         ItemList.Arrow_Head_Glass_Slowness.set(
             addItem(
                 tLastID = 204,
                 "Slowness Glass Arrow Head",
-                "Glass Arrow filled with Laming Brew",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with Laming Brew"));
         ItemList.Arrow_Head_Glass_Slowness_Long.set(
             addItem(
                 tLastID = 205,
                 "Slowness Glass Arrow Head",
-                "Glass Arrow filled with stretched Laming Brew",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with stretched Laming Brew"));
         ItemList.Arrow_Head_Glass_Weakness.set(
             addItem(
                 tLastID = 206,
                 "Weakness Glass Arrow Head",
-                "Glass Arrow filled with Weakening Brew",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with Weakening Brew"));
         ItemList.Arrow_Head_Glass_Weakness_Long.set(
             addItem(
                 tLastID = 207,
                 "Weakness Glass Arrow Head",
-                "Glass Arrow filled with stretched Weakening Brew",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                "Glass Arrow filled with stretched Weakening Brew"));
         ItemList.Arrow_Head_Glass_Holy_Water.set(
             addItem(
                 tLastID = 208,
                 "Holy Water Glass Arrow Head",
-                "Glass Arrow filled with Holy Water",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AURAM, 1L) }));
+                "Glass Arrow filled with Holy Water"));
 
         ItemList.Arrow_Wooden_Glass_Emtpy.set(
             addItem(
                 tLastID = 225,
                 "Regular Glass Vial Arrow",
                 "Empty Glass Arrow",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[0]) }));
         ItemList.Arrow_Wooden_Glass_Poison.set(
             addItem(
                 tLastID = 226,
                 "Regular Poison Arrow",
                 "Glass Arrow filled with Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 450, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 450, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Poison_Long.set(
             addItem(
                 tLastID = 227,
                 "Regular Poison Arrow",
                 "Glass Arrow filled with stretched Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 900, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Poison_Strong.set(
             addItem(
                 tLastID = 228,
                 "Regular Poison Arrow",
                 "Glass Arrow filled with strong Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 450, 1, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.poison.id, 450, 1, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Slowness.set(
             addItem(
                 tLastID = 229,
                 "Regular Slowness Arrow",
                 "Glass Arrow filled with Laming Brew",
                 new Object[] {
-                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.moveSlowdown.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.moveSlowdown.id, 900, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Slowness_Long.set(
             addItem(
                 tLastID = 230,
                 "Regular Slowness Arrow",
                 "Glass Arrow filled with stretched Laming Brew",
                 new Object[] {
-                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.moveSlowdown.id, 1800, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                    new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.moveSlowdown.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Weakness.set(
             addItem(
                 tLastID = 231,
                 "Regular Weakness Arrow",
                 "Glass Arrow filled with Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Weakness_Long.set(
             addItem(
                 tLastID = 232,
                 "Regular Weakness Arrow",
                 "Glass Arrow filled with stretched Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Wooden_Glass_Holy_Water.set(
             addItem(
                 tLastID = 233,
                 "Regular Holy Water Arrow",
                 "Glass Arrow filled with Holy Water",
-                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, Enchantment.smite, 10, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AURAM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.0F, 6.0F, Enchantment.smite, 10, new int[0]) }));
 
         ItemList.Arrow_Plastic_Glass_Emtpy.set(
             addItem(
                 tLastID = 250,
                 "Light Glass Vial Arrow",
                 "Empty Glass Arrow",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[0]) }));
         ItemList.Arrow_Plastic_Glass_Poison.set(
             addItem(
                 tLastID = 251,
                 "Light Poison Arrow",
                 "Glass Arrow filled with Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 450, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 450, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Poison_Long.set(
             addItem(
                 tLastID = 252,
                 "Light Poison Arrow",
                 "Glass Arrow filled with stretched Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 900, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Poison_Strong.set(
             addItem(
                 tLastID = 253,
                 "Light Poison Arrow",
                 "Glass Arrow filled with strong Poison",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 450, 1, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.poison.id, 450, 1, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Slowness.set(
             addItem(
                 tLastID = 254,
                 "Light Slowness Arrow",
                 "Glass Arrow filled with Laming Brew",
                 new Object[] {
-                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.moveSlowdown.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.moveSlowdown.id, 900, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Slowness_Long.set(
             addItem(
                 tLastID = 255,
                 "Light Slowness Arrow",
                 "Glass Arrow filled with stretched Laming Brew",
                 new Object[] {
-                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.moveSlowdown.id, 1800, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                    new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.moveSlowdown.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Weakness.set(
             addItem(
                 tLastID = 256,
                 "Light Weakness Arrow",
                 "Glass Arrow filled with Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 900, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Weakness_Long.set(
             addItem(
                 tLastID = 257,
                 "Light Weakness Arrow",
                 "Glass Arrow filled with stretched Weakening Brew",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VENENUM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, new int[] { Potion.weakness.id, 1800, 0, 100 }) }));
         ItemList.Arrow_Plastic_Glass_Holy_Water.set(
             addItem(
                 tLastID = 258,
                 "Light Holy Water Arrow",
                 "Glass Arrow filled with Holy Water",
-                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, Enchantment.smite, 10, new int[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TELUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AURAM, 1L) }));
+                new Object[] { new Behaviour_Arrow_Potion(1.5F, 6.0F, Enchantment.smite, 10, new int[0]) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Arrow_Wooden_Glass_Emtpy.get(1L, new Object[0]),
@@ -663,9 +600,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 300,
                 "Empty Shape Plate",
-                "Raw Plate to make Molds and Extruder Shapes",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L) }));
+                "Raw Plate to make Molds and Extruder Shapes"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Shape_Empty.get(1L, new Object[0]),
@@ -1024,18 +959,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Empty Plastic Fuel Can",
                 "Used to store Fuels",
                 new Object[] {
-                    new ItemData(Materials.Plastic, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L) }));
+                    new ItemData(Materials.Plastic, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]) }));
         ItemList.Fuel_Can_Plastic_Filled.set(
             addItem(
                 tLastID = 401,
                 "Plastic Fuel Can",
                 "Burns well in Diesel Generators",
                 new Object[] {
-                    new ItemData(Materials.Plastic, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L) }));
+                    new ItemData(Materials.Plastic, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Fuel_Can_Plastic_Empty.get(7L, new Object[0]),
@@ -1052,9 +983,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                         Materials.Tin,
                         OrePrefixes.plate.mMaterialAmount * 2L,
                         Materials.Redstone,
-                        OrePrefixes.dust.mMaterialAmount),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L) }));
+                        OrePrefixes.dust.mMaterialAmount) }));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Redstone, 1L),
@@ -1069,9 +998,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Empty Crate",
                 "To Package lots of Material",
                 new Object[] {
-                    new ItemData(Materials.Wood, 3628800L, Materials.Iron, OrePrefixes.screw.mMaterialAmount),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 2L) }));
+                    new ItemData(Materials.Wood, 3628800L, Materials.Iron, OrePrefixes.screw.mMaterialAmount) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Crate_Empty.get(4L, new Object[0]),
@@ -1093,10 +1020,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new ItemData(
                         Materials.Aluminium,
                         OrePrefixes.plate.mMaterialAmount * 1L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.GELUM, 1L) }));
+                        new MaterialStack[0]) }));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Aluminium, 1L),
@@ -1114,9 +1038,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new ItemData(
                         Materials.Steel,
                         OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                        new MaterialStack[0]) }));
         setFluidContainerStats(32000 + tLastID, 16000L, 16L);
 
         GT_Values.RA.addAssemblerRecipe(
@@ -1135,9 +1057,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                     new ItemData(
                         Materials.TungstenSteel,
                         OrePrefixes.plate.mMaterialAmount * 2L + 2L * OrePrefixes.ring.mMaterialAmount,
-                        new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 6L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 3L) }));
+                        new MaterialStack[0]) }));
         setFluidContainerStats(32000 + tLastID, 64000L, 16L);
 
         GT_Values.RA.addAssemblerRecipe(
@@ -1151,14 +1071,12 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 addItem(
                     tLastID = 430 + 2 * i,
                     "Spray Can (" + Dyes.get(i).mName + ")",
-                    "Full",
-                    new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 4L) }));
+                    "Full"));
             ItemList.SPRAY_CAN_DYES_USED[i].set(
                 addItem(
                     tLastID + 1,
                     "Spray Can (" + Dyes.get(i).mName + ")",
-                    "Used",
-                    new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 3L), SubTag.INVISIBLE }));
+                    "Used"));
             IItemBehaviour<GT_MetaBase_Item> tBehaviour = new Behaviour_Spray_Color(
                 ItemList.Spray_Empty.get(1L, new Object[0]),
                 ItemList.SPRAY_CAN_DYES_USED[i].get(1L, new Object[0]),
@@ -1172,23 +1090,17 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 471,
                 "Match",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                ""));
         ItemList.Tool_MatchBox_Used.set(
             addItem(
                 tLastID = 472,
                 "Match Box",
-                "This is not a Car",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), SubTag.INVISIBLE }));
+                "This is not a Car"));
         ItemList.Tool_MatchBox_Full.set(
             addItem(
                 tLastID = 473,
                 "Match Box (Full)",
-                "This is not a Car",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "This is not a Car"));
 
         IItemBehaviour<GT_MetaBase_Item> tBehaviour = new Behaviour_Lighter(
             null,
@@ -1247,27 +1159,21 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Lighter (Empty)",
                 "",
                 new Object[] {
-                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]) }));
         ItemList.Tool_Lighter_Invar_Used.set(
             addItem(
                 tLastID = 475,
                 "Lighter",
                 "",
                 new Object[] {
-                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), SubTag.INVISIBLE }));
+                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]) }));
         ItemList.Tool_Lighter_Invar_Full.set(
             addItem(
                 tLastID = 476,
                 "Lighter (Full)",
                 "",
                 new Object[] {
-                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                    new ItemData(Materials.Invar, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]) }));
 
         tBehaviour = new Behaviour_Lighter(
             ItemList.Tool_Lighter_Invar_Empty.get(1L, new Object[0]),
@@ -1290,10 +1196,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Platinum Lighter (Empty)",
                 "A known Prank Master is engraved on it",
                 new Object[] {
-                    new ItemData(Materials.Platinum, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                    new ItemData(Materials.Platinum, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]) }));
         ItemList.Tool_Lighter_Platinum_Used.set(
             addItem(
                 tLastID = 478,
@@ -1301,19 +1204,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "A known Prank Master is engraved on it",
                 new Object[] {
                     new ItemData(Materials.Platinum, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), SubTag.INVISIBLE }));
+                    SubTag.INVISIBLE }));
         ItemList.Tool_Lighter_Platinum_Full.set(
             addItem(
                 tLastID = 479,
                 "Platinum Lighter (Full)",
                 "A known Prank Master is engraved on it",
                 new Object[] {
-                    new ItemData(Materials.Platinum, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.IGNIS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                    new ItemData(Materials.Platinum, OrePrefixes.plate.mMaterialAmount * 2L, new MaterialStack[0]) }));
 
         tBehaviour = new Behaviour_Lighter(
             ItemList.Tool_Lighter_Platinum_Empty.get(1L, new Object[0]),
@@ -1350,9 +1248,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 480,
                 "Iridium Alloy Ingot",
-                "Used to make Iridium Plates",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L) }));
+                "Used to make Iridium Plates"));
 
         GT_ModHandler.addRollingMachineRecipe(
             ItemList.Ingot_IridiumAlloy.get(1L, new Object[0]),
@@ -1376,117 +1272,95 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Printed Pages",
                 "Used to make written Books",
                 new Object[] { new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]),
-                    new Behaviour_PrintedPages(), new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                    new Behaviour_PrintedPages() }));
         ItemList.Paper_Magic_Empty.set(
             addItem(
                 tLastID = 482,
                 "Magic Paper",
                 "",
-                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 3628800L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 1L) }));
+                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 3628800L, new MaterialStack[0]) }));
         ItemList.Paper_Magic_Page.set(
             addItem(
                 tLastID = 483,
                 "Enchanted Page",
                 "",
-                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 3628800L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 2L) }));
+                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 3628800L, new MaterialStack[0]) }));
         ItemList.Paper_Magic_Pages.set(
             addItem(
                 tLastID = 484,
                 "Enchanted Pages",
                 "",
-                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PRAECANTATIO, 4L) }));
+                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]) }));
         ItemList.Paper_Punch_Card_Empty.set(
             addItem(
                 tLastID = 485,
                 "Punch Card",
                 "",
-                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L) }));
+                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 7257600L, new MaterialStack[0]) }));
         ItemList.Paper_Punch_Card_Encoded.set(
             addItem(
                 tLastID = 486,
                 "Punched Card",
                 "",
-                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                new Object[] { SubTag.INVISIBLE, new ItemData(Materials.Paper, 7257600L, new MaterialStack[0]) }));
         ItemList.Book_Written_01.set(
             addItem(
                 tLastID = 487,
                 "Book",
                 "",
                 new Object[] { new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]), "bookWritten",
-                    OreDictNames.craftingBook, new Behaviour_WrittenBook(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                    OreDictNames.craftingBook, new Behaviour_WrittenBook() }));
         ItemList.Book_Written_02.set(
             addItem(
                 tLastID = 488,
                 "Book",
                 "",
                 new Object[] { new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]), "bookWritten",
-                    OreDictNames.craftingBook, new Behaviour_WrittenBook(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                    OreDictNames.craftingBook, new Behaviour_WrittenBook() }));
         ItemList.Book_Written_03.set(
             addItem(
                 tLastID = 489,
                 "Book",
                 "",
                 new Object[] { new ItemData(Materials.Paper, 10886400L, new MaterialStack[0]), "bookWritten",
-                    OreDictNames.craftingBook, new Behaviour_WrittenBook(),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                    OreDictNames.craftingBook, new Behaviour_WrittenBook() }));
 
         ItemList.Schematic.set(
             addItem(
                 tLastID = 490,
                 "Schematic",
                 "EMPTY",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.STRONTIO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
         ItemList.Schematic_Crafting.set(
             addItem(
                 tLastID = 491,
                 "Schematic (Crafting)",
                 "Crafts the Programmed Recipe",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
         ItemList.Schematic_1by1.set(
             addItem(
                 tLastID = 495,
                 "Schematic (1x1)",
                 "Crafts 1 Items as 1x1 (use in Packager)",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
         ItemList.Schematic_2by2.set(
             addItem(
                 tLastID = 496,
                 "Schematic (2x2)",
                 "Crafts 4 Items as 2x2 (use in Packager)",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
         ItemList.Schematic_3by3.set(
             addItem(
                 tLastID = 497,
                 "Schematic (3x3)",
                 "Crafts 9 Items as 3x3 (use in Packager)",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
         ItemList.Schematic_Dust.set(
             addItem(
                 tLastID = 498,
                 "Schematic (Dusts)",
                 "Combines Dusts (use in Packager)",
-                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 1L) }));
+                new Object[] { new ItemData(Materials.StainlessSteel, 7257600L, new MaterialStack[0]) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Schematic_1by1.get(1L, new Object[0]),
@@ -1532,30 +1406,21 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "Small Battery Hull",
                 "An empty LV Battery Hull",
                 new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 1L, new MaterialStack[0]) }));
         ItemList.Battery_Hull_MV.set(
             addItem(
                 tLastID = 501,
                 "Medium Battery Hull",
                 "An empty MV Battery Hull",
                 new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 3L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 3L, new MaterialStack[0]) }));
         ItemList.Battery_Hull_HV.set(
             addItem(
                 tLastID = 502,
                 "Large Battery Hull",
                 "An empty HV Battery Hull",
                 new Object[] {
-                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 9L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 1L) }));
+                    new ItemData(Materials.BatteryAlloy, OrePrefixes.plate.mMaterialAmount * 9L, new MaterialStack[0]) }));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Battery_Hull_LV.get(1L, new Object[0]),
@@ -1572,29 +1437,20 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 499,
                 "Tantalum Capacitor",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 1000L, GT_Values.V[0], 0L, -3L, false);
 
         ItemList.Battery_SU_LV_SulfuricAcid.set(
             addItem(
                 tLastID = 510,
                 "Small Acid Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 18000L, GT_Values.V[1], 1L, -2L, true);
         ItemList.Battery_SU_LV_Mercury.set(
             addItem(
                 tLastID = 511,
                 "Small Mercury Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 32000L, GT_Values.V[1], 1L, -2L, true);
 
         ItemList.Battery_RE_LV_Cadmium.set(
@@ -1602,121 +1458,85 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 517,
                 "Small Cadmium Battery",
                 "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), "calclavia:ADVANCED_BATTERY" }));
+                new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 75000L, GT_Values.V[1], 1L, -3L, true);
         ItemList.Battery_RE_LV_Lithium.set(
             addItem(
                 tLastID = 518,
                 "Small Lithium Battery",
                 "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), "calclavia:ADVANCED_BATTERY" }));
+                new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 100000L, GT_Values.V[1], 1L, -3L, true);
         ItemList.Battery_RE_LV_Sodium.set(
             addItem(
                 tLastID = 519,
                 "Small Sodium Battery",
                 "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L), "calclavia:ADVANCED_BATTERY" }));
+                new Object[] { "calclavia:ADVANCED_BATTERY" }));
         setElectricStats(32000 + tLastID, 50000L, GT_Values.V[1], 1L, -3L, true);
 
         ItemList.Battery_SU_MV_SulfuricAcid.set(
             addItem(
                 tLastID = 520,
                 "Medium Acid Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 72000L, GT_Values.V[2], 2L, -2L, true);
         ItemList.Battery_SU_MV_Mercury.set(
             addItem(
                 tLastID = 521,
                 "Medium Mercury Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 128000L, GT_Values.V[2], 2L, -2L, true);
 
         ItemList.Battery_RE_MV_Cadmium.set(
             addItem(
                 tLastID = 527,
                 "Medium Cadmium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 300000L, GT_Values.V[2], 2L, -3L, true);
         ItemList.Battery_RE_MV_Lithium.set(
             addItem(
                 tLastID = 528,
                 "Medium Lithium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 400000L, GT_Values.V[2], 2L, -3L, true);
         ItemList.Battery_RE_MV_Sodium.set(
             addItem(
                 tLastID = 529,
                 "Medium Sodium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 200000L, GT_Values.V[2], 2L, -3L, true);
 
         ItemList.Battery_SU_HV_SulfuricAcid.set(
             addItem(
                 tLastID = 530,
                 "Large Acid Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 8L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 288000L, GT_Values.V[3], 3L, -2L, true);
         ItemList.Battery_SU_HV_Mercury.set(
             addItem(
                 tLastID = 531,
                 "Large Mercury Battery",
-                "Single Use",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 8L) }));
+                "Single Use"));
         setElectricStats(32000 + tLastID, 512000L, GT_Values.V[3], 3L, -2L, true);
 
         ItemList.Battery_RE_HV_Cadmium.set(
             addItem(
                 tLastID = 537,
                 "Large Cadmium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 1200000L, GT_Values.V[3], 3L, -3L, true);
         ItemList.Battery_RE_HV_Lithium.set(
             addItem(
                 tLastID = 538,
                 "Large Lithium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 1600000L, GT_Values.V[3], 3L, -3L, true);
         ItemList.Battery_RE_HV_Sodium.set(
             addItem(
                 tLastID = 539,
                 "Large Sodium Battery",
-                "Reusable",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L) }));
+                "Reusable"));
         setElectricStats(32000 + tLastID, 800000L, GT_Values.V[3], 3L, -3L, true);
 
         GT_ModHandler.addExtractionRecipe(
@@ -1834,20 +1654,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 597,
                 "Lapotronic Energy Orb",
                 "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 16L),
-                    OrePrefixes.battery.get(Materials.Ultimate) }));
+                new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 100000000L, GT_Values.V[5], 5L, -3L, true);
 
         ItemList.ZPM.set(
             addItem(
                 tLastID = 598,
                 "Zero Point Module",
-                "Single use battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L) }));
+                "Single use battery"));
         setElectricStats(32000 + tLastID, 2000000000000L, GT_Values.V[7], 7L, -2L, true);
 
         ItemList.Energy_LapotronicOrb2.set(
@@ -1855,10 +1669,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 599,
                 "Lapotronic Energy Orb Cluster",
                 "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 16L),
-                    OrePrefixes.battery.get(Materials.Ultimate) }));
+                new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 1000000000L, GT_Values.V[6], 6L, -3L, true);
 
         ItemList.Energy_Module.set(
@@ -1866,86 +1677,56 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 736,
                 "Energy Module",
                 "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 16L),
-                    OrePrefixes.battery.get(Materials.Ultimate) }));
+                new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 10000000000L, GT_Values.V[7], 7L, -3L, true);
 
         ItemList.Energy_Cluster.set(
             addItem(
                 tLastID = 737,
                 "Energy Cluster",
-                "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L) }));
+                "Reusable battery"));
         setElectricStats(32000 + tLastID, 100000000000L, GT_Values.V[8], 8L, -3L, true);
 
         ItemList.Electric_Motor_LV.set(
             addItem(
                 tLastID = 600,
                 "Electric Motor (LV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L) }));
+                ""));
         ItemList.Electric_Motor_MV.set(
             addItem(
                 tLastID = 601,
                 "Electric Motor (MV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L) }));
+                ""));
         ItemList.Electric_Motor_HV.set(
             addItem(
                 tLastID = 602,
                 "Electric Motor (HV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 4L) }));
+                ""));
         ItemList.Electric_Motor_EV.set(
             addItem(
                 tLastID = 603,
                 "Electric Motor (EV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 8L) }));
+                ""));
         ItemList.Electric_Motor_IV.set(
             addItem(
                 tLastID = 604,
                 "Electric Motor (IV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+                ""));
         ItemList.Electric_Motor_LuV.set(
             addItem(
                 tLastID = 606,
                 "Electric Motor (LuV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 24L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 24L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 24L) }));
+                ""));
         ItemList.Electric_Motor_ZPM.set(
             addItem(
                 tLastID = 607,
                 "Electric Motor (ZPM)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 32L) }));
+                ""));
         ItemList.Electric_Motor_UV.set(
             addItem(
                 tLastID = 608,
                 "Electric Motor (UV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 48L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 48L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 48L) }));
+                ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Electric_Motor_LV.get(1L, new Object[0]),
@@ -1993,74 +1774,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 610,
                 "Electric Pump (LV)",
-                "640 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L) }));
+                "640 L/sec (as Cover)"));
         ItemList.Electric_Pump_MV.set(
             addItem(
                 tLastID = 611,
                 "Electric Pump (MV)",
-                "2560 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                "2560 L/sec (as Cover)"));
         ItemList.Electric_Pump_HV.set(
             addItem(
                 tLastID = 612,
                 "Electric Pump (HV)",
-                "10240 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 4L) }));
+                "10240 L/sec (as Cover)"));
         ItemList.Electric_Pump_EV.set(
             addItem(
                 tLastID = 613,
                 "Electric Pump (EV)",
-                "40.960 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 8L) }));
+                "40.960 L/sec (as Cover)"));
         ItemList.Electric_Pump_IV.set(
             addItem(
                 tLastID = 614,
                 "Electric Pump (IV)",
-                "163.840 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 16L) }));
+                "163.840 L/sec (as Cover)"));
         ItemList.Electric_Pump_LuV.set(
             addItem(
                 tLastID = 620,
                 "Electric Pump (LuV)",
-                "655.360 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 16L) }));
+                "655.360 L/sec (as Cover)"));
         ItemList.Electric_Pump_ZPM.set(
             addItem(
                 tLastID = 621,
                 "Electric Pump (ZPM)",
-                "2.621.440 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 16L) }));
+                "2.621.440 L/sec (as Cover)"));
         ItemList.Electric_Pump_UV.set(
             addItem(
                 tLastID = 622,
                 "Electric Pump (UV)",
-                "10.485.760 L/sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 16L) }));
+                "10.485.760 L/sec (as Cover)"));
 
         GregTech_API.registerCover(
             ItemList.Electric_Pump_LV.get(1L, new Object[0]),
@@ -2188,20 +1937,15 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
 
         /**
          * ItemList.Rotor_LV.set(addItem(tLastID = 620, "Tin Rotor", "", new Object[] {
-         * OrePrefixes.rotor.get(Materials.Tin), new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 1L), new
-         * TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L) }));
+         * OrePrefixes.rotor.get(Materials.Tin) }));
          * ItemList.Rotor_MV.set(addItem(tLastID = 621, "Bronze Rotor", "", new Object[] {
-         * OrePrefixes.rotor.get(Materials.Bronze), new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 2L), new
-         * TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L) }));
+         * OrePrefixes.rotor.get(Materials.Bronze) }));
          * ItemList.Rotor_HV.set(addItem(tLastID = 622, "Steel Rotor", "", new Object[] {
-         * OrePrefixes.rotor.get(Materials.Steel), new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 4L), new
-         * TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 4L) }));
+         * OrePrefixes.rotor.get(Materials.Steel) }));
          * ItemList.Rotor_EV.set(addItem(tLastID = 623, "Stainless Steel Rotor", "", new Object[] {
-         * OrePrefixes.rotor.get(Materials.StainlessSteel), new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 8L), new
-         * TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 8L) }));
+         * OrePrefixes.rotor.get(Materials.StainlessSteel) }));
          * ItemList.Rotor_IV.set(addItem(tLastID = 624, "Tungstensteel Rotor", "", new Object[] {
-         * OrePrefixes.rotor.get(Materials.TungstenSteel), new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 16L), new
-         * TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+         * OrePrefixes.rotor.get(Materials.TungstenSteel) }));
          * ItemList.Rotor_LuV.set(ItemList.Rotor_IV.get(1L, new Object[0]));
          * ItemList.Rotor_ZPM.set(ItemList.Rotor_LuV.get(1L, new Object[0]));
          * ItemList.Rotor_UV.set(ItemList.Rotor_ZPM.get(1L, new Object[0]));
@@ -2334,66 +2078,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 630,
                 "Conveyor Module (LV)",
-                "1 Stack every 20 secs (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L) }));
+                "1 Stack every 20 secs (as Cover)"));
         ItemList.Conveyor_Module_MV.set(
             addItem(
                 tLastID = 631,
                 "Conveyor Module (MV)",
-                "1 Stack every 5 secs (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 2L) }));
+                "1 Stack every 5 secs (as Cover)"));
         ItemList.Conveyor_Module_HV.set(
             addItem(
                 tLastID = 632,
                 "Conveyor Module (HV)",
-                "1 Stack every 1 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 4L) }));
+                "1 Stack every 1 sec (as Cover)"));
         ItemList.Conveyor_Module_EV.set(
             addItem(
                 tLastID = 633,
                 "Conveyor Module (EV)",
-                "1 Stack every 1/5 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 8L) }));
+                "1 Stack every 1/5 sec (as Cover)"));
         ItemList.Conveyor_Module_IV.set(
             addItem(
                 tLastID = 634,
                 "Conveyor Module (IV)",
-                "1 Stack every 1/20 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L) }));
+                "1 Stack every 1/20 sec (as Cover)"));
         ItemList.Conveyor_Module_LuV.set(
             addItem(
                 tLastID = 636,
                 "Conveyor Module (LuV)",
-                "2 Stacks every 1/20 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L) }));
+                "2 Stacks every 1/20 sec (as Cover)"));
         ItemList.Conveyor_Module_ZPM.set(
             addItem(
                 tLastID = 637,
                 "Conveyor Module (ZPM)",
-                "3 Stacks every 1/20 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L) }));
+                "3 Stacks every 1/20 sec (as Cover)"));
         ItemList.Conveyor_Module_UV.set(
             addItem(
                 tLastID = 638,
                 "Conveyor Module (UV)",
-                "4 Stacks every 1/20 sec (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 16L) }));
+                "4 Stacks every 1/20 sec (as Cover)"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Conveyor_Module_LV.get(1L, new Object[0]),
@@ -2538,66 +2258,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 640,
                 "Electric Piston (LV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L) }));
+                ""));
         ItemList.Electric_Piston_MV.set(
             addItem(
                 tLastID = 641,
                 "Electric Piston (MV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L) }));
+                ""));
         ItemList.Electric_Piston_HV.set(
             addItem(
                 tLastID = 642,
                 "Electric Piston (HV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 4L) }));
+                ""));
         ItemList.Electric_Piston_EV.set(
             addItem(
                 tLastID = 643,
                 "Electric Piston (EV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 8L) }));
+                ""));
         ItemList.Electric_Piston_IV.set(
             addItem(
                 tLastID = 644,
                 "Electric Piston (IV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+                ""));
         ItemList.Electric_Piston_LuV.set(
             addItem(
                 tLastID = 645,
                 "Electric Piston (LuV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+                ""));
         ItemList.Electric_Piston_ZPM.set(
             addItem(
                 tLastID = 646,
                 "Electric Piston (ZPM)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+                ""));
         ItemList.Electric_Piston_UV.set(
             addItem(
                 tLastID = 647,
                 "Electric Piston (UV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L) }));
+                ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Electric_Piston_LV.get(1L, new Object[0]),
@@ -2641,74 +2337,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 650,
                 "Robot Arm (LV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_MV.set(
             addItem(
                 tLastID = 651,
                 "Robot Arm (MV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_HV.set(
             addItem(
                 tLastID = 652,
                 "Robot Arm (HV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 4L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_EV.set(
             addItem(
                 tLastID = 653,
                 "Robot Arm (EV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 8L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_IV.set(
             addItem(
                 tLastID = 654,
                 "Robot Arm (IV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 16L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_LuV.set(
             addItem(
                 tLastID = 655,
                 "Robot Arm (LuV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 16L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_ZPM.set(
             addItem(
                 tLastID = 656,
                 "Robot Arm (ZPM)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 16L) }));
+                "Inserts into specific Slots (as Cover)"));
         ItemList.Robot_Arm_UV.set(
             addItem(
                 tLastID = 657,
                 "Robot Arm (UV)",
-                "Inserts into specific Slots (as Cover)",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 16L) }));
+                "Inserts into specific Slots (as Cover)"));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Robot_Arm_LV.get(1L, new Object[0]),
@@ -2799,66 +2463,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 670,
                 "Field Generator (LV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 1L) }));
+                ""));
         ItemList.Field_Generator_MV.set(
             addItem(
                 tLastID = 671,
                 "Field Generator (MV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 2L) }));
+                ""));
         ItemList.Field_Generator_HV.set(
             addItem(
                 tLastID = 672,
                 "Field Generator (HV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 4L) }));
+                ""));
         ItemList.Field_Generator_EV.set(
             addItem(
                 tLastID = 673,
                 "Field Generator (EV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 8L) }));
+                ""));
         ItemList.Field_Generator_IV.set(
             addItem(
                 tLastID = 674,
                 "Field Generator (IV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 16L) }));
+                ""));
         ItemList.Field_Generator_LuV.set(
             addItem(
                 tLastID = 675,
                 "Field Generator (LuV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 16L) }));
+                ""));
         ItemList.Field_Generator_ZPM.set(
             addItem(
                 tLastID = 676,
                 "Field Generator (ZPM)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 16L) }));
+                ""));
         ItemList.Field_Generator_UV.set(
             addItem(
                 tLastID = 677,
                 "Field Generator (UV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 16L) }));
+                ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Field_Generator_LV.get(1L, new Object[0]),
@@ -2877,66 +2517,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 680,
                 "Emitter (LV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 1L) }));
+                ""));
         ItemList.Emitter_MV.set(
             addItem(
                 tLastID = 681,
                 "Emitter (MV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 2L) }));
+                ""));
         ItemList.Emitter_HV.set(
             addItem(
                 tLastID = 682,
                 "Emitter (HV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 4L) }));
+                ""));
         ItemList.Emitter_EV.set(
             addItem(
                 tLastID = 683,
                 "Emitter (EV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 8L) }));
+                ""));
         ItemList.Emitter_IV.set(
             addItem(
                 tLastID = 684,
                 "Emitter (IV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 16L) }));
+                ""));
         ItemList.Emitter_LuV.set(
             addItem(
                 tLastID = 685,
                 "Emitter (LuV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 16L) }));
+                ""));
         ItemList.Emitter_ZPM.set(
             addItem(
                 tLastID = 686,
                 "Emitter (ZPM)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 16L) }));
+                ""));
         ItemList.Emitter_UV.set(
             addItem(
                 tLastID = 687,
                 "Emitter (UV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 16L) }));
+                ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Emitter_LV.get(1L, new Object[0]),
@@ -2978,66 +2594,42 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 690,
                 "Sensor (LV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 1L) }));
+                ""));
         ItemList.Sensor_MV.set(
             addItem(
                 tLastID = 691,
                 "Sensor (MV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L) }));
+                ""));
         ItemList.Sensor_HV.set(
             addItem(
                 tLastID = 692,
                 "Sensor (HV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 4L) }));
+                ""));
         ItemList.Sensor_EV.set(
             addItem(
                 tLastID = 693,
                 "Sensor (EV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 8L) }));
+                ""));
         ItemList.Sensor_IV.set(
             addItem(
                 tLastID = 694,
                 "Sensor (IV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 16L) }));
+                ""));
         ItemList.Sensor_LuV.set(
             addItem(
                 tLastID = 695,
                 "Sensor (LuV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 16L) }));
+                ""));
         ItemList.Sensor_ZPM.set(
             addItem(
                 tLastID = 696,
                 "Sensor (ZPM)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 16L) }));
+                ""));
         ItemList.Sensor_UV.set(
             addItem(
                 tLastID = 697,
                 "Sensor (UV)",
-                "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 16L) }));
+                ""));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Sensor_LV.get(1L, new Object[0]),
@@ -3176,25 +2768,19 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 721,
                 "Diamond Sawblade",
                 "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 4L), OreDictNames.craftingDiamondBlade }));
+                new Object[] { OreDictNames.craftingDiamondBlade }));
         ItemList.Component_Grinder_Diamond.set(
             addItem(
                 tLastID = 722,
                 "Diamond Grinding Head",
                 "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 6L), OreDictNames.craftingGrinder }));
+                new Object[] { OreDictNames.craftingGrinder }));
         ItemList.Component_Grinder_Tungsten.set(
             addItem(
                 tLastID = 723,
                 "Tungsten Grinding Head",
                 "",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERDITIO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.METALLUM, 6L), OreDictNames.craftingGrinder }));
+                new Object[] { OreDictNames.craftingGrinder }));
 
         ItemList.QuantumEye.set(addItem(tLastID = 724, "Quantum Eye", "Improved Ender Eye", new Object[0]));
         ItemList.QuantumStar.set(addItem(tLastID = 725, "Quantum Star", "Improved Nether Star", new Object[0]));
@@ -3242,15 +2828,12 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 727,
                 "Muffler Upgrade",
-                "Makes Machines silent",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 2L) }));
+                "Makes Machines silent"));
         ItemList.Upgrade_Lock.set(
             addItem(
                 tLastID = 728,
                 "Lock Upgrade",
-                "Protects your Machines",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.TUTAMEN, 4L) }));
+                "Protects your Machines"));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Aluminium, 1L),
@@ -3314,9 +2897,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 "",
                 new Object[] {
                     new ItemData(Materials.Zinc, OrePrefixes.foil.mMaterialAmount * 16L, new MaterialStack[0]),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L), OreDictNames.craftingFilter }));
+                    OreDictNames.craftingFilter }));
 
         GT_Values.RA.addAssemblerRecipe(
             GT_ModHandler.getIC2Item("carbonMesh", 4L),
@@ -3330,44 +2911,32 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 730,
                 "Machine Controller",
-                "Turns Machines ON/OFF",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Turns Machines ON/OFF"));
         ItemList.Cover_ActivityDetector.set(
             addItem(
                 tLastID = 731,
                 "Activity Detector",
-                "Gives out Activity as Redstone",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Gives out Activity as Redstone"));
         ItemList.Cover_FluidDetector.set(
             addItem(
                 tLastID = 732,
                 "Fluid Detector",
-                "Gives out Fluid Amount as Redstone",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 1L) }));
+                "Gives out Fluid Amount as Redstone"));
         ItemList.Cover_ItemDetector.set(
             addItem(
                 tLastID = 733,
                 "Item Detector",
-                "Gives out Item Amount as Redstone",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TERRA, 1L) }));
+                "Gives out Item Amount as Redstone"));
         ItemList.Cover_EnergyDetector.set(
             addItem(
                 tLastID = 734,
                 "Energy Detector",
-                "Gives out Energy Amount as Redstone",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L) }));
+                "Gives out Energy Amount as Redstone"));
         ItemList.Cover_PlayerDetector.set(
             addItem(
                 tLastID = 735,
                 "Player Detector",
-                "Gives out close Players as Redstone",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Gives out close Players as Redstone"));
         GT_Values.RA.addAssemblerRecipe(
             ItemList.Sensor_EV.get(1L, new Object[0]),
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 1L),
@@ -3416,31 +2985,23 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 740,
                 "Computer Monitor",
-                "Displays Data",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.COGNITIO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.LUX, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 1L) }));
+                "Displays Data"));
         ItemList.Cover_Crafting.set(
             addItem(
                 tLastID = 744,
                 "Crafting Table Cover",
-                "Better than a wooden Workbench",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.FABRICO, 4L) }));
+                "Better than a wooden Workbench"));
         ItemList.Cover_Drain.set(
             addItem(
                 tLastID = 745,
                 "Drain",
-                "Absorbs Fluids and collects Rain",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.VACUOS, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AQUA, 2L) }));
+                "Absorbs Fluids and collects Rain"));
 
         ItemList.Cover_Shutter.set(
             addItem(
                 tLastID = 749,
                 "Shutter Module",
-                "Blocks Inventory/Tank Side. Usage together with Machine Controller.",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L) }));
+                "Blocks Inventory/Tank Side. Usage together with Machine Controller."));
 
         GT_ModHandler.addCraftingRecipe(
             ItemList.Cover_Screen.get(1L, new Object[0]),
@@ -3516,82 +3077,52 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 750,
                 "Solar Panel",
-                "May the Sun be with you",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 1L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 1L) }));
+                "May the Sun be with you"));
         ItemList.Cover_SolarPanel_8V.set(
             addItem(
                 tLastID = 751,
                 "Solar Panel (8V)",
-                "8 Volt Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 2L) }));
+                "8 Volt Solar Panel"));
         ItemList.Cover_SolarPanel_LV.set(
             addItem(
                 tLastID = 752,
                 "Solar Panel (LV)",
-                "Low Voltage Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 4L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 4L) }));
+                "Low Voltage Solar Panel"));
         ItemList.Cover_SolarPanel_MV.set(
             addItem(
                 tLastID = 753,
                 "Solar Panel (MV)",
-                "Medium Voltage Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 8L) }));
+                "Medium Voltage Solar Panel"));
         ItemList.Cover_SolarPanel_HV.set(
             addItem(
                 tLastID = 754,
                 "Solar Panel (HV)",
-                "High Voltage Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 16L) }));
+                "High Voltage Solar Panel"));
         ItemList.Cover_SolarPanel_EV.set(
             addItem(
                 tLastID = 755,
                 "Solar Panel (EV)",
-                "Extreme Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 32L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 32L) }));
+                "Extreme Solar Panel"));
         ItemList.Cover_SolarPanel_IV.set(
             addItem(
                 tLastID = 756,
                 "Solar Panel (IV)",
-                "Insane Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 64L) }));
+                "Insane Solar Panel"));
         ItemList.Cover_SolarPanel_LuV.set(
             addItem(
                 tLastID = 757,
                 "Solar Panel (LuV)",
-                "Ludicrous Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 64L) }));
+                "Ludicrous Solar Panel"));
         ItemList.Cover_SolarPanel_ZPM.set(
             addItem(
                 tLastID = 758,
                 "Solar Panel (ZPM)",
-                "ZPM Voltage Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 64L) }));
+                "ZPM Voltage Solar Panel"));
         ItemList.Cover_SolarPanel_UV.set(
             addItem(
                 tLastID = 759,
                 "Solar Panel (UV)",
-                "Ultimate Solar Panel",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.TENEBRAE, 64L) }));
+                "Ultimate Solar Panel"));
 
         GregTech_API.registerCover(
             ItemList.Cover_SolarPanel.get(1L, new Object[0]),
@@ -3639,21 +3170,20 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 760,
                 "Sonictron",
                 "Bring your Music with you",
-                new Object[] { Behaviour_Sonictron.INSTANCE, new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 4L) }));
+                new Object[] { Behaviour_Sonictron.INSTANCE }));
         ItemList.Tool_Cheat.set(
             addItem(
                 tLastID = 761,
                 "Debug Scanner",
                 "Also an Infinite Energy Source",
-                new Object[] { Behaviour_Scanner.INSTANCE, new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 64L) }));
+                new Object[] { Behaviour_Scanner.INSTANCE }));
         setElectricStats(32000 + tLastID, -2000000000L, 1000000000L, -1L, -3L, false);
         ItemList.Tool_Scanner.set(
             addItem(
                 tLastID = 762,
                 "Portable Scanner",
                 "Tricorder",
-                new Object[] { Behaviour_Scanner.INSTANCE, new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 6L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SENSUS, 6L) }));
+                new Object[] { Behaviour_Scanner.INSTANCE }));
         setElectricStats(32000 + tLastID, 400000L, GT_Values.V[2], 2L, -1L, false);
         GT_ModHandler.addCraftingRecipe(
             ItemList.Tool_Scanner.get(1L, new Object[0]),
@@ -3669,23 +3199,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 764,
                 "BrainTech Aerospace Advanced Reinforced Duct Tape FAL-84",
                 "If you can't fix it with this, use more of it!",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.INSTRUMENTUM, 2L), OreDictNames.craftingDuctTape }));
-        ItemList.McGuffium_239.set(
-            addItem(
-                tLastID = 765,
-                "Mc Guffium 239",
-                "42% better than Phlebotnium",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ALIENIS, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.PERMUTATIO, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.SPIRITUS, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.AURAM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITIUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.RADIO, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MAGNETO, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.NEBRISUM, 8L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.STRONTIO, 8L) }));
+                new Object[] { OreDictNames.craftingDuctTape }));
 
         GT_Values.RA.addAssemblerRecipe(
             ItemList.Sensor_LV.get(1L, new Object[0]),
@@ -3698,30 +3212,22 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 741,
                 "Redstone Transmitter (Out)",
-                "Transfers Redstonesignals wireless",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Transfers Redstonesignals wireless"));
         ItemList.Cover_RedstoneTransmitterInternal.set(
             addItem(
                 tLastID = 742,
                 "Redstone Transmitter (In)",
-                "Transfers Redstonesignals wireless",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Transfers Redstonesignals wireless"));
         ItemList.Cover_RedstoneReceiverExternal.set(
             addItem(
                 tLastID = 746,
                 "Redstone Receiver (Out)",
-                "Transfers Redstonesignals wireless",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Transfers Redstonesignals wireless"));
         ItemList.Cover_RedstoneReceiverInternal.set(
             addItem(
                 tLastID = 747,
                 "Redstone Receiver (In)",
-                "Transfers Redstonesignals wireless",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Transfers Redstonesignals wireless"));
 
         GregTech_API.registerCover(
             ItemList.Cover_RedstoneTransmitterExternal.get(1L, new Object[0]),
@@ -3777,9 +3283,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
             addItem(
                 tLastID = 748,
                 "Needs Maintenance Cover",
-                "Attach to Multiblock Controller. Emits Redstone Signal if needs Maintenance",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ORDO, 2L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L) }));
+                "Attach to Multiblock Controller. Emits Redstone Signal if needs Maintenance"));
         GregTech_API.registerCover(
             ItemList.Cover_NeedsMaintainance.get(1L, new Object[0]),
             new GT_MultiTexture(
@@ -3798,30 +3302,21 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
                 tLastID = 736,
                 "Energy Module",
                 "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 16L),
-                    OrePrefixes.battery.get(Materials.Ultimate) }));
+                new Object[] { OrePrefixes.battery.get(Materials.Ultimate) }));
         setElectricStats(32000 + tLastID, 10000000000L, GT_Values.V[7], 7L, -3L, true);
 
         ItemList.Energy_Cluster.set(
             addItem(
                 tLastID = 737,
                 "Energy Cluster",
-                "Reusable battery",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L) }));
+                "Reusable battery"));
         setElectricStats(32000 + tLastID, 100000000000L, GT_Values.V[8], 8L, -3L, true);
 
         ItemList.ZPM2.set(
             addItem(
                 tLastID = 605,
                 "Ultimate Battery",
-                "Fill this to win minecraft",
-                new Object[] { new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 64L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.VITREUS, 16L),
-                    new TC_Aspects.TC_AspectStack(TC_Aspects.POTENTIA, 64L) }));
+                "Fill this to win minecraft"));
         setElectricStats(32000 + tLastID, Long.MAX_VALUE, GT_Values.V[8], 8L, -3L, true);
 
     }

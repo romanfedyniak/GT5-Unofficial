@@ -46,15 +46,6 @@ public class GT_Loader_ItemData implements Runnable {
                 14515200L,
                 new MaterialStack[] { new MaterialStack(Materials.Wood, OrePrefixes.stick.mMaterialAmount * 2L) }));
         GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("TwilightForest", "item.armorShards", 1L, 0),
-            new ItemData(Materials.Knightmetal, 403200L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("TwilightForest", "item.shardCluster", 1L, 0),
-            new ItemData(Materials.Knightmetal, 3628800L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
-            ItemList.TF_LiveRoot.get(1L, new Object[0]),
-            new ItemData(Materials.LiveRoot, 3628800L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
             GT_ModHandler.getModItem("appliedenergistics2", "item.ItemMultiMaterial", 1L, 10),
             new ItemData(Materials.CertusQuartz, 1814400L, new MaterialStack[0]));
         GT_OreDictUnificator.addItemData(
@@ -518,18 +509,6 @@ public class GT_Loader_ItemData implements Runnable {
                 Materials.Stone,
                 25401600L,
                 new MaterialStack[] { new MaterialStack(Materials.Redstone, 3628800L) }));
-        GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("Thaumcraft", "ItemNuggetChicken", 1L, 32767),
-            new ItemData(Materials.MeatCooked, 403200L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("Thaumcraft", "ItemNuggetBeef", 1L, 32767),
-            new ItemData(Materials.MeatCooked, 403200L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("Thaumcraft", "ItemNuggetPork", 1L, 32767),
-            new ItemData(Materials.MeatCooked, 403200L, new MaterialStack[0]));
-        GT_OreDictUnificator.addItemData(
-            GT_ModHandler.getModItem("Thaumcraft", "ItemNuggetFish", 1L, 32767),
-            new ItemData(Materials.MeatCooked, 403200L, new MaterialStack[0]));
         for (ItemStack tItem : new ItemStack[] { GT_ModHandler.getModItem("TwilightForest", "item.meefRaw", 1L, 0),
             GT_ModHandler.getModItem("TwilightForest", "item.venisonRaw", 1L, 0), new ItemStack(Items.porkchop),
             new ItemStack(Items.beef), new ItemStack(Items.chicken), new ItemStack(Items.fish) }) {

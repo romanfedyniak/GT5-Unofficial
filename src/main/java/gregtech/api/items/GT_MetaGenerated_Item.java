@@ -2,7 +2,6 @@ package gregtech.api.items;
 
 import static gregtech.api.enums.GT_Values.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
@@ -26,7 +25,6 @@ import gregtech.api.GregTech_API;
 import gregtech.api.enums.ItemList;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.SubTag;
-import gregtech.api.enums.TC_Aspects.TC_AspectStack;
 import gregtech.api.interfaces.IFoodStat;
 import gregtech.api.interfaces.IIconContainer;
 import gregtech.api.interfaces.IItemBehaviour;
@@ -105,7 +103,7 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
      * @param aEnglish      The Default Localized Name of the created Item
      * @param aToolTip      The Default ToolTip of the created Item, you can also insert null for having no ToolTip
      * @param aFoodBehavior The Food Value of this Item. Can be null aswell. Just a convenience thing.
-     * @param aRandomData   The OreDict Names you want to give the Item. Also used for TC Aspects and some other things.
+     * @param aRandomData   The OreDict Names you want to give the Item. Also used for some other things.
      * @return An ItemStack containing the newly created Item.
      */
     public final ItemStack addItem(int aID, String aEnglish, String aToolTip, Object... aRandomData) {
@@ -116,7 +114,6 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
             mVisibleItems.set(aID);
             GT_LanguageManager.addStringLocalization(getUnlocalizedName(rStack) + ".name", aEnglish);
             GT_LanguageManager.addStringLocalization(getUnlocalizedName(rStack) + ".tooltip", aToolTip);
-            List<TC_AspectStack> tAspects = new ArrayList<TC_AspectStack>();
             // Important Stuff to do first
             for (Object tRandomData : aRandomData) if (tRandomData instanceof SubTag) {
                 if (tRandomData == SubTag.INVISIBLE) {
@@ -158,10 +155,6 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
                 if (tRandomData instanceof SubTag) {
                     continue;
                 }
-                if (tRandomData instanceof TC_AspectStack) {
-                    ((TC_AspectStack) tRandomData).addToAspectList(tAspects);
-                    continue;
-                }
                 if (tRandomData instanceof ItemData) {
                     if (GT_Utility.isStringValid(tRandomData)) GT_OreDictUnificator.registerOre(tRandomData, rStack);
                     else GT_OreDictUnificator.addItemData(rStack, (ItemData) tRandomData);
@@ -172,8 +165,6 @@ public abstract class GT_MetaGenerated_Item extends GT_MetaBase_Item implements 
                     continue;
                 }
             }
-            if (GregTech_API.sThaumcraftCompat != null)
-                GregTech_API.sThaumcraftCompat.registerThaumcraftAspectsToItem(rStack, tAspects, false);
             return rStack;
         }
         return null;

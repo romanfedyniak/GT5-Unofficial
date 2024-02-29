@@ -11554,55 +11554,6 @@ public class GT_Loader_MetaTileEntities implements Runnable {
                 "basicgenerator.magicenergyabsorber.tier.04",
                 "Grandmaster Magic Energy Absorber",
                 4).getStackForm(1L));
-        if (!Loader.isModLoaded("Thaumcraft")) {
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyConverter_LV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_LV, 'B', new ItemStack(Blocks.beacon), 'C',
-                    OrePrefixes.circuit.get(Materials.Advanced), 'T', ItemList.Field_Generator_LV, 'F',
-                    OrePrefixes.plate.get(Materials.Platinum) });
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyConverter_MV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_MV, 'B', new ItemStack(Blocks.beacon), 'C',
-                    OrePrefixes.circuit.get(Materials.Data), 'T', ItemList.Field_Generator_MV, 'F',
-                    OrePrefixes.plate.get(Materials.Iridium) });
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyConverter_HV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_HV, 'B', new ItemStack(Blocks.beacon), 'C',
-                    OrePrefixes.circuit.get(Materials.Elite), 'T', ItemList.Field_Generator_HV, 'F',
-                    OrePrefixes.plate.get(Materials.Neutronium) });
-
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyAbsorber_LV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_LV, 'B',
-                    ItemList.MagicEnergyConverter_LV.get(1L, new Object[0]), 'C',
-                    OrePrefixes.circuit.get(Materials.Advanced), 'T', ItemList.Field_Generator_LV, 'F',
-                    OrePrefixes.plate.get(Materials.Platinum) });
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyAbsorber_MV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_MV, 'B',
-                    ItemList.MagicEnergyConverter_MV.get(1L, new Object[0]), 'C',
-                    OrePrefixes.circuit.get(Materials.Data), 'T', ItemList.Field_Generator_MV, 'F',
-                    OrePrefixes.plate.get(Materials.Iridium) });
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyAbsorber_HV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_HV, 'B',
-                    ItemList.MagicEnergyConverter_MV.get(1L, new Object[0]), 'C',
-                    OrePrefixes.circuit.get(Materials.Elite), 'T', ItemList.Field_Generator_HV, 'F',
-                    OrePrefixes.plate.get(Materials.Europium) });
-            GT_ModHandler.addCraftingRecipe(
-                ItemList.MagicEnergyAbsorber_EV.get(1L, new Object[0]),
-                bitsd,
-                new Object[] { "CTC", "FMF", "CBC", 'M', ItemList.Hull_HV, 'B',
-                    ItemList.MagicEnergyConverter_HV.get(1L, new Object[0]), 'C',
-                    OrePrefixes.circuit.get(Materials.Master), 'T', ItemList.Field_Generator_EV, 'F',
-                    OrePrefixes.plate.get(Materials.Neutronium) });
-        }
         ItemList.FusionComputer_LuV.set(
             new GT_MetaTileEntity_FusionComputer1(1193, "fusioncomputer.tier.06", "Fusion Control Computer Mark I")
                 .getStackForm(1L));
