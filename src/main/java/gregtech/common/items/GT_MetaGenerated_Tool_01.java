@@ -102,66 +102,22 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
     public GT_MetaGenerated_Tool_01() {
         super("metatool.01");
         INSTANCE = this;
-        addTool(
-            0,
-            "Sword",
-            "",
-            new GT_Tool_Sword(),
-            ToolDictNames.craftingToolSword,
-            ToolDictNames.craftingToolBlade
-        );
-        addTool(
-            2,
-            "Pickaxe",
-            "",
-            new GT_Tool_Pickaxe(),
-            ToolDictNames.craftingToolPickaxe
-        );
-        addTool(
-            4,
-            "Shovel",
-            "",
-            new GT_Tool_Shovel(),
-            ToolDictNames.craftingToolShovel
-        );
-        addTool(
-            6,
-            "Axe",
-            "",
-            new GT_Tool_Axe(),
-            ToolDictNames.craftingToolAxe
-        );
-        addTool(
-            8,
-            "Hoe",
-            "",
-            new GT_Tool_Hoe(),
-            ToolDictNames.craftingToolHoe
-        );
-        addTool(
-            10,
-            "Saw",
-            "Can also harvest Ice",
-            new GT_Tool_Saw(),
-            ToolDictNames.craftingToolSaw
-        );
+        addTool(0, "Sword", "", new GT_Tool_Sword(), ToolDictNames.craftingToolSword, ToolDictNames.craftingToolBlade);
+        addTool(2, "Pickaxe", "", new GT_Tool_Pickaxe(), ToolDictNames.craftingToolPickaxe);
+        addTool(4, "Shovel", "", new GT_Tool_Shovel(), ToolDictNames.craftingToolShovel);
+        addTool(6, "Axe", "", new GT_Tool_Axe(), ToolDictNames.craftingToolAxe);
+        addTool(8, "Hoe", "", new GT_Tool_Hoe(), ToolDictNames.craftingToolHoe);
+        addTool(10, "Saw", "Can also harvest Ice", new GT_Tool_Saw(), ToolDictNames.craftingToolSaw);
         GregTech_API.registerTool(
             addTool(
                 12,
                 "Hammer",
                 "Crushes Ores instead of harvesting them",
                 new GT_Tool_HardHammer(),
-                ToolDictNames.craftingToolHardHammer
-            ),
+                ToolDictNames.craftingToolHardHammer),
             GregTech_API.sHardHammerList);
         GregTech_API.registerTool(
-            addTool(
-                14,
-                "Soft Mallet",
-                "",
-                new GT_Tool_SoftHammer(),
-                ToolDictNames.craftingToolSoftHammer
-            ),
+            addTool(14, "Soft Mallet", "", new GT_Tool_SoftHammer(), ToolDictNames.craftingToolSoftHammer),
             GregTech_API.sSoftHammerList);
         GregTech_API.registerTool(
             addTool(
@@ -169,24 +125,16 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 "Wrench",
                 "Hold Leftclick to dismantle Machines",
                 new GT_Tool_Wrench(),
-                ToolDictNames.craftingToolWrench
-            ),
+                ToolDictNames.craftingToolWrench),
             GregTech_API.sWrenchList);
-        addTool(
-            18,
-            "File",
-            "",
-            new GT_Tool_File(),
-            ToolDictNames.craftingToolFile
-        );
+        addTool(18, "File", "", new GT_Tool_File(), ToolDictNames.craftingToolFile);
         GregTech_API.registerTool(
             addTool(
                 20,
                 "Crowbar",
                 "Dismounts Covers and Rotates Rails",
                 new GT_Tool_Crowbar(),
-                ToolDictNames.craftingToolCrowbar
-            ),
+                ToolDictNames.craftingToolCrowbar),
             GregTech_API.sCrowbarList);
         GregTech_API.registerTool(
             addTool(
@@ -194,39 +142,14 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 "Screwdriver",
                 "Adjusts Covers and Machines",
                 new GT_Tool_Screwdriver(),
-                ToolDictNames.craftingToolScrewdriver
-            ),
+                ToolDictNames.craftingToolScrewdriver),
             GregTech_API.sScrewdriverList);
-        addTool(
-            24,
-            "Mortar",
-            "",
-            new GT_Tool_Mortar(),
-            ToolDictNames.craftingToolMortar
-        );
+        addTool(24, "Mortar", "", new GT_Tool_Mortar(), ToolDictNames.craftingToolMortar);
         GregTech_API.registerTool(
-            addTool(
-                26,
-                "Wire Cutter",
-                "",
-                new GT_Tool_WireCutter(),
-                ToolDictNames.craftingToolWireCutter
-            ),
+            addTool(26, "Wire Cutter", "", new GT_Tool_WireCutter(), ToolDictNames.craftingToolWireCutter),
             GregTech_API.sWireCutterList);
-        addTool(
-            28,
-            "Scoop",
-            "",
-            new GT_Tool_Scoop(),
-            ToolDictNames.craftingToolScoop
-        );
-        addTool(
-            30,
-            "Branch Cutter",
-            "",
-            new GT_Tool_BranchCutter(),
-            ToolDictNames.craftingToolBranchCutter
-        );
+        addTool(28, "Scoop", "", new GT_Tool_Scoop(), ToolDictNames.craftingToolScoop);
+        addTool(30, "Branch Cutter", "", new GT_Tool_BranchCutter(), ToolDictNames.craftingToolBranchCutter);
         GregTech_API.registerTool(
             addTool(
                 32,
@@ -236,104 +159,39 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 ToolDictNames.craftingToolBlade,
                 ToolDictNames.craftingToolShovel,
                 ToolDictNames.craftingToolCrowbar,
-                ToolDictNames.craftingToolSaw
-            ),
+                ToolDictNames.craftingToolSaw),
             GregTech_API.sCrowbarList);
-        addTool(
-            34,
-            "Knife",
-            "",
-            new GT_Tool_Knife(),
-            ToolDictNames.craftingToolBlade,
-            ToolDictNames.craftingToolKnife
-        );
+        addTool(34, "Knife", "", new GT_Tool_Knife(), ToolDictNames.craftingToolBlade, ToolDictNames.craftingToolKnife);
         addTool(
             36,
             "Butchery Knife",
             "Has a slow Attack Rate",
             new GT_Tool_ButcheryKnife(),
-            ToolDictNames.craftingToolBlade
-        );
+            ToolDictNames.craftingToolBlade);
 
         addTool(
             40,
             "Sense",
             "Because a Scythe doesn't make Sense",
             new GT_Tool_Sense(),
-            ToolDictNames.craftingToolBlade
-        );
-        addTool(
-            42,
-            "Plow",
-            "Used to get rid of Snow",
-            new GT_Tool_Plow(),
-            ToolDictNames.craftingToolPlow
-        );
-        addTool(
-            44,
-            "Plunger",
-            "",
-            new GT_Tool_Plunger(),
-            ToolDictNames.craftingToolPlunger
-        );
-        addTool(
-            46,
-            "Rolling Pin",
-            "",
-            new GT_Tool_RollingPin(),
-            ToolDictNames.craftingToolRollingPin
-        );
+            ToolDictNames.craftingToolBlade);
+        addTool(42, "Plow", "Used to get rid of Snow", new GT_Tool_Plow(), ToolDictNames.craftingToolPlow);
+        addTool(44, "Plunger", "", new GT_Tool_Plunger(), ToolDictNames.craftingToolPlunger);
+        addTool(46, "Rolling Pin", "", new GT_Tool_RollingPin(), ToolDictNames.craftingToolRollingPin);
 
-        addTool(
-            100,
-            "Drill (LV)",
-            "",
-            new GT_Tool_Drill_LV(),
-            ToolDictNames.craftingToolMiningDrill
-        );
-        addTool(
-            102,
-            "Drill (MV)",
-            "",
-            new GT_Tool_Drill_MV(),
-            ToolDictNames.craftingToolMiningDrill
-        );
-        addTool(
-            104,
-            "Drill (HV)",
-            "",
-            new GT_Tool_Drill_HV(),
-            ToolDictNames.craftingToolMiningDrill
-        );
-        addTool(
-            110,
-            "Chainsaw (LV)",
-            "Can also harvest Ice",
-            new GT_Tool_Chainsaw_LV(),
-            ToolDictNames.craftingToolSaw
-        );
-        addTool(
-            112,
-            "Chainsaw (MV)",
-            "Can also harvest Ice",
-            new GT_Tool_Chainsaw_MV(),
-            ToolDictNames.craftingToolSaw
-        );
-        addTool(
-            114,
-            "Chainsaw (HV)",
-            "Can also harvest Ice",
-            new GT_Tool_Chainsaw_HV(),
-            ToolDictNames.craftingToolSaw
-        );
+        addTool(100, "Drill (LV)", "", new GT_Tool_Drill_LV(), ToolDictNames.craftingToolMiningDrill);
+        addTool(102, "Drill (MV)", "", new GT_Tool_Drill_MV(), ToolDictNames.craftingToolMiningDrill);
+        addTool(104, "Drill (HV)", "", new GT_Tool_Drill_HV(), ToolDictNames.craftingToolMiningDrill);
+        addTool(110, "Chainsaw (LV)", "Can also harvest Ice", new GT_Tool_Chainsaw_LV(), ToolDictNames.craftingToolSaw);
+        addTool(112, "Chainsaw (MV)", "Can also harvest Ice", new GT_Tool_Chainsaw_MV(), ToolDictNames.craftingToolSaw);
+        addTool(114, "Chainsaw (HV)", "Can also harvest Ice", new GT_Tool_Chainsaw_HV(), ToolDictNames.craftingToolSaw);
         GregTech_API.registerTool(
             addTool(
                 WRENCH_LV,
                 "Wrench (LV)",
                 "Hold Leftclick to dismantle Machines",
                 new GT_Tool_Wrench_LV(),
-                ToolDictNames.craftingToolWrench
-            ),
+                ToolDictNames.craftingToolWrench),
             GregTech_API.sWrenchList);
         GregTech_API.registerTool(
             addTool(
@@ -341,8 +199,7 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 "Wrench (MV)",
                 "Hold Leftclick to dismantle Machines",
                 new GT_Tool_Wrench_MV(),
-                ToolDictNames.craftingToolWrench
-            ),
+                ToolDictNames.craftingToolWrench),
             GregTech_API.sWrenchList);
         GregTech_API.registerTool(
             addTool(
@@ -350,31 +207,27 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 "Wrench (HV)",
                 "Hold Leftclick to dismantle Machines",
                 new GT_Tool_Wrench_HV(),
-                ToolDictNames.craftingToolWrench
-            ),
+                ToolDictNames.craftingToolWrench),
             GregTech_API.sWrenchList);
         addTool(
             130,
             "JackHammer (HV)",
             "Breaks Rocks into pieces",
             new GT_Tool_JackHammer(),
-            ToolDictNames.craftingToolJackHammer
-        );
+            ToolDictNames.craftingToolJackHammer);
         addTool(
             140,
             "Buzzsaw (LV)",
             "Not suitable for harvesting Blocks",
             new GT_Tool_BuzzSaw(),
-            ToolDictNames.craftingToolSaw
-        );
+            ToolDictNames.craftingToolSaw);
         GregTech_API.registerTool(
             addTool(
                 150,
                 "Screwdriver (LV)",
                 "Adjusts Covers and Machines",
                 new GT_Tool_Screwdriver_LV(),
-                ToolDictNames.craftingToolScrewdriver
-            ),
+                ToolDictNames.craftingToolScrewdriver),
             GregTech_API.sScrewdriverList);
         GregTech_API.registerTool(
             addTool(
@@ -382,8 +235,7 @@ public class GT_MetaGenerated_Tool_01 extends GT_MetaGenerated_Tool {
                 "Soldering Iron (LV)",
                 "Fixes burned out Circuits. Needs soldering materials in inventory and 10kEU",
                 new GT_Tool_Soldering_Iron(),
-                ToolDictNames.craftingToolSolderingIron
-            ),
+                ToolDictNames.craftingToolSolderingIron),
             GregTech_API.sSolderingToolList);
 
         addTool(TURBINE_SMALL, "Small Turbine", "Turbine Rotors for your power station", new GT_Tool_Turbine_Small());

@@ -226,10 +226,10 @@ public class GT_Assemblyline_Server {
                                 case 1:
                                     mMats = new Materials[] { Materials.Adamantium, Materials.Aluminium,
                                         Materials.Americium, Materials.AnnealedCopper, Materials.Antimony,
-                                        Materials.Arsenic, Materials.BatteryAlloy,
-                                        Materials.Beryllium, Materials.Bismuth, Materials.BismuthBronze,
-                                        Materials.BlackBronze, Materials.BlackSteel, Materials.BlueAlloy,
-                                        Materials.BlueSteel, Materials.Brass };
+                                        Materials.Arsenic, Materials.BatteryAlloy, Materials.Beryllium,
+                                        Materials.Bismuth, Materials.BismuthBronze, Materials.BlackBronze,
+                                        Materials.BlackSteel, Materials.BlueAlloy, Materials.BlueSteel,
+                                        Materials.Brass };
                                     break;
                                 case 2:
                                     mMats = new Materials[] { Materials.Bronze, Materials.Caesium, Materials.Cerium,
@@ -242,15 +242,15 @@ public class GT_Assemblyline_Server {
                                     mMats = new Materials[] { Materials.ElectrumFlux, Materials.Enderium,
                                         Materials.Erbium, Materials.Europium, Materials.FierySteel,
                                         Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA,
-                                        Materials.Indium, Materials.Invar, Materials.Iridium,
-                                        Materials.IronMagnetic, Materials.Kanthal };
+                                        Materials.Indium, Materials.Invar, Materials.Iridium, Materials.IronMagnetic,
+                                        Materials.Kanthal };
                                     break;
                                 case 4:
-                                    mMats = new Materials[] { Materials.Lanthanum,
-                                        Materials.Lead, Materials.Lutetium, Materials.Magnalium, Materials.Magnesium,
-                                        Materials.Manganese, Materials.MeteoricIron, Materials.MeteoricSteel,
-                                        Materials.Molybdenum, Materials.Naquadah,
-                                        Materials.NaquadahAlloy, Materials.NaquadahEnriched, Materials.Naquadria };
+                                    mMats = new Materials[] { Materials.Lanthanum, Materials.Lead, Materials.Lutetium,
+                                        Materials.Magnalium, Materials.Magnesium, Materials.Manganese,
+                                        Materials.MeteoricIron, Materials.MeteoricSteel, Materials.Molybdenum,
+                                        Materials.Naquadah, Materials.NaquadahAlloy, Materials.NaquadahEnriched,
+                                        Materials.Naquadria };
                                     break;
                                 case 5:
                                     mMats = new Materials[] { Materials.Neodymium, Materials.NeodymiumMagnetic,
@@ -262,24 +262,22 @@ public class GT_Assemblyline_Server {
                                 case 6:
                                     mMats = new Materials[] { Materials.Promethium, Materials.RedAlloy,
                                         Materials.RedSteel, Materials.RoseGold, Materials.Rubidium, Materials.Samarium,
-                                        Materials.Scandium,
-                                        Materials.Silicon, Materials.Silver, Materials.SolderingAlloy,
-                                        Materials.StainlessSteel, Materials.Steel, Materials.SteelMagnetic,
-                                        Materials.SterlingSilver };
+                                        Materials.Scandium, Materials.Silicon, Materials.Silver,
+                                        Materials.SolderingAlloy, Materials.StainlessSteel, Materials.Steel,
+                                        Materials.SteelMagnetic, Materials.SterlingSilver };
                                     break;
                                 case 7:
                                     mMats = new Materials[] { Materials.Sunnarium, Materials.Tantalum,
-                                        Materials.Tellurium, Materials.Terbium, Materials.Thorium,
-                                        Materials.Thulium, Materials.Tin, Materials.TinAlloy, Materials.Titanium,
-                                        Materials.Tritanium, Materials.Tungsten, Materials.TungstenSteel,
-                                        Materials.Ultimet, Materials.Uranium, Materials.Uranium235 };
+                                        Materials.Tellurium, Materials.Terbium, Materials.Thorium, Materials.Thulium,
+                                        Materials.Tin, Materials.TinAlloy, Materials.Titanium, Materials.Tritanium,
+                                        Materials.Tungsten, Materials.TungstenSteel, Materials.Ultimet,
+                                        Materials.Uranium, Materials.Uranium235 };
                                     break;
                                 case 8:
                                     mMats = new Materials[] { Materials.Vanadium, Materials.VanadiumGallium,
                                         Materials.WroughtIron, Materials.Ytterbium, Materials.Yttrium,
                                         Materials.YttriumBariumCuprate, Materials.Zinc, Materials.TungstenCarbide,
-                                        Materials.VanadiumSteel, Materials.HSSG, Materials.HSSE, Materials.HSSS
-                                    };
+                                        Materials.VanadiumSteel, Materials.HSSG, Materials.HSSE, Materials.HSSS };
                             }
 
                             t = ((String) entry.getKey()).substring(
@@ -299,21 +297,20 @@ public class GT_Assemblyline_Server {
                             i = Integer.parseInt(t);
                             switch (i) {
                                 case 1:
-                                    mMats = new Materials[] { Materials.Amber, Materials.Amethyst,
-                                        Materials.BlueTopaz, Materials.CertusQuartz,
-                                        Materials.Dilithium, Materials.EnderEye, Materials.EnderPearl,
-                                        Materials.FoolsRuby, Materials.Force, Materials.Forcicium, Materials.Forcillium,
-                                        Materials.GreenSapphire, Materials.Jasper };
+                                    mMats = new Materials[] { Materials.Amber, Materials.Amethyst, Materials.BlueTopaz,
+                                        Materials.CertusQuartz, Materials.Dilithium, Materials.EnderEye,
+                                        Materials.EnderPearl, Materials.FoolsRuby, Materials.Force, Materials.Forcicium,
+                                        Materials.Forcillium, Materials.GreenSapphire, Materials.Jasper };
                                     break;
                                 case 2:
                                     mMats = new Materials[] { Materials.Lazurite, Materials.Lignite, Materials.Monazite,
-                                        Materials.Niter, Materials.Olivine, Materials.Opal,
-                                        Materials.Phosphorus, Materials.Quartzite, Materials.Tanzanite,
-                                        Materials.GarnetRed, Materials.Ruby, Materials.Sapphire, Materials.Sodalite };
+                                        Materials.Niter, Materials.Olivine, Materials.Opal, Materials.Phosphorus,
+                                        Materials.Quartzite, Materials.Tanzanite, Materials.GarnetRed, Materials.Ruby,
+                                        Materials.Sapphire, Materials.Sodalite };
                                     break;
                                 case 3:
-                                    mMats = new Materials[] { Materials.Topaz, Materials.Blaze,
-                                        Materials.GarnetYellow, Materials.NetherStar, Materials.Charcoal };
+                                    mMats = new Materials[] { Materials.Topaz, Materials.Blaze, Materials.GarnetYellow,
+                                        Materials.NetherStar, Materials.Charcoal };
                             }
 
                             t = ((String) entry.getKey()).substring(

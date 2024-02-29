@@ -145,13 +145,13 @@ public abstract class GT_MetaGenerated_Tool extends GT_MetaBase_Item
     /**
      * This adds a Custom Item to the ending Range.
      *
-     * @param aID                     The Id of the assigned Tool Class [0 - 32765] (only even Numbers allowed! Uneven
-     *                                ID's are empty electric Items)
-     * @param aEnglish                The Default Localized Name of the created Item
-     * @param aToolTip                The Default ToolTip of the created Item, you can also insert null for having no
-     *                                ToolTip
-     * @param aToolStats              The Food Value of this Item. Can be null as well.
-     * @param aOreDictNames           The OreDict Names you want to give the Item.
+     * @param aID           The Id of the assigned Tool Class [0 - 32765] (only even Numbers allowed! Uneven
+     *                      ID's are empty electric Items)
+     * @param aEnglish      The Default Localized Name of the created Item
+     * @param aToolTip      The Default ToolTip of the created Item, you can also insert null for having no
+     *                      ToolTip
+     * @param aToolStats    The Food Value of this Item. Can be null as well.
+     * @param aOreDictNames The OreDict Names you want to give the Item.
      *
      * @return An ItemStack containing the newly created Item, but without specific Stats.
      */

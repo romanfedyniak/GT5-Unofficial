@@ -22,7 +22,6 @@ import gregtech.api.objects.ItemData;
 import gregtech.api.objects.MaterialStack;
 import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Utility;
-import gregtech.loaders.materialprocessing.ProcessingModSupport;
 
 public enum OrePrefixes {
 

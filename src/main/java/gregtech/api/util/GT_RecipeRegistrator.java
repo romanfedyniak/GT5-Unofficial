@@ -5,7 +5,6 @@ import static gregtech.api.enums.GT_Values.M;
 import static gregtech.api.enums.GT_Values.RA;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.init.Blocks;
@@ -343,8 +342,7 @@ public class GT_RecipeRegistrator {
                 100,
                 GT_OreDictUnificator.getDust(aData.getByProduct(1)),
                 100,
-                true
-            );
+                true);
         }
     }
 

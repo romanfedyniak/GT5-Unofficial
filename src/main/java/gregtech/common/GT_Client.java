@@ -100,40 +100,36 @@ public class GT_Client extends GT_Proxy implements Runnable {
         mPosR = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
-                Materials.FierySteel,
-                Materials.Firestone });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
+                Materials.FierySteel, Materials.Firestone });
         mPosG = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone });
         mPosB = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
-                Materials.Enderium, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria });
+                Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
+                Materials.Naquadria });
         mNegR = Arrays.asList(new Materials[] { Materials.NetherStar });
         mNegG = Arrays.asList(new Materials[] { Materials.NetherStar });
         mNegB = Arrays.asList(new Materials[] { Materials.NetherStar });
         mMoltenPosR = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
-                Materials.FierySteel, Materials.Firestone });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
+                Materials.Sunnarium, Materials.Glowstone, Materials.FierySteel, Materials.Firestone });
         mMoltenPosG = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria,
-                Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
+                Materials.Sunnarium, Materials.Glowstone });
         mMoltenPosB = Arrays.asList(
-            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235,
-                Materials.Plutonium241, Materials.NaquadahEnriched, Materials.Naquadria });
-        mMoltenNegR = Arrays.asList(new Materials[] { });
-        mMoltenNegG = Arrays.asList(new Materials[] { });
-        mMoltenNegB = Arrays.asList(new Materials[] { });
+            new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
+                Materials.NaquadahEnriched, Materials.Naquadria });
+        mMoltenNegR = Arrays.asList(new Materials[] {});
+        mMoltenNegG = Arrays.asList(new Materials[] {});
+        mMoltenNegB = Arrays.asList(new Materials[] {});
     }
 
     private static void drawGrid(DrawBlockHighlightEvent aEvent) {
