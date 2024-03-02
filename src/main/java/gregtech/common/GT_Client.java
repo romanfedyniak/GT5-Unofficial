@@ -101,13 +101,12 @@ public class GT_Client extends GT_Proxy implements Runnable {
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
                 Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
-                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone,
-                Materials.FierySteel, Materials.Firestone });
+                Materials.Naquadria, Materials.Force, Materials.Sunnarium, Materials.Glowstone, Materials.Firestone });
         mPosG = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
                 Materials.Enderium, Materials.Uranium235, Materials.Plutonium241, Materials.NaquadahEnriched,
-                Materials.Naquadria, Materials.Force, Materials.Pyrotheum, Materials.Sunnarium, Materials.Glowstone });
+                Materials.Naquadria, Materials.Force, Materials.Sunnarium, Materials.Glowstone });
         mPosB = Arrays.asList(
             new Materials[] {
                 /** Materials.ChargedCertusQuartz, **/
@@ -118,11 +117,11 @@ public class GT_Client extends GT_Proxy implements Runnable {
         mNegB = Arrays.asList(new Materials[] { Materials.NetherStar });
         mMoltenPosR = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
-                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
-                Materials.Sunnarium, Materials.Glowstone, Materials.FierySteel, Materials.Firestone });
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force,
+                Materials.Sunnarium, Materials.Glowstone, Materials.Firestone });
         mMoltenPosG = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
-                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Pyrotheum,
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force,
                 Materials.Sunnarium, Materials.Glowstone });
         mMoltenPosB = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,

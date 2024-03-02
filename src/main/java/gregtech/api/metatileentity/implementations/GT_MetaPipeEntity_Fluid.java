@@ -486,20 +486,6 @@ public class GT_MetaPipeEntity_Fluid extends MetaPipeEntity {
 
         if (coverBehavior instanceof GT_Cover_Drain) return true;
 
-        // Tinker Construct Faucets return a null tank info, so check the class
-        if (GregTech_API.mTConstruct) {
-            try {
-                Class<?> aTinkerFaucet = Class.forName("tconstruct.smeltery.logic.FaucetLogic");
-                if (aTinkerFaucet != null) {
-                    if (aTinkerFaucet.isInstance(tTileEntity)) {
-                        return true;
-                    }
-                }
-            } catch (Throwable t) {
-
-            }
-        }
-
         final IFluidHandler fTileEntity = (tTileEntity instanceof IFluidHandler) ? (IFluidHandler) tTileEntity : null;
 
         if (fTileEntity != null) {

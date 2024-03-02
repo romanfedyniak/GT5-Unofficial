@@ -1063,11 +1063,6 @@ public class GT_MachineRecipeLoader implements Runnable {
             ItemList.Battery_SU_HV_SulfuricAcid.getWithCharge(1L, Integer.MAX_VALUE, new Object[0]),
             Materials.SulfuricAcid.getFluid(16000L),
             GT_Values.NF);
-        GT_Values.RA.addFluidCannerRecipe(
-            ItemList.TF_Vial_FieryTears.get(1L, new Object[0]),
-            ItemList.Bottle_Empty.get(1L, new Object[0]),
-            GT_Values.NF,
-            Materials.FierySteel.getFluid(250L));
 
         Materials tMaterial = Materials.Iron;
         if (tMaterial.mStandardMoltenFluid != null) {
@@ -3449,48 +3444,6 @@ public class GT_MachineRecipeLoader implements Runnable {
             ItemList.Battery_RE_ULV_Tantalum.get(8L, new Object[0]),
             100,
             4);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfLife1", 4L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 4L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfLife2", 1L, 0),
-            100,
-            8);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping1", 4L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 4L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping2", 1L, 0),
-            100,
-            8);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping2", 4L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 4L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping3", 1L, 0),
-            100,
-            8);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfLife2", 1L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 1L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfLife1", 4L, 0),
-            100,
-            8);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping2", 1L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 1L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping1", 4L, 0),
-            100,
-            8);
-        GT_Values.RA.addAssemblerRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping3", 1L, 0),
-            ItemList.Circuit_Integrated.getWithDamage(0L, 1L, new Object[0]),
-            GT_Values.NF,
-            GT_ModHandler.getModItem("TwilightForest", "item.charmOfKeeping2", 4L, 0),
-            100,
-            8);
         GT_Values.RA.addAssemblerRecipe(
             GT_ModHandler.getModItem(aTextAE, aTextAEMM, 1L, 16),
             GT_ModHandler.getModItem(aTextAE, aTextAEMM, 1L, 20),
@@ -6673,18 +6626,6 @@ public class GT_MachineRecipeLoader implements Runnable {
             GT_OreDictUnificator.get(OrePrefixes.cell, Materials.LiquidAir, 1L),
             25);
 
-        GT_Values.RA.addAlloySmelterRecipe(
-            GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Lead, 1L),
-            GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Obsidian, 2L),
-            ItemList.TE_Hardened_Glass.get(2L, new Object[0]),
-            200,
-            16);
-        GT_Values.RA.addAlloySmelterRecipe(
-            GT_OreDictUnificator.get(OrePrefixes.ingot, Materials.Lead, 1L),
-            GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Obsidian, 2L),
-            ItemList.TE_Hardened_Glass.get(2L, new Object[0]),
-            200,
-            16);
         // GT_Values.RA.addAlloySmelterRecipe(GT_OreDictUnificator.get(OrePrefixes.dust, Materials.RawRubber, 3L),
         // GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Sulfur, 1L), GT_OreDictUnificator.get(OrePrefixes.ingot,
         // Materials.Rubber, 1L), 200, 8);
@@ -8670,62 +8611,6 @@ public class GT_MachineRecipeLoader implements Runnable {
             null,
             4608,
             5);
-        GT_Values.RA.addCentrifugeRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.meefRaw", 12L, 32767),
-            GT_Values.NI,
-            GT_Values.NF,
-            Materials.Methane.getGas(576L),
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            null,
-            4608,
-            5);
-        GT_Values.RA.addCentrifugeRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.meefSteak", 16L, 32767),
-            GT_Values.NI,
-            GT_Values.NF,
-            Materials.Methane.getGas(576L),
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            null,
-            4608,
-            5);
-        GT_Values.RA.addCentrifugeRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.venisonRaw", 12L, 32767),
-            GT_Values.NI,
-            GT_Values.NF,
-            Materials.Methane.getGas(576L),
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            null,
-            4608,
-            5);
-        GT_Values.RA.addCentrifugeRecipe(
-            GT_ModHandler.getModItem("TwilightForest", "item.venisonCooked", 16L, 32767),
-            GT_Values.NI,
-            GT_Values.NF,
-            Materials.Methane.getGas(576L),
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            GT_Values.NI,
-            null,
-            4608,
-            5);
         GT_Values.RA.addAssemblerRecipe(
             new ItemStack[] { GT_OreDictUnificator.get(OrePrefixes.plate, Materials.HSSG, 4L),
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Europium, 2L),
@@ -8809,7 +8694,7 @@ public class GT_MachineRecipeLoader implements Runnable {
             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.DarkAsh, 1),
             0,
             GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Ash, 1L),
-            ItemList.TE_Slag.get(1L, new Object[] { GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Carbon, 1L) }),
+            GT_Values.NI,
             GT_Values.NI,
             GT_Values.NI,
             GT_Values.NI,

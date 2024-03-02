@@ -1589,12 +1589,6 @@ public enum OrePrefixes {
                 if (name().startsWith("nugget")) return mLocalizedMaterialPre + "%material" + " Chip";
                 if (name().startsWith("foil")) return "Thin " + "%material" + " Sheet";
                 break;
-            case "FierySteel":
-                if (mIsContainer) return mLocalizedMaterialPre + "Fiery Blood" + mLocalizedMaterialPost;
-                break;
-            case "Steeleaf":
-                if (name().startsWith("ingot")) return mLocalizedMaterialPre + "%material";
-                break;
             case "Bone":
                 if (name().startsWith("dust")) return mLocalizedMaterialPre + "Bone Meal";
                 break;

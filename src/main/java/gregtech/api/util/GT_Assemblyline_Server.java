@@ -241,7 +241,7 @@ public class GT_Assemblyline_Server {
                                     break;
                                 case 3:
                                     mMats = new Materials[] { Materials.ElectrumFlux, Materials.Enderium,
-                                        Materials.Erbium, Materials.Europium, Materials.FierySteel,
+                                        Materials.Erbium, Materials.Europium,
                                         Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA,
                                         Materials.Indium, Materials.Invar, Materials.Iridium, Materials.IronMagnetic,
                                         Materials.Kanthal };

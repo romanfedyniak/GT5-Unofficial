@@ -461,7 +461,7 @@ public class GT_Loader_Item_Block_And_Fluid implements Runnable {
         GregTech_API.sBlockMetal3 = new GT_Block_Metal(
             "gt.blockmetal3",
             new Materials[] { Materials.ElectrumFlux, Materials.Enderium, Materials.Erbium, Materials.Europium,
-                Materials.FierySteel, Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA,
+                Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA,
                 Materials.Indium, Materials.Invar, Materials.Iridium, Materials.IronMagnetic, Materials.Kanthal },
             OrePrefixes.block,
             gregtech.api.enums.Textures.BlockIcons.STORAGE_BLOCKS3);
@@ -1068,15 +1068,6 @@ public class GT_Loader_Item_Block_And_Fluid implements Runnable {
             1000);
 
         GT_Mod.gregtechproxy.addFluid(
-            "fieryblood",
-            "Fiery Blood",
-            Materials.FierySteel,
-            1,
-            6400,
-            GT_OreDictUnificator.get(OrePrefixes.cell, Materials.FierySteel, 1L),
-            ItemList.Cell_Empty.get(1L, new Object[0]),
-            1000);
-        GT_Mod.gregtechproxy.addFluid(
             "holywater",
             "Holy Water",
             Materials.HolyWater,
@@ -1085,13 +1076,6 @@ public class GT_Loader_Item_Block_And_Fluid implements Runnable {
             GT_OreDictUnificator.get(OrePrefixes.cell, Materials.HolyWater, 1L),
             ItemList.Cell_Empty.get(1L, new Object[0]),
             1000);
-        if (ItemList.TF_Vial_FieryBlood.get(1L, new Object[0]) != null) {
-            FluidContainerRegistry.registerFluidContainer(
-                new FluidContainerRegistry.FluidContainerData(
-                    Materials.FierySteel.getFluid(250L),
-                    ItemList.TF_Vial_FieryBlood.get(1L, new Object[0]),
-                    ItemList.Bottle_Empty.get(1L, new Object[0])));
-        }
 
         FluidContainerRegistry.registerFluidContainer(
             new FluidContainerRegistry.FluidContainerData(

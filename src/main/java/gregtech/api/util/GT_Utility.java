@@ -1245,9 +1245,7 @@ public class GT_Utility {
          */
         if (ItemList.Cell_Empty.isStackEqual(aStack, false, true)) return null;
         if (ItemList.IC2_Fuel_Can_Filled.isStackEqual(aStack, false, true)) return ItemList.IC2_Fuel_Can_Empty.get(1);
-        if (aStack.getItem() == Items.potionitem || aStack.getItem() == Items.experience_bottle
-            || ItemList.TF_Vial_FieryBlood.isStackEqual(aStack)
-            || ItemList.TF_Vial_FieryTears.isStackEqual(aStack)) return ItemList.Bottle_Empty.get(1);
+        if (aStack.getItem() == Items.potionitem || aStack.getItem() == Items.experience_bottle) return ItemList.Bottle_Empty.get(1);
 
         if (aCheckIFluidContainerItems && aStack.getItem() instanceof IFluidContainerItem
             && ((IFluidContainerItem) aStack.getItem()).getCapacity(aStack) > 0) {
@@ -2043,18 +2041,6 @@ public class GT_Utility {
      * Used for my Teleporter.
      */
     public static boolean isRealDimension(int aDimensionID) {
-        try {
-            if (DimensionManager.getProvider(aDimensionID)
-                .getClass()
-                .getName()
-                .contains("com.xcompwiz.mystcraft")) return true;
-        } catch (Throwable e) {/* Do nothing */}
-        try {
-            if (DimensionManager.getProvider(aDimensionID)
-                .getClass()
-                .getName()
-                .contains("TwilightForest")) return true;
-        } catch (Throwable e) {/* Do nothing */}
         try {
             if (DimensionManager.getProvider(aDimensionID)
                 .getClass()
