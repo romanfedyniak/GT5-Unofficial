@@ -155,13 +155,13 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                 "blockStainedHardenedClay", "blockQuartzPillar", "blockQuartzChiselled", "blockSpawner", "blockCloth",
                 "mobHead", "mobEgg", "enderFlower", "enderChest", "clayHardened", "dayGemMaterial", "nightGemMaterial",
                 "snowLayer", "bPlaceholder", "hardenedClay", "eternalLifeEssence", "sandstone", "wheatRice",
-                "transdimBlock", "bambooBasket", "livingwoodTwig", "redstoneCrystal",
-                "pestleAndMortar", "glowstone", "whiteStone", "stoneSlab", "transdimBlock", "clayBowl", "clayPlate",
-                "ceramicBowl", "ceramicPlate", "ovenRack", "clayCup", "ceramicCup", "batteryBox", "transmutationStone",
-                "torchRedstoneActive", "coal", "charcoal", "cloth", "cobblestoneSlab", "stoneBrickSlab",
-                "cobblestoneWall", "stoneBrickWall", "cobblestoneStair", "stoneBrickStair", "blockCloud", "blockDirt",
-                "blockTyrian", "blockCarpet", "blockFft", "blockLavastone", "blockHolystone", "blockConcrete",
-                "sunnariumPart", "brSmallMachineCyaniteProcessor", "meteoriteCoal", "blockCobble", "pressOreProcessor",
+                "transdimBlock", "bambooBasket", "livingwoodTwig", "redstoneCrystal", "pestleAndMortar", "glowstone",
+                "whiteStone", "stoneSlab", "transdimBlock", "clayBowl", "clayPlate", "ceramicBowl", "ceramicPlate",
+                "ovenRack", "clayCup", "ceramicCup", "batteryBox", "transmutationStone", "torchRedstoneActive", "coal",
+                "charcoal", "cloth", "cobblestoneSlab", "stoneBrickSlab", "cobblestoneWall", "stoneBrickWall",
+                "cobblestoneStair", "stoneBrickStair", "blockCloud", "blockDirt", "blockTyrian", "blockCarpet",
+                "blockFft", "blockLavastone", "blockHolystone", "blockConcrete", "sunnariumPart",
+                "brSmallMachineCyaniteProcessor", "meteoriteCoal", "blockCobble", "pressOreProcessor",
                 "crusherOreProcessor", "grinderOreProcessor", "blockRubber", "blockHoney", "blockHoneydew", "blockPeat",
                 "blockRadioactive", "blockSlime", "blockCocoa", "blockSugarCane", "blockLeather", "blockClayBrick",
                 "solarPanelHV", "cableRedNet", "stoneBowl", "crafterWood", "brickXyEngineering", "breederUranium",
@@ -2074,71 +2074,15 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                 true)),
                             true);
                         continue;
-                } else if (tOre.mModID.equalsIgnoreCase("rotarycraft")
-                    && tOre.mPrefix == OrePrefixes.ingot
-                    && tOre.mMaterial == Materials.HSLA) {
-                        GT_OreDictUnificator.addAssociation(
-                            tOre.mPrefix,
-                            tOre.mMaterial,
-                            tOre.mEvent.Ore,
-                            false);
-                        GT_OreDictUnificator
-                            .set(
-                                tOre.mPrefix,
-                                tOre.mMaterial,
-                                tOre.mEvent.Ore,
-                                (GregTech_API.sUnification
-                                    .get(
-                                        new StringBuilder()
-                                            .append(
-                                                ConfigCategories.specialunificationtargets)
-                                            .append(".")
-                                            .append(tOre.mModID)
-                                            .toString(),
-                                        tOre.mEvent.Name,
-                                        true)),
-                                true);
-                        continue;
-                } else if (tOre.mModID.equalsIgnoreCase("appliedenergistics2")
-                    && tOre.mPrefix == OrePrefixes.gem
-                    && tOre.mMaterial == Materials.CertusQuartz) {
-                        GT_OreDictUnificator.addAssociation(
-                            tOre.mPrefix,
-                            tOre.mMaterial,
-                            tOre.mEvent.Ore,
-                            false);
-                        GT_OreDictUnificator
-                            .set(
-                                tOre.mPrefix,
-                                tOre.mMaterial,
-                                tOre.mEvent.Ore,
-                                (GregTech_API.sUnification.get(
-                                    new StringBuilder()
-                                        .append(
-                                            ConfigCategories.specialunificationtargets)
-                                        .append(".")
-                                        .append(tOre.mModID)
-                                        .toString(),
-                                    tOre.mEvent.Name,
-                                    true)),
-                                true);
-                        continue;
-                    } else if (tOre.mModID.equalsIgnoreCase("appliedenergistics2")
-                        && tOre.mPrefix == OrePrefixes.dust
-                        && tOre.mMaterial == Materials.CertusQuartz) {
-                            GT_OreDictUnificator.addAssociation(
-                                tOre.mPrefix,
-                                tOre.mMaterial,
-                                tOre.mEvent.Ore,
-                                false);
+                    } else if (tOre.mModID.equalsIgnoreCase("rotarycraft") && tOre.mPrefix == OrePrefixes.ingot
+                        && tOre.mMaterial == Materials.HSLA) {
+                            GT_OreDictUnificator.addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
                             GT_OreDictUnificator.set(
                                 tOre.mPrefix,
                                 tOre.mMaterial,
                                 tOre.mEvent.Ore,
                                 (GregTech_API.sUnification.get(
-                                    new StringBuilder()
-                                        .append(
-                                            ConfigCategories.specialunificationtargets)
+                                    new StringBuilder().append(ConfigCategories.specialunificationtargets)
                                         .append(".")
                                         .append(tOre.mModID)
                                         .toString(),
@@ -2146,7 +2090,43 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                     true)),
                                 true);
                             continue;
-                        }
+                        } else
+                        if (tOre.mModID.equalsIgnoreCase("appliedenergistics2") && tOre.mPrefix == OrePrefixes.gem
+                            && tOre.mMaterial == Materials.CertusQuartz) {
+                                GT_OreDictUnificator
+                                    .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
+                                GT_OreDictUnificator.set(
+                                    tOre.mPrefix,
+                                    tOre.mMaterial,
+                                    tOre.mEvent.Ore,
+                                    (GregTech_API.sUnification.get(
+                                        new StringBuilder().append(ConfigCategories.specialunificationtargets)
+                                            .append(".")
+                                            .append(tOre.mModID)
+                                            .toString(),
+                                        tOre.mEvent.Name,
+                                        true)),
+                                    true);
+                                continue;
+                            } else
+                            if (tOre.mModID.equalsIgnoreCase("appliedenergistics2") && tOre.mPrefix == OrePrefixes.dust
+                                && tOre.mMaterial == Materials.CertusQuartz) {
+                                    GT_OreDictUnificator
+                                        .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
+                                    GT_OreDictUnificator.set(
+                                        tOre.mPrefix,
+                                        tOre.mMaterial,
+                                        tOre.mEvent.Ore,
+                                        (GregTech_API.sUnification.get(
+                                            new StringBuilder().append(ConfigCategories.specialunificationtargets)
+                                                .append(".")
+                                                .append(tOre.mModID)
+                                                .toString(),
+                                            tOre.mEvent.Name,
+                                            true)),
+                                        true);
+                                    continue;
+                                }
                 }
                 if (GT_OreDictUnificator.isBlacklisted(tOre.mEvent.Ore)) {
                     GT_OreDictUnificator.addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, true);
