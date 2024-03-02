@@ -117,12 +117,12 @@ public class GT_Client extends GT_Proxy implements Runnable {
         mNegB = Arrays.asList(new Materials[] { Materials.NetherStar });
         mMoltenPosR = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
-                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force,
-                Materials.Sunnarium, Materials.Glowstone, Materials.Firestone });
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Sunnarium,
+                Materials.Glowstone, Materials.Firestone });
         mMoltenPosG = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
-                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force,
-                Materials.Sunnarium, Materials.Glowstone });
+                Materials.NaquadahEnriched, Materials.Naquadria, Materials.Force, Materials.Sunnarium,
+                Materials.Glowstone });
         mMoltenPosB = Arrays.asList(
             new Materials[] { Materials.Enderium, Materials.NetherStar, Materials.Uranium235, Materials.Plutonium241,
                 Materials.NaquadahEnriched, Materials.Naquadria });

@@ -582,10 +582,7 @@ public class GT_ModHandler {
                         if (GT_Utility.getBlockFromStack(aInput) != Blocks.obsidian
                             && GT_Utility.getBlockFromStack(aInput) != Blocks.gravel) {
                             mods.railcraft.api.crafting.IRockCrusherRecipe tRecipe = mods.railcraft.api.crafting.RailcraftCraftingManager.rockCrusher
-                                .createNewRecipe(
-                                    GT_Utility.copyAmount(1, aInput),
-                                    aInput.getItemDamage() != W,
-                                    false);
+                                .createNewRecipe(GT_Utility.copyAmount(1, aInput), aInput.getItemDamage() != W, false);
                             tRecipe.addOutput(GT_Utility.copy(aOutput1), 1.0F / aInput.stackSize);
                             if (aOutput2 != null) tRecipe.addOutput(
                                 GT_Utility.copy(aOutput2),

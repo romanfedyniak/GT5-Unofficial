@@ -461,8 +461,8 @@ public class GT_Loader_Item_Block_And_Fluid implements Runnable {
         GregTech_API.sBlockMetal3 = new GT_Block_Metal(
             "gt.blockmetal3",
             new Materials[] { Materials.ElectrumFlux, Materials.Enderium, Materials.Erbium, Materials.Europium,
-                Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA,
-                Materials.Indium, Materials.Invar, Materials.Iridium, Materials.IronMagnetic, Materials.Kanthal },
+                Materials.Gadolinium, Materials.Gallium, Materials.Holmium, Materials.HSLA, Materials.Indium,
+                Materials.Invar, Materials.Iridium, Materials.IronMagnetic, Materials.Kanthal },
             OrePrefixes.block,
             gregtech.api.enums.Textures.BlockIcons.STORAGE_BLOCKS3);
 
