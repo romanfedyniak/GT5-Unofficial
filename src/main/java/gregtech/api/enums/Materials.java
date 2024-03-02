@@ -23,7 +23,6 @@ import gregtech.api.interfaces.ISubTagContainer;
 import gregtech.api.objects.GT_FluidStack;
 import gregtech.api.objects.MaterialStack;
 import gregtech.api.util.GT_Log;
-import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import gregtech.api.util.GT_Utility;
 import gregtech.loaders.materialprocessing.ProcessingConfig;
@@ -4162,29 +4161,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         1,
         1,
         Dyes._NULL);
-    public static Materials FierySteel = new Materials(
-        346,
-        TextureSet.SET_FIERY,
-        8.0F,
-        256,
-        3,
-        1 | 2 | 16 | 64 | 128,
-        64,
-        0,
-        0,
-        0,
-        "FierySteel",
-        "Fiery Steel",
-        5,
-        2048,
-        1811,
-        1000,
-        true,
-        false,
-        1,
-        1,
-        1,
-        Dyes.dyeRed);
     public static Materials Firestone = new Materials(
         347,
         TextureSet.SET_QUARTZ,
@@ -11917,31 +11893,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Dyes.dyePink,
         2,
         Arrays.asList(new MaterialStack(Saltpeter, 1)));
-    public static Materials Pyrotheum = new Materials(
-        843,
-        TextureSet.SET_FIERY,
-        1.0F,
-        0,
-        1,
-        1,
-        255,
-        128,
-        0,
-        0,
-        "Pyrotheum",
-        "Pyrotheum",
-        2,
-        62,
-        -1,
-        0,
-        false,
-        false,
-        2,
-        3,
-        1,
-        Dyes.dyeYellow,
-        2,
-        Arrays.asList(new MaterialStack(Coal, 1), new MaterialStack(Redstone, 1), new MaterialStack(Blaze, 1)));
     public static Materials HydratedCoal = new Materials(
         818,
         TextureSet.SET_ROUGH,
@@ -14250,8 +14201,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         Flint.setEnchantmentForTools(Enchantment.fireAspect, 1);
         DarkIron.setEnchantmentForTools(Enchantment.fireAspect, 2);
         Firestone.setEnchantmentForTools(Enchantment.fireAspect, 3);
-        FierySteel.setEnchantmentForTools(Enchantment.fireAspect, 3);
-        Pyrotheum.setEnchantmentForTools(Enchantment.fireAspect, 3);
         Blaze.setEnchantmentForTools(Enchantment.fireAspect, 3);
 
         Force.setEnchantmentForTools(Enchantment.silkTouch, 1);
@@ -14291,7 +14240,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
         FryingOilHot.setHeatDamage(1.0F);
         Lava.setHeatDamage(3.0F);
         Firestone.setHeatDamage(5.0F);
-        Pyrotheum.setHeatDamage(5.0F);
 
         Chalcopyrite.addOreByProducts(Pyrite, Cobalt, Cadmium, Gold);
         Sphalerite.addOreByProducts(GarnetYellow, Cadmium, Gallium, Zinc);
@@ -14584,7 +14532,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             Enderium,
             EnderiumBase,
             Eximite,
-            FierySteel,
             Force,
             Haderoth,
             Hematite,
@@ -14845,7 +14792,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
             SubTag.MORTAR_GRINDABLE,
             SubTag.UNBURNABLE,
             SubTag.BURNING);
-        FierySteel.add(SubTag.MAGICAL, SubTag.UNBURNABLE, SubTag.BURNING);
         Enderium.add(SubTag.MAGICAL);
     }
 
@@ -14919,8 +14865,6 @@ public class Materials implements IColorModulationContainer, ISubTagContainer {
                     .get(aConfigPath, "BlastFurnaceRequired", aMaterial.mBlastFurnaceRequired);
                 aMaterial.mBlastFurnaceTemp = (short) GregTech_API.sMaterialProperties
                     .get(aConfigPath, "BlastFurnaceTemp", aMaterial.mBlastFurnaceTemp);
-                if (GT_Mod.gregtechproxy.mTEMachineRecipes && aMaterial.mBlastFurnaceRequired
-                    && aMaterial.mBlastFurnaceTemp < 1500) GT_ModHandler.ThermalExpansion.addSmelterBlastOre(aMaterial);
                 aMaterial.mFuelPower = GregTech_API.sMaterialProperties
                     .get(aConfigPath, "FuelPower", aMaterial.mFuelPower);
                 aMaterial.mFuelType = GregTech_API.sMaterialProperties

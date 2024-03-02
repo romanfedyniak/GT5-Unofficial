@@ -155,13 +155,13 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                 "blockStainedHardenedClay", "blockQuartzPillar", "blockQuartzChiselled", "blockSpawner", "blockCloth",
                 "mobHead", "mobEgg", "enderFlower", "enderChest", "clayHardened", "dayGemMaterial", "nightGemMaterial",
                 "snowLayer", "bPlaceholder", "hardenedClay", "eternalLifeEssence", "sandstone", "wheatRice",
-                "transdimBlock", "bambooBasket", "lexicaBotania", "livingwoodTwig", "redstoneCrystal",
-                "pestleAndMortar", "glowstone", "whiteStone", "stoneSlab", "transdimBlock", "clayBowl", "clayPlate",
-                "ceramicBowl", "ceramicPlate", "ovenRack", "clayCup", "ceramicCup", "batteryBox", "transmutationStone",
-                "torchRedstoneActive", "coal", "charcoal", "cloth", "cobblestoneSlab", "stoneBrickSlab",
-                "cobblestoneWall", "stoneBrickWall", "cobblestoneStair", "stoneBrickStair", "blockCloud", "blockDirt",
-                "blockTyrian", "blockCarpet", "blockFft", "blockLavastone", "blockHolystone", "blockConcrete",
-                "sunnariumPart", "brSmallMachineCyaniteProcessor", "meteoriteCoal", "blockCobble", "pressOreProcessor",
+                "transdimBlock", "bambooBasket", "livingwoodTwig", "redstoneCrystal", "pestleAndMortar", "glowstone",
+                "whiteStone", "stoneSlab", "transdimBlock", "clayBowl", "clayPlate", "ceramicBowl", "ceramicPlate",
+                "ovenRack", "clayCup", "ceramicCup", "batteryBox", "transmutationStone", "torchRedstoneActive", "coal",
+                "charcoal", "cloth", "cobblestoneSlab", "stoneBrickSlab", "cobblestoneWall", "stoneBrickWall",
+                "cobblestoneStair", "stoneBrickStair", "blockCloud", "blockDirt", "blockTyrian", "blockCarpet",
+                "blockFft", "blockLavastone", "blockHolystone", "blockConcrete", "sunnariumPart",
+                "brSmallMachineCyaniteProcessor", "meteoriteCoal", "blockCobble", "pressOreProcessor",
                 "crusherOreProcessor", "grinderOreProcessor", "blockRubber", "blockHoney", "blockHoneydew", "blockPeat",
                 "blockRadioactive", "blockSlime", "blockCocoa", "blockSugarCane", "blockLeather", "blockClayBrick",
                 "solarPanelHV", "cableRedNet", "stoneBowl", "crafterWood", "brickXyEngineering", "breederUranium",
@@ -213,7 +213,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
     public boolean mHardRock = false;
     public boolean mHungerEffect = true;
     public boolean mOnline = true;
-    public boolean mIgnoreTcon = true;
     public boolean mDisableIC2Cables = false;
     public boolean mAchievements = true;
     public boolean mAE2Integration = true;
@@ -248,12 +247,8 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
     public int mTicksUntilNextCraftSound = 0;
     public double mMagneticraftBonusOutputPercent = 100.0d;
     private World mUniverse = null;
-    private final String aTextThermalExpansion = "ThermalExpansion";
     private final String aTextRailcraft = "Railcraft";
-    private final String aTextTwilightForest = "TwilightForest";
     private final String aTextForestry = "Forestry";
-    private final String aTextArsmagica2 = "arsmagica2";
-    public boolean mTEMachineRecipes = false;
     public boolean mEnableAllMaterials = false;
     public boolean mEnableAllComponents = false;
     public boolean mAddGTRecipesToIC2Machines = true;
@@ -332,7 +327,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         GT_Log.ore.println("GT_Mod: Preload-Phase started!");
 
         GregTech_API.sPreloadStarted = true;
-        this.mIgnoreTcon = GregTech_API.sOPStuff.get(ConfigCategories.general, "ignoreTConstruct", true);
         this.mWireHeatingTicks = GregTech_API.sOPStuff.get(ConfigCategories.general, "WireHeatingTicks", 4);
         NetworkRegistry.INSTANCE.registerGuiHandler(GT_Values.GT, this);
         for (FluidContainerRegistry.FluidContainerData tData : FluidContainerRegistry
@@ -343,10 +337,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
             }
         }
         GT_Log.out.println("GT_Mod: Getting required Items of other Mods.");
-        ItemList.TE_Slag.set(GT_ModHandler.getModItem(aTextThermalExpansion, "slag", 1L));
-        ItemList.TE_Slag_Rich.set(GT_ModHandler.getModItem(aTextThermalExpansion, "slagRich", 1L));
-        ItemList.TE_Rockwool.set(GT_ModHandler.getModItem(aTextThermalExpansion, "rockwool", 1L));
-        ItemList.TE_Hardened_Glass.set(GT_ModHandler.getModItem(aTextThermalExpansion, "glassHardened", 1L));
 
         ItemList.RC_ShuntingWire.set(GT_ModHandler.getModItem(aTextRailcraft, "tile.railcraft.machine.delta", 1L, 0));
         ItemList.RC_ShuntingWireFrame.set(GT_ModHandler.getModItem(aTextRailcraft, "tile.railcraft.frame", 1L, 0));
@@ -366,10 +356,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         ItemList.Tool_Shovel_Steel.set(GT_ModHandler.getModItem(aTextRailcraft, "tool.steel.shovel", 1L));
         ItemList.Tool_Axe_Steel.set(GT_ModHandler.getModItem(aTextRailcraft, "tool.steel.axe", 1L));
         ItemList.Tool_Hoe_Steel.set(GT_ModHandler.getModItem(aTextRailcraft, "tool.steel.hoe", 1L));
-
-        ItemList.TF_LiveRoot.set(GT_ModHandler.getModItem(aTextTwilightForest, "item.liveRoot", 1L, 0));
-        ItemList.TF_Vial_FieryBlood.set(GT_ModHandler.getModItem(aTextTwilightForest, "item.fieryBlood", 1L));
-        ItemList.TF_Vial_FieryTears.set(GT_ModHandler.getModItem(aTextTwilightForest, "item.fieryTears", 1L));
 
         ItemList.FR_Lemon.set(GT_ModHandler.getModItem(aTextForestry, "fruits", 1L, 3));
         ItemList.FR_Mulch.set(GT_ModHandler.getModItem(aTextForestry, "mulch", 1L));
@@ -568,26 +554,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         GT_ModHandler.sNonReplaceableItems.add(GT_ModHandler.getModItem(aTextRailcraft, "borehead.steel", 1L, 32767));
         GT_ModHandler.sNonReplaceableItems.add(GT_ModHandler.getModItem(aTextRailcraft, "borehead.iron", 1L, 32767));
         GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.plateNaga", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.legsNaga", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.arcticHelm", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.arcticPlate", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.arcticLegs", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.arcticBoots", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.yetiHelm", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.yetiPlate", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.yetiLegs", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
-            .add(GT_ModHandler.getModItem(aTextTwilightForest, "item.yetiBoots", 1L, 32767));
-        GT_ModHandler.sNonReplaceableItems
             .add(GT_ModHandler.getModItem("appliedenergistics2", "item.ToolCertusQuartzCuttingKnife", 1L, 32767));
         GT_ModHandler.sNonReplaceableItems
             .add(GT_ModHandler.getModItem("appliedenergistics2", "item.ToolNetherQuartzCuttingKnife", 1L, 32767));
@@ -619,14 +585,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
     public void onLoad() {
         GT_Log.out.println("GT_Mod: Beginning Load-Phase.");
         GT_Log.ore.println("GT_Mod: Beginning Load-Phase.");
-        GT_OreDictUnificator.registerOre(
-            "cropChilipepper",
-            GT_ModHandler.getModItem("magicalcrops", "magicalcrops_CropProduce", 1L, 2));
-        GT_OreDictUnificator
-            .registerOre("cropTomato", GT_ModHandler.getModItem("magicalcrops", "magicalcrops_CropProduce", 1L, 8));
-        GT_OreDictUnificator
-            .registerOre("cropGrape", GT_ModHandler.getModItem("magicalcrops", "magicalcrops_CropProduce", 1L, 4));
-        GT_OreDictUnificator.registerOre("cropTea", GT_ModHandler.getModItem("ganyssurface", "teaLeaves", 1L, 0));
 
         GregTech_API.sLoadStarted = true;
         for (FluidContainerRegistry.FluidContainerData tData : FluidContainerRegistry
@@ -1054,12 +1012,10 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         }
         try {
             aEvent.Ore.stackSize = 1;
-            if (this.mIgnoreTcon || aEvent.Ore.getUnlocalizedName()
+            if (aEvent.Ore.getUnlocalizedName()
                 .startsWith("item.oreberry")) {
                 if ((aOriginalMod.toLowerCase(Locale.ENGLISH)
                     .contains("xycraft"))
-                    || (aOriginalMod.toLowerCase(Locale.ENGLISH)
-                        .contains("tconstruct"))
                     || ((aOriginalMod.toLowerCase(Locale.ENGLISH)
                         .contains("natura"))
                         && (!aOriginalMod.toLowerCase(Locale.ENGLISH)
@@ -1115,9 +1071,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                     GT_OreDictUnificator.registerOre(OrePrefixes.plate, Materials.Plastic, aEvent.Ore);
                 } else if (aEvent.Name.startsWith("shard")) {
                     // pass
-                } else if (aEvent.Name.equals("fieryIngot")) {
-                    GT_OreDictUnificator.registerOre(OrePrefixes.ingot, Materials.FierySteel, aEvent.Ore);
-                    return;
                 } else if (aEvent.Name.equals("compressedAluminum")) {
                     GT_OreDictUnificator.registerOre(OrePrefixes.compressed, Materials.Aluminium, aEvent.Ore);
                     return;
@@ -1296,8 +1249,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                     case ingot:
                                         if (aMaterial == Materials.Rubber) {
                                             GT_OreDictUnificator.registerOre("itemRubber", aEvent.Ore);
-                                        } else if (aMaterial == Materials.FierySteel) {
-                                            GT_OreDictUnificator.registerOre("fieryIngot", aEvent.Ore);
                                         } else if ((aMaterial == Materials.Brass) && (aEvent.Ore.getItemDamage() == 2)
                                             && (aEvent.Ore.getUnlocalizedName()
                                                 .equals("item.ingotBrass"))
@@ -2123,8 +2074,8 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                 true)),
                             true);
                         continue;
-                    } else if (tOre.mModID.equalsIgnoreCase("thermalfoundation") && tOre.mPrefix == OrePrefixes.dust
-                        && tOre.mMaterial == Materials.Blizz) {
+                    } else if (tOre.mModID.equalsIgnoreCase("rotarycraft") && tOre.mPrefix == OrePrefixes.ingot
+                        && tOre.mMaterial == Materials.HSLA) {
                             GT_OreDictUnificator.addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
                             GT_OreDictUnificator.set(
                                 tOre.mPrefix,
@@ -2139,8 +2090,9 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                     true)),
                                 true);
                             continue;
-                        } else if (tOre.mModID.equalsIgnoreCase("thermalfoundation") && tOre.mPrefix == OrePrefixes.dust
-                            && tOre.mMaterial == Materials.Pyrotheum) {
+                        } else
+                        if (tOre.mModID.equalsIgnoreCase("appliedenergistics2") && tOre.mPrefix == OrePrefixes.gem
+                            && tOre.mMaterial == Materials.CertusQuartz) {
                                 GT_OreDictUnificator
                                     .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
                                 GT_OreDictUnificator.set(
@@ -2156,8 +2108,9 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                         true)),
                                     true);
                                 continue;
-                            } else if (tOre.mModID.equalsIgnoreCase(aTextArsmagica2) && tOre.mPrefix == OrePrefixes.gem
-                                && tOre.mMaterial == Materials.BlueTopaz) {
+                            } else
+                            if (tOre.mModID.equalsIgnoreCase("appliedenergistics2") && tOre.mPrefix == OrePrefixes.dust
+                                && tOre.mMaterial == Materials.CertusQuartz) {
                                     GT_OreDictUnificator
                                         .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
                                     GT_OreDictUnificator.set(
@@ -2173,138 +2126,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                             true)),
                                         true);
                                     continue;
-                                } else
-                                if (tOre.mModID.equalsIgnoreCase(aTextArsmagica2) && tOre.mPrefix == OrePrefixes.gem
-                                    && tOre.mMaterial == Materials.Chimerite) {
-                                        GT_OreDictUnificator
-                                            .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
-                                        GT_OreDictUnificator.set(
-                                            tOre.mPrefix,
-                                            tOre.mMaterial,
-                                            tOre.mEvent.Ore,
-                                            (GregTech_API.sUnification.get(
-                                                new StringBuilder().append(ConfigCategories.specialunificationtargets)
-                                                    .append(".")
-                                                    .append(tOre.mModID)
-                                                    .toString(),
-                                                tOre.mEvent.Name,
-                                                true)),
-                                            true);
-                                        continue;
-                                    } else
-                                    if (tOre.mModID.equalsIgnoreCase(aTextArsmagica2) && tOre.mPrefix == OrePrefixes.gem
-                                        && tOre.mMaterial == Materials.Moonstone) {
-                                            GT_OreDictUnificator
-                                                .addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, false);
-                                            GT_OreDictUnificator.set(
-                                                tOre.mPrefix,
-                                                tOre.mMaterial,
-                                                tOre.mEvent.Ore,
-                                                (GregTech_API.sUnification.get(
-                                                    new StringBuilder()
-                                                        .append(ConfigCategories.specialunificationtargets)
-                                                        .append(".")
-                                                        .append(tOre.mModID)
-                                                        .toString(),
-                                                    tOre.mEvent.Name,
-                                                    true)),
-                                                true);
-                                            continue;
-                                        } else if (tOre.mModID.equalsIgnoreCase(aTextArsmagica2)
-                                            && tOre.mPrefix == OrePrefixes.gem
-                                            && tOre.mMaterial == Materials.Sunstone) {
-                                                GT_OreDictUnificator.addAssociation(
-                                                    tOre.mPrefix,
-                                                    tOre.mMaterial,
-                                                    tOre.mEvent.Ore,
-                                                    false);
-                                                GT_OreDictUnificator.set(
-                                                    tOre.mPrefix,
-                                                    tOre.mMaterial,
-                                                    tOre.mEvent.Ore,
-                                                    (GregTech_API.sUnification.get(
-                                                        new StringBuilder()
-                                                            .append(ConfigCategories.specialunificationtargets)
-                                                            .append(".")
-                                                            .append(tOre.mModID)
-                                                            .toString(),
-                                                        tOre.mEvent.Name,
-                                                        true)),
-                                                    true);
-                                                continue;
-                                            } else if (tOre.mModID.equalsIgnoreCase("rotarycraft")
-                                                && tOre.mPrefix == OrePrefixes.ingot
-                                                && tOre.mMaterial == Materials.HSLA) {
-                                                    GT_OreDictUnificator.addAssociation(
-                                                        tOre.mPrefix,
-                                                        tOre.mMaterial,
-                                                        tOre.mEvent.Ore,
-                                                        false);
-                                                    GT_OreDictUnificator
-                                                        .set(
-                                                            tOre.mPrefix,
-                                                            tOre.mMaterial,
-                                                            tOre.mEvent.Ore,
-                                                            (GregTech_API.sUnification
-                                                                .get(
-                                                                    new StringBuilder()
-                                                                        .append(
-                                                                            ConfigCategories.specialunificationtargets)
-                                                                        .append(".")
-                                                                        .append(tOre.mModID)
-                                                                        .toString(),
-                                                                    tOre.mEvent.Name,
-                                                                    true)),
-                                                            true);
-                                                    continue;
-                                                } else if (tOre.mModID.equalsIgnoreCase("appliedenergistics2")
-                                                    && tOre.mPrefix == OrePrefixes.gem
-                                                    && tOre.mMaterial == Materials.CertusQuartz) {
-                                                        GT_OreDictUnificator.addAssociation(
-                                                            tOre.mPrefix,
-                                                            tOre.mMaterial,
-                                                            tOre.mEvent.Ore,
-                                                            false);
-                                                        GT_OreDictUnificator
-                                                            .set(
-                                                                tOre.mPrefix,
-                                                                tOre.mMaterial,
-                                                                tOre.mEvent.Ore,
-                                                                (GregTech_API.sUnification.get(
-                                                                    new StringBuilder()
-                                                                        .append(
-                                                                            ConfigCategories.specialunificationtargets)
-                                                                        .append(".")
-                                                                        .append(tOre.mModID)
-                                                                        .toString(),
-                                                                    tOre.mEvent.Name,
-                                                                    true)),
-                                                                true);
-                                                        continue;
-                                                    } else if (tOre.mModID.equalsIgnoreCase("appliedenergistics2")
-                                                        && tOre.mPrefix == OrePrefixes.dust
-                                                        && tOre.mMaterial == Materials.CertusQuartz) {
-                                                            GT_OreDictUnificator.addAssociation(
-                                                                tOre.mPrefix,
-                                                                tOre.mMaterial,
-                                                                tOre.mEvent.Ore,
-                                                                false);
-                                                            GT_OreDictUnificator.set(
-                                                                tOre.mPrefix,
-                                                                tOre.mMaterial,
-                                                                tOre.mEvent.Ore,
-                                                                (GregTech_API.sUnification.get(
-                                                                    new StringBuilder()
-                                                                        .append(
-                                                                            ConfigCategories.specialunificationtargets)
-                                                                        .append(".")
-                                                                        .append(tOre.mModID)
-                                                                        .toString(),
-                                                                    tOre.mEvent.Name,
-                                                                    true)),
-                                                                true);
-                                                            continue;
-                                                        }
+                                }
                 }
                 if (GT_OreDictUnificator.isBlacklisted(tOre.mEvent.Ore)) {
                     GT_OreDictUnificator.addAssociation(tOre.mPrefix, tOre.mMaterial, tOre.mEvent.Ore, true);

@@ -213,42 +213,6 @@ public class GT_ItemIterator implements Runnable {
                                 100,
                                 32);
                         }
-                        if (tName.equals("tile.TFRoots")) {
-                            GT_ModHandler.addPulverisationRecipe(
-                                new ItemStack(tItem, 1, 0),
-                                new ItemStack(Items.stick, 2),
-                                new ItemStack(Items.stick, 1),
-                                30);
-                            GT_ModHandler.addSawmillRecipe(
-                                new ItemStack(tItem, 1, 0),
-                                new ItemStack(Items.stick, 4),
-                                new ItemStack(Items.stick, 2));
-                            GT_Values.RA.addFuel(new ItemStack(tItem, 1, 1), new ItemStack(Items.stick, 4), 32, 5);
-                        }
-                        if (tName.equals("item.tconstruct.manual")) {
-                            GT_OreDictUnificator.registerOre("bookTinkersManual", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.ArsMagica:spell_parchment")) {
-                            GT_OreDictUnificator.registerOre("paperArsSpellParchment", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.ArsMagica:spell_recipe")) {
-                            GT_OreDictUnificator.registerOre("paperArsSpellRecipe", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.ArsMagica:spell_book")) {
-                            GT_OreDictUnificator.registerOre("bookArsSpells", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.myst.page")) {
-                            GT_OreDictUnificator.registerOre("paperMystcraft", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.myst.agebook")) {
-                            GT_OreDictUnificator.registerOre("bookMystcraftAge", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.myst.linkbook")) {
-                            GT_OreDictUnificator.registerOre("bookMystcraftLink", new ItemStack(tItem, 1, 32767));
-                        }
-                        if (tName.equals("item.myst.notebook")) {
-                            GT_OreDictUnificator.registerOre("bookNotes", new ItemStack(tItem, 1, 32767));
-                        }
                         if (tName.equals("item.itemManuelBook")) {
                             GT_OreDictUnificator.registerOre("bookWritten", new ItemStack(tItem, 1, 0));
                         }

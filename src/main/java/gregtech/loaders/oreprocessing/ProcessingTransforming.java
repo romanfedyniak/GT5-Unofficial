@@ -54,16 +54,6 @@ public class ProcessingTransforming implements IOreRecipeRegistrator {
                     8);
                 break;
             case "Iron":
-                GT_Values.RA.addChemicalBathRecipe(
-                    GT_Utility.copyAmount(1L, new Object[] { aStack }),
-                    Materials.FierySteel
-                        .getFluid(GT_Utility.translateMaterialToAmount(aPrefix.mMaterialAmount, 250L, true)),
-                    GT_OreDictUnificator.get(aPrefix, Materials.FierySteel, 1L),
-                    GT_Values.NI,
-                    GT_Values.NI,
-                    null,
-                    100,
-                    8);
                 GT_Values.RA.addPolarizerRecipe(
                     GT_Utility.copyAmount(1L, new Object[] { aStack }),
                     GT_OreDictUnificator.get(aPrefix, Materials.IronMagnetic, 1L),
@@ -71,16 +61,6 @@ public class ProcessingTransforming implements IOreRecipeRegistrator {
                     16);
                 break;
             case "WroughtIron":
-                GT_Values.RA.addChemicalBathRecipe(
-                    GT_Utility.copyAmount(1L, new Object[] { aStack }),
-                    Materials.FierySteel
-                        .getFluid(GT_Utility.translateMaterialToAmount(aPrefix.mMaterialAmount, 225L, true)),
-                    GT_OreDictUnificator.get(aPrefix, Materials.FierySteel, 1L),
-                    GT_Values.NI,
-                    GT_Values.NI,
-                    null,
-                    100,
-                    8);
                 GT_Values.RA.addPolarizerRecipe(
                     GT_Utility.copyAmount(1L, new Object[] { aStack }),
                     GT_OreDictUnificator.get(aPrefix, Materials.IronMagnetic, 1L),
@@ -88,16 +68,6 @@ public class ProcessingTransforming implements IOreRecipeRegistrator {
                     16);
                 break;
             case "Steel":
-                GT_Values.RA.addChemicalBathRecipe(
-                    GT_Utility.copyAmount(1L, new Object[] { aStack }),
-                    Materials.FierySteel
-                        .getFluid(GT_Utility.translateMaterialToAmount(aPrefix.mMaterialAmount, 200L, true)),
-                    GT_OreDictUnificator.get(aPrefix, Materials.FierySteel, 1L),
-                    GT_Values.NI,
-                    GT_Values.NI,
-                    null,
-                    100,
-                    8);
                 GT_Values.RA.addPolarizerRecipe(
                     GT_Utility.copyAmount(1L, new Object[] { aStack }),
                     GT_OreDictUnificator.get(aPrefix, Materials.SteelMagnetic, 1L),

@@ -98,13 +98,7 @@ public class GT_Loader_OreDictionary implements Runnable {
             OreDictNames.craftingIndustrialDiamond,
             ItemList.IC2_Industrial_Diamond.get(1L, new Object[0]));
         GT_OreDictUnificator
-            .registerOre(OrePrefixes.dust, Materials.Wood, GT_ModHandler.getModItem("ThermalExpansion", "sawdust", 1L));
-        GT_OreDictUnificator
             .registerOre(OrePrefixes.glass, Materials.Reinforced, GT_ModHandler.getIC2Item("reinforcedGlass", 1L));
-        GT_OreDictUnificator.registerOre(
-            OrePrefixes.glass,
-            Materials.Reinforced,
-            GT_ModHandler.getModItem("ThermalExpansion", "glassHardened", 1L));
 
         GT_OreDictUnificator.registerOre(
             OrePrefixes.stone,
@@ -246,9 +240,6 @@ public class GT_Loader_OreDictionary implements Runnable {
             .registerOre(OreDictNames.craftingGeothermalGenerator, GT_ModHandler.getIC2Item("geothermalGenerator", 1L));
 
         GT_OreDictUnificator.registerOre(OreDictNames.craftingFeather, new ItemStack(Items.feather, 1, 32767));
-        GT_OreDictUnificator.registerOre(
-            OreDictNames.craftingFeather,
-            GT_ModHandler.getModItem("TwilightForest", "item.tfFeather", 1L, 32767));
 
         GT_OreDictUnificator.registerOre("itemWheat", new ItemStack(Items.wheat, 1, 32767));
         GT_OreDictUnificator.registerOre("paperEmpty", new ItemStack(Items.paper, 1, 32767));

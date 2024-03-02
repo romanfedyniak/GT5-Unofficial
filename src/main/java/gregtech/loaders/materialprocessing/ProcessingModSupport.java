@@ -11,13 +11,10 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
     public static boolean aEnablePFAAMats = Loader.isModLoaded("PFAAGeologica") || aTGregSupport;
     public static boolean aEnableUBCMats = Loader.isModLoaded("UndergroundBiomes") || aTGregSupport;
     public static boolean aEnableRotaryCraftMats = Loader.isModLoaded("RotaryCraft") || aTGregSupport;
-    public static boolean aEnableThermalFoundationMats = Loader.isModLoaded("ThermalFoundation") || aTGregSupport;
     public static boolean aEnableEnderIOMats = Loader.isModLoaded("EnderIO") || aTGregSupport;
     public static boolean aEnableRailcraftMats = Loader.isModLoaded(GT_Values.MOD_ID_RC) || aTGregSupport;
     public static boolean aEnableGCMarsMats = Loader.isModLoaded("GalacticraftMars") || aTGregSupport;
-    public static boolean aEnableTwilightMats = Loader.isModLoaded(GT_Values.MOD_ID_TF) || aTGregSupport;
     public static boolean aEnableMetallurgyMats = Loader.isModLoaded("Metallurgy") || aTGregSupport;
-    public static boolean aEnableIHLMats = Loader.isModLoaded("ihl") || aTGregSupport;
 
     public ProcessingModSupport() {
         Materials.add(this);
@@ -117,22 +114,15 @@ public class ProcessingModSupport implements gregtech.api.interfaces.IMaterialHa
             Materials.Rhyolite.mHasParentMod = false;
             Materials.Siltstone.mHasParentMod = false;
         }
-        if (!aEnableIHLMats && !aEnablePFAAMats) {
+        if (!aEnablePFAAMats) {
             Materials.Mica.mHasParentMod = false;
             Materials.Gypsum.mHasParentMod = false;
             Materials.Trona.mHasParentMod = false;
-        }
-        if (!aEnableTwilightMats) {
-            Materials.FierySteel.mHasParentMod = false;
         }
         if (!aEnableGCMarsMats) {
             Materials.Desh.mHasParentMod = false;
             Materials.MeteoricIron.mHasParentMod = false;
             Materials.MeteoricSteel.mHasParentMod = false;
-        }
-        if (!aEnableThermalFoundationMats) {
-            Materials.Blizz.mHasParentMod = false;
-            Materials.Enderium.mHasParentMod = false;
         }
         if (!aEnableRotaryCraftMats) {
             Materials.HSLA.mHasParentMod = false;

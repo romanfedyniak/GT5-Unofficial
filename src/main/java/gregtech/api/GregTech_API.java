@@ -168,8 +168,6 @@ public class GregTech_API {
         sElectroHazmatList = new GT_HashSet<GT_ItemStack>();
     /**
      * The List of Dimensions, which are Whitelisted for the Teleporter. This list should not contain other Planets.
-     * Mystcraft Dimensions and other Dimensional Things should be allowed.
-     * Mystcraft and Twilight Forest are automatically considered a Dimension, without being in this List.
      */
     public static final Collection<Integer> sDimensionalList = new HashSet<Integer>();
     /**
@@ -244,7 +242,6 @@ public class GregTech_API {
     public static boolean mImmersiveEngineering = false;
     public static boolean mGTPlusPlus = false;
     public static boolean mTranslocator = false;
-    public static boolean mTConstruct = false;
     public static boolean mGalacticraft = false;
 
     public static boolean mUseOnlyGoodSolderingMaterials = false;
