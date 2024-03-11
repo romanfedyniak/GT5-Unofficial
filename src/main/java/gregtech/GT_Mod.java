@@ -1,5 +1,7 @@
 package gregtech;
 
+import static gregtech.api.enums.GT_Values.D2;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -233,6 +235,7 @@ public class GT_Mod implements IGT_Mod {
         GregTech_API.mGTPlusPlus = Loader.isModLoaded("miscutils");
         GregTech_API.mTranslocator = Loader.isModLoaded("Translocator");
         GregTech_API.mGalacticraft = Loader.isModLoaded("GalacticraftCore");
+
         GT_Log.mLogFile = new File(
             aEvent.getModConfigurationDirectory()
                 .getParentFile(),
@@ -245,6 +248,7 @@ public class GT_Mod implements IGT_Mod {
         try {
             GT_Log.out = GT_Log.err = new PrintStream(GT_Log.mLogFile);
         } catch (FileNotFoundException e) {}
+
         GT_Log.mOreDictLogFile = new File(
             aEvent.getModConfigurationDirectory()
                 .getParentFile(),
@@ -254,6 +258,19 @@ public class GT_Mod implements IGT_Mod {
                 GT_Log.mOreDictLogFile.createNewFile();
             } catch (Throwable e) {}
         }
+        try {
+            GT_Log.ore = new PrintStream(GT_Log.mOreDictLogFile);
+        } catch (FileNotFoundException e) {}
+
+        if (D2) {
+            GT_Log.ore.println("******************************************************************************");
+            GT_Log.ore.println("* This is the complete log of the GT5-Unofficial OreDictionary Handler. It   *");
+            GT_Log.ore.println("* processes all OreDictionary entries and can sometimes cause errors. All    *");
+            GT_Log.ore.println("* entries and errors are being logged. If you see an error please raise an   *");
+            GT_Log.ore.println("* issue at https://github.com/Blood-Asp/GT5-Unofficial.                      *");
+            GT_Log.ore.println("******************************************************************************");
+        }
+
         if (tMainConfig.get(aTextGeneral, "LoggingPlayerActivity", true)
             .getBoolean(true)) {
             GT_Log.mPlayerActivityLogFile = new File(
@@ -269,19 +286,7 @@ public class GT_Mod implements IGT_Mod {
                 GT_Log.pal = new PrintStream(GT_Log.mPlayerActivityLogFile);
             } catch (Throwable e) {}
         }
-        try {
-            List<String> tList = ((GT_Log.LogBuffer) GT_Log.ore).mBufferedOreDictLog;
-            GT_Log.ore.println("******************************************************************************");
-            GT_Log.ore.println("* This is the complete log of the GT5-Unofficial OreDictionary Handler. It   *");
-            GT_Log.ore.println("* processes all OreDictionary entries and can sometimes cause errors. All    *");
-            GT_Log.ore.println("* entries and errors are being logged. If you see an error please raise an   *");
-            GT_Log.ore.println("* issue at https://github.com/Blood-Asp/GT5-Unofficial.                      *");
-            GT_Log.ore.println("******************************************************************************");
-            String tString;
-            for (Iterator<String> i$ = tList.iterator(); i$.hasNext(); GT_Log.ore.println(tString)) {
-                tString = (String) i$.next();
-            }
-        } catch (Throwable e) {}
+
         gregtechproxy.onPreLoad();
         GT_Log.out.println("GT_Mod: Are you there Translocator? " + GregTech_API.mTranslocator);
         GT_Log.out.println("GT_Mod: Are you there GalacticraftCore? " + GregTech_API.mGalacticraft);

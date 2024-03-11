@@ -85,10 +85,10 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
     public GT_MetaGenerated_Item_01() {
         super(
             "metaitem.01",
-            new OrePrefixes[] { OrePrefixes.dustTiny, OrePrefixes.dustSmall, OrePrefixes.dust, OrePrefixes.dustImpure,
-                OrePrefixes.dustPure, OrePrefixes.crushed, OrePrefixes.crushedPurified, OrePrefixes.crushedCentrifuged,
-                OrePrefixes.gem, OrePrefixes.nugget, null, OrePrefixes.ingot, OrePrefixes.ingotHot,
-                OrePrefixes.ingotDouble, OrePrefixes.ingotTriple, OrePrefixes.ingotQuadruple,
+            new OrePrefixes[] { OrePrefixes.oreChunk, OrePrefixes.dustTiny, OrePrefixes.dustSmall, OrePrefixes.dust,
+                OrePrefixes.dustImpure, OrePrefixes.dustPure, OrePrefixes.crushed, OrePrefixes.crushedPurified,
+                OrePrefixes.crushedCentrifuged, OrePrefixes.gem, OrePrefixes.nugget, null, OrePrefixes.ingot,
+                OrePrefixes.ingotHot, OrePrefixes.ingotDouble, OrePrefixes.ingotTriple, OrePrefixes.ingotQuadruple,
                 OrePrefixes.ingotQuintuple, OrePrefixes.plate, OrePrefixes.plateDouble, OrePrefixes.plateTriple,
                 OrePrefixes.plateQuadruple, OrePrefixes.plateQuintuple, OrePrefixes.plateDense, OrePrefixes.stick,
                 OrePrefixes.lens, OrePrefixes.round, OrePrefixes.bolt, OrePrefixes.screw, OrePrefixes.ring,
@@ -2898,8 +2898,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
     }
 
     public boolean doesShowInCreative(OrePrefixes aPrefix, Materials aMaterial, boolean aDoShowAllItems) {
-        return (aDoShowAllItems) || (((aPrefix != OrePrefixes.gem) || (!aMaterial.mName.startsWith("Infused")))
-            && (aPrefix != OrePrefixes.dustTiny)
+        return (aDoShowAllItems) || ((aPrefix != OrePrefixes.gem) && (aPrefix != OrePrefixes.dustTiny)
             && (aPrefix != OrePrefixes.dustSmall)
             && (aPrefix != OrePrefixes.dustImpure)
             && (aPrefix != OrePrefixes.dustPure)

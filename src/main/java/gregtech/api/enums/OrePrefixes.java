@@ -35,6 +35,8 @@ public enum OrePrefixes {
     @Deprecated
     itemDust("Dusts", "", "", false, false, false, false, false, false, false, false, false, false,
         B[0] | B[1] | B[2] | B[3], -1, 64, -1),
+    oreChunk("Ore chunks", "", " Chunk", true, true, true, false, false, false, true, true, false, true, B[3], -1, 64,
+        10),
     oreBlackgranite("Black Granite Ores", "Granite ", " Ore", true, true, false, false, false, true, false, false,
         false, true, B[3], -1, 64, -1), // In case of an End-Ores Mod. Ore -> Material is a Oneway Operation!
     oreRedgranite("Red Granite Ores", "Granite ", " Ore", true, true, false, false, false, true, false, false, false,
