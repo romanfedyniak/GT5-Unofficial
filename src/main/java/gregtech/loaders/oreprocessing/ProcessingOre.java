@@ -18,35 +18,25 @@ public class ProcessingOre implements gregtech.api.interfaces.IOreRecipeRegistra
     private ArrayList<Materials> mAlreadyListedOres = new ArrayList<Materials>(1000);
 
     public ProcessingOre() {
-        for (OrePrefixes tPrefix : OrePrefixes.values()) if ((tPrefix.name()
-            .startsWith("ore")) && (tPrefix != OrePrefixes.orePoor)
-            && (tPrefix != OrePrefixes.oreSmall)
-            && (tPrefix != OrePrefixes.oreRich)
-            && (tPrefix != OrePrefixes.oreNormal)) tPrefix.add(this);
+        OrePrefixes.oreChunk.add(this);
     }
 
     public void registerOre(OrePrefixes aPrefix, Materials aMaterial, String aOreDictName, String aModName,
         ItemStack aStack) {
-        boolean tIsRich = (aPrefix == OrePrefixes.oreNetherrack) || (aPrefix == OrePrefixes.oreNether)
-            || (aPrefix == OrePrefixes.oreEndstone)
-            || (aPrefix == OrePrefixes.oreEnd)
-            || (aPrefix == OrePrefixes.oreRich)
-            || (aPrefix == OrePrefixes.oreDense);
-
         if (aMaterial == Materials.Oilsands) {
             GT_Values.RA.addCentrifugeRecipe(
                 GT_Utility.copyAmount(1L, new Object[] { aStack }),
                 null,
                 null,
-                Materials.Oil.getFluid(tIsRich ? 1000L : 500L),
+                Materials.Oil.getFluid(500L),
                 new ItemStack(net.minecraft.init.Blocks.sand, 1, 0),
                 null,
                 null,
                 null,
                 null,
                 null,
-                new int[] { tIsRich ? 2500 : 5000 },
-                tIsRich ? 2000 : 1000,
+                new int[] { 5000 },
+                1000,
                 5);
         } else {
             registerStandardOreRecipes(
@@ -58,8 +48,7 @@ public class ProcessingOre implements gregtech.api.interfaces.IOreRecipeRegistra
                     gregtech.api.GregTech_API.sOPStuff.get(
                         gregtech.api.enums.ConfigCategories.Materials.oreprocessingoutputmultiplier,
                         aMaterial.toString(),
-                        1))
-                    * (tIsRich ? 2 : 1));
+                        1)));
         }
     }
 

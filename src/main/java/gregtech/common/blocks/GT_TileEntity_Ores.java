@@ -269,16 +269,25 @@ public class GT_TileEntity_Ores extends TileEntity implements ITexturedTileEntit
             rList.add(new ItemStack(Blocks.cobblestone, 1, 0));
             return rList;
         }
-        if (this.mMetaData < 16000) {
-            rList.add(new ItemStack(aDroppedOre, 1, this.mMetaData));
+        Random tRandom = new XSTR(this.xCoord ^ this.yCoord ^ this.zCoord);
+        Materials aMaterial = GregTech_API.sGeneratedMaterials[(this.mMetaData % 1000)];
+        if (aMaterial != null) {
+            if (tRandom.nextInt(3 + aFortune) > 1) {
+                Materials dustMat = ((GT_Block_Ores_Abstract) aDroppedOre).getDroppedDusts()[this.mMetaData / 1000
+                    % 16];
+                if (dustMat != null) rList.add(
+                    GT_OreDictUnificator
+                        .get(tRandom.nextInt(3) > 0 ? OrePrefixes.dustImpure : OrePrefixes.dust, dustMat, 1L));
+            }
+        }
+        if (this.mMetaData < 16000 && aMaterial != null) {
+            rList.add(GT_OreDictUnificator.get(OrePrefixes.oreChunk, aMaterial, 1L));
             return rList;
         }
-        Materials aMaterial = GregTech_API.sGeneratedMaterials[(this.mMetaData % 1000)];
         if (!this.mNatural) {
             aFortune = 0;
         }
         if (aMaterial != null) {
-            Random tRandom = new XSTR(this.xCoord ^ this.yCoord ^ this.zCoord);
             ArrayList<ItemStack> tSelector = new ArrayList<ItemStack>();
 
             ItemStack tStack = GT_OreDictUnificator
@@ -343,13 +352,6 @@ public class GT_TileEntity_Ores extends TileEntity implements ITexturedTileEntit
                     rList.add(
                         GT_Utility.copyAmount(1L, new Object[] { tSelector.get(tRandom.nextInt(tSelector.size())) }));
                 }
-            }
-            if (tRandom.nextInt(3 + aFortune) > 1) {
-                Materials dustMat = ((GT_Block_Ores_Abstract) aDroppedOre).getDroppedDusts()[this.mMetaData / 1000
-                    % 16];
-                if (dustMat != null) rList.add(
-                    GT_OreDictUnificator
-                        .get(tRandom.nextInt(3) > 0 ? OrePrefixes.dustImpure : OrePrefixes.dust, dustMat, 1L));
             }
         }
         return rList;
