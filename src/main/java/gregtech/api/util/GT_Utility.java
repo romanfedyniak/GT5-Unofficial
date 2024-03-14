@@ -1188,9 +1188,9 @@ public class GT_Utility {
         } catch (Exception e) {
             System.err.println(e);
         }
-        ItemStack rStack = ItemList.Display_Fluid.getWithDamage(aUseStackSize ? aFluid.amount / 1000 : 1, tmp);
+        ItemStack rStack = ItemList.Display_Fluid.getWithDamage(1, tmp);
         NBTTagCompound tNBT = new NBTTagCompound();
-        tNBT.setLong("mFluidDisplayAmount", aFluid.amount);
+        tNBT.setLong("mFluidDisplayAmount", aUseStackSize ? aFluid.amount : 0);
         tNBT.setLong(
             "mFluidDisplayHeat",
             aFluid.getFluid()
