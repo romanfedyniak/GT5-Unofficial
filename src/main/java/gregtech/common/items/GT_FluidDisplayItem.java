@@ -1,6 +1,8 @@
 package gregtech.common.items;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -57,8 +59,12 @@ public class GT_FluidDisplayItem extends GT_Generic_Item {
     public void registerIcons(IIconRegister aIconRegister) {}
 
     public IIcon getIconFromDamage(int aMeta) {
-        Fluid tFluid = FluidRegistry.getFluid(aMeta);
-        return tFluid == null ? FluidRegistry.WATER.getStillIcon() : tFluid.getStillIcon();
+        return Stream.of(FluidRegistry.getFluid(aMeta), FluidRegistry.WATER)
+            .filter(Objects::nonNull)
+            .map(Fluid::getStillIcon)
+            .filter(Objects::nonNull)
+            .findFirst()
+            .orElseThrow(IllegalStateException::new);
     }
 
     @SideOnly(Side.CLIENT)
