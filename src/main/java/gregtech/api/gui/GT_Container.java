@@ -9,7 +9,10 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidContainerItem;
 
+import gregtech.api.interfaces.IFluidAccess;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Utility;
@@ -575,5 +578,108 @@ public class GT_Container extends Container {
             e.printStackTrace(GT_Log.err);
         }
         return true;
+    }
+
+    protected static ItemStack handleFluidSlotClick(IFluidAccess fluidAccess, EntityPlayer player, int mouseClick) {
+        ItemStack stackHeld = player.inventory.getItemStack();
+        ItemStack stackHeldOne = GT_Utility.copyAmount(1, stackHeld);
+        if (stackHeldOne == null || stackHeld.stackSize == 0) return null;
+        FluidStack tankFluid = fluidAccess.get();
+        FluidStack fluidHeld = GT_Utility.getFluidForFilledItem(stackHeldOne, true);
+        if (fluidHeld != null && fluidHeld.amount <= 0) fluidHeld = null;
+        if (tankFluid == null && fluidHeld == null) return null;
+        boolean processFullStack = mouseClick == 0;
+
+        if (tankFluid == null || tankFluid.isFluidEqual(fluidHeld)) {
+            return fillFluid(fluidAccess, player, fluidHeld, processFullStack);
+        }
+        return drainFluid(fluidAccess, player, processFullStack);
+    }
+
+    protected static ItemStack fillFluid(IFluidAccess fluidAccess, EntityPlayer player, FluidStack fluidHeld,
+        boolean processFullStack) {
+        if (fluidAccess.get() != null && !fluidAccess.get()
+            .isFluidEqual(fluidHeld)) return null;
+        ItemStack stackHeld = player.inventory.getItemStack();
+        ItemStack stackHeldOne = GT_Utility.copyAmount(1, stackHeld);
+        if (stackHeldOne == null) return null;
+
+        int freeSpace = fluidAccess.getCapacity() - (fluidAccess.get() != null ? fluidAccess.get().amount : 0);
+        if (freeSpace <= 0) return null;
+
+        ItemStack stackEmptied = null;
+        int amountTaken = 0;
+        if (freeSpace >= fluidHeld.amount) {
+            stackEmptied = GT_Utility.getContainerForFilledItem(stackHeldOne, false);
+            amountTaken = fluidHeld.amount;
+        }
+        if (stackEmptied == null && stackHeldOne.getItem() instanceof IFluidContainerItem) {
+            IFluidContainerItem container = (IFluidContainerItem) stackHeldOne.getItem();
+            FluidStack drained = container.drain(stackHeldOne, freeSpace, true);
+            if (drained != null && drained.amount > 0) {
+                stackEmptied = stackHeldOne;
+                amountTaken = drained.amount;
+            }
+        }
+        if (stackEmptied == null) return null;
+
+        int parallel = processFullStack ? Math.min(freeSpace / amountTaken, stackHeld.stackSize) : 1;
+        if (fluidAccess.get() == null) {
+            FluidStack newFillableStack = fluidHeld.copy();
+            newFillableStack.amount = amountTaken * parallel;
+            fluidAccess.set(newFillableStack);
+        } else {
+            fluidAccess.addAmount(amountTaken * parallel);
+        }
+        stackEmptied.stackSize = parallel;
+        replaceCursorItemStack(player, stackEmptied);
+        return stackEmptied;
+    }
+
+    protected static ItemStack drainFluid(IFluidAccess fluidAccess, EntityPlayer player, boolean processFullStack) {
+        FluidStack tankStack = fluidAccess.get();
+        if (tankStack == null) return null;
+        ItemStack stackHeld = player.inventory.getItemStack();
+        ItemStack stackHeldOne = GT_Utility.copyAmount(1, stackHeld);
+        if (stackHeldOne == null || stackHeld.stackSize == 0) return null;
+        int originalFluidAmout = tankStack.amount;
+        ItemStack filledContainer = GT_Utility.fillFluidContainer(tankStack, stackHeldOne, true, false);
+        if (filledContainer == null && stackHeldOne.getItem() instanceof IFluidContainerItem) {
+            IFluidContainerItem container = (IFluidContainerItem) stackHeldOne.getItem();
+            int filledAmount = container.fill(stackHeldOne, tankStack, true);
+            if (filledAmount > 0) {
+                filledContainer = stackHeldOne;
+                tankStack.amount -= filledAmount;
+            }
+        }
+        if (filledContainer != null) {
+            if (processFullStack) {
+                int filledAmount = originalFluidAmout - tankStack.amount;
+                int additionalParallel = Math.min(stackHeld.stackSize - 1, tankStack.amount / filledAmount);
+                tankStack.amount -= filledAmount * additionalParallel;
+                filledContainer.stackSize += additionalParallel;
+            }
+            replaceCursorItemStack(player, filledContainer);
+        }
+        fluidAccess.verifyFluidStack();
+        return filledContainer;
+    }
+
+    private static void replaceCursorItemStack(EntityPlayer player, ItemStack stackResult) {
+        int stackResultMaxStackSize = stackResult.getMaxStackSize();
+        while (stackResult.stackSize > stackResultMaxStackSize) {
+            player.inventory.getItemStack().stackSize -= stackResultMaxStackSize;
+            GT_Utility.addItemToPlayerInventory(player, stackResult.splitStack(stackResultMaxStackSize));
+        }
+        if (player.inventory.getItemStack().stackSize == stackResult.stackSize) {
+            // every cell is mutated. it could just stay on the cursor.
+            player.inventory.setItemStack(stackResult);
+        } else {
+            // some cells not mutated. The mutated cells must go into the inventory
+            // or drop into the world if there isn't enough space.
+            ItemStack tStackHeld = player.inventory.getItemStack();
+            tStackHeld.stackSize -= stackResult.stackSize;
+            GT_Utility.addItemToPlayerInventory(player, stackResult);
+        }
     }
 }

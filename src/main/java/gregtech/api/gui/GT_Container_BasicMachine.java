@@ -1,5 +1,7 @@
 package gregtech.api.gui;
 
+import static gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine.OTHER_SLOT_COUNT;
+
 import java.util.Iterator;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,9 +9,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import gregtech.api.interfaces.IFluidAccess;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 
@@ -179,6 +183,7 @@ public class GT_Container_BasicMachine extends GT_Container_BasicTank {
 
     @Override
     public ItemStack slotClick(int aSlotIndex, int aMouseclick, int aShifthold, EntityPlayer aPlayer) {
+        GT_MetaTileEntity_BasicMachine machine = (GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity();
         switch (aSlotIndex) {
             case 0:
                 if (mTileEntity.getMetaTileEntity() == null) return null;
@@ -193,6 +198,10 @@ public class GT_Container_BasicMachine extends GT_Container_BasicTank {
                         .getMetaTileEntity()).mItemTransfer;
                 return null;
             default:
+                if (aSlotIndex == OTHER_SLOT_COUNT + 1 + machine.mInputSlotCount + machine.mOutputItems.length) {
+                    IFluidAccess fluidAccess = constructFluidAccess(machine, true);
+                    return handleFluidSlotClick(fluidAccess, aPlayer, aMouseclick);
+                }
                 return super.slotClick(aSlotIndex, aMouseclick, aShifthold, aPlayer);
         }
     }
@@ -257,5 +266,36 @@ public class GT_Container_BasicMachine extends GT_Container_BasicTank {
     @Override
     public int getShiftClickSlotCount() {
         return ((GT_MetaTileEntity_BasicMachine) mTileEntity.getMetaTileEntity()).mInputSlotCount;
+    }
+
+    protected IFluidAccess constructFluidAccess(GT_MetaTileEntity_BasicMachine machine, boolean isFillableStack) {
+        return new BasicMachineFluidAccess(machine, isFillableStack);
+    }
+
+    static class BasicMachineFluidAccess implements IFluidAccess {
+
+        protected final GT_MetaTileEntity_BasicMachine machine;
+        protected final boolean isFillableStack;
+
+        public BasicMachineFluidAccess(GT_MetaTileEntity_BasicMachine machine, boolean isFillableStack) {
+            this.machine = machine;
+            this.isFillableStack = isFillableStack;
+        }
+
+        @Override
+        public void set(FluidStack stack) {
+            if (isFillableStack) machine.setFillableStack(stack);
+            else machine.setDrainableStack(stack);
+        }
+
+        @Override
+        public FluidStack get() {
+            return isFillableStack ? machine.getFillableStack() : machine.getDrainableStack();
+        }
+
+        @Override
+        public int getCapacity() {
+            return machine.getCapacity();
+        }
     }
 }
