@@ -119,7 +119,17 @@ public class GT_MetaTileEntity_Hatch_Maintenance extends GT_MetaTileEntity_Hatch
     public boolean onRightclick(IGregTechTileEntity aBaseMetaTileEntity, EntityPlayer aPlayer, byte aSide, float aX,
         float aY, float aZ) {
         if (aBaseMetaTileEntity.isClientSide()) return true;
-        if (aSide == aBaseMetaTileEntity.getFrontFacing()) aBaseMetaTileEntity.openGUI(aPlayer);
+        if (aSide == aBaseMetaTileEntity.getFrontFacing()) {
+            ItemStack stack = aPlayer.getCurrentEquippedItem();
+            if (stack != null && ItemList.Duct_Tape.isStackEqual(stack)) {
+                mWrench = mScrewdriver = mSoftHammer = mHardHammer = mCrowbar = mSolderingTool = true;
+                getBaseMetaTileEntity().setActive(false);
+                stack.stackSize--;
+                if (stack.stackSize == 0) aPlayer.inventory.mainInventory[aPlayer.inventory.currentItem] = null;
+            } else {
+                aBaseMetaTileEntity.openGUI(aPlayer);
+            }
+        }
         return true;
     }
 
