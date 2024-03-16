@@ -74,6 +74,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidContainerItem;
@@ -2726,6 +2727,26 @@ public class GT_Utility {
             return true;
         }
         return false;
+    }
+
+    public static void addItemToPlayerInventory(EntityPlayer player, ItemStack stack) {
+        if (isStackInvalid(stack)) return;
+        if (!player.inventory.addItemStackToInventory(stack) && !player.worldObj.isRemote) {
+            EntityItem dropItem = player.entityDropItem(stack, 0);
+            dropItem.delayBeforeCanPickup = 0;
+        }
+    }
+
+    public static FluidStack getFluidFromDisplayStack(ItemStack aDisplayStack) {
+        if (!isStackValid(aDisplayStack) || aDisplayStack.getItem() != ItemList.Display_Fluid.getItem()
+            || !aDisplayStack.hasTagCompound()) return null;
+        Fluid tFluid = FluidRegistry.getFluid(
+            ItemList.Display_Fluid.getItem()
+                .getDamage(aDisplayStack));
+        return new FluidStack(
+            tFluid,
+            (int) aDisplayStack.getTagCompound()
+                .getLong("mFluidDisplayAmount"));
     }
 
     public static class ItemNBT {

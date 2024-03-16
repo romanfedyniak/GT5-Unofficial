@@ -24,7 +24,7 @@ public class GT_GUIContainer_BasicTank extends GT_GUIContainerMetaTile_Machine {
         if (mContainer != null) {
             fontRendererObj.drawString("Liquid Amount", 10, 20, 16448255);
             fontRendererObj.drawString(
-                GT_Utility.parseNumberToString(((GT_Container_BasicTank) mContainer).mContent),
+                GT_Utility.parseNumberToString(((GT_Container_BasicTank) mContainer).content),
                 10,
                 30,
                 16448255);
