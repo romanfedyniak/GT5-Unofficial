@@ -22,17 +22,9 @@ public class ProcessingFineWire implements gregtech.api.interfaces.IOreRecipeReg
         if (!aMaterial.contains(gregtech.api.enums.SubTag.NO_SMASHING)) {
             GT_Values.RA.addWiremillRecipe(
                 GT_OreDictUnificator.get(OrePrefixes.ingot, aMaterial, 1L),
-                GT_Utility.copy(
-                    new Object[] { GT_OreDictUnificator.get(OrePrefixes.wireGt01, aMaterial, 2L),
-                        GT_Utility.copyAmount(1L, new Object[] { aStack }) }),
+                GT_Utility.copyAmount(8L, new Object[] { aStack }),
+                3,
                 100,
-                4);
-            GT_Values.RA.addWiremillRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.stick, aMaterial, 1L),
-                GT_Utility.copy(
-                    new Object[] { GT_OreDictUnificator.get(OrePrefixes.wireGt01, aMaterial, 1L),
-                        GT_Utility.copyAmount(1L, new Object[] { aStack }) }),
-                50,
                 4);
         }
         if ((aMaterial.mUnificatable) && (aMaterial.mMaterialInto == aMaterial)

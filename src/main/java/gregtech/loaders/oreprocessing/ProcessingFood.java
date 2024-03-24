@@ -36,6 +36,7 @@ public class ProcessingFood implements gregtech.api.interfaces.IOreRecipeRegistr
                 GT_Values.RA.addBenderRecipe(
                     GT_Utility.copyAmount(1L, new Object[] { aStack }),
                     ItemList.Food_Flat_Dough.get(1L, new Object[0]),
+                    1,
                     16,
                     4);
 

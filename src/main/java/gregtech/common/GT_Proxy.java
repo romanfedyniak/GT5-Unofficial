@@ -1266,18 +1266,6 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
                                                         OrePrefixes.ingot,
                                                         Materials.Brass,
                                                         new ItemStack(aEvent.Ore.getItem(), 1, 2));
-                                                    if (!mDisableIC2Cables) {
-                                                        GT_Values.RA.addWiremillRecipe(
-                                                            GT_ModHandler.getIC2Item("copperCableItem", 3L),
-                                                            new ItemStack(aEvent.Ore.getItem(), 1, 8),
-                                                            400,
-                                                            1);
-                                                        GT_Values.RA.addWiremillRecipe(
-                                                            GT_ModHandler.getIC2Item("ironCableItem", 6L),
-                                                            new ItemStack(aEvent.Ore.getItem(), 1, 9),
-                                                            400,
-                                                            2);
-                                                    }
                                                     GT_Values.RA.addCutterRecipe(
                                                         new ItemStack(aEvent.Ore.getItem(), 1, 3),
                                                         new ItemStack(aEvent.Ore.getItem(), 16, 4),

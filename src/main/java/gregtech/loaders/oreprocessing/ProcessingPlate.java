@@ -187,6 +187,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(2L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, aMaterial, 1L),
+                        2,
                         (int) Math.max(aMaterialMass * 2L, 1L),
                         96);
                     if (GregTech_API.sRecipeFile.get(
@@ -208,6 +209,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 2L),
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
+                        2,
                         (int) Math.max(aMaterialMass * 2L, 1L),
                         96);
                 } else {
@@ -233,6 +235,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(3L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateDense, aMaterial, 1L),
+                        3,
                         (int) Math.max(aMaterialMass * 3L, 1L),
                         96);
                     if (GregTech_API.sRecipeFile.get(
@@ -255,6 +258,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 3L),
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
+                        3,
                         (int) Math.max(aMaterialMass * 3L, 1L),
                         96);
                 } else {
@@ -302,6 +306,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 4L),
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
+                        4,
                         (int) Math.max(aMaterialMass * 4L, 1L),
                         96);
                 } else {
@@ -343,6 +348,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 5L),
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
+                        5,
                         (int) Math.max(aMaterialMass * 5L, 1L),
                         96);
                 } else {
@@ -365,6 +371,7 @@ public class ProcessingPlate implements gregtech.api.interfaces.IOreRecipeRegist
                     GT_Values.RA.addBenderRecipe(
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 9L),
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
+                        9,
                         (int) Math.max(aMaterialMass * 9L, 1L),
                         96);
                 }

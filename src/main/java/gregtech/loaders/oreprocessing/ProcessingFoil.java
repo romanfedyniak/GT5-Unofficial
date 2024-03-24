@@ -23,6 +23,13 @@ public class ProcessingFoil implements IOreRecipeRegistrator {
         GT_Values.RA.addBenderRecipe(
             GT_Utility.copyAmount(1L, GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 4L)),
             GT_OreDictUnificator.get(OrePrefixes.foil, aMaterial, 4L),
+            1,
+            (int) Math.max(aMaterial.getMass(), 1L),
+            24);
+        GT_Values.RA.addBenderRecipe(
+            GT_Utility.copyAmount(1L, GT_OreDictUnificator.get(OrePrefixes.ingot, aMaterial, 4L)),
+            GT_OreDictUnificator.get(OrePrefixes.foil, aMaterial, 4L),
+            4,
             (int) Math.max(aMaterial.getMass(), 1L),
             24);
         // }
