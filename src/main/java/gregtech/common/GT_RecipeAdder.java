@@ -686,7 +686,7 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
         }
         GT_Recipe.GT_Recipe_Map.sWiremillRecipes.addRecipe(
             true,
-            new ItemStack[] { aInput, ItemList.Circuit_Integrated.getWithDamage(0, circuit)},
+            new ItemStack[] { aInput, ItemList.Circuit_Integrated.getWithDamage(0, circuit) },
             new ItemStack[] { aOutput },
             null,
             null,
@@ -733,8 +733,7 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
             null,
             aDuration,
             aEUt,
-            0
-        );
+            0);
         return true;
     }
 
