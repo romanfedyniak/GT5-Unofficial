@@ -340,7 +340,7 @@ public interface IGT_RecipeAdder {
 
     /**
      * Adds a Assemblyline Recipe
-     * 
+     *
      * @param aInputs elements should be: ItemStack for single item;
      *                ItemStack[] for multiple equivalent items;
      *                {OreDict, amount} for oredict.
@@ -363,10 +363,11 @@ public interface IGT_RecipeAdder {
      *
      * @param aInput1   must be != null
      * @param aOutput1  must be != null
+     * @param circuit   must be > 0
      * @param aDuration must be > 0
      * @param aEUt      should be > 0
      */
-    public boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
+    public boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int circuit, int aDuration, int aEUt);
 
     /**
      * Adds a Polariser Recipe
@@ -383,6 +384,7 @@ public interface IGT_RecipeAdder {
      *
      * @param aInput1   must be != null
      * @param aOutput1  must be != null
+     * @param circuit   must be > 0
      * @param aDuration must be > 0
      * @param aEUt      should be > 0
      */

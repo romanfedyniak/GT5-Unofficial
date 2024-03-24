@@ -2152,6 +2152,7 @@ public class GT_CraftingRecipeLoader implements Runnable {
         GT_Values.RA.addWiremillRecipe(
             GT_OreDictUnificator.get(OrePrefixes.pipeTiny, Materials.Steel, 1),
             GT_ModHandler.getIC2Item("miningPipe", 1),
+            1,
             200,
             16);
 

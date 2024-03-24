@@ -677,8 +677,8 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
         return true;
     }
 
-    public boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt) {
-        if ((aInput == null) || (aOutput == null)) {
+    public boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int circuit, int aDuration, int aEUt) {
+        if ((aInput == null) || (aOutput == null) || (circuit == 0)) {
             return false;
         }
         if ((aDuration = GregTech_API.sRecipeFile.get("wiremill", aInput, aDuration)) <= 0) {
@@ -686,7 +686,7 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
         }
         GT_Recipe.GT_Recipe_Map.sWiremillRecipes.addRecipe(
             true,
-            new ItemStack[] { aInput },
+            new ItemStack[] { aInput, ItemList.Circuit_Integrated.getWithDamage(0, circuit)},
             new ItemStack[] { aOutput },
             null,
             null,
