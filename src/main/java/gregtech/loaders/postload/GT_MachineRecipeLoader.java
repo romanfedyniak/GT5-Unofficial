@@ -6452,126 +6452,151 @@ public class GT_MachineRecipeLoader implements Runnable {
         GT_Values.RA.addBenderRecipe(
             ItemList.IC2_Mixed_Metal_Ingot.get(1L, new Object[0]),
             GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Advanced, 1L),
+            1,
             100,
             8);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Aluminium, 6L),
             ItemList.RC_Rail_Standard.get(2L, new Object[0]),
+            6,
             200,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Iron, 6L),
             ItemList.RC_Rail_Standard.get(4L, new Object[0]),
+            6,
             400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.WroughtIron, 6L),
             ItemList.RC_Rail_Standard.get(5L, new Object[0]),
+            6,
             400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Bronze, 6L),
             ItemList.RC_Rail_Standard.get(3L, new Object[0]),
+            6,
             300,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 6L),
             ItemList.RC_Rail_Standard.get(8L, new Object[0]),
+            6,
             800,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.StainlessSteel, 6L),
             ItemList.RC_Rail_Standard.get(12L, new Object[0]),
+            6,
             1200,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Titanium, 6L),
             ItemList.RC_Rail_Standard.get(16L, new Object[0]),
+            6,
             1600,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.TungstenSteel, 6L),
             ItemList.RC_Rail_Reinforced.get(24L, new Object[0]),
+            6,
             2400,
             30);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Aluminium, 12L),
             ItemList.RC_Rebar.get(4L, new Object[0]),
+            12,
             200,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Iron, 12L),
             ItemList.RC_Rebar.get(8L, new Object[0]),
+            12,
             400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.WroughtIron, 12L),
             ItemList.RC_Rebar.get(10L, new Object[0]),
+            12,
             400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Bronze, 12L),
             ItemList.RC_Rebar.get(8L, new Object[0]),
+            12,
             400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 12L),
             ItemList.RC_Rebar.get(16L, new Object[0]),
+            12,
             800,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.StainlessSteel, 12L),
             ItemList.RC_Rebar.get(24L, new Object[0]),
+            12,
             1200,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.Titanium, 12L),
             ItemList.RC_Rebar.get(32L, new Object[0]),
+            12,
             1600,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.stick, Materials.TungstenSteel, 12L),
             ItemList.RC_Rebar.get(48L, new Object[0]),
+            12,
             2400,
             15);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Tin, 12L),
             ItemList.Cell_Empty.get(6L, new Object[0]),
+            12,
             1200,
             8);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 12L),
             ItemList.Cell_Empty.get(6L, new Object[0]),
+            12,
             1200,
             8);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.SteelMagnetic, 12L),
             ItemList.Cell_Empty.get(6L, new Object[0]),
+            12,
             1200,
             8);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Polytetrafluoroethylene, 12L),
             ItemList.Cell_Empty.get(6L, new Object[0]),
+            12,
             1200,
             8);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 12L),
             new ItemStack(Items.bucket, 4, 0),
+            12,
             800,
             4);
         GT_Values.RA.addBenderRecipe(
             GT_OreDictUnificator.get(OrePrefixes.plate, Materials.WroughtIron, 12L),
             new ItemStack(Items.bucket, 4, 0),
+            12,
             800,
             4);
         GT_Values.RA.addBenderRecipe(
             ItemList.IC2_Item_Casing_Iron.get(2L, new Object[0]),
             GT_ModHandler.getIC2Item("fuelRod", 1L),
+            2,
             100,
             8);
         GT_Values.RA.addBenderRecipe(
             ItemList.IC2_Item_Casing_Tin.get(1L, new Object[0]),
             ItemList.IC2_Food_Can_Empty.get(1L, new Object[0]),
+            1,
             100,
             8);
         GT_Values.RA.addPulveriserRecipe(

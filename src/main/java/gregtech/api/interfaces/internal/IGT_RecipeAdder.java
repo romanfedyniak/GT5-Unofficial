@@ -386,7 +386,7 @@ public interface IGT_RecipeAdder {
      * @param aDuration must be > 0
      * @param aEUt      should be > 0
      */
-    public boolean addBenderRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
+    public boolean addBenderRecipe(ItemStack aInput, ItemStack aOutput, int circuit, int aDuration, int aEUt);
 
     /**
      * Adds a Extruder Machine Recipe

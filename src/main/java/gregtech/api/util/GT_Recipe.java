@@ -322,23 +322,6 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
         }
     }
 
-    public GT_Recipe(int aEUt, int aDuration, ItemStack aInput1, ItemStack aOutput1) {
-        this(
-            true,
-            new ItemStack[] { aInput1, ItemList.Circuit_Integrated.getWithDamage(0, aInput1.stackSize) },
-            new ItemStack[] { aOutput1 },
-            null,
-            null,
-            null,
-            null,
-            Math.max(aDuration, 1),
-            Math.max(aEUt, 1),
-            0);
-        if (mInputs.length > 0 && mOutputs[0] != null) {
-            GT_Recipe_Map.sBenderRecipes.addRecipe(this);
-        }
-    }
-
     public GT_Recipe(ItemStack aInput1, ItemStack aInput2, int aEUt, int aDuration, ItemStack aOutput1) {
         this(
             true,

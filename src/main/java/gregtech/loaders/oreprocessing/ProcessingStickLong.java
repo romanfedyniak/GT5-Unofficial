@@ -41,6 +41,7 @@ public class ProcessingStickLong implements gregtech.api.interfaces.IOreRecipeRe
             GT_Values.RA.addBenderRecipe(
                 GT_Utility.copyAmount(1L, new Object[] { aStack }),
                 GT_OreDictUnificator.get(OrePrefixes.spring, aMaterial, 1L),
+                1,
                 200,
                 16);
             if (aMaterial.mUnificatable && (aMaterial.mMaterialInto == aMaterial)) GT_ModHandler.addCraftingRecipe(

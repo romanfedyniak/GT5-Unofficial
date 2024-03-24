@@ -717,14 +717,24 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
         return true;
     }
 
-    public boolean addBenderRecipe(ItemStack aInput1, ItemStack aOutput1, int aDuration, int aEUt) {
-        if ((aInput1 == null) || (aOutput1 == null)) {
+    public boolean addBenderRecipe(ItemStack aInput1, ItemStack aOutput1, int circuit, int aDuration, int aEUt) {
+        if ((aInput1 == null) || (aOutput1 == null) || (circuit == 0)) {
             return false;
         }
         if ((aDuration = GregTech_API.sRecipeFile.get("bender", aInput1, aDuration)) <= 0) {
             return false;
         }
-        new GT_Recipe(aEUt, aDuration, aInput1, aOutput1);
+        GT_Recipe.GT_Recipe_Map.sBenderRecipes.addRecipe(
+            true,
+            new ItemStack[] { aInput1, ItemList.Circuit_Integrated.getWithDamage(0, circuit) },
+            new ItemStack[] { aOutput1 },
+            null,
+            null,
+            null,
+            aDuration,
+            aEUt,
+            0
+        );
         return true;
     }
 

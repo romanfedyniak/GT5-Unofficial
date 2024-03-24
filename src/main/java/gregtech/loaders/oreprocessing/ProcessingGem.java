@@ -67,31 +67,37 @@ public class ProcessingGem implements gregtech.api.interfaces.IOreRecipeRegistra
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(1L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plate, aMaterial, 1L),
+                        1,
                         (int) Math.max(aMaterialMass * 2L, 1L),
                         24);
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(2L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateDouble, aMaterial, 1L),
+                        2,
                         (int) Math.max(aMaterialMass * 2L, 1L),
                         96);
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(3L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateTriple, aMaterial, 1L),
+                        3,
                         (int) Math.max(aMaterialMass * 3L, 1L),
                         96);
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(4L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, aMaterial, 1L),
+                        4,
                         (int) Math.max(aMaterialMass * 4L, 1L),
                         96);
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(5L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateQuintuple, aMaterial, 1L),
+                        5,
                         (int) Math.max(aMaterialMass * 5L, 1L),
                         96);
                     GT_Values.RA.addBenderRecipe(
                         GT_Utility.copyAmount(9L, new Object[] { aStack }),
                         GT_OreDictUnificator.get(OrePrefixes.plateDense, aMaterial, 1L),
+                        9,
                         (int) Math.max(aMaterialMass * 9L, 1L),
                         96);
                 }
